@@ -12,12 +12,13 @@
     <artifactId>book-api</artifactId>
 
     <dependencies>
-        <!-- spring boot start -->
+        <!-- 本地基础依赖 start -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>com</groupId>
+            <artifactId>framework-common</artifactId>
+            <version>1.0.0</version>
         </dependency>
-        <!-- spring boot end -->
+        <!-- 本地基础依赖 end -->
     </dependencies>
 
     <build>
