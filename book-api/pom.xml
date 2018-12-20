@@ -12,6 +12,12 @@
     <artifactId>book-api</artifactId>
 
     <dependencies>
+        <!-- spring boot start -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <!-- spring boot end -->
         <!-- 本地基础依赖 start -->
         <dependency>
             <groupId>com</groupId>
