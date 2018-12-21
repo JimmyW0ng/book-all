@@ -1,6 +1,6 @@
 package com.book.api.config;
 
-import com.geai.spring.component.SpringComponent;
+import com.framework.common.spring.component.SpringComponent;
 import com.google.common.collect.Lists;
 import org.springframework.context.annotation.Bean;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -27,30 +27,23 @@ public class Swagger2Config {
     @Bean
     public Docket getSecurityDocket() {
         Boolean enableFlag = !SpringComponent.isProduct();
-        ParameterBuilder tokenPar = new ParameterBuilder();
         List<Parameter> pars = Lists.newArrayList();
+        ParameterBuilder tokenPar = new ParameterBuilder();
         tokenPar.name("Authorization")
                 .description("令牌")
                 .modelRef(new ModelRef("string"))
                 .parameterType("header")
                 .required(false)
                 .build();
-        ParameterBuilder versionPar = new ParameterBuilder();
-        versionPar.name("Version")
-                .description("版本号")
-                .modelRef(new ModelRef("string"))
-                .parameterType("header")
-                .required(false)
-                .build();
         pars.add(tokenPar.build());
-        pars.add(versionPar.build());
+        pars.add(this.addVersion().build());
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("security")
                 .enable(enableFlag)
                 .apiInfo(new ApiInfoBuilder().title("api安全接口").build())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.geai.asset.api.controller"))
-                .paths(regex("/security.*"))
+                .apis(RequestHandlerSelectors.basePackage("com.book.api.business"))
+                .paths(regex("/s.*"))
                 .build()
                 .globalOperationParameters(pars);
     }
@@ -58,32 +51,40 @@ public class Swagger2Config {
     @Bean
     public Docket getAuthDocket() {
         Boolean enableFlag = !SpringComponent.isProduct();
-        ParameterBuilder tokenPar = new ParameterBuilder();
         List<Parameter> pars = Lists.newArrayList();
+        ParameterBuilder tokenPar = new ParameterBuilder();
         tokenPar.name("Authorization")
                 .description("令牌")
                 .modelRef(new ModelRef("string"))
                 .parameterType("header")
                 .required(true)
                 .build();
-        ParameterBuilder versionPar = new ParameterBuilder();
-        versionPar.name("Version")
-                .description("版本号")
-                .modelRef(new ModelRef("string"))
-                .parameterType("header")
-                .required(false)
-                .build();
         pars.add(tokenPar.build());
-        pars.add(versionPar.build());
+        pars.add(this.addVersion().build());
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("auth")
                 .enable(enableFlag)
                 .apiInfo(new ApiInfoBuilder().title("api需要鉴权接口").build())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.geai.asset.api.controller"))
-                .paths(regex("/auth.*"))
+                .apis(RequestHandlerSelectors.basePackage("com.book.api.business"))
+                .paths(regex("/a.*"))
                 .build()
                 .globalOperationParameters(pars);
+    }
+
+    /**
+     * @return springfox.documentation.builders.ParameterBuilder
+     * @Description 自定义头部属性：版本号
+     * @Author J.W
+     * @Date 2018/12/20 19:07
+     * @Param []
+     **/
+    private ParameterBuilder addVersion() {
+        return new ParameterBuilder().name("Version")
+                .description("版本号")
+                .modelRef(new ModelRef("string"))
+                .parameterType("header")
+                .required(false);
     }
 
 }

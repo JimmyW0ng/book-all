@@ -1,8 +1,7 @@
 package com.book.api.security;
 
-import com.geai.asset.domain.constant.ApiMessageCode;
-import com.geai.common.pojo.ResultDo;
-import com.geai.common.tool.JsonTools;
+import com.book.api.constant.ApiMessageCode;
+import com.framework.common.spring.pojo.dto.ResultDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -24,11 +23,11 @@ public class ApiSecurityAuthEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException, ServletException {
         log.debug("会员鉴权失败!", e);
-        ResultDo resultDo = ResultDo.build(ApiMessageCode.ERROR_ACCESS_NEED_AUTH);
+        ResultDto resultDto = ResultDto.build(ApiMessageCode.ERROR_ACCESS_NEED_AUTH);
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json; charset=utf-8");
         PrintWriter writer = response.getWriter();
-        writer.println(JsonTools.encode(resultDo));
+        writer.println(resultDto.toJson());
     }
 }

@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @Slf4j
 @RestController
-@RequestMapping("s/m")
+@RequestMapping("s/mbr")
 public class SecurityMemberController {
+
 
 }

@@ -12,19 +12,31 @@
     <artifactId>book-api</artifactId>
 
     <dependencies>
+        <!-- 本地核心依赖 start -->
+        <dependency>
+            <groupId>com</groupId>
+            <artifactId>book-core</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <!-- 本地核心依赖 end -->
         <!-- spring boot start -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <!-- spring boot end -->
-        <!-- 本地基础依赖 start -->
+        <!-- swagger start -->
         <dependency>
-            <groupId>com</groupId>
-            <artifactId>framework-common</artifactId>
-            <version>1.0.0</version>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
         </dependency>
-        <!-- 本地基础依赖 end -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+        <!-- swagger end -->
     </dependencies>
 
     <build>

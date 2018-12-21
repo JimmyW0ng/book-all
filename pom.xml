@@ -11,6 +11,8 @@
     <modules>
         <module>book-api</module>
         <module>framework-common</module>
+        <module>book-core</module>
+        <module>framework-spring-boot-jooq</module>
     </modules>
 
     <packaging>pom</packaging>

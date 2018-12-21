@@ -1,8 +1,11 @@
 package com.book.api.filter;
 
+import com.book.api.security.ApiSecurityAuthComponent;
+import com.framework.common.spring.pojo.dto.ResultDto;
+import com.framework.common.tool.IpTools;
+import com.framework.common.tool.StringTools;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +20,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collection;
 
+import static com.book.api.config.SecurityConfig.*;
+
 /**
  * @Description: api鉴权过滤器(spring security)
  * @Author: J.W
@@ -26,75 +31,43 @@ import java.util.Collection;
 @Component
 public class ApiSecurityTokenAuthFilter extends OncePerRequestFilter {
 
-    @Value("${token.header.name}")
-    private String tokenHeaderName;
-
-    @Value("${token.header.prefix}")
-    private String tokenHeaderPrefix;
-
-    @Value("${cors.origin}")
-    private String corsOrigin;
-
     @Autowired
     private ApiSecurityAuthComponent securityAuthComponent;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
-        String host = request.getHeader("Origin");
-        log.info("鉴权开始, host={}", host);
-        // 跨域设置响应头
-        if (SpringComponent.isProduct()) {
-            response.setHeader("Access-Control-Allow-Origin", corsOrigin);
-        } else if (StringTools.isNotBlank(host)) {
-            response.setHeader("Access-Control-Allow-Origin", host);
-        }
-        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT");
-        response.setHeader("Access-Control-Max-Age", "3600");
-        response.setHeader("Access-Control-Allow-Headers", "Authorization,Version,Accept,Content-Type, x-requested-with, X-Custom-Header,Cache-Control");
-        response.setHeader("Access-Control-Allow-Credentials", "true");
-        log.info("api请求地址: [{}]{}", request.getMethod(), request.getRequestURI());
+        String ip = IpTools.getIpAddr(request);
+        log.info("开始鉴权...ip[{}][{}][{}]", ip, request.getMethod(), request.getRequestURI());
         String token;
-        String authHeader = request.getHeader(this.tokenHeaderName);
+        String authHeader = request.getHeader(TOKEN_HEADER_NAME);
         // head有token
         if (StringTools.isNotBlank(authHeader)) {
-            if (!authHeader.startsWith(tokenHeaderPrefix)) {
-                log.error("鉴权token格式错误，token={}", authHeader);
+            if (!authHeader.startsWith(TOKEN_PREFIX)) {
+                log.error("鉴权失败, 不合法的令牌, token={}", authHeader);
                 chain.doFilter(request, response);
                 return;
             }
-            token = authHeader.substring(tokenHeaderPrefix.length() + 1);
+            token = authHeader.substring(TOKEN_PREFIX.length());
         } else {
-            token = request.getParameter(this.tokenHeaderName);
+            token = request.getParameter(TOKEN_BODY_NAME);
         }
         if (StringTools.isBlank(token)) {
-            log.error("鉴权token缺失，token={}", token);
+            log.error("鉴权失败, 未找到令牌, token={}", token);
             chain.doFilter(request, response);
             return;
         }
         // 解析token
-        ResultDo<AuthTokenPo> checkToken = securityAuthComponent.getTokenInfo(token, IpTools.getIpAddr(request));
+        ResultDto<Collection<GrantedAuthority>> checkToken = securityAuthComponent.getTokenInfo(token, IpTools.getIpAddr(request));
         if (checkToken.isError()) {
-            log.error("验证token不通过, error={}, desc={}", checkToken.getError(), checkToken.getErrorDescription());
+            log.error("鉴权失败, 验证令牌不通过, error={}, desc={}", checkToken.getError(), checkToken.getErrorDescription());
             chain.doFilter(request, response);
             return;
         }
-        AuthTokenPo tokenPo = checkToken.getResult();
-        // 加载当前用户信息
-        ResultDo checkUser = securityAuthComponent.loadCurrentAccountUserInfo(tokenPo);
-        if (checkUser.isError()) {
-            log.error("加载当前用户信息不通过, error={}, desc={}", checkToken.getError(), checkToken.getErrorDescription());
-            chain.doFilter(request, response);
-            return;
-        }
-        // 加载当前用户权限
-        ApiPrincipalBo principalBo = new ApiPrincipalBo();
-        principalBo.setLoginName(tokenPo.getLoginName());
-        Collection<GrantedAuthority> authorities = securityAuthComponent.getPermissionByLoginName(tokenPo.getLoginName());
-        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(principalBo, null, authorities);
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(null, null, checkToken.getResult());
         authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         chain.doFilter(request, response);
-        log.info("鉴权完毕, username={}", authHeader);
+        log.info("鉴权完毕, token={}", token);
     }
 
 }
