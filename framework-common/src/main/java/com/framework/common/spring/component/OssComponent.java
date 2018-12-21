@@ -8,7 +8,6 @@ import com.framework.common.spring.pojo.dto.ResultDto;
 import com.framework.common.tool.DateTools;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import java.io.ByteArrayInputStream;
 import java.net.URL;
@@ -21,7 +20,6 @@ import java.util.UUID;
  * @Date: 下午3:12 2018/8/6
  */
 @Slf4j
-@Component
 public class OssComponent {
 
     @Value("${oss.accessKeyId}")

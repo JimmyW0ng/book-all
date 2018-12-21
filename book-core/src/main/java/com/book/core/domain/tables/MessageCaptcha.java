@@ -33,63 +33,86 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MessageCaptcha extends TableImpl<MessageCaptchaRecord> {
 
+    private static final long serialVersionUID = -1828673212;
+
     /**
      * The reference instance of <code>book.message_captcha</code>
      */
     public static final MessageCaptcha MESSAGE_CAPTCHA = new MessageCaptcha();
-    private static final long serialVersionUID = -1828673212;
+
+    /**
+     * The class holding records for this type
+     */
+    @Override
+    public Class<MessageCaptchaRecord> getRecordType() {
+        return MessageCaptchaRecord.class;
+    }
+
     /**
      * The column <code>book.message_captcha.id</code>. 主键
      */
     public final TableField<MessageCaptchaRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "主键");
+
     /**
      * The column <code>book.message_captcha.type</code>. 类型：短信
      */
     public final TableField<MessageCaptchaRecord, MessageCaptchaType> TYPE = createField("type", org.jooq.impl.SQLDataType.VARCHAR(9).nullable(false).asEnumDataType(com.book.core.domain.enums.MessageCaptchaType.class), this, "类型：短信");
+
     /**
      * The column <code>book.message_captcha.source_id</code>. 业务标识
      */
     public final TableField<MessageCaptchaRecord, Long> SOURCE_ID = createField("source_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "业务标识");
+
     /**
      * The column <code>book.message_captcha.code</code>. 业务编码
      */
     public final TableField<MessageCaptchaRecord, String> CODE = createField("code", org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false), this, "业务编码");
+
     /**
      * The column <code>book.message_captcha.content</code>. 验证码内容
      */
     public final TableField<MessageCaptchaRecord, String> CONTENT = createField("content", org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false), this, "验证码内容");
+
     /**
      * The column <code>book.message_captcha.scene</code>. 验证场景：账户注册；
      */
     public final TableField<MessageCaptchaRecord, MessageCaptchaScene> SCENE = createField("scene", org.jooq.impl.SQLDataType.VARCHAR(15).nullable(false).asEnumDataType(com.book.core.domain.enums.MessageCaptchaScene.class), this, "验证场景：账户注册；");
+
     /**
      * The column <code>book.message_captcha.client_id</code>. 客户端标识
      */
     public final TableField<MessageCaptchaRecord, Long> CLIENT_ID = createField("client_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "客户端标识");
+
     /**
      * The column <code>book.message_captcha.expire_time</code>. 过期时间
      */
     public final TableField<MessageCaptchaRecord, Timestamp> EXPIRE_TIME = createField("expire_time", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "过期时间");
+
     /**
      * The column <code>book.message_captcha.ip</code>. 访问ip
      */
     public final TableField<MessageCaptchaRecord, String> IP = createField("ip", org.jooq.impl.SQLDataType.VARCHAR(255), this, "访问ip");
+
     /**
      * The column <code>book.message_captcha.create_at</code>. 创建时间
      */
     public final TableField<MessageCaptchaRecord, Timestamp> CREATE_AT = createField("create_at", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "创建时间");
+
     /**
      * The column <code>book.message_captcha.update_at</code>. 更新时间
      */
     public final TableField<MessageCaptchaRecord, Timestamp> UPDATE_AT = createField("update_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+
     /**
      * The column <code>book.message_captcha.remark</code>. 备注
      */
     public final TableField<MessageCaptchaRecord, String> REMARK = createField("remark", org.jooq.impl.SQLDataType.VARCHAR(255), this, "备注");
+
     /**
      * The column <code>book.message_captcha.del_flag</code>. 删除标记
      */
     public final TableField<MessageCaptchaRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标记");
+
     /**
      * The column <code>book.message_captcha.version</code>.
      */
@@ -122,14 +145,6 @@ public class MessageCaptcha extends TableImpl<MessageCaptchaRecord> {
 
     private MessageCaptcha(Name alias, Table<MessageCaptchaRecord> aliased, Field<?>[] parameters) {
         super(alias, null, aliased, parameters, "消息-验证码表");
-    }
-
-    /**
-     * The class holding records for this type
-     */
-    @Override
-    public Class<MessageCaptchaRecord> getRecordType() {
-        return MessageCaptchaRecord.class;
     }
 
     /**

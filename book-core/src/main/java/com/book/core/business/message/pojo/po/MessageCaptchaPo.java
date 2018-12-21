@@ -1,4 +1,4 @@
-package com.book.core.business.message.pojo;
+package com.book.core.business.message.pojo.po;
 
 import com.book.core.domain.enums.MessageCaptchaScene;
 import com.book.core.domain.enums.MessageCaptchaType;

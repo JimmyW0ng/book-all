@@ -31,10 +31,26 @@ public class SpiderBookDetailInfoRecord extends UpdatableRecordImpl<SpiderBookDe
     private static final long serialVersionUID = 2018568488;
 
     /**
+     * Setter for <code>book.spider_book_detail_info.id</code>. 主键
+     */
+    public SpiderBookDetailInfoRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
+
+    /**
      * Create a detached SpiderBookDetailInfoRecord
      */
     public SpiderBookDetailInfoRecord() {
         super(SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO);
+    }
+
+    /**
+     * Setter for <code>book.spider_book_detail_info.book_id</code>. 书本id
+     */
+    public SpiderBookDetailInfoRecord setBookId(Long value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -55,43 +71,6 @@ public class SpiderBookDetailInfoRecord extends UpdatableRecordImpl<SpiderBookDe
     }
 
     /**
-     * Getter for <code>book.spider_book_detail_info.id</code>. 主键
-     */
-    public Long getId() {
-        return (Long) get(0);
-    }
-
-    /**
-     * Setter for <code>book.spider_book_detail_info.id</code>. 主键
-     */
-    public SpiderBookDetailInfoRecord setId(Long value) {
-        set(0, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.spider_book_detail_info.book_id</code>. 书本id
-     */
-    public Long getBookId() {
-        return (Long) get(1);
-    }
-
-    /**
-     * Setter for <code>book.spider_book_detail_info.book_id</code>. 书本id
-     */
-    public SpiderBookDetailInfoRecord setBookId(Long value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.spider_book_detail_info.chapter_title</code>. 章节名
-     */
-    public String getChapterTitle() {
-        return (String) get(2);
-    }
-
-    /**
      * Setter for <code>book.spider_book_detail_info.chapter_title</code>. 章节名
      */
     public SpiderBookDetailInfoRecord setChapterTitle(String value) {
@@ -100,10 +79,10 @@ public class SpiderBookDetailInfoRecord extends UpdatableRecordImpl<SpiderBookDe
     }
 
     /**
-     * Getter for <code>book.spider_book_detail_info.chapter_content</code>. 章节内容
+     * Getter for <code>book.spider_book_detail_info.id</code>. 主键
      */
-    public String getChapterContent() {
-        return (String) get(3);
+    public Long getId() {
+        return (Long) get(0);
     }
 
     /**
@@ -115,10 +94,10 @@ public class SpiderBookDetailInfoRecord extends UpdatableRecordImpl<SpiderBookDe
     }
 
     /**
-     * Getter for <code>book.spider_book_detail_info.create_at</code>. 创建时间
+     * Getter for <code>book.spider_book_detail_info.book_id</code>. 书本id
      */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(4);
+    public Long getBookId() {
+        return (Long) get(1);
     }
 
     /**
@@ -130,10 +109,10 @@ public class SpiderBookDetailInfoRecord extends UpdatableRecordImpl<SpiderBookDe
     }
 
     /**
-     * Getter for <code>book.spider_book_detail_info.update_at</code>. 更新时间
+     * Getter for <code>book.spider_book_detail_info.chapter_title</code>. 章节名
      */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(5);
+    public String getChapterTitle() {
+        return (String) get(2);
     }
 
     /**
@@ -145,10 +124,10 @@ public class SpiderBookDetailInfoRecord extends UpdatableRecordImpl<SpiderBookDe
     }
 
     /**
-     * Getter for <code>book.spider_book_detail_info.remark</code>. 备注
+     * Getter for <code>book.spider_book_detail_info.chapter_content</code>. 章节内容
      */
-    public String getRemark() {
-        return (String) get(6);
+    public String getChapterContent() {
+        return (String) get(3);
     }
 
     /**
@@ -160,6 +139,20 @@ public class SpiderBookDetailInfoRecord extends UpdatableRecordImpl<SpiderBookDe
     }
 
     /**
+     * Getter for <code>book.spider_book_detail_info.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(4);
+    }
+
+    /**
+     * Getter for <code>book.spider_book_detail_info.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(5);
+    }
+
+    /**
      * Getter for <code>book.spider_book_detail_info.del_flag</code>. 删除标记
      */
     public Boolean getDelFlag() {
@@ -167,16 +160,11 @@ public class SpiderBookDetailInfoRecord extends UpdatableRecordImpl<SpiderBookDe
     }
 
     /**
-     * Setter for <code>book.spider_book_detail_info.del_flag</code>. 删除标记
+     * Getter for <code>book.spider_book_detail_info.remark</code>. 备注
      */
-    public SpiderBookDetailInfoRecord setDelFlag(Boolean value) {
-        set(7, value);
-        return this;
+    public String getRemark() {
+        return (String) get(6);
     }
-
-    // -------------------------------------------------------------------------
-    // Primary key information
-    // -------------------------------------------------------------------------
 
     /**
      * Getter for <code>book.spider_book_detail_info.version</code>. 版本号
@@ -186,16 +174,8 @@ public class SpiderBookDetailInfoRecord extends UpdatableRecordImpl<SpiderBookDe
     }
 
     // -------------------------------------------------------------------------
-    // Record9 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.spider_book_detail_info.version</code>. 版本号
-     */
-    public SpiderBookDetailInfoRecord setVersion(Long value) {
-        set(8, value);
-        return this;
-    }
 
     /**
      * {@inheritDoc}
@@ -204,6 +184,10 @@ public class SpiderBookDetailInfoRecord extends UpdatableRecordImpl<SpiderBookDe
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record9 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -509,10 +493,6 @@ public class SpiderBookDetailInfoRecord extends UpdatableRecordImpl<SpiderBookDe
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -536,6 +516,26 @@ public class SpiderBookDetailInfoRecord extends UpdatableRecordImpl<SpiderBookDe
         value7(value7);
         value8(value8);
         value9(value9);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Setter for <code>book.spider_book_detail_info.del_flag</code>. 删除标记
+     */
+    public SpiderBookDetailInfoRecord setDelFlag(Boolean value) {
+        set(7, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.spider_book_detail_info.version</code>. 版本号
+     */
+    public SpiderBookDetailInfoRecord setVersion(Long value) {
+        set(8, value);
         return this;
     }
 }

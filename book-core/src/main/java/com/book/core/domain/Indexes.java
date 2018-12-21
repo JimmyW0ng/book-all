@@ -4,10 +4,7 @@
 package com.book.core.domain;
 
 
-import com.book.core.domain.tables.MessageCaptcha;
-import com.book.core.domain.tables.SpiderAuthorBaseInfo;
-import com.book.core.domain.tables.SpiderBookBaseInfo;
-import com.book.core.domain.tables.SpiderBookDetailInfo;
+import com.book.core.domain.tables.*;
 import org.jooq.Index;
 import org.jooq.OrderField;
 import org.jooq.impl.Internal;
@@ -32,6 +29,10 @@ public class Indexes {
     // INDEX definitions
     // -------------------------------------------------------------------------
 
+    public static final Index MEMBER_BASE_INFO_INDEX_IDENTITY_NUMBER = Indexes0.MEMBER_BASE_INFO_INDEX_IDENTITY_NUMBER;
+    public static final Index MEMBER_BASE_INFO_INDEX_SHORT_URL = Indexes0.MEMBER_BASE_INFO_INDEX_SHORT_URL;
+    public static final Index MEMBER_BASE_INFO_PRIMARY = Indexes0.MEMBER_BASE_INFO_PRIMARY;
+    public static final Index MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE = Indexes0.MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE;
     public static final Index MESSAGE_CAPTCHA_INDEX_EXPIRE_TIME = Indexes0.MESSAGE_CAPTCHA_INDEX_EXPIRE_TIME;
     public static final Index MESSAGE_CAPTCHA_INDEX_IP = Indexes0.MESSAGE_CAPTCHA_INDEX_IP;
     public static final Index MESSAGE_CAPTCHA_INDEX_SOURCE_ID = Indexes0.MESSAGE_CAPTCHA_INDEX_SOURCE_ID;
@@ -48,6 +49,10 @@ public class Indexes {
     // -------------------------------------------------------------------------
 
     private static class Indexes0 {
+        public static Index MEMBER_BASE_INFO_INDEX_IDENTITY_NUMBER = Internal.createIndex("INDEX_IDENTITY_NUMBER", MemberBaseInfo.MEMBER_BASE_INFO, new OrderField[]{MemberBaseInfo.MEMBER_BASE_INFO.IDENTITY_NUMBER}, false);
+        public static Index MEMBER_BASE_INFO_INDEX_SHORT_URL = Internal.createIndex("INDEX_SHORT_URL", MemberBaseInfo.MEMBER_BASE_INFO, new OrderField[]{MemberBaseInfo.MEMBER_BASE_INFO.SHORT_URL}, false);
+        public static Index MEMBER_BASE_INFO_PRIMARY = Internal.createIndex("PRIMARY", MemberBaseInfo.MEMBER_BASE_INFO, new OrderField[]{MemberBaseInfo.MEMBER_BASE_INFO.ID}, true);
+        public static Index MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE = Internal.createIndex("UNIQUE_MEMBER_MOBILE", MemberBaseInfo.MEMBER_BASE_INFO, new OrderField[]{MemberBaseInfo.MEMBER_BASE_INFO.MOBILE}, true);
         public static Index MESSAGE_CAPTCHA_INDEX_EXPIRE_TIME = Internal.createIndex("INDEX_EXPIRE_TIME", MessageCaptcha.MESSAGE_CAPTCHA, new OrderField[]{MessageCaptcha.MESSAGE_CAPTCHA.EXPIRE_TIME}, false);
         public static Index MESSAGE_CAPTCHA_INDEX_IP = Internal.createIndex("INDEX_IP", MessageCaptcha.MESSAGE_CAPTCHA, new OrderField[]{MessageCaptcha.MESSAGE_CAPTCHA.IP}, false);
         public static Index MESSAGE_CAPTCHA_INDEX_SOURCE_ID = Internal.createIndex("INDEX_SOURCE_ID", MessageCaptcha.MESSAGE_CAPTCHA, new OrderField[]{MessageCaptcha.MESSAGE_CAPTCHA.SOURCE_ID}, false);

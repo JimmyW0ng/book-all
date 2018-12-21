@@ -1,6 +1,6 @@
 package com.book.api.security;
 
-import com.book.api.constant.ApiMessageCode;
+import com.book.core.constant.ErrorCode;
 import com.framework.common.spring.pojo.dto.ResultDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.AuthenticationException;
@@ -23,7 +23,7 @@ public class ApiSecurityAuthEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException, ServletException {
         log.debug("会员鉴权失败!", e);
-        ResultDto resultDto = ResultDto.build(ApiMessageCode.ERROR_ACCESS_NEED_AUTH);
+        ResultDto resultDto = ResultDto.build(ErrorCode.ERROR_ACCESS_NEED_AUTH);
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json; charset=utf-8");

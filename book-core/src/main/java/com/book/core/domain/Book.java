@@ -4,10 +4,7 @@
 package com.book.core.domain;
 
 
-import com.book.core.domain.tables.MessageCaptcha;
-import com.book.core.domain.tables.SpiderAuthorBaseInfo;
-import com.book.core.domain.tables.SpiderBookBaseInfo;
-import com.book.core.domain.tables.SpiderBookDetailInfo;
+import com.book.core.domain.tables.*;
 import org.jooq.Catalog;
 import org.jooq.Table;
 import org.jooq.impl.SchemaImpl;
@@ -31,11 +28,18 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class Book extends SchemaImpl {
 
+    private static final long serialVersionUID = 1910755229;
+
     /**
      * The reference instance of <code>book</code>
      */
     public static final Book BOOK = new Book();
-    private static final long serialVersionUID = 494164502;
+
+    /**
+     * 会员-基础信息表
+     */
+    public final MemberBaseInfo MEMBER_BASE_INFO = com.book.core.domain.tables.MemberBaseInfo.MEMBER_BASE_INFO;
+
     /**
      * 消息-验证码表
      */
@@ -81,6 +85,7 @@ public class Book extends SchemaImpl {
 
     private final List<Table<?>> getTables0() {
         return Arrays.<Table<?>>asList(
+                MemberBaseInfo.MEMBER_BASE_INFO,
                 MessageCaptcha.MESSAGE_CAPTCHA,
                 SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO,
                 SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO,

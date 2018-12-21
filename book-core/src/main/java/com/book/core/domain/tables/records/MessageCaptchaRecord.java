@@ -33,10 +33,26 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     private static final long serialVersionUID = -1677396045;
 
     /**
+     * Setter for <code>book.message_captcha.id</code>. 主键
+     */
+    public MessageCaptchaRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
+
+    /**
      * Create a detached MessageCaptchaRecord
      */
     public MessageCaptchaRecord() {
         super(MessageCaptcha.MESSAGE_CAPTCHA);
+    }
+
+    /**
+     * Setter for <code>book.message_captcha.type</code>. 类型：短信
+     */
+    public MessageCaptchaRecord setType(MessageCaptchaType value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -62,43 +78,6 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Getter for <code>book.message_captcha.id</code>. 主键
-     */
-    public Long getId() {
-        return (Long) get(0);
-    }
-
-    /**
-     * Setter for <code>book.message_captcha.id</code>. 主键
-     */
-    public MessageCaptchaRecord setId(Long value) {
-        set(0, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.message_captcha.type</code>. 类型：短信
-     */
-    public MessageCaptchaType getType() {
-        return (MessageCaptchaType) get(1);
-    }
-
-    /**
-     * Setter for <code>book.message_captcha.type</code>. 类型：短信
-     */
-    public MessageCaptchaRecord setType(MessageCaptchaType value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.message_captcha.source_id</code>. 业务标识
-     */
-    public Long getSourceId() {
-        return (Long) get(2);
-    }
-
-    /**
      * Setter for <code>book.message_captcha.source_id</code>. 业务标识
      */
     public MessageCaptchaRecord setSourceId(Long value) {
@@ -107,10 +86,10 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Getter for <code>book.message_captcha.code</code>. 业务编码
+     * Getter for <code>book.message_captcha.id</code>. 主键
      */
-    public String getCode() {
-        return (String) get(3);
+    public Long getId() {
+        return (Long) get(0);
     }
 
     /**
@@ -122,10 +101,10 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Getter for <code>book.message_captcha.content</code>. 验证码内容
+     * Getter for <code>book.message_captcha.type</code>. 类型：短信
      */
-    public String getContent() {
-        return (String) get(4);
+    public MessageCaptchaType getType() {
+        return (MessageCaptchaType) get(1);
     }
 
     /**
@@ -137,10 +116,10 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Getter for <code>book.message_captcha.scene</code>. 验证场景：账户注册；
+     * Getter for <code>book.message_captcha.source_id</code>. 业务标识
      */
-    public MessageCaptchaScene getScene() {
-        return (MessageCaptchaScene) get(5);
+    public Long getSourceId() {
+        return (Long) get(2);
     }
 
     /**
@@ -152,10 +131,10 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Getter for <code>book.message_captcha.client_id</code>. 客户端标识
+     * Getter for <code>book.message_captcha.code</code>. 业务编码
      */
-    public Long getClientId() {
-        return (Long) get(6);
+    public String getCode() {
+        return (String) get(3);
     }
 
     /**
@@ -167,10 +146,10 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Getter for <code>book.message_captcha.expire_time</code>. 过期时间
+     * Getter for <code>book.message_captcha.content</code>. 验证码内容
      */
-    public Timestamp getExpireTime() {
-        return (Timestamp) get(7);
+    public String getContent() {
+        return (String) get(4);
     }
 
     /**
@@ -182,10 +161,10 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Getter for <code>book.message_captcha.ip</code>. 访问ip
+     * Getter for <code>book.message_captcha.scene</code>. 验证场景：账户注册；
      */
-    public String getIp() {
-        return (String) get(8);
+    public MessageCaptchaScene getScene() {
+        return (MessageCaptchaScene) get(5);
     }
 
     /**
@@ -197,10 +176,10 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Getter for <code>book.message_captcha.create_at</code>. 创建时间
+     * Getter for <code>book.message_captcha.client_id</code>. 客户端标识
      */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(9);
+    public Long getClientId() {
+        return (Long) get(6);
     }
 
     /**
@@ -212,10 +191,38 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
+     * Getter for <code>book.message_captcha.expire_time</code>. 过期时间
+     */
+    public Timestamp getExpireTime() {
+        return (Timestamp) get(7);
+    }
+
+    /**
+     * Getter for <code>book.message_captcha.ip</code>. 访问ip
+     */
+    public String getIp() {
+        return (String) get(8);
+    }
+
+    /**
      * Getter for <code>book.message_captcha.update_at</code>. 更新时间
      */
     public Timestamp getUpdateAt() {
         return (Timestamp) get(10);
+    }
+
+    /**
+     * Getter for <code>book.message_captcha.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(9);
+    }
+
+    /**
+     * Getter for <code>book.message_captcha.remark</code>. 备注
+     */
+    public String getRemark() {
+        return (String) get(11);
     }
 
     /**
@@ -227,10 +234,10 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Getter for <code>book.message_captcha.remark</code>. 备注
+     * Getter for <code>book.message_captcha.del_flag</code>. 删除标记
      */
-    public String getRemark() {
-        return (String) get(11);
+    public Boolean getDelFlag() {
+        return (Boolean) get(12);
     }
 
     /**
@@ -242,25 +249,6 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Getter for <code>book.message_captcha.del_flag</code>. 删除标记
-     */
-    public Boolean getDelFlag() {
-        return (Boolean) get(12);
-    }
-
-    /**
-     * Setter for <code>book.message_captcha.del_flag</code>. 删除标记
-     */
-    public MessageCaptchaRecord setDelFlag(Boolean value) {
-        set(12, value);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
-    // Primary key information
-    // -------------------------------------------------------------------------
-
-    /**
      * Getter for <code>book.message_captcha.version</code>.
      */
     public Long getVersion() {
@@ -268,16 +256,8 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     // -------------------------------------------------------------------------
-    // Record14 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.message_captcha.version</code>.
-     */
-    public MessageCaptchaRecord setVersion(Long value) {
-        set(13, value);
-        return this;
-    }
 
     /**
      * {@inheritDoc}
@@ -286,6 +266,10 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record14 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -756,10 +740,6 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -788,6 +768,26 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
         value12(value12);
         value13(value13);
         value14(value14);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Setter for <code>book.message_captcha.del_flag</code>. 删除标记
+     */
+    public MessageCaptchaRecord setDelFlag(Boolean value) {
+        set(12, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.message_captcha.version</code>.
+     */
+    public MessageCaptchaRecord setVersion(Long value) {
+        set(13, value);
         return this;
     }
 }

@@ -31,10 +31,26 @@ public class SpiderAuthorBaseInfoRecord extends UpdatableRecordImpl<SpiderAuthor
     private static final long serialVersionUID = -691286742;
 
     /**
+     * Setter for <code>book.spider_author_base_info.id</code>. 主键
+     */
+    public SpiderAuthorBaseInfoRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
+
+    /**
      * Create a detached SpiderAuthorBaseInfoRecord
      */
     public SpiderAuthorBaseInfoRecord() {
         super(SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO);
+    }
+
+    /**
+     * Setter for <code>book.spider_author_base_info.name</code>. 笔名
+     */
+    public SpiderAuthorBaseInfoRecord setName(String value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -53,43 +69,6 @@ public class SpiderAuthorBaseInfoRecord extends UpdatableRecordImpl<SpiderAuthor
     }
 
     /**
-     * Getter for <code>book.spider_author_base_info.id</code>. 主键
-     */
-    public Long getId() {
-        return (Long) get(0);
-    }
-
-    /**
-     * Setter for <code>book.spider_author_base_info.id</code>. 主键
-     */
-    public SpiderAuthorBaseInfoRecord setId(Long value) {
-        set(0, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.spider_author_base_info.name</code>. 笔名
-     */
-    public String getName() {
-        return (String) get(1);
-    }
-
-    /**
-     * Setter for <code>book.spider_author_base_info.name</code>. 笔名
-     */
-    public SpiderAuthorBaseInfoRecord setName(String value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.spider_author_base_info.create_at</code>. 创建时间
-     */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(2);
-    }
-
-    /**
      * Setter for <code>book.spider_author_base_info.create_at</code>. 创建时间
      */
     public SpiderAuthorBaseInfoRecord setCreateAt(Timestamp value) {
@@ -98,10 +77,10 @@ public class SpiderAuthorBaseInfoRecord extends UpdatableRecordImpl<SpiderAuthor
     }
 
     /**
-     * Getter for <code>book.spider_author_base_info.update_at</code>. 更新时间
+     * Getter for <code>book.spider_author_base_info.id</code>. 主键
      */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(3);
+    public Long getId() {
+        return (Long) get(0);
     }
 
     /**
@@ -113,10 +92,10 @@ public class SpiderAuthorBaseInfoRecord extends UpdatableRecordImpl<SpiderAuthor
     }
 
     /**
-     * Getter for <code>book.spider_author_base_info.remark</code>. 备注
+     * Getter for <code>book.spider_author_base_info.name</code>. 笔名
      */
-    public String getRemark() {
-        return (String) get(4);
+    public String getName() {
+        return (String) get(1);
     }
 
     /**
@@ -128,10 +107,10 @@ public class SpiderAuthorBaseInfoRecord extends UpdatableRecordImpl<SpiderAuthor
     }
 
     /**
-     * Getter for <code>book.spider_author_base_info.del_flag</code>. 删除标记
+     * Getter for <code>book.spider_author_base_info.create_at</code>. 创建时间
      */
-    public Boolean getDelFlag() {
-        return (Boolean) get(5);
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(2);
     }
 
     /**
@@ -142,9 +121,19 @@ public class SpiderAuthorBaseInfoRecord extends UpdatableRecordImpl<SpiderAuthor
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Primary key information
-    // -------------------------------------------------------------------------
+    /**
+     * Getter for <code>book.spider_author_base_info.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(3);
+    }
+
+    /**
+     * Getter for <code>book.spider_author_base_info.remark</code>. 备注
+     */
+    public String getRemark() {
+        return (String) get(4);
+    }
 
     /**
      * Getter for <code>book.spider_author_base_info.version</code>. 版本号
@@ -154,16 +143,8 @@ public class SpiderAuthorBaseInfoRecord extends UpdatableRecordImpl<SpiderAuthor
     }
 
     // -------------------------------------------------------------------------
-    // Record7 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.spider_author_base_info.version</code>. 版本号
-     */
-    public SpiderAuthorBaseInfoRecord setVersion(Long value) {
-        set(6, value);
-        return this;
-    }
 
     /**
      * {@inheritDoc}
@@ -172,6 +153,10 @@ public class SpiderAuthorBaseInfoRecord extends UpdatableRecordImpl<SpiderAuthor
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record7 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -411,10 +396,6 @@ public class SpiderAuthorBaseInfoRecord extends UpdatableRecordImpl<SpiderAuthor
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -436,6 +417,25 @@ public class SpiderAuthorBaseInfoRecord extends UpdatableRecordImpl<SpiderAuthor
         value5(value5);
         value6(value6);
         value7(value7);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Getter for <code>book.spider_author_base_info.del_flag</code>. 删除标记
+     */
+    public Boolean getDelFlag() {
+        return (Boolean) get(5);
+    }
+
+    /**
+     * Setter for <code>book.spider_author_base_info.version</code>. 版本号
+     */
+    public SpiderAuthorBaseInfoRecord setVersion(Long value) {
+        set(6, value);
         return this;
     }
 }

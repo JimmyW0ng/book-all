@@ -4,14 +4,8 @@
 package com.book.core.domain;
 
 
-import com.book.core.domain.tables.MessageCaptcha;
-import com.book.core.domain.tables.SpiderAuthorBaseInfo;
-import com.book.core.domain.tables.SpiderBookBaseInfo;
-import com.book.core.domain.tables.SpiderBookDetailInfo;
-import com.book.core.domain.tables.records.MessageCaptchaRecord;
-import com.book.core.domain.tables.records.SpiderAuthorBaseInfoRecord;
-import com.book.core.domain.tables.records.SpiderBookBaseInfoRecord;
-import com.book.core.domain.tables.records.SpiderBookDetailInfoRecord;
+import com.book.core.domain.tables.*;
+import com.book.core.domain.tables.records.*;
 import org.jooq.Identity;
 import org.jooq.UniqueKey;
 import org.jooq.impl.Internal;
@@ -20,7 +14,7 @@ import javax.annotation.Generated;
 
 
 /**
- * A class modelling foreign key relationships and constraints of tables of
+ * A class modelling foreign key relationships and constraints of tables of 
  * the <code>book</code> schema.
  */
 @Generated(
@@ -37,6 +31,7 @@ public class Keys {
     // IDENTITY definitions
     // -------------------------------------------------------------------------
 
+    public static final Identity<MemberBaseInfoRecord, Long> IDENTITY_MEMBER_BASE_INFO = Identities0.IDENTITY_MEMBER_BASE_INFO;
     public static final Identity<MessageCaptchaRecord, Long> IDENTITY_MESSAGE_CAPTCHA = Identities0.IDENTITY_MESSAGE_CAPTCHA;
     public static final Identity<SpiderAuthorBaseInfoRecord, Long> IDENTITY_SPIDER_AUTHOR_BASE_INFO = Identities0.IDENTITY_SPIDER_AUTHOR_BASE_INFO;
     public static final Identity<SpiderBookBaseInfoRecord, Long> IDENTITY_SPIDER_BOOK_BASE_INFO = Identities0.IDENTITY_SPIDER_BOOK_BASE_INFO;
@@ -46,6 +41,8 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_PRIMARY = UniqueKeys0.KEY_MEMBER_BASE_INFO_PRIMARY;
+    public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE = UniqueKeys0.KEY_MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE;
     public static final UniqueKey<MessageCaptchaRecord> KEY_MESSAGE_CAPTCHA_PRIMARY = UniqueKeys0.KEY_MESSAGE_CAPTCHA_PRIMARY;
     public static final UniqueKey<SpiderAuthorBaseInfoRecord> KEY_SPIDER_AUTHOR_BASE_INFO_PRIMARY = UniqueKeys0.KEY_SPIDER_AUTHOR_BASE_INFO_PRIMARY;
     public static final UniqueKey<SpiderAuthorBaseInfoRecord> KEY_SPIDER_AUTHOR_BASE_INFO_UNIQUE_NAME = UniqueKeys0.KEY_SPIDER_AUTHOR_BASE_INFO_UNIQUE_NAME;
@@ -64,6 +61,7 @@ public class Keys {
     // -------------------------------------------------------------------------
 
     private static class Identities0 {
+        public static Identity<MemberBaseInfoRecord, Long> IDENTITY_MEMBER_BASE_INFO = Internal.createIdentity(MemberBaseInfo.MEMBER_BASE_INFO, MemberBaseInfo.MEMBER_BASE_INFO.ID);
         public static Identity<MessageCaptchaRecord, Long> IDENTITY_MESSAGE_CAPTCHA = Internal.createIdentity(MessageCaptcha.MESSAGE_CAPTCHA, MessageCaptcha.MESSAGE_CAPTCHA.ID);
         public static Identity<SpiderAuthorBaseInfoRecord, Long> IDENTITY_SPIDER_AUTHOR_BASE_INFO = Internal.createIdentity(SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO, SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO.ID);
         public static Identity<SpiderBookBaseInfoRecord, Long> IDENTITY_SPIDER_BOOK_BASE_INFO = Internal.createIdentity(SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO, SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO.ID);
@@ -71,6 +69,8 @@ public class Keys {
     }
 
     private static class UniqueKeys0 {
+        public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_PRIMARY = Internal.createUniqueKey(MemberBaseInfo.MEMBER_BASE_INFO, "KEY_member_base_info_PRIMARY", MemberBaseInfo.MEMBER_BASE_INFO.ID);
+        public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE = Internal.createUniqueKey(MemberBaseInfo.MEMBER_BASE_INFO, "KEY_member_base_info_UNIQUE_MEMBER_MOBILE", MemberBaseInfo.MEMBER_BASE_INFO.MOBILE);
         public static final UniqueKey<MessageCaptchaRecord> KEY_MESSAGE_CAPTCHA_PRIMARY = Internal.createUniqueKey(MessageCaptcha.MESSAGE_CAPTCHA, "KEY_message_captcha_PRIMARY", MessageCaptcha.MESSAGE_CAPTCHA.ID);
         public static final UniqueKey<SpiderAuthorBaseInfoRecord> KEY_SPIDER_AUTHOR_BASE_INFO_PRIMARY = Internal.createUniqueKey(SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO, "KEY_spider_author_base_info_PRIMARY", SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO.ID);
         public static final UniqueKey<SpiderAuthorBaseInfoRecord> KEY_SPIDER_AUTHOR_BASE_INFO_UNIQUE_NAME = Internal.createUniqueKey(SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO, "KEY_spider_author_base_info_UNIQUE_NAME", SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO.NAME);

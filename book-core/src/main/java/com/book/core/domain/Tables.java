@@ -4,10 +4,7 @@
 package com.book.core.domain;
 
 
-import com.book.core.domain.tables.MessageCaptcha;
-import com.book.core.domain.tables.SpiderAuthorBaseInfo;
-import com.book.core.domain.tables.SpiderBookBaseInfo;
-import com.book.core.domain.tables.SpiderBookDetailInfo;
+import com.book.core.domain.tables.*;
 
 import javax.annotation.Generated;
 
@@ -24,6 +21,11 @@ import javax.annotation.Generated;
 )
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class Tables {
+
+    /**
+     * 会员-基础信息表
+     */
+    public static final MemberBaseInfo MEMBER_BASE_INFO = com.book.core.domain.tables.MemberBaseInfo.MEMBER_BASE_INFO;
 
     /**
      * 消息-验证码表

@@ -1,6 +1,7 @@
 package com.book.api.business.message.controller;
 
 import com.book.api.business.BaseController;
+import com.book.api.business.message.facade.MessageCaptchaFacade;
 import com.framework.common.spring.pojo.dto.ResultDto;
 import com.framework.common.tool.IpTools;
 import com.framework.common.tool.RegexTools;
@@ -8,6 +9,7 @@ import com.framework.common.tool.StringTools;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,12 +29,15 @@ import static com.framework.common.constant.CommonMessage.ERROR_MOBILE_FORMAT;
 @RequestMapping("s/msg")
 public class SecurityMessageContoller extends BaseController {
 
+    @Autowired
+    private MessageCaptchaFacade messageCaptchaFacade;
+
     /**
-     * @return com.framework.common.spring.pojo.dto.ResultDto<java.lang.String>
      * @Description 发送会员注册验证码
      * @Author J.W
-     * @Date 2018/12/21 15:04
+     * @Date 2018/12/21 16:27
      * @Param [request, mobile]
+     * @Return com.framework.common.spring.pojo.dto.ResultDto<java.lang.String>
      **/
     @ApiOperation("发送会员注册验证码")
     @PostMapping(value = "/memberRegister", headers = "Accept-Version=1.0")
@@ -46,8 +51,7 @@ public class SecurityMessageContoller extends BaseController {
         Long mobileFormat = Long.parseLong(mobile);
         Long clientId = super.getCurrentClientId(request);
         String ip = IpTools.getIpAddr(request);
-
-        return ResultDto.build();
+        return messageCaptchaFacade.memberRegisterCaptcha(mobileFormat, clientId, ip);
     }
 
 }

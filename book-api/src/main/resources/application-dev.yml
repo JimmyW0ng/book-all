@@ -1,3 +1,16 @@
 # tomcat 端口
 server:
   port: 9001
+
+spring:
+  # 数据库
+  datasource:
+    username: root
+    password: root123
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.60.20.22:3306/iou?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    hikari:
+      idleTimeout: 5000
+      maximumPoolSize: 10
+  jooq:
+    sqlDialect: mysql

@@ -7,7 +7,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.MessageSource;
 import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Component;
 
 /**
  * @Description: spring bean 工具类
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Component;
  * @Date: 下午5:26 2018/9/9
  */
 @Slf4j
-@Component
 public class SpringComponent implements ApplicationContextAware {
     private static ApplicationContext applicationContext = null;
 

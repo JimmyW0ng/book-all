@@ -31,43 +31,61 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class SpiderBookDetailInfo extends TableImpl<SpiderBookDetailInfoRecord> {
 
+    private static final long serialVersionUID = -1437745147;
+
     /**
      * The reference instance of <code>book.spider_book_detail_info</code>
      */
     public static final SpiderBookDetailInfo SPIDER_BOOK_DETAIL_INFO = new SpiderBookDetailInfo();
-    private static final long serialVersionUID = -1437745147;
+
+    /**
+     * The class holding records for this type
+     */
+    @Override
+    public Class<SpiderBookDetailInfoRecord> getRecordType() {
+        return SpiderBookDetailInfoRecord.class;
+    }
+
     /**
      * The column <code>book.spider_book_detail_info.id</code>. 主键
      */
     public final TableField<SpiderBookDetailInfoRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "主键");
+
     /**
      * The column <code>book.spider_book_detail_info.book_id</code>. 书本id
      */
     public final TableField<SpiderBookDetailInfoRecord, Long> BOOK_ID = createField("book_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "书本id");
+
     /**
      * The column <code>book.spider_book_detail_info.chapter_title</code>. 章节名
      */
     public final TableField<SpiderBookDetailInfoRecord, String> CHAPTER_TITLE = createField("chapter_title", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "章节名");
+
     /**
      * The column <code>book.spider_book_detail_info.chapter_content</code>. 章节内容
      */
     public final TableField<SpiderBookDetailInfoRecord, String> CHAPTER_CONTENT = createField("chapter_content", org.jooq.impl.SQLDataType.CLOB, this, "章节内容");
+
     /**
      * The column <code>book.spider_book_detail_info.create_at</code>. 创建时间
      */
     public final TableField<SpiderBookDetailInfoRecord, Timestamp> CREATE_AT = createField("create_at", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "创建时间");
+
     /**
      * The column <code>book.spider_book_detail_info.update_at</code>. 更新时间
      */
     public final TableField<SpiderBookDetailInfoRecord, Timestamp> UPDATE_AT = createField("update_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+
     /**
      * The column <code>book.spider_book_detail_info.remark</code>. 备注
      */
     public final TableField<SpiderBookDetailInfoRecord, String> REMARK = createField("remark", org.jooq.impl.SQLDataType.VARCHAR(255), this, "备注");
+
     /**
      * The column <code>book.spider_book_detail_info.del_flag</code>. 删除标记
      */
     public final TableField<SpiderBookDetailInfoRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标记");
+
     /**
      * The column <code>book.spider_book_detail_info.version</code>. 版本号
      */
@@ -100,14 +118,6 @@ public class SpiderBookDetailInfo extends TableImpl<SpiderBookDetailInfoRecord> 
 
     private SpiderBookDetailInfo(Name alias, Table<SpiderBookDetailInfoRecord> aliased, Field<?>[] parameters) {
         super(alias, null, aliased, parameters, "爬虫-图书内容");
-    }
-
-    /**
-     * The class holding records for this type
-     */
-    @Override
-    public Class<SpiderBookDetailInfoRecord> getRecordType() {
-        return SpiderBookDetailInfoRecord.class;
     }
 
     /**
