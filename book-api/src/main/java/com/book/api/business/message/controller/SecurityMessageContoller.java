@@ -6,6 +6,7 @@ import com.framework.common.spring.pojo.dto.ResultDto;
 import com.framework.common.tool.IpTools;
 import com.framework.common.tool.RegexTools;
 import com.framework.common.tool.StringTools;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +28,7 @@ import static com.framework.common.constant.CommonMessage.ERROR_MOBILE_FORMAT;
 @Slf4j
 @RestController
 @RequestMapping("s/msg")
+@Api(value = "security-msg", description = "消息安全路由")
 public class SecurityMessageContoller extends BaseController {
 
     @Autowired
@@ -46,7 +48,7 @@ public class SecurityMessageContoller extends BaseController {
                                                @RequestParam(value = "mobile") String mobile) {
         // 校验手机号
         if (StringTools.isBlank(mobile) || !RegexTools.checkMobileFormat(mobile)) {
-            return ResultDto.buildCustom(ERROR_MOBILE_FORMAT);
+            return ResultDto.build(ERROR_MOBILE_FORMAT);
         }
         Long mobileFormat = Long.parseLong(mobile);
         Long clientId = super.getCurrentClientId(request);

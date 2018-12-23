@@ -49,7 +49,7 @@ public class ResultDto<T> implements Serializable {
         return resultDto;
     }
 
-    public static <T> ResultDto<T> buildCustom(CommonMessage commonMessage) {
+    public static <T> ResultDto<T> build(CommonMessage commonMessage) {
         ResultDto<T> resultDto = ResultDto.build();
         resultDto.setError(commonMessage.getCode()).setErrorDescription(commonMessage.getMsg()).setSuccess(false);
         return resultDto;

@@ -22,7 +22,7 @@ public class ApiSecurityAuthEntryPoint implements AuthenticationEntryPoint {
 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException, ServletException {
-        log.debug("会员鉴权失败!", e);
+        log.debug("当前请求需要令牌才能访问!");
         ResultDto resultDto = ResultDto.build(ErrorCode.ERROR_ACCESS_NEED_AUTH);
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
         response.setCharacterEncoding("UTF-8");

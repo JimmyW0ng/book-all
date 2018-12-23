@@ -1,6 +1,7 @@
 package com.book.api.config;
 
 import com.book.api.filter.ApiSecurityTokenAuthFilter;
+import com.book.api.security.ApiAccessDeniedHandler;
 import com.book.api.security.ApiSecurityAuthEntryPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -10,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
@@ -22,13 +24,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
-     * 默认安全令牌标识
+     * 默认基础令牌标识
      */
-    public static final String SECURITY_BASE_AUTHORITY = "api:security:base";
+    public static final String BASE_BASIC_AUTHORITY = "api:base:basic";
     /**
      * 默认登录令牌标识
      */
-    public static final String LOGIN_BASE_AUTHORITY = "api:login:base";
+    public static final String BASE_BEARER_AUTHORITY = "api:base:bearer";
     /**
      * 默认令牌header标识
      */
@@ -38,9 +40,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     public static final String TOKEN_BODY_NAME = "token";
     /**
-     * 默认令牌前缀
+     * 默认基础令牌前缀
      */
-    public static final String TOKEN_PREFIX = "Bearer ";
+    public static final String TOKEN_BASIC_PREFIX = "Basic ";
+    /**
+     * 默认登录令牌前缀
+     */
+    public static final String TOKEN_BEARER_PREFIX = "Bearer ";
 
     @Autowired
     private ApiSecurityTokenAuthFilter securityTokenAuthFilter;
@@ -48,6 +54,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public AuthenticationEntryPoint getAuthenticationEntryPoint() {
         return new ApiSecurityAuthEntryPoint();
+    }
+
+    @Autowired
+    public AccessDeniedHandler getAccessDeniedHandler() {
+        return new ApiAccessDeniedHandler();
     }
 
     @Override
@@ -58,14 +69,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 基于token，所以不需要session
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
-                .antMatchers("/s/**").hasAnyAuthority(SECURITY_BASE_AUTHORITY)
-                .antMatchers("/a/**").hasAnyAuthority(LOGIN_BASE_AUTHORITY)
+                .antMatchers("/s/**").hasAnyAuthority(BASE_BASIC_AUTHORITY)
+                .antMatchers("/a/**").hasAnyAuthority(BASE_BEARER_AUTHORITY)
                 .anyRequest().authenticated();
 
         // 403设置
         httpSecurity
                 .exceptionHandling()
-                .authenticationEntryPoint(getAuthenticationEntryPoint());
+                .authenticationEntryPoint(getAuthenticationEntryPoint())
+                .accessDeniedHandler(getAccessDeniedHandler());
         // 添加鉴权filter
         httpSecurity.addFilterBefore(securityTokenAuthFilter, UsernamePasswordAuthenticationFilter.class);
         // 禁用缓存

@@ -34,11 +34,12 @@ public class OssComponent {
     private String privateBucketName;
 
     /**
-     * 私有上传
-     *
-     * @param fileName 文件名
-     * @param bytes    内容
-     */
+     * @Description 公共上传，并返回地址
+     * @Author J.W
+     * @Date 2018/12/22 12:45 PM
+     * @Param [fileName, bytes]
+     * @Return com.framework.common.spring.pojo.dto.ResultDto<java.lang.String>
+     **/
     public ResultDto<String> uploadPrivate(String fileName, byte[] bytes) {
         // 创建OSSClient实例。
         OSSClient ossClient = new OSSClient(endPoint, accessKeyId, accessKeySecret);
@@ -60,7 +61,7 @@ public class OssComponent {
             return resultDto.setResult(fileKey);
         } catch (Exception e) {
             log.error("上传阿里云报错, fileName={}, fileKey={}, bytesLength={}", fileName, fileKey, bytes.length, e);
-            return ResultDto.buildCustom(CommonMessage.ERROR_OSS_UPLOAD);
+            return ResultDto.build(CommonMessage.ERROR_OSS_UPLOAD);
         } finally {
             // 关闭OSSClient
             ossClient.shutdown();
@@ -68,11 +69,12 @@ public class OssComponent {
     }
 
     /**
-     * 公共上传，并返回地址
-     *
-     * @param fileName 文件名
-     * @param bytes    内容
-     */
+     * @Description 公共上传，并返回地址
+     * @Author J.W
+     * @Date 2018/12/22 12:45 PM
+     * @Param [fileName, bytes]
+     * @Return com.framework.common.spring.pojo.dto.ResultDto<java.lang.String>
+     **/
     public ResultDto<String> uploadPublic(String fileName, byte[] bytes) {
         // 创建OSSClient实例。
         OSSClient ossClient = new OSSClient(endPoint, accessKeyId, accessKeySecret);
@@ -88,7 +90,7 @@ public class OssComponent {
             return resultDto.setResult(fileUrl);
         } catch (Exception e) {
             log.error("上传阿里云报错, fileName={}, fileKey={}, bytesLength={}", fileName, fileKey, bytes.length, e);
-            return ResultDto.buildCustom(CommonMessage.ERROR_OSS_UPLOAD);
+            return ResultDto.build(CommonMessage.ERROR_OSS_UPLOAD);
         } finally {
             // 关闭OSSClient
             ossClient.shutdown();
@@ -96,11 +98,12 @@ public class OssComponent {
     }
 
     /**
-     * 获取文件访问地址
-     *
-     * @param fileKey 文件名
-     * @return
-     */
+     * @Description 获取文件访问地址
+     * @Author J.W
+     * @Date 2018/12/22 12:45 PM
+     * @Param [fileKey]
+     * @Return com.framework.common.spring.pojo.dto.ResultDto<java.lang.String>
+     **/
     public ResultDto<String> getPrivateUrl(String fileKey) {
         // 创建OSSClient实例。
         OSSClient ossClient = new OSSClient(endPoint, accessKeyId, accessKeySecret);
@@ -115,7 +118,7 @@ public class OssComponent {
             return resultDto.setResult(url.toExternalForm());
         } catch (Exception e) {
             log.error("阿里云获取文件访问地址报错, , fileKey={}", fileKey, e);
-            return ResultDto.buildCustom(CommonMessage.ERROR_OSS_GENERATE_URL);
+            return ResultDto.build(CommonMessage.ERROR_OSS_GENERATE_URL);
         } finally {
             // 关闭OSSClient
             ossClient.shutdown();

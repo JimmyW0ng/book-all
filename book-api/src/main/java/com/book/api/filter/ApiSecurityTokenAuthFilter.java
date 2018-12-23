@@ -20,7 +20,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collection;
 
-import static com.book.api.config.SecurityConfig.*;
+import static com.book.api.config.SecurityConfig.TOKEN_BODY_NAME;
+import static com.book.api.config.SecurityConfig.TOKEN_HEADER_NAME;
 
 /**
  * @Description: api鉴权过滤器(spring security)
@@ -42,12 +43,7 @@ public class ApiSecurityTokenAuthFilter extends OncePerRequestFilter {
         String authHeader = request.getHeader(TOKEN_HEADER_NAME);
         // head有token
         if (StringTools.isNotBlank(authHeader)) {
-            if (!authHeader.startsWith(TOKEN_PREFIX)) {
-                log.error("鉴权失败, 不合法的令牌, token={}", authHeader);
-                chain.doFilter(request, response);
-                return;
-            }
-            token = authHeader.substring(TOKEN_PREFIX.length());
+            token = authHeader;
         } else {
             token = request.getParameter(TOKEN_BODY_NAME);
         }
@@ -57,9 +53,8 @@ public class ApiSecurityTokenAuthFilter extends OncePerRequestFilter {
             return;
         }
         // 解析token
-        ResultDto<Collection<GrantedAuthority>> checkToken = securityAuthComponent.getTokenInfo(token, IpTools.getIpAddr(request));
+        ResultDto<Collection<GrantedAuthority>> checkToken = securityAuthComponent.getTokenInfo(token);
         if (checkToken.isError()) {
-            log.error("鉴权失败, 验证令牌不通过, error={}, desc={}", checkToken.getError(), checkToken.getErrorDescription());
             chain.doFilter(request, response);
             return;
         }
