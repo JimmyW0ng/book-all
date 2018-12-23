@@ -32,10 +32,26 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
     private static final long serialVersionUID = 925145697;
 
     /**
+     * Setter for <code>book.authority_token.id</code>. 主键
+     */
+    public AuthorityTokenRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
+
+    /**
      * Create a detached AuthorityTokenRecord
      */
     public AuthorityTokenRecord() {
         super(AuthorityToken.AUTHORITY_TOKEN);
+    }
+
+    /**
+     * Setter for <code>book.authority_token.target_id</code>. 鉴权主体id
+     */
+    public AuthorityTokenRecord setTargetId(Long value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -59,43 +75,6 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
     }
 
     /**
-     * Getter for <code>book.authority_token.id</code>. 主键
-     */
-    public Long getId() {
-        return (Long) get(0);
-    }
-
-    /**
-     * Setter for <code>book.authority_token.id</code>. 主键
-     */
-    public AuthorityTokenRecord setId(Long value) {
-        set(0, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.authority_token.target_id</code>. 鉴权主体id
-     */
-    public Long getTargetId() {
-        return (Long) get(1);
-    }
-
-    /**
-     * Setter for <code>book.authority_token.target_id</code>. 鉴权主体id
-     */
-    public AuthorityTokenRecord setTargetId(Long value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.authority_token.target</code>. 鉴权登录对象：会员；平台；
-     */
-    public AuthorityTokenTarget getTarget() {
-        return (AuthorityTokenTarget) get(2);
-    }
-
-    /**
      * Setter for <code>book.authority_token.target</code>. 鉴权登录对象：会员；平台；
      */
     public AuthorityTokenRecord setTarget(AuthorityTokenTarget value) {
@@ -104,10 +83,10 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
     }
 
     /**
-     * Getter for <code>book.authority_token.client_id</code>. 鉴权客户端id
+     * Getter for <code>book.authority_token.id</code>. 主键
      */
-    public Long getClientId() {
-        return (Long) get(3);
+    public Long getId() {
+        return (Long) get(0);
     }
 
     /**
@@ -119,10 +98,10 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
     }
 
     /**
-     * Getter for <code>book.authority_token.access_ip</code>. 创建ip
+     * Getter for <code>book.authority_token.target_id</code>. 鉴权主体id
      */
-    public String getAccessIp() {
-        return (String) get(4);
+    public Long getTargetId() {
+        return (Long) get(1);
     }
 
     /**
@@ -134,10 +113,10 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
     }
 
     /**
-     * Getter for <code>book.authority_token.expire_time</code>. 过期时间
+     * Getter for <code>book.authority_token.target</code>. 鉴权登录对象：会员；平台；
      */
-    public Timestamp getExpireTime() {
-        return (Timestamp) get(5);
+    public AuthorityTokenTarget getTarget() {
+        return (AuthorityTokenTarget) get(2);
     }
 
     /**
@@ -149,10 +128,10 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
     }
 
     /**
-     * Getter for <code>book.authority_token.code</code>. token串
+     * Getter for <code>book.authority_token.client_id</code>. 鉴权客户端id
      */
-    public String getCode() {
-        return (String) get(6);
+    public Long getClientId() {
+        return (Long) get(3);
     }
 
     /**
@@ -164,10 +143,10 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
     }
 
     /**
-     * Getter for <code>book.authority_token.create_at</code>. 创建时间
+     * Getter for <code>book.authority_token.access_ip</code>. 创建ip
      */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(7);
+    public String getAccessIp() {
+        return (String) get(4);
     }
 
     /**
@@ -179,10 +158,10 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
     }
 
     /**
-     * Getter for <code>book.authority_token.update_at</code>. 更新时间
+     * Getter for <code>book.authority_token.expire_time</code>. 过期时间
      */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(8);
+    public Timestamp getExpireTime() {
+        return (Timestamp) get(5);
     }
 
     /**
@@ -194,10 +173,10 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
     }
 
     /**
-     * Getter for <code>book.authority_token.remark</code>. 备注
+     * Getter for <code>book.authority_token.code</code>. token串
      */
-    public String getRemark() {
-        return (String) get(9);
+    public String getCode() {
+        return (String) get(6);
     }
 
     /**
@@ -209,6 +188,13 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
     }
 
     /**
+     * Getter for <code>book.authority_token.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(7);
+    }
+
+    /**
      * Getter for <code>book.authority_token.del_flag</code>. 删除标记
      */
     public Boolean getDelFlag() {
@@ -216,16 +202,18 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
     }
 
     /**
-     * Setter for <code>book.authority_token.del_flag</code>. 删除标记
+     * Getter for <code>book.authority_token.update_at</code>. 更新时间
      */
-    public AuthorityTokenRecord setDelFlag(Boolean value) {
-        set(10, value);
-        return this;
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(8);
     }
 
-    // -------------------------------------------------------------------------
-    // Primary key information
-    // -------------------------------------------------------------------------
+    /**
+     * Getter for <code>book.authority_token.remark</code>. 备注
+     */
+    public String getRemark() {
+        return (String) get(9);
+    }
 
     /**
      * Getter for <code>book.authority_token.version</code>.
@@ -235,16 +223,8 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
     }
 
     // -------------------------------------------------------------------------
-    // Record12 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.authority_token.version</code>.
-     */
-    public AuthorityTokenRecord setVersion(Long value) {
-        set(11, value);
-        return this;
-    }
 
     /**
      * {@inheritDoc}
@@ -253,6 +233,10 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record12 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -657,10 +641,6 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -687,6 +667,26 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
         value10(value10);
         value11(value11);
         value12(value12);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Setter for <code>book.authority_token.del_flag</code>. 删除标记
+     */
+    public AuthorityTokenRecord setDelFlag(Boolean value) {
+        set(10, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.authority_token.version</code>.
+     */
+    public AuthorityTokenRecord setVersion(Long value) {
+        set(11, value);
         return this;
     }
 }

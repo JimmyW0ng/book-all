@@ -221,20 +221,6 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Getter for <code>book.message_captcha.ip</code>. 访问ip
-     */
-    public String getIp() {
-        return (String) get(8);
-    }
-
-    /**
-     * Getter for <code>book.message_captcha.update_at</code>. 更新时间
-     */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(10);
-    }
-
-    /**
      * Getter for <code>book.message_captcha.remark</code>. 备注
      */
     public String getRemark() {
@@ -242,10 +228,24 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
+     * Getter for <code>book.message_captcha.ip</code>. 访问ip
+     */
+    public String getIp() {
+        return (String) get(8);
+    }
+
+    /**
      * Getter for <code>book.message_captcha.del_flag</code>. 删除标记
      */
     public Boolean getDelFlag() {
         return (Boolean) get(12);
+    }
+
+    /**
+     * Getter for <code>book.message_captcha.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(10);
     }
 
     /**

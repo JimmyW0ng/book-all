@@ -4,6 +4,7 @@
 package com.book.core.domain;
 
 
+import com.book.core.domain.tables.AuthorityClient;
 import com.book.core.domain.tables.AuthorityToken;
 import com.book.core.domain.tables.MemberBaseInfo;
 import com.book.core.domain.tables.MessageCaptcha;
@@ -30,12 +31,17 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class Book extends SchemaImpl {
 
-    private static final long serialVersionUID = 1393892565;
+    private static final long serialVersionUID = 1995912418;
 
     /**
      * The reference instance of <code>book</code>
      */
     public static final Book BOOK = new Book();
+
+    /**
+     * 鉴权客户端表
+     */
+    public final AuthorityClient AUTHORITY_CLIENT = com.book.core.domain.tables.AuthorityClient.AUTHORITY_CLIENT;
 
     /**
      * 鉴权登录表
@@ -77,6 +83,7 @@ public class Book extends SchemaImpl {
 
     private final List<Table<?>> getTables0() {
         return Arrays.<Table<?>>asList(
+                AuthorityClient.AUTHORITY_CLIENT,
                 AuthorityToken.AUTHORITY_TOKEN,
                 MemberBaseInfo.MEMBER_BASE_INFO,
                 MessageCaptcha.MESSAGE_CAPTCHA);

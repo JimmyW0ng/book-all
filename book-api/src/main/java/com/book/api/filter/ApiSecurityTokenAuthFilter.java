@@ -1,13 +1,15 @@
 package com.book.api.filter;
 
-import com.book.api.security.ApiSecurityAuthComponent;
+import com.book.api.business.authority.facade.AuthorityFacade;
 import com.framework.common.spring.pojo.dto.ResultDto;
 import com.framework.common.tool.IpTools;
 import com.framework.common.tool.StringTools;
+import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
@@ -19,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.List;
 
 import static com.book.api.config.SecurityConfig.TOKEN_BODY_NAME;
 import static com.book.api.config.SecurityConfig.TOKEN_HEADER_NAME;
@@ -33,7 +36,7 @@ import static com.book.api.config.SecurityConfig.TOKEN_HEADER_NAME;
 public class ApiSecurityTokenAuthFilter extends OncePerRequestFilter {
 
     @Autowired
-    private ApiSecurityAuthComponent securityAuthComponent;
+    private AuthorityFacade authorityFacade;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
@@ -53,12 +56,18 @@ public class ApiSecurityTokenAuthFilter extends OncePerRequestFilter {
             return;
         }
         // 解析token
-        ResultDto<Collection<GrantedAuthority>> checkToken = securityAuthComponent.getTokenInfo(token);
+        ResultDto<List<String>> checkToken = authorityFacade.getTokenInfo(token);
         if (checkToken.isError()) {
             chain.doFilter(request, response);
             return;
         }
-        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(null, null, checkToken.getResult());
+        // 加载令牌权限
+        List<String> authorities = checkToken.getResult();
+        Collection<GrantedAuthority> grantes = Lists.newArrayList();
+        for (String authority : authorities) {
+            grantes.add(new SimpleGrantedAuthority(authority));
+        }
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(null, null, grantes);
         authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         chain.doFilter(request, response);

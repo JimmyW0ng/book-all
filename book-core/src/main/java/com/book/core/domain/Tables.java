@@ -4,6 +4,7 @@
 package com.book.core.domain;
 
 
+import com.book.core.domain.tables.AuthorityClient;
 import com.book.core.domain.tables.AuthorityToken;
 import com.book.core.domain.tables.MemberBaseInfo;
 import com.book.core.domain.tables.MessageCaptcha;
@@ -23,6 +24,11 @@ import javax.annotation.Generated;
 )
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class Tables {
+
+    /**
+     * 鉴权客户端表
+     */
+    public static final AuthorityClient AUTHORITY_CLIENT = com.book.core.domain.tables.AuthorityClient.AUTHORITY_CLIENT;
 
     /**
      * 鉴权登录表

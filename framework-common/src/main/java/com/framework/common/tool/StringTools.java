@@ -103,6 +103,11 @@ public final class StringTools {
     public static final String POINT = ".";
 
     /**
+     * ":"
+     */
+    public static final String COLON = ":";
+
+    /**
      * 过滤所有以<" 开头以" >结尾的标签
      */
     private final static String regxpForHtml = "<([^>]*)>";

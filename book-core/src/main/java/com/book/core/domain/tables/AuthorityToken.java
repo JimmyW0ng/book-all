@@ -32,55 +32,76 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class AuthorityToken extends TableImpl<AuthorityTokenRecord> {
 
+    private static final long serialVersionUID = 1340244563;
+
     /**
      * The reference instance of <code>book.authority_token</code>
      */
     public static final AuthorityToken AUTHORITY_TOKEN = new AuthorityToken();
-    private static final long serialVersionUID = 1340244563;
+
+    /**
+     * The class holding records for this type
+     */
+    @Override
+    public Class<AuthorityTokenRecord> getRecordType() {
+        return AuthorityTokenRecord.class;
+    }
+
     /**
      * The column <code>book.authority_token.id</code>. 主键
      */
     public final TableField<AuthorityTokenRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "主键");
+
     /**
      * The column <code>book.authority_token.target_id</code>. 鉴权主体id
      */
     public final TableField<AuthorityTokenRecord, Long> TARGET_ID = createField("target_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "鉴权主体id");
+
     /**
      * The column <code>book.authority_token.target</code>. 鉴权登录对象：会员；平台；
      */
     public final TableField<AuthorityTokenRecord, AuthorityTokenTarget> TARGET = createField("target", org.jooq.impl.SQLDataType.VARCHAR(8).nullable(false).asEnumDataType(com.book.core.domain.enums.AuthorityTokenTarget.class), this, "鉴权登录对象：会员；平台；");
+
     /**
      * The column <code>book.authority_token.client_id</code>. 鉴权客户端id
      */
     public final TableField<AuthorityTokenRecord, Long> CLIENT_ID = createField("client_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "鉴权客户端id");
+
     /**
      * The column <code>book.authority_token.access_ip</code>. 创建ip
      */
     public final TableField<AuthorityTokenRecord, String> ACCESS_IP = createField("access_ip", org.jooq.impl.SQLDataType.VARCHAR(255), this, "创建ip");
+
     /**
      * The column <code>book.authority_token.expire_time</code>. 过期时间
      */
     public final TableField<AuthorityTokenRecord, Timestamp> EXPIRE_TIME = createField("expire_time", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "过期时间");
+
     /**
      * The column <code>book.authority_token.code</code>. token串
      */
     public final TableField<AuthorityTokenRecord, String> CODE = createField("code", org.jooq.impl.SQLDataType.VARCHAR(255), this, "token串");
+
     /**
      * The column <code>book.authority_token.create_at</code>. 创建时间
      */
     public final TableField<AuthorityTokenRecord, Timestamp> CREATE_AT = createField("create_at", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "创建时间");
+
     /**
      * The column <code>book.authority_token.update_at</code>. 更新时间
      */
     public final TableField<AuthorityTokenRecord, Timestamp> UPDATE_AT = createField("update_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+
     /**
      * The column <code>book.authority_token.remark</code>. 备注
      */
     public final TableField<AuthorityTokenRecord, String> REMARK = createField("remark", org.jooq.impl.SQLDataType.VARCHAR(255), this, "备注");
+
     /**
      * The column <code>book.authority_token.del_flag</code>. 删除标记
      */
     public final TableField<AuthorityTokenRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标记");
+
     /**
      * The column <code>book.authority_token.version</code>.
      */
@@ -113,14 +134,6 @@ public class AuthorityToken extends TableImpl<AuthorityTokenRecord> {
 
     private AuthorityToken(Name alias, Table<AuthorityTokenRecord> aliased, Field<?>[] parameters) {
         super(alias, null, aliased, parameters, "鉴权登录表");
-    }
-
-    /**
-     * The class holding records for this type
-     */
-    @Override
-    public Class<AuthorityTokenRecord> getRecordType() {
-        return AuthorityTokenRecord.class;
     }
 
     /**

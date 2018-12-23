@@ -4,9 +4,11 @@
 package com.book.core.domain;
 
 
+import com.book.core.domain.tables.AuthorityClient;
 import com.book.core.domain.tables.AuthorityToken;
 import com.book.core.domain.tables.MemberBaseInfo;
 import com.book.core.domain.tables.MessageCaptcha;
+import com.book.core.domain.tables.records.AuthorityClientRecord;
 import com.book.core.domain.tables.records.AuthorityTokenRecord;
 import com.book.core.domain.tables.records.MemberBaseInfoRecord;
 import com.book.core.domain.tables.records.MessageCaptchaRecord;
@@ -35,6 +37,7 @@ public class Keys {
     // IDENTITY definitions
     // -------------------------------------------------------------------------
 
+    public static final Identity<AuthorityClientRecord, Long> IDENTITY_AUTHORITY_CLIENT = Identities0.IDENTITY_AUTHORITY_CLIENT;
     public static final Identity<AuthorityTokenRecord, Long> IDENTITY_AUTHORITY_TOKEN = Identities0.IDENTITY_AUTHORITY_TOKEN;
     public static final Identity<MemberBaseInfoRecord, Long> IDENTITY_MEMBER_BASE_INFO = Identities0.IDENTITY_MEMBER_BASE_INFO;
     public static final Identity<MessageCaptchaRecord, Long> IDENTITY_MESSAGE_CAPTCHA = Identities0.IDENTITY_MESSAGE_CAPTCHA;
@@ -43,6 +46,8 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final UniqueKey<AuthorityClientRecord> KEY_AUTHORITY_CLIENT_PRIMARY = UniqueKeys0.KEY_AUTHORITY_CLIENT_PRIMARY;
+    public static final UniqueKey<AuthorityClientRecord> KEY_AUTHORITY_CLIENT_UNIQUE_NAME = UniqueKeys0.KEY_AUTHORITY_CLIENT_UNIQUE_NAME;
     public static final UniqueKey<AuthorityTokenRecord> KEY_AUTHORITY_TOKEN_PRIMARY = UniqueKeys0.KEY_AUTHORITY_TOKEN_PRIMARY;
     public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_PRIMARY = UniqueKeys0.KEY_MEMBER_BASE_INFO_PRIMARY;
     public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE = UniqueKeys0.KEY_MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE;
@@ -58,12 +63,15 @@ public class Keys {
     // -------------------------------------------------------------------------
 
     private static class Identities0 {
+        public static Identity<AuthorityClientRecord, Long> IDENTITY_AUTHORITY_CLIENT = Internal.createIdentity(AuthorityClient.AUTHORITY_CLIENT, AuthorityClient.AUTHORITY_CLIENT.ID);
         public static Identity<AuthorityTokenRecord, Long> IDENTITY_AUTHORITY_TOKEN = Internal.createIdentity(AuthorityToken.AUTHORITY_TOKEN, AuthorityToken.AUTHORITY_TOKEN.ID);
         public static Identity<MemberBaseInfoRecord, Long> IDENTITY_MEMBER_BASE_INFO = Internal.createIdentity(MemberBaseInfo.MEMBER_BASE_INFO, MemberBaseInfo.MEMBER_BASE_INFO.ID);
         public static Identity<MessageCaptchaRecord, Long> IDENTITY_MESSAGE_CAPTCHA = Internal.createIdentity(MessageCaptcha.MESSAGE_CAPTCHA, MessageCaptcha.MESSAGE_CAPTCHA.ID);
     }
 
     private static class UniqueKeys0 {
+        public static final UniqueKey<AuthorityClientRecord> KEY_AUTHORITY_CLIENT_PRIMARY = Internal.createUniqueKey(AuthorityClient.AUTHORITY_CLIENT, "KEY_authority_client_PRIMARY", AuthorityClient.AUTHORITY_CLIENT.ID);
+        public static final UniqueKey<AuthorityClientRecord> KEY_AUTHORITY_CLIENT_UNIQUE_NAME = Internal.createUniqueKey(AuthorityClient.AUTHORITY_CLIENT, "KEY_authority_client_UNIQUE_NAME", AuthorityClient.AUTHORITY_CLIENT.NAME);
         public static final UniqueKey<AuthorityTokenRecord> KEY_AUTHORITY_TOKEN_PRIMARY = Internal.createUniqueKey(AuthorityToken.AUTHORITY_TOKEN, "KEY_authority_token_PRIMARY", AuthorityToken.AUTHORITY_TOKEN.ID);
         public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_PRIMARY = Internal.createUniqueKey(MemberBaseInfo.MEMBER_BASE_INFO, "KEY_member_base_info_PRIMARY", MemberBaseInfo.MEMBER_BASE_INFO.ID);
         public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE = Internal.createUniqueKey(MemberBaseInfo.MEMBER_BASE_INFO, "KEY_member_base_info_UNIQUE_MEMBER_MOBILE", MemberBaseInfo.MEMBER_BASE_INFO.MOBILE);

@@ -4,6 +4,7 @@
 package com.book.core.domain;
 
 
+import com.book.core.domain.tables.AuthorityClient;
 import com.book.core.domain.tables.AuthorityToken;
 import com.book.core.domain.tables.MemberBaseInfo;
 import com.book.core.domain.tables.MessageCaptcha;
@@ -31,6 +32,8 @@ public class Indexes {
     // INDEX definitions
     // -------------------------------------------------------------------------
 
+    public static final Index AUTHORITY_CLIENT_PRIMARY = Indexes0.AUTHORITY_CLIENT_PRIMARY;
+    public static final Index AUTHORITY_CLIENT_UNIQUE_NAME = Indexes0.AUTHORITY_CLIENT_UNIQUE_NAME;
     public static final Index AUTHORITY_TOKEN_INDEX_CODE = Indexes0.AUTHORITY_TOKEN_INDEX_CODE;
     public static final Index AUTHORITY_TOKEN_INDEX_TARGET_ID_TARGET = Indexes0.AUTHORITY_TOKEN_INDEX_TARGET_ID_TARGET;
     public static final Index AUTHORITY_TOKEN_PRIMARY = Indexes0.AUTHORITY_TOKEN_PRIMARY;
@@ -48,6 +51,8 @@ public class Indexes {
     // -------------------------------------------------------------------------
 
     private static class Indexes0 {
+        public static Index AUTHORITY_CLIENT_PRIMARY = Internal.createIndex("PRIMARY", AuthorityClient.AUTHORITY_CLIENT, new OrderField[]{AuthorityClient.AUTHORITY_CLIENT.ID}, true);
+        public static Index AUTHORITY_CLIENT_UNIQUE_NAME = Internal.createIndex("UNIQUE_NAME", AuthorityClient.AUTHORITY_CLIENT, new OrderField[]{AuthorityClient.AUTHORITY_CLIENT.NAME}, true);
         public static Index AUTHORITY_TOKEN_INDEX_CODE = Internal.createIndex("INDEX_CODE", AuthorityToken.AUTHORITY_TOKEN, new OrderField[]{AuthorityToken.AUTHORITY_TOKEN.CODE}, false);
         public static Index AUTHORITY_TOKEN_INDEX_TARGET_ID_TARGET = Internal.createIndex("INDEX_TARGET_ID_TARGET", AuthorityToken.AUTHORITY_TOKEN, new OrderField[]{AuthorityToken.AUTHORITY_TOKEN.TARGET_ID, AuthorityToken.AUTHORITY_TOKEN.TARGET}, false);
         public static Index AUTHORITY_TOKEN_PRIMARY = Internal.createIndex("PRIMARY", AuthorityToken.AUTHORITY_TOKEN, new OrderField[]{AuthorityToken.AUTHORITY_TOKEN.ID}, true);
