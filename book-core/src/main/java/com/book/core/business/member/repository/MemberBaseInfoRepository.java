@@ -36,4 +36,17 @@ public class MemberBaseInfoRepository extends AbstractCRUDRepository<MemberBaseI
                 .fetchOptionalInto(Long.class);
     }
 
+    /**
+     * @Description 根据推荐码查询
+     * @Author J.W
+     * @Date 2018/12/24 15:32
+     * @Param [shortUrl]
+     * @Return java.util.Optional<com.book.core.business.member.pojo.po.MemberBaseInfoPo>
+     **/
+    public Optional<MemberBaseInfoPo> existByShortUrl(String shortUrl) {
+        return dslContext.select(MEMBER_BASE_INFO.ID)
+                .from(MEMBER_BASE_INFO)
+                .where(MEMBER_BASE_INFO.SHORT_URL.eq(shortUrl))
+                .fetchOptionalInto(MemberBaseInfoPo.class);
+    }
 }

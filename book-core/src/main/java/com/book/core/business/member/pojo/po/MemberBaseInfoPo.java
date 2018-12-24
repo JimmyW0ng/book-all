@@ -16,6 +16,7 @@ public class MemberBaseInfoPo extends BaseDomainPo {
     private Long id;
     private Long mobile;
     private MemberBaseInfoStatus status;
+    private Timestamp timePaymentEnd;
     private MemberBaseInfoSex sex;
     private Timestamp birthday;
     private String trueName;
@@ -26,6 +27,7 @@ public class MemberBaseInfoPo extends BaseDomainPo {
     private String registerTraceSource;
     private String registerTraceNo;
     private Timestamp registerTime;
+    private String registerIp;
     private String remark;
     private Timestamp createAt;
     private Timestamp updateAt;

@@ -34,7 +34,7 @@ public class OssComponent {
     private String privateBucketName;
 
     /**
-     * @Description 公共上传，并返回地址
+     * @Description 私有上传
      * @Author J.W
      * @Date 2018/12/22 12:45 PM
      * @Param [fileName, bytes]

@@ -30,7 +30,7 @@ import java.sql.Timestamp;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaRecord> implements Record14<Long, MessageCaptchaType, Long, String, String, MessageCaptchaScene, Long, Timestamp, String, Timestamp, Timestamp, String, Boolean, Long> {
 
-    private static final long serialVersionUID = -1677396045;
+    private static final long serialVersionUID = -760310067;
 
     /**
      * Setter for <code>book.message_captcha.id</code>. 主键
@@ -249,10 +249,11 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Getter for <code>book.message_captcha.version</code>.
+     * Setter for <code>book.message_captcha.del_flag</code>. 删除标记
      */
-    public Long getVersion() {
-        return (Long) get(13);
+    public MessageCaptchaRecord setDelFlag(Boolean value) {
+        set(12, value);
+        return this;
     }
 
     // -------------------------------------------------------------------------
@@ -776,15 +777,14 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     // -------------------------------------------------------------------------
 
     /**
-     * Setter for <code>book.message_captcha.del_flag</code>. 删除标记
+     * Getter for <code>book.message_captcha.version</code>. 版本号
      */
-    public MessageCaptchaRecord setDelFlag(Boolean value) {
-        set(12, value);
-        return this;
+    public Long getVersion() {
+        return (Long) get(13);
     }
 
     /**
-     * Setter for <code>book.message_captcha.version</code>.
+     * Setter for <code>book.message_captcha.version</code>. 版本号
      */
     public MessageCaptchaRecord setVersion(Long value) {
         set(13, value);

@@ -19,8 +19,7 @@ public abstract class BaseController {
      * @Param [req]
      **/
     protected Long getCurrentClientId(HttpServletRequest req) {
-        String clientId = req.getParameter(REQUEST_CURRENT_CLIENT);
-        return Long.parseLong(clientId);
+        return (Long) req.getAttribute(REQUEST_CURRENT_CLIENT);
     }
 
 }

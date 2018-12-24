@@ -4,10 +4,7 @@
 package com.book.core.domain;
 
 
-import com.book.core.domain.tables.AuthorityClient;
-import com.book.core.domain.tables.AuthorityToken;
-import com.book.core.domain.tables.MemberBaseInfo;
-import com.book.core.domain.tables.MessageCaptcha;
+import com.book.core.domain.tables.*;
 import org.jooq.Catalog;
 import org.jooq.Table;
 import org.jooq.impl.SchemaImpl;
@@ -31,7 +28,7 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class Book extends SchemaImpl {
 
-    private static final long serialVersionUID = 1995912418;
+    private static final long serialVersionUID = 381012731;
 
     /**
      * The reference instance of <code>book</code>
@@ -54,9 +51,44 @@ public class Book extends SchemaImpl {
     public final MemberBaseInfo MEMBER_BASE_INFO = com.book.core.domain.tables.MemberBaseInfo.MEMBER_BASE_INFO;
 
     /**
+     * 会员资金余额表
+     */
+    public final MemberCapitalBalance MEMBER_CAPITAL_BALANCE = com.book.core.domain.tables.MemberCapitalBalance.MEMBER_CAPITAL_BALANCE;
+
+    /**
+     * 会员虚拟币余额表
+     */
+    public final MemberCoinBalance MEMBER_COIN_BALANCE = com.book.core.domain.tables.MemberCoinBalance.MEMBER_COIN_BALANCE;
+
+    /**
+     * 会员推荐表
+     */
+    public final MemberRefer MEMBER_REFER = com.book.core.domain.tables.MemberRefer.MEMBER_REFER;
+
+    /**
+     * 会员时间段付费日志表
+     */
+    public final MemberTimePaymentLog MEMBER_TIME_PAYMENT_LOG = com.book.core.domain.tables.MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG;
+
+    /**
      * 消息-验证码表
      */
     public final MessageCaptcha MESSAGE_CAPTCHA = com.book.core.domain.tables.MessageCaptcha.MESSAGE_CAPTCHA;
+
+    /**
+     * 爬虫-作者基础信息表
+     */
+    public final SpiderAuthorBaseInfo SPIDER_AUTHOR_BASE_INFO = com.book.core.domain.tables.SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO;
+
+    /**
+     * 爬虫-图书基础信息表
+     */
+    public final SpiderBookBaseInfo SPIDER_BOOK_BASE_INFO = com.book.core.domain.tables.SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO;
+
+    /**
+     * 爬虫-图书内容
+     */
+    public final SpiderBookDetailInfo SPIDER_BOOK_DETAIL_INFO = com.book.core.domain.tables.SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO;
 
     /**
      * No further instances allowed
@@ -86,6 +118,13 @@ public class Book extends SchemaImpl {
                 AuthorityClient.AUTHORITY_CLIENT,
                 AuthorityToken.AUTHORITY_TOKEN,
                 MemberBaseInfo.MEMBER_BASE_INFO,
-                MessageCaptcha.MESSAGE_CAPTCHA);
+                MemberCapitalBalance.MEMBER_CAPITAL_BALANCE,
+                MemberCoinBalance.MEMBER_COIN_BALANCE,
+                MemberRefer.MEMBER_REFER,
+                MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG,
+                MessageCaptcha.MESSAGE_CAPTCHA,
+                SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO,
+                SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO,
+                SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO);
     }
 }

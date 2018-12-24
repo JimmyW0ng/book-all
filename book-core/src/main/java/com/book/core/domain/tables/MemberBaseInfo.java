@@ -34,16 +34,16 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MemberBaseInfo extends TableImpl<MemberBaseInfoRecord> {
 
-    private static final long serialVersionUID = -1042739185;
+    private static final long serialVersionUID = -1908776149;
 
     /**
      * The reference instance of <code>book.member_base_info</code>
      */
     public static final MemberBaseInfo MEMBER_BASE_INFO = new MemberBaseInfo();
-
-    private MemberBaseInfo(Name alias, Table<MemberBaseInfoRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, "会员基础信息表");
-    }
+    /**
+     * The column <code>book.member_base_info.time_payment_end</code>. 付费截至时间
+     */
+    public final TableField<MemberBaseInfoRecord, Timestamp> TIME_PAYMENT_END = createField("time_payment_end", org.jooq.impl.SQLDataType.TIMESTAMP, this, "付费截至时间");
 
     /**
      * The column <code>book.member_base_info.id</code>. 主键
@@ -59,6 +59,10 @@ public class MemberBaseInfo extends TableImpl<MemberBaseInfoRecord> {
      * The column <code>book.member_base_info.status</code>. 状态：正常；已冻结；已注销；
      */
     public final TableField<MemberBaseInfoRecord, MemberBaseInfoStatus> STATUS = createField("status", org.jooq.impl.SQLDataType.VARCHAR(6).nullable(false).defaultValue(org.jooq.impl.DSL.inline("normal", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(com.book.core.domain.enums.MemberBaseInfoStatus.class), this, "状态：正常；已冻结；已注销；");
+    /**
+     * The column <code>book.member_base_info.register_ip</code>. 注册ip
+     */
+    public final TableField<MemberBaseInfoRecord, String> REGISTER_IP = createField("register_ip", org.jooq.impl.SQLDataType.VARCHAR(255), this, "注册ip");
 
     /**
      * The column <code>book.member_base_info.sex</code>. 性别：男；女；未知；
@@ -109,6 +113,10 @@ public class MemberBaseInfo extends TableImpl<MemberBaseInfoRecord> {
      * The column <code>book.member_base_info.register_time</code>. 注册时间
      */
     public final TableField<MemberBaseInfoRecord, Timestamp> REGISTER_TIME = createField("register_time", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "注册时间");
+    /**
+     * The column <code>book.member_base_info.version</code>. 版本号
+     */
+    public final TableField<MemberBaseInfoRecord, Long> VERSION = createField("version", org.jooq.impl.SQLDataType.BIGINT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.BIGINT)), this, "版本号");
 
     /**
      * The column <code>book.member_base_info.remark</code>. 备注
@@ -130,10 +138,9 @@ public class MemberBaseInfo extends TableImpl<MemberBaseInfoRecord> {
      */
     public final TableField<MemberBaseInfoRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标志");
 
-    /**
-     * The column <code>book.member_base_info.version</code>.
-     */
-    public final TableField<MemberBaseInfoRecord, Long> VERSION = createField("version", org.jooq.impl.SQLDataType.BIGINT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.BIGINT)), this, "");
+    private MemberBaseInfo(Name alias, Table<MemberBaseInfoRecord> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, "会员基础信息表");
+    }
 
     /**
      * Create a <code>book.member_base_info</code> table reference

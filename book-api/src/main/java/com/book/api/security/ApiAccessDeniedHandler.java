@@ -1,17 +1,18 @@
 package com.book.api.security;
 
-import com.book.core.constant.ErrorCode;
+import com.book.api.config.SecurityConfig;
 import com.framework.common.spring.pojo.dto.ResultDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
+
+import static com.book.core.constant.ErrorCode.ERROR_ACCESS_NEED_AUTH;
+import static javax.servlet.http.HttpServletResponse.SC_FORBIDDEN;
 
 /**
  * @Description: RESTful Spring Security权限不足返回封装
@@ -26,13 +27,8 @@ public class ApiAccessDeniedHandler implements AccessDeniedHandler {
     public void handle(HttpServletRequest request,
                        HttpServletResponse response,
                        AccessDeniedException e
-    ) throws IOException, ServletException {
+    ) throws IOException {
         log.error("当前请求令牌权限不足!");
-        ResultDto resultDo = ResultDto.build(ErrorCode.ERROR_ACCESS_DENIED);
-        response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-        response.setCharacterEncoding("UTF-8");
-        response.setContentType("application/json; charset=utf-8");
-        PrintWriter writer = response.getWriter();
-        writer.println(resultDo.toJson());
+        SecurityConfig.exceptionHandle(response, SC_FORBIDDEN, ResultDto.build(ERROR_ACCESS_NEED_AUTH));
     }
 }

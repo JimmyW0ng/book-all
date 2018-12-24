@@ -10,17 +10,23 @@ import com.framework.common.spring.component.SpringComponent;
 import com.framework.common.spring.pojo.dto.ResultDto;
 import com.framework.common.tool.DateTools;
 import com.framework.common.tool.StringTools;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
+import java.util.Optional;
+
+import static com.book.core.business.message.constant.MessageConstant.CAPTCHA_IN_TEST;
+import static com.book.core.constant.ErrorCode.*;
 
 /**
  * @Description 消息-验证码服务类
  * @Author J.W
  * @Date 2018/12/21 16:18
  **/
+@Slf4j
 @Service
 public class MessageCaptchaService {
 
@@ -70,6 +76,49 @@ public class MessageCaptchaService {
 
         }
         return resultDto.setResult(bizCode);
+    }
+
+    /**
+     * @Description 使用验证码
+     * @Author J.W
+     * @Date 2018/12/24 11:57
+     * @Param [sourceId, clientId, captchaCode, captchaContent, short_msg, member_register]
+     * @Return com.framework.common.spring.pojo.dto.ResultDto
+     **/
+    public ResultDto useCaptcha(Long sourceId,
+                                Long clientId,
+                                String captchaCode,
+                                String captchaContent,
+                                MessageCaptchaType captchaType,
+                                MessageCaptchaScene captchaScene) {
+        // 测试环境支持通用验证码
+        if (!SpringComponent.isProduct() && CAPTCHA_IN_TEST.equals(captchaContent)) {
+            return ResultDto.build();
+        }
+        Optional<MessageCaptchaPo> existCaptcha = messageCaptchaRepository.existBySourceId(sourceId,
+                clientId,
+                captchaCode,
+                captchaType,
+                captchaScene);
+        // 验证码不存在
+        if (!existCaptcha.isPresent()) {
+            log.error("验证码不存在，captchaCode={}", captchaCode);
+            return ResultDto.build(ERROR_CAPTCHA_NOT_EXIST);
+        }
+        // 验证码过期
+        MessageCaptchaPo captchaPo = existCaptcha.get();
+        if (captchaPo.getExpireTime().before(DateTools.getCurrentDateTime())) {
+            log.error("验证码过期，captchaCode={}, captchaId={}", captchaCode, captchaPo.getId());
+            return ResultDto.build(ERROR_CAPTCHA_EXPIRE);
+        }
+        // 验证码不正确
+        if (!captchaContent.equals(captchaPo.getContent())) {
+            log.error("验证码不正确，captchaContent={}, captchaId={}", captchaCode, captchaPo.getId());
+            return ResultDto.build(ERROR_CAPTCHA_INCORRECT);
+        }
+        // 验证码使用后删除
+        messageCaptchaRepository.delBySourceIdAndTypeAndSence(sourceId, captchaType, captchaScene);
+        return ResultDto.build();
     }
 
 }

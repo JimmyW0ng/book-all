@@ -4,10 +4,7 @@
 package com.book.core.domain;
 
 
-import com.book.core.domain.tables.AuthorityClient;
-import com.book.core.domain.tables.AuthorityToken;
-import com.book.core.domain.tables.MemberBaseInfo;
-import com.book.core.domain.tables.MessageCaptcha;
+import com.book.core.domain.tables.*;
 
 import javax.annotation.Generated;
 
@@ -41,7 +38,42 @@ public class Tables {
     public static final MemberBaseInfo MEMBER_BASE_INFO = com.book.core.domain.tables.MemberBaseInfo.MEMBER_BASE_INFO;
 
     /**
+     * 会员资金余额表
+     */
+    public static final MemberCapitalBalance MEMBER_CAPITAL_BALANCE = com.book.core.domain.tables.MemberCapitalBalance.MEMBER_CAPITAL_BALANCE;
+
+    /**
+     * 会员虚拟币余额表
+     */
+    public static final MemberCoinBalance MEMBER_COIN_BALANCE = com.book.core.domain.tables.MemberCoinBalance.MEMBER_COIN_BALANCE;
+
+    /**
+     * 会员推荐表
+     */
+    public static final MemberRefer MEMBER_REFER = com.book.core.domain.tables.MemberRefer.MEMBER_REFER;
+
+    /**
+     * 会员时间段付费日志表
+     */
+    public static final MemberTimePaymentLog MEMBER_TIME_PAYMENT_LOG = com.book.core.domain.tables.MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG;
+
+    /**
      * 消息-验证码表
      */
     public static final MessageCaptcha MESSAGE_CAPTCHA = com.book.core.domain.tables.MessageCaptcha.MESSAGE_CAPTCHA;
+
+    /**
+     * 爬虫-作者基础信息表
+     */
+    public static final SpiderAuthorBaseInfo SPIDER_AUTHOR_BASE_INFO = com.book.core.domain.tables.SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO;
+
+    /**
+     * 爬虫-图书基础信息表
+     */
+    public static final SpiderBookBaseInfo SPIDER_BOOK_BASE_INFO = com.book.core.domain.tables.SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO;
+
+    /**
+     * 爬虫-图书内容
+     */
+    public static final SpiderBookDetailInfo SPIDER_BOOK_DETAIL_INFO = com.book.core.domain.tables.SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO;
 }

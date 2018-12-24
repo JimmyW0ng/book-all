@@ -29,7 +29,7 @@ import java.sql.Timestamp;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenRecord> implements Record12<Long, Long, AuthorityTokenTarget, Long, String, Timestamp, String, Timestamp, Timestamp, String, Boolean, Long> {
 
-    private static final long serialVersionUID = 925145697;
+    private static final long serialVersionUID = -2112678777;
 
     /**
      * Setter for <code>book.authority_token.id</code>. 主键
@@ -195,17 +195,17 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
     }
 
     /**
-     * Getter for <code>book.authority_token.del_flag</code>. 删除标记
-     */
-    public Boolean getDelFlag() {
-        return (Boolean) get(10);
-    }
-
-    /**
      * Getter for <code>book.authority_token.update_at</code>. 更新时间
      */
     public Timestamp getUpdateAt() {
         return (Timestamp) get(8);
+    }
+
+    /**
+     * Getter for <code>book.authority_token.del_flag</code>. 删除标记
+     */
+    public Boolean getDelFlag() {
+        return (Boolean) get(10);
     }
 
     /**
@@ -216,10 +216,11 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
     }
 
     /**
-     * Getter for <code>book.authority_token.version</code>.
+     * Setter for <code>book.authority_token.del_flag</code>. 删除标记
      */
-    public Long getVersion() {
-        return (Long) get(11);
+    public AuthorityTokenRecord setDelFlag(Boolean value) {
+        set(10, value);
+        return this;
     }
 
     // -------------------------------------------------------------------------
@@ -675,15 +676,14 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
     // -------------------------------------------------------------------------
 
     /**
-     * Setter for <code>book.authority_token.del_flag</code>. 删除标记
+     * Getter for <code>book.authority_token.version</code>. 版本号
      */
-    public AuthorityTokenRecord setDelFlag(Boolean value) {
-        set(10, value);
-        return this;
+    public Long getVersion() {
+        return (Long) get(11);
     }
 
     /**
-     * Setter for <code>book.authority_token.version</code>.
+     * Setter for <code>book.authority_token.version</code>. 版本号
      */
     public AuthorityTokenRecord setVersion(Long value) {
         set(11, value);

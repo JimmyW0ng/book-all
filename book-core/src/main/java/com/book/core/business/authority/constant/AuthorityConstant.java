@@ -17,5 +17,9 @@ public class AuthorityConstant {
      */
     public static final int TOKEN_SPLIT_SIZE = 2;
 
+    /**
+     * api基础令牌前缀
+     */
+    public static final String TOKEN_API_CLIENT_PREFIX = "app-";
 
 }

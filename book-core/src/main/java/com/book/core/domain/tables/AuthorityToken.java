@@ -32,7 +32,7 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class AuthorityToken extends TableImpl<AuthorityTokenRecord> {
 
-    private static final long serialVersionUID = 1340244563;
+    private static final long serialVersionUID = 1505706387;
 
     /**
      * The reference instance of <code>book.authority_token</code>
@@ -103,9 +103,9 @@ public class AuthorityToken extends TableImpl<AuthorityTokenRecord> {
     public final TableField<AuthorityTokenRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标记");
 
     /**
-     * The column <code>book.authority_token.version</code>.
+     * The column <code>book.authority_token.version</code>. 版本号
      */
-    public final TableField<AuthorityTokenRecord, Long> VERSION = createField("version", org.jooq.impl.SQLDataType.BIGINT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.BIGINT)), this, "");
+    public final TableField<AuthorityTokenRecord, Long> VERSION = createField("version", org.jooq.impl.SQLDataType.BIGINT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.BIGINT)), this, "版本号");
 
     /**
      * Create a <code>book.authority_token</code> table reference

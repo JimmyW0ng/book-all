@@ -25,10 +25,16 @@ public class ErrorCode {
      * 验证码
      */
     public static final String ERROR_CAPTCHA_GET_NUM_OUT_LIMIT = "ERROR_CAPTCHA_GET_NUM_OUT_LIMIT";
+    public static final String ERROR_CAPTCHA_NOT_EXIST = "ERROR_CAPTCHA_NOT_EXIST";
+    public static final String ERROR_CAPTCHA_EXPIRE = "ERROR_CAPTCHA_EXPIRE";
+    public static final String ERROR_CAPTCHA_INCORRECT = "ERROR_CAPTCHA_INCORRECT";
 
     /**
-     * 会员
+     * 注册
      */
-    public static final String ERROR_MOBILE_IS_EXIST = "ERROR_MOBILE_IS_EXIST";
+    public static final String ERROR_REGISTER_MOBILE_IS_EXIST = "ERROR_REGISTER_MOBILE_IS_EXIST";
+    public static final String ERROR_REGISTER_INVITER_IS_NOT_EXIST = "ERROR_REGISTER_INVITER_IS_NOT_EXIST";
+    public static final String ERROR_REGISTER_INVITER_IS_INVALID = "ERROR_REGISTER_INVITER_IS_INVALID";
+    public static final String ERROR_REGISTER_INVITER_IS_FREEZE = "ERROR_REGISTER_INVITER_IS_FREEZE";
 
 }

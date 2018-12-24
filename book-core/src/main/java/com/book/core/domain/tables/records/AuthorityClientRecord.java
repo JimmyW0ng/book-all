@@ -29,13 +29,29 @@ import java.sql.Timestamp;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRecord> implements Record15<Long, String, String, String, String, Integer, Integer, String, Boolean, AuthorityClientLoginSource, Timestamp, Timestamp, String, Boolean, Long> {
 
-    private static final long serialVersionUID = 1117287999;
+    private static final long serialVersionUID = 1584799769;
+
+    /**
+     * Setter for <code>book.authority_client.id</code>. 主键
+     */
+    public AuthorityClientRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
 
     /**
      * Create a detached AuthorityClientRecord
      */
     public AuthorityClientRecord() {
         super(AuthorityClient.AUTHORITY_CLIENT);
+    }
+
+    /**
+     * Setter for <code>book.authority_client.name</code>. 客户端名称
+     */
+    public AuthorityClientRecord setName(String value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -62,43 +78,6 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
     }
 
     /**
-     * Getter for <code>book.authority_client.id</code>. 主键
-     */
-    public Long getId() {
-        return (Long) get(0);
-    }
-
-    /**
-     * Setter for <code>book.authority_client.id</code>. 主键
-     */
-    public AuthorityClientRecord setId(Long value) {
-        set(0, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.authority_client.name</code>. 客户端名称
-     */
-    public String getName() {
-        return (String) get(1);
-    }
-
-    /**
-     * Setter for <code>book.authority_client.name</code>. 客户端名称
-     */
-    public AuthorityClientRecord setName(String value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.authority_client.secret</code>. 客户端秘钥
-     */
-    public String getSecret() {
-        return (String) get(2);
-    }
-
-    /**
      * Setter for <code>book.authority_client.secret</code>. 客户端秘钥
      */
     public AuthorityClientRecord setSecret(String value) {
@@ -107,10 +86,10 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
     }
 
     /**
-     * Getter for <code>book.authority_client.salt</code>. 盐
+     * Getter for <code>book.authority_client.id</code>. 主键
      */
-    public String getSalt() {
-        return (String) get(3);
+    public Long getId() {
+        return (Long) get(0);
     }
 
     /**
@@ -122,10 +101,10 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
     }
 
     /**
-     * Getter for <code>book.authority_client.role</code>. 角色
+     * Getter for <code>book.authority_client.name</code>. 客户端名称
      */
-    public String getRole() {
-        return (String) get(4);
+    public String getName() {
+        return (String) get(1);
     }
 
     /**
@@ -137,10 +116,10 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
     }
 
     /**
-     * Getter for <code>book.authority_client.access_token_validity</code>.
+     * Getter for <code>book.authority_client.secret</code>. 客户端秘钥
      */
-    public Integer getAccessTokenValidity() {
-        return (Integer) get(5);
+    public String getSecret() {
+        return (String) get(2);
     }
 
     /**
@@ -152,10 +131,10 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
     }
 
     /**
-     * Getter for <code>book.authority_client.refresh_token_validity</code>.
+     * Getter for <code>book.authority_client.salt</code>. 盐
      */
-    public Integer getRefreshTokenValidity() {
-        return (Integer) get(6);
+    public String getSalt() {
+        return (String) get(3);
     }
 
     /**
@@ -167,10 +146,10 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
     }
 
     /**
-     * Getter for <code>book.authority_client.description</code>.
+     * Getter for <code>book.authority_client.role</code>. 角色
      */
-    public String getDescription() {
-        return (String) get(7);
+    public String getRole() {
+        return (String) get(4);
     }
 
     /**
@@ -182,10 +161,10 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
     }
 
     /**
-     * Getter for <code>book.authority_client.archived</code>. 是否激活
+     * Getter for <code>book.authority_client.access_token_validity</code>.
      */
-    public Boolean getArchived() {
-        return (Boolean) get(8);
+    public Integer getAccessTokenValidity() {
+        return (Integer) get(5);
     }
 
     /**
@@ -197,10 +176,10 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
     }
 
     /**
-     * Getter for <code>book.authority_client.login_source</code>. 登录来源：微信小程序；后台管理；h5；苹果；安卓；web；其他；
+     * Getter for <code>book.authority_client.refresh_token_validity</code>.
      */
-    public AuthorityClientLoginSource getLoginSource() {
-        return (AuthorityClientLoginSource) get(9);
+    public Integer getRefreshTokenValidity() {
+        return (Integer) get(6);
     }
 
     /**
@@ -212,10 +191,38 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
     }
 
     /**
+     * Getter for <code>book.authority_client.description</code>.
+     */
+    public String getDescription() {
+        return (String) get(7);
+    }
+
+    /**
+     * Getter for <code>book.authority_client.archived</code>. 是否激活
+     */
+    public Boolean getArchived() {
+        return (Boolean) get(8);
+    }
+
+    /**
      * Getter for <code>book.authority_client.create_at</code>. 创建时间
      */
     public Timestamp getCreateAt() {
         return (Timestamp) get(10);
+    }
+
+    /**
+     * Getter for <code>book.authority_client.login_source</code>. 登录来源：微信小程序；后台管理；h5；苹果；安卓；web；其他；
+     */
+    public AuthorityClientLoginSource getLoginSource() {
+        return (AuthorityClientLoginSource) get(9);
+    }
+
+    /**
+     * Getter for <code>book.authority_client.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(11);
     }
 
     /**
@@ -227,10 +234,10 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
     }
 
     /**
-     * Getter for <code>book.authority_client.update_at</code>. 更新时间
+     * Getter for <code>book.authority_client.remark</code>. 备注信息
      */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(11);
+    public String getRemark() {
+        return (String) get(12);
     }
 
     /**
@@ -242,10 +249,10 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
     }
 
     /**
-     * Getter for <code>book.authority_client.remark</code>. 备注信息
+     * Getter for <code>book.authority_client.del_flag</code>. 删除标记
      */
-    public String getRemark() {
-        return (String) get(12);
+    public Boolean getDelFlag() {
+        return (Boolean) get(13);
     }
 
     /**
@@ -254,13 +261,6 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
     public AuthorityClientRecord setRemark(String value) {
         set(12, value);
         return this;
-    }
-
-    /**
-     * Getter for <code>book.authority_client.del_flag</code>. 删除标记
-     */
-    public Boolean getDelFlag() {
-        return (Boolean) get(13);
     }
 
     /**
@@ -276,31 +276,16 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
     // -------------------------------------------------------------------------
 
     /**
-     * Getter for <code>book.authority_client.version</code>.
-     */
-    public Long getVersion() {
-        return (Long) get(14);
-    }
-
-    // -------------------------------------------------------------------------
-    // Record15 type implementation
-    // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.authority_client.version</code>.
-     */
-    public AuthorityClientRecord setVersion(Long value) {
-        set(14, value);
-        return this;
-    }
-
-    /**
      * {@inheritDoc}
      */
     @Override
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record15 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -804,10 +789,6 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -837,6 +818,25 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
         value13(value13);
         value14(value14);
         value15(value15);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Getter for <code>book.authority_client.version</code>. 版本号
+     */
+    public Long getVersion() {
+        return (Long) get(14);
+    }
+
+    /**
+     * Setter for <code>book.authority_client.version</code>. 版本号
+     */
+    public AuthorityClientRecord setVersion(Long value) {
+        set(14, value);
         return this;
     }
 }

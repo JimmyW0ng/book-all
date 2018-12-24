@@ -33,7 +33,7 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MessageCaptcha extends TableImpl<MessageCaptchaRecord> {
 
-    private static final long serialVersionUID = -1828673212;
+    private static final long serialVersionUID = 810412782;
 
     /**
      * The reference instance of <code>book.message_captcha</code>
@@ -114,9 +114,9 @@ public class MessageCaptcha extends TableImpl<MessageCaptchaRecord> {
     public final TableField<MessageCaptchaRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标记");
 
     /**
-     * The column <code>book.message_captcha.version</code>.
+     * The column <code>book.message_captcha.version</code>. 版本号
      */
-    public final TableField<MessageCaptchaRecord, Long> VERSION = createField("version", org.jooq.impl.SQLDataType.BIGINT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.BIGINT)), this, "");
+    public final TableField<MessageCaptchaRecord, Long> VERSION = createField("version", org.jooq.impl.SQLDataType.BIGINT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.BIGINT)), this, "版本号");
 
     /**
      * Create a <code>book.message_captcha</code> table reference

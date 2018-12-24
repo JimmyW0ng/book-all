@@ -3,6 +3,7 @@ package com.book.api.config;
 import com.book.api.filter.ApiSecurityTokenAuthFilter;
 import com.book.api.security.ApiAccessDeniedHandler;
 import com.book.api.security.ApiSecurityAuthEntryPoint;
+import com.framework.common.spring.pojo.dto.ResultDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,6 +14,10 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * @Description: 鉴权设置
@@ -93,6 +98,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/webjars/**",
                 "/images/**",
                 "/favicon.ico");
+    }
+
+    /**
+     * @Description 鉴权异常响应封装
+     * @Author J.W
+     * @Date 2018/12/24 10:18
+     * @Param [resp, httpCode, body]
+     * @Return void
+     **/
+    public static void exceptionHandle(HttpServletResponse resp, int httpCode, ResultDto body) throws IOException {
+        resp.setStatus(httpCode);
+        resp.setCharacterEncoding("UTF-8");
+        resp.setContentType("application/json; charset=utf-8");
+        PrintWriter writer = resp.getWriter();
+        writer.println(body.toJson());
     }
 
 }

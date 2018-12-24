@@ -4,14 +4,8 @@
 package com.book.core.domain;
 
 
-import com.book.core.domain.tables.AuthorityClient;
-import com.book.core.domain.tables.AuthorityToken;
-import com.book.core.domain.tables.MemberBaseInfo;
-import com.book.core.domain.tables.MessageCaptcha;
-import com.book.core.domain.tables.records.AuthorityClientRecord;
-import com.book.core.domain.tables.records.AuthorityTokenRecord;
-import com.book.core.domain.tables.records.MemberBaseInfoRecord;
-import com.book.core.domain.tables.records.MessageCaptchaRecord;
+import com.book.core.domain.tables.*;
+import com.book.core.domain.tables.records.*;
 import org.jooq.Identity;
 import org.jooq.UniqueKey;
 import org.jooq.impl.Internal;
@@ -40,7 +34,14 @@ public class Keys {
     public static final Identity<AuthorityClientRecord, Long> IDENTITY_AUTHORITY_CLIENT = Identities0.IDENTITY_AUTHORITY_CLIENT;
     public static final Identity<AuthorityTokenRecord, Long> IDENTITY_AUTHORITY_TOKEN = Identities0.IDENTITY_AUTHORITY_TOKEN;
     public static final Identity<MemberBaseInfoRecord, Long> IDENTITY_MEMBER_BASE_INFO = Identities0.IDENTITY_MEMBER_BASE_INFO;
+    public static final Identity<MemberCapitalBalanceRecord, Long> IDENTITY_MEMBER_CAPITAL_BALANCE = Identities0.IDENTITY_MEMBER_CAPITAL_BALANCE;
+    public static final Identity<MemberCoinBalanceRecord, Long> IDENTITY_MEMBER_COIN_BALANCE = Identities0.IDENTITY_MEMBER_COIN_BALANCE;
+    public static final Identity<MemberReferRecord, Long> IDENTITY_MEMBER_REFER = Identities0.IDENTITY_MEMBER_REFER;
+    public static final Identity<MemberTimePaymentLogRecord, Long> IDENTITY_MEMBER_TIME_PAYMENT_LOG = Identities0.IDENTITY_MEMBER_TIME_PAYMENT_LOG;
     public static final Identity<MessageCaptchaRecord, Long> IDENTITY_MESSAGE_CAPTCHA = Identities0.IDENTITY_MESSAGE_CAPTCHA;
+    public static final Identity<SpiderAuthorBaseInfoRecord, Long> IDENTITY_SPIDER_AUTHOR_BASE_INFO = Identities0.IDENTITY_SPIDER_AUTHOR_BASE_INFO;
+    public static final Identity<SpiderBookBaseInfoRecord, Long> IDENTITY_SPIDER_BOOK_BASE_INFO = Identities0.IDENTITY_SPIDER_BOOK_BASE_INFO;
+    public static final Identity<SpiderBookDetailInfoRecord, Long> IDENTITY_SPIDER_BOOK_DETAIL_INFO = Identities0.IDENTITY_SPIDER_BOOK_DETAIL_INFO;
 
     // -------------------------------------------------------------------------
     // UNIQUE and PRIMARY KEY definitions
@@ -51,7 +52,20 @@ public class Keys {
     public static final UniqueKey<AuthorityTokenRecord> KEY_AUTHORITY_TOKEN_PRIMARY = UniqueKeys0.KEY_AUTHORITY_TOKEN_PRIMARY;
     public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_PRIMARY = UniqueKeys0.KEY_MEMBER_BASE_INFO_PRIMARY;
     public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE = UniqueKeys0.KEY_MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE;
+    public static final UniqueKey<MemberCapitalBalanceRecord> KEY_MEMBER_CAPITAL_BALANCE_PRIMARY = UniqueKeys0.KEY_MEMBER_CAPITAL_BALANCE_PRIMARY;
+    public static final UniqueKey<MemberCapitalBalanceRecord> KEY_MEMBER_CAPITAL_BALANCE_UNIQUE_MEMBER_ID = UniqueKeys0.KEY_MEMBER_CAPITAL_BALANCE_UNIQUE_MEMBER_ID;
+    public static final UniqueKey<MemberCoinBalanceRecord> KEY_MEMBER_COIN_BALANCE_PRIMARY = UniqueKeys0.KEY_MEMBER_COIN_BALANCE_PRIMARY;
+    public static final UniqueKey<MemberCoinBalanceRecord> KEY_MEMBER_COIN_BALANCE_UNIQUE_MEMBER_ID = UniqueKeys0.KEY_MEMBER_COIN_BALANCE_UNIQUE_MEMBER_ID;
+    public static final UniqueKey<MemberReferRecord> KEY_MEMBER_REFER_PRIMARY = UniqueKeys0.KEY_MEMBER_REFER_PRIMARY;
+    public static final UniqueKey<MemberReferRecord> KEY_MEMBER_REFER_UNIQUE_REFERRAL_AND_REFERRED = UniqueKeys0.KEY_MEMBER_REFER_UNIQUE_REFERRAL_AND_REFERRED;
+    public static final UniqueKey<MemberTimePaymentLogRecord> KEY_MEMBER_TIME_PAYMENT_LOG_PRIMARY = UniqueKeys0.KEY_MEMBER_TIME_PAYMENT_LOG_PRIMARY;
     public static final UniqueKey<MessageCaptchaRecord> KEY_MESSAGE_CAPTCHA_PRIMARY = UniqueKeys0.KEY_MESSAGE_CAPTCHA_PRIMARY;
+    public static final UniqueKey<SpiderAuthorBaseInfoRecord> KEY_SPIDER_AUTHOR_BASE_INFO_PRIMARY = UniqueKeys0.KEY_SPIDER_AUTHOR_BASE_INFO_PRIMARY;
+    public static final UniqueKey<SpiderAuthorBaseInfoRecord> KEY_SPIDER_AUTHOR_BASE_INFO_UNIQUE_NAME = UniqueKeys0.KEY_SPIDER_AUTHOR_BASE_INFO_UNIQUE_NAME;
+    public static final UniqueKey<SpiderBookBaseInfoRecord> KEY_SPIDER_BOOK_BASE_INFO_PRIMARY = UniqueKeys0.KEY_SPIDER_BOOK_BASE_INFO_PRIMARY;
+    public static final UniqueKey<SpiderBookBaseInfoRecord> KEY_SPIDER_BOOK_BASE_INFO_UNIQ_AUTHORID_TITLE = UniqueKeys0.KEY_SPIDER_BOOK_BASE_INFO_UNIQ_AUTHORID_TITLE;
+    public static final UniqueKey<SpiderBookDetailInfoRecord> KEY_SPIDER_BOOK_DETAIL_INFO_PRIMARY = UniqueKeys0.KEY_SPIDER_BOOK_DETAIL_INFO_PRIMARY;
+    public static final UniqueKey<SpiderBookDetailInfoRecord> KEY_SPIDER_BOOK_DETAIL_INFO_UNIQUE_BOOK_CHAPTER = UniqueKeys0.KEY_SPIDER_BOOK_DETAIL_INFO_UNIQUE_BOOK_CHAPTER;
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
@@ -66,7 +80,14 @@ public class Keys {
         public static Identity<AuthorityClientRecord, Long> IDENTITY_AUTHORITY_CLIENT = Internal.createIdentity(AuthorityClient.AUTHORITY_CLIENT, AuthorityClient.AUTHORITY_CLIENT.ID);
         public static Identity<AuthorityTokenRecord, Long> IDENTITY_AUTHORITY_TOKEN = Internal.createIdentity(AuthorityToken.AUTHORITY_TOKEN, AuthorityToken.AUTHORITY_TOKEN.ID);
         public static Identity<MemberBaseInfoRecord, Long> IDENTITY_MEMBER_BASE_INFO = Internal.createIdentity(MemberBaseInfo.MEMBER_BASE_INFO, MemberBaseInfo.MEMBER_BASE_INFO.ID);
+        public static Identity<MemberCapitalBalanceRecord, Long> IDENTITY_MEMBER_CAPITAL_BALANCE = Internal.createIdentity(MemberCapitalBalance.MEMBER_CAPITAL_BALANCE, MemberCapitalBalance.MEMBER_CAPITAL_BALANCE.ID);
+        public static Identity<MemberCoinBalanceRecord, Long> IDENTITY_MEMBER_COIN_BALANCE = Internal.createIdentity(MemberCoinBalance.MEMBER_COIN_BALANCE, MemberCoinBalance.MEMBER_COIN_BALANCE.ID);
+        public static Identity<MemberReferRecord, Long> IDENTITY_MEMBER_REFER = Internal.createIdentity(MemberRefer.MEMBER_REFER, MemberRefer.MEMBER_REFER.ID);
+        public static Identity<MemberTimePaymentLogRecord, Long> IDENTITY_MEMBER_TIME_PAYMENT_LOG = Internal.createIdentity(MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG, MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG.ID);
         public static Identity<MessageCaptchaRecord, Long> IDENTITY_MESSAGE_CAPTCHA = Internal.createIdentity(MessageCaptcha.MESSAGE_CAPTCHA, MessageCaptcha.MESSAGE_CAPTCHA.ID);
+        public static Identity<SpiderAuthorBaseInfoRecord, Long> IDENTITY_SPIDER_AUTHOR_BASE_INFO = Internal.createIdentity(SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO, SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO.ID);
+        public static Identity<SpiderBookBaseInfoRecord, Long> IDENTITY_SPIDER_BOOK_BASE_INFO = Internal.createIdentity(SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO, SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO.ID);
+        public static Identity<SpiderBookDetailInfoRecord, Long> IDENTITY_SPIDER_BOOK_DETAIL_INFO = Internal.createIdentity(SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO, SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO.ID);
     }
 
     private static class UniqueKeys0 {
@@ -75,6 +96,19 @@ public class Keys {
         public static final UniqueKey<AuthorityTokenRecord> KEY_AUTHORITY_TOKEN_PRIMARY = Internal.createUniqueKey(AuthorityToken.AUTHORITY_TOKEN, "KEY_authority_token_PRIMARY", AuthorityToken.AUTHORITY_TOKEN.ID);
         public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_PRIMARY = Internal.createUniqueKey(MemberBaseInfo.MEMBER_BASE_INFO, "KEY_member_base_info_PRIMARY", MemberBaseInfo.MEMBER_BASE_INFO.ID);
         public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE = Internal.createUniqueKey(MemberBaseInfo.MEMBER_BASE_INFO, "KEY_member_base_info_UNIQUE_MEMBER_MOBILE", MemberBaseInfo.MEMBER_BASE_INFO.MOBILE);
+        public static final UniqueKey<MemberCapitalBalanceRecord> KEY_MEMBER_CAPITAL_BALANCE_PRIMARY = Internal.createUniqueKey(MemberCapitalBalance.MEMBER_CAPITAL_BALANCE, "KEY_member_capital_balance_PRIMARY", MemberCapitalBalance.MEMBER_CAPITAL_BALANCE.ID);
+        public static final UniqueKey<MemberCapitalBalanceRecord> KEY_MEMBER_CAPITAL_BALANCE_UNIQUE_MEMBER_ID = Internal.createUniqueKey(MemberCapitalBalance.MEMBER_CAPITAL_BALANCE, "KEY_member_capital_balance_UNIQUE_MEMBER_ID", MemberCapitalBalance.MEMBER_CAPITAL_BALANCE.MEMBER_ID);
+        public static final UniqueKey<MemberCoinBalanceRecord> KEY_MEMBER_COIN_BALANCE_PRIMARY = Internal.createUniqueKey(MemberCoinBalance.MEMBER_COIN_BALANCE, "KEY_member_coin_balance_PRIMARY", MemberCoinBalance.MEMBER_COIN_BALANCE.ID);
+        public static final UniqueKey<MemberCoinBalanceRecord> KEY_MEMBER_COIN_BALANCE_UNIQUE_MEMBER_ID = Internal.createUniqueKey(MemberCoinBalance.MEMBER_COIN_BALANCE, "KEY_member_coin_balance_UNIQUE_MEMBER_ID", MemberCoinBalance.MEMBER_COIN_BALANCE.MEMBER_ID);
+        public static final UniqueKey<MemberReferRecord> KEY_MEMBER_REFER_PRIMARY = Internal.createUniqueKey(MemberRefer.MEMBER_REFER, "KEY_member_refer_PRIMARY", MemberRefer.MEMBER_REFER.ID);
+        public static final UniqueKey<MemberReferRecord> KEY_MEMBER_REFER_UNIQUE_REFERRAL_AND_REFERRED = Internal.createUniqueKey(MemberRefer.MEMBER_REFER, "KEY_member_refer_UNIQUE_REFERRAL_AND_REFERRED", MemberRefer.MEMBER_REFER.MEMBER_ID, MemberRefer.MEMBER_REFER.REFERRAL_ID);
+        public static final UniqueKey<MemberTimePaymentLogRecord> KEY_MEMBER_TIME_PAYMENT_LOG_PRIMARY = Internal.createUniqueKey(MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG, "KEY_member_time_payment_log_PRIMARY", MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG.ID);
         public static final UniqueKey<MessageCaptchaRecord> KEY_MESSAGE_CAPTCHA_PRIMARY = Internal.createUniqueKey(MessageCaptcha.MESSAGE_CAPTCHA, "KEY_message_captcha_PRIMARY", MessageCaptcha.MESSAGE_CAPTCHA.ID);
+        public static final UniqueKey<SpiderAuthorBaseInfoRecord> KEY_SPIDER_AUTHOR_BASE_INFO_PRIMARY = Internal.createUniqueKey(SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO, "KEY_spider_author_base_info_PRIMARY", SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO.ID);
+        public static final UniqueKey<SpiderAuthorBaseInfoRecord> KEY_SPIDER_AUTHOR_BASE_INFO_UNIQUE_NAME = Internal.createUniqueKey(SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO, "KEY_spider_author_base_info_UNIQUE_NAME", SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO.NAME);
+        public static final UniqueKey<SpiderBookBaseInfoRecord> KEY_SPIDER_BOOK_BASE_INFO_PRIMARY = Internal.createUniqueKey(SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO, "KEY_spider_book_base_info_PRIMARY", SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO.ID);
+        public static final UniqueKey<SpiderBookBaseInfoRecord> KEY_SPIDER_BOOK_BASE_INFO_UNIQ_AUTHORID_TITLE = Internal.createUniqueKey(SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO, "KEY_spider_book_base_info_uniq_authorid_title", SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO.AUTHOR_ID, SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO.TITLE);
+        public static final UniqueKey<SpiderBookDetailInfoRecord> KEY_SPIDER_BOOK_DETAIL_INFO_PRIMARY = Internal.createUniqueKey(SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO, "KEY_spider_book_detail_info_PRIMARY", SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO.ID);
+        public static final UniqueKey<SpiderBookDetailInfoRecord> KEY_SPIDER_BOOK_DETAIL_INFO_UNIQUE_BOOK_CHAPTER = Internal.createUniqueKey(SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO, "KEY_spider_book_detail_info_UNIQUE_BOOK_CHAPTER", SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO.BOOK_ID, SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO.CHAPTER_TITLE);
     }
 }

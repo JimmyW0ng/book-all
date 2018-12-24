@@ -4,10 +4,7 @@
 package com.book.core.domain;
 
 
-import com.book.core.domain.tables.AuthorityClient;
-import com.book.core.domain.tables.AuthorityToken;
-import com.book.core.domain.tables.MemberBaseInfo;
-import com.book.core.domain.tables.MessageCaptcha;
+import com.book.core.domain.tables.*;
 import org.jooq.Index;
 import org.jooq.OrderField;
 import org.jooq.impl.Internal;
@@ -41,10 +38,24 @@ public class Indexes {
     public static final Index MEMBER_BASE_INFO_INDEX_SHORT_URL = Indexes0.MEMBER_BASE_INFO_INDEX_SHORT_URL;
     public static final Index MEMBER_BASE_INFO_PRIMARY = Indexes0.MEMBER_BASE_INFO_PRIMARY;
     public static final Index MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE = Indexes0.MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE;
+    public static final Index MEMBER_CAPITAL_BALANCE_PRIMARY = Indexes0.MEMBER_CAPITAL_BALANCE_PRIMARY;
+    public static final Index MEMBER_CAPITAL_BALANCE_UNIQUE_MEMBER_ID = Indexes0.MEMBER_CAPITAL_BALANCE_UNIQUE_MEMBER_ID;
+    public static final Index MEMBER_COIN_BALANCE_PRIMARY = Indexes0.MEMBER_COIN_BALANCE_PRIMARY;
+    public static final Index MEMBER_COIN_BALANCE_UNIQUE_MEMBER_ID = Indexes0.MEMBER_COIN_BALANCE_UNIQUE_MEMBER_ID;
+    public static final Index MEMBER_REFER_PRIMARY = Indexes0.MEMBER_REFER_PRIMARY;
+    public static final Index MEMBER_REFER_UNIQUE_REFERRAL_AND_REFERRED = Indexes0.MEMBER_REFER_UNIQUE_REFERRAL_AND_REFERRED;
+    public static final Index MEMBER_TIME_PAYMENT_LOG_INDEX_MEMBER_ID = Indexes0.MEMBER_TIME_PAYMENT_LOG_INDEX_MEMBER_ID;
+    public static final Index MEMBER_TIME_PAYMENT_LOG_PRIMARY = Indexes0.MEMBER_TIME_PAYMENT_LOG_PRIMARY;
     public static final Index MESSAGE_CAPTCHA_INDEX_EXPIRE_TIME = Indexes0.MESSAGE_CAPTCHA_INDEX_EXPIRE_TIME;
     public static final Index MESSAGE_CAPTCHA_INDEX_IP = Indexes0.MESSAGE_CAPTCHA_INDEX_IP;
     public static final Index MESSAGE_CAPTCHA_INDEX_SOURCE_ID = Indexes0.MESSAGE_CAPTCHA_INDEX_SOURCE_ID;
     public static final Index MESSAGE_CAPTCHA_PRIMARY = Indexes0.MESSAGE_CAPTCHA_PRIMARY;
+    public static final Index SPIDER_AUTHOR_BASE_INFO_PRIMARY = Indexes0.SPIDER_AUTHOR_BASE_INFO_PRIMARY;
+    public static final Index SPIDER_AUTHOR_BASE_INFO_UNIQUE_NAME = Indexes0.SPIDER_AUTHOR_BASE_INFO_UNIQUE_NAME;
+    public static final Index SPIDER_BOOK_BASE_INFO_PRIMARY = Indexes0.SPIDER_BOOK_BASE_INFO_PRIMARY;
+    public static final Index SPIDER_BOOK_BASE_INFO_UNIQ_AUTHORID_TITLE = Indexes0.SPIDER_BOOK_BASE_INFO_UNIQ_AUTHORID_TITLE;
+    public static final Index SPIDER_BOOK_DETAIL_INFO_PRIMARY = Indexes0.SPIDER_BOOK_DETAIL_INFO_PRIMARY;
+    public static final Index SPIDER_BOOK_DETAIL_INFO_UNIQUE_BOOK_CHAPTER = Indexes0.SPIDER_BOOK_DETAIL_INFO_UNIQUE_BOOK_CHAPTER;
 
     // -------------------------------------------------------------------------
     // [#1459] distribute members to avoid static initialisers > 64kb
@@ -60,9 +71,23 @@ public class Indexes {
         public static Index MEMBER_BASE_INFO_INDEX_SHORT_URL = Internal.createIndex("INDEX_SHORT_URL", MemberBaseInfo.MEMBER_BASE_INFO, new OrderField[]{MemberBaseInfo.MEMBER_BASE_INFO.SHORT_URL}, false);
         public static Index MEMBER_BASE_INFO_PRIMARY = Internal.createIndex("PRIMARY", MemberBaseInfo.MEMBER_BASE_INFO, new OrderField[]{MemberBaseInfo.MEMBER_BASE_INFO.ID}, true);
         public static Index MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE = Internal.createIndex("UNIQUE_MEMBER_MOBILE", MemberBaseInfo.MEMBER_BASE_INFO, new OrderField[]{MemberBaseInfo.MEMBER_BASE_INFO.MOBILE}, true);
+        public static Index MEMBER_CAPITAL_BALANCE_PRIMARY = Internal.createIndex("PRIMARY", MemberCapitalBalance.MEMBER_CAPITAL_BALANCE, new OrderField[]{MemberCapitalBalance.MEMBER_CAPITAL_BALANCE.ID}, true);
+        public static Index MEMBER_CAPITAL_BALANCE_UNIQUE_MEMBER_ID = Internal.createIndex("UNIQUE_MEMBER_ID", MemberCapitalBalance.MEMBER_CAPITAL_BALANCE, new OrderField[]{MemberCapitalBalance.MEMBER_CAPITAL_BALANCE.MEMBER_ID}, true);
+        public static Index MEMBER_COIN_BALANCE_PRIMARY = Internal.createIndex("PRIMARY", MemberCoinBalance.MEMBER_COIN_BALANCE, new OrderField[]{MemberCoinBalance.MEMBER_COIN_BALANCE.ID}, true);
+        public static Index MEMBER_COIN_BALANCE_UNIQUE_MEMBER_ID = Internal.createIndex("UNIQUE_MEMBER_ID", MemberCoinBalance.MEMBER_COIN_BALANCE, new OrderField[]{MemberCoinBalance.MEMBER_COIN_BALANCE.MEMBER_ID}, true);
+        public static Index MEMBER_REFER_PRIMARY = Internal.createIndex("PRIMARY", MemberRefer.MEMBER_REFER, new OrderField[]{MemberRefer.MEMBER_REFER.ID}, true);
+        public static Index MEMBER_REFER_UNIQUE_REFERRAL_AND_REFERRED = Internal.createIndex("UNIQUE_REFERRAL_AND_REFERRED", MemberRefer.MEMBER_REFER, new OrderField[]{MemberRefer.MEMBER_REFER.MEMBER_ID, MemberRefer.MEMBER_REFER.REFERRAL_ID}, true);
+        public static Index MEMBER_TIME_PAYMENT_LOG_INDEX_MEMBER_ID = Internal.createIndex("INDEX_MEMBER_ID", MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG, new OrderField[]{MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG.MEMBER_ID}, false);
+        public static Index MEMBER_TIME_PAYMENT_LOG_PRIMARY = Internal.createIndex("PRIMARY", MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG, new OrderField[]{MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG.ID}, true);
         public static Index MESSAGE_CAPTCHA_INDEX_EXPIRE_TIME = Internal.createIndex("INDEX_EXPIRE_TIME", MessageCaptcha.MESSAGE_CAPTCHA, new OrderField[]{MessageCaptcha.MESSAGE_CAPTCHA.EXPIRE_TIME}, false);
         public static Index MESSAGE_CAPTCHA_INDEX_IP = Internal.createIndex("INDEX_IP", MessageCaptcha.MESSAGE_CAPTCHA, new OrderField[]{MessageCaptcha.MESSAGE_CAPTCHA.IP}, false);
         public static Index MESSAGE_CAPTCHA_INDEX_SOURCE_ID = Internal.createIndex("INDEX_SOURCE_ID", MessageCaptcha.MESSAGE_CAPTCHA, new OrderField[]{MessageCaptcha.MESSAGE_CAPTCHA.SOURCE_ID}, false);
         public static Index MESSAGE_CAPTCHA_PRIMARY = Internal.createIndex("PRIMARY", MessageCaptcha.MESSAGE_CAPTCHA, new OrderField[]{MessageCaptcha.MESSAGE_CAPTCHA.ID}, true);
+        public static Index SPIDER_AUTHOR_BASE_INFO_PRIMARY = Internal.createIndex("PRIMARY", SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO, new OrderField[]{SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO.ID}, true);
+        public static Index SPIDER_AUTHOR_BASE_INFO_UNIQUE_NAME = Internal.createIndex("UNIQUE_NAME", SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO, new OrderField[]{SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO.NAME}, true);
+        public static Index SPIDER_BOOK_BASE_INFO_PRIMARY = Internal.createIndex("PRIMARY", SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO, new OrderField[]{SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO.ID}, true);
+        public static Index SPIDER_BOOK_BASE_INFO_UNIQ_AUTHORID_TITLE = Internal.createIndex("uniq_authorid_title", SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO, new OrderField[]{SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO.AUTHOR_ID, SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO.TITLE}, true);
+        public static Index SPIDER_BOOK_DETAIL_INFO_PRIMARY = Internal.createIndex("PRIMARY", SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO, new OrderField[]{SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO.ID}, true);
+        public static Index SPIDER_BOOK_DETAIL_INFO_UNIQUE_BOOK_CHAPTER = Internal.createIndex("UNIQUE_BOOK_CHAPTER", SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO, new OrderField[]{SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO.BOOK_ID, SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO.CHAPTER_TITLE}, true);
     }
 }

@@ -32,71 +32,94 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class AuthorityClient extends TableImpl<AuthorityClientRecord> {
 
+    private static final long serialVersionUID = 1466937760;
+
     /**
      * The reference instance of <code>book.authority_client</code>
      */
     public static final AuthorityClient AUTHORITY_CLIENT = new AuthorityClient();
-    private static final long serialVersionUID = 408199796;
+    /**
+     * The column <code>book.authority_client.version</code>. 版本号
+     */
+    public final TableField<AuthorityClientRecord, Long> VERSION = createField("version", org.jooq.impl.SQLDataType.BIGINT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.BIGINT)), this, "版本号");
+
     /**
      * The column <code>book.authority_client.id</code>. 主键
      */
     public final TableField<AuthorityClientRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "主键");
+
     /**
      * The column <code>book.authority_client.name</code>. 客户端名称
      */
     public final TableField<AuthorityClientRecord, String> NAME = createField("name", org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false).defaultValue(org.jooq.impl.DSL.inline("", org.jooq.impl.SQLDataType.VARCHAR)), this, "客户端名称");
+
     /**
      * The column <code>book.authority_client.secret</code>. 客户端秘钥
      */
     public final TableField<AuthorityClientRecord, String> SECRET = createField("secret", org.jooq.impl.SQLDataType.VARCHAR(255), this, "客户端秘钥");
+
     /**
      * The column <code>book.authority_client.salt</code>. 盐
      */
     public final TableField<AuthorityClientRecord, String> SALT = createField("salt", org.jooq.impl.SQLDataType.VARCHAR(255), this, "盐");
+
     /**
      * The column <code>book.authority_client.role</code>. 角色
      */
     public final TableField<AuthorityClientRecord, String> ROLE = createField("role", org.jooq.impl.SQLDataType.VARCHAR(255), this, "角色");
+
     /**
      * The column <code>book.authority_client.access_token_validity</code>.
      */
     public final TableField<AuthorityClientRecord, Integer> ACCESS_TOKEN_VALIDITY = createField("access_token_validity", org.jooq.impl.SQLDataType.INTEGER.defaultValue(org.jooq.impl.DSL.inline("-1", org.jooq.impl.SQLDataType.INTEGER)), this, "");
+
     /**
      * The column <code>book.authority_client.refresh_token_validity</code>.
      */
     public final TableField<AuthorityClientRecord, Integer> REFRESH_TOKEN_VALIDITY = createField("refresh_token_validity", org.jooq.impl.SQLDataType.INTEGER.defaultValue(org.jooq.impl.DSL.inline("-1", org.jooq.impl.SQLDataType.INTEGER)), this, "");
+
     /**
      * The column <code>book.authority_client.description</code>.
      */
     public final TableField<AuthorityClientRecord, String> DESCRIPTION = createField("description", org.jooq.impl.SQLDataType.VARCHAR(255), this, "");
+
     /**
      * The column <code>book.authority_client.archived</code>. 是否激活
      */
     public final TableField<AuthorityClientRecord, Boolean> ARCHIVED = createField("archived", org.jooq.impl.SQLDataType.BIT.defaultValue(org.jooq.impl.DSL.inline("b'1'", org.jooq.impl.SQLDataType.BIT)), this, "是否激活");
+
     /**
      * The column <code>book.authority_client.login_source</code>. 登录来源：微信小程序；后台管理；h5；苹果；安卓；web；其他；
      */
     public final TableField<AuthorityClientRecord, AuthorityClientLoginSource> LOGIN_SOURCE = createField("login_source", org.jooq.impl.SQLDataType.VARCHAR(19).asEnumDataType(com.book.core.domain.enums.AuthorityClientLoginSource.class), this, "登录来源：微信小程序；后台管理；h5；苹果；安卓；web；其他；");
+
     /**
      * The column <code>book.authority_client.create_at</code>. 创建时间
      */
     public final TableField<AuthorityClientRecord, Timestamp> CREATE_AT = createField("create_at", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "创建时间");
+
     /**
      * The column <code>book.authority_client.update_at</code>. 更新时间
      */
     public final TableField<AuthorityClientRecord, Timestamp> UPDATE_AT = createField("update_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+
     /**
      * The column <code>book.authority_client.remark</code>. 备注信息
      */
     public final TableField<AuthorityClientRecord, String> REMARK = createField("remark", org.jooq.impl.SQLDataType.VARCHAR(255), this, "备注信息");
+
     /**
      * The column <code>book.authority_client.del_flag</code>. 删除标记
      */
     public final TableField<AuthorityClientRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标记");
+
     /**
-     * The column <code>book.authority_client.version</code>.
+     * The class holding records for this type
      */
-    public final TableField<AuthorityClientRecord, Long> VERSION = createField("version", org.jooq.impl.SQLDataType.BIGINT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.BIGINT)), this, "");
+    @Override
+    public Class<AuthorityClientRecord> getRecordType() {
+        return AuthorityClientRecord.class;
+    }
 
     /**
      * Create a <code>book.authority_client</code> table reference
@@ -125,14 +148,6 @@ public class AuthorityClient extends TableImpl<AuthorityClientRecord> {
 
     private AuthorityClient(Name alias, Table<AuthorityClientRecord> aliased, Field<?>[] parameters) {
         super(alias, null, aliased, parameters, "鉴权客户端表");
-    }
-
-    /**
-     * The class holding records for this type
-     */
-    @Override
-    public Class<AuthorityClientRecord> getRecordType() {
-        return AuthorityClientRecord.class;
     }
 
     /**

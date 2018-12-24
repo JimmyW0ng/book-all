@@ -28,7 +28,7 @@ import static com.framework.common.constant.CommonMessage.ERROR_MOBILE_FORMAT;
 @Slf4j
 @RestController
 @RequestMapping("s/msg")
-@Api(value = "security-msg", description = "消息安全路由")
+@Api(value = "security-message", description = "消息安全路由")
 public class SecurityMessageContoller extends BaseController {
 
     @Autowired
