@@ -135,6 +135,7 @@ public class MemberBaseInfoService {
             log.info("增加推荐关系, 会员id={}, 一级推荐人={}", memberId, inviterId);
             memberReferRepository.insert(memberId, inviterId, MEMBER_REFER_LEVEL_ONE);
         }
+        // 二级推荐人
         Optional<Long> existReferLevelTwo = memberReferRepository.getReferralIdByMemberIdAndLevel(inviterId, MEMBER_REFER_LEVEL_TWO);
         if (existReferLevelTwo.isPresent()) {
             Long referLevelTwo = existReferLevelTwo.get();
