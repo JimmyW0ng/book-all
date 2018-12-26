@@ -29,7 +29,7 @@ import java.sql.Timestamp;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MemberCoinBalanceRecord extends UpdatableRecordImpl<MemberCoinBalanceRecord> implements Record9<Long, Long, BigDecimal, BigDecimal, String, Timestamp, Timestamp, Boolean, Long> {
 
-    private static final long serialVersionUID = -35099123;
+    private static final long serialVersionUID = -797371661;
 
     /**
      * Setter for <code>book.member_coin_balance.id</code>. 主键
@@ -140,6 +140,13 @@ public class MemberCoinBalanceRecord extends UpdatableRecordImpl<MemberCoinBalan
     }
 
     /**
+     * Getter for <code>book.member_coin_balance.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(6);
+    }
+
+    /**
      * Getter for <code>book.member_coin_balance.remark</code>. 备注
      */
     public String getRemark() {
@@ -161,17 +168,11 @@ public class MemberCoinBalanceRecord extends UpdatableRecordImpl<MemberCoinBalan
     }
 
     /**
-     * Getter for <code>book.member_coin_balance.update_at</code>. 更新时间
+     * Setter for <code>book.member_coin_balance.del_flag</code>. 删除标志
      */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(6);
-    }
-
-    /**
-     * Getter for <code>book.member_coin_balance.version</code>.
-     */
-    public Long getVersion() {
-        return (Long) get(8);
+    public MemberCoinBalanceRecord setDelFlag(Boolean value) {
+        set(7, value);
+        return this;
     }
 
     // -------------------------------------------------------------------------
@@ -525,15 +526,14 @@ public class MemberCoinBalanceRecord extends UpdatableRecordImpl<MemberCoinBalan
     // -------------------------------------------------------------------------
 
     /**
-     * Setter for <code>book.member_coin_balance.del_flag</code>. 删除标志
+     * Getter for <code>book.member_coin_balance.version</code>. 版本号
      */
-    public MemberCoinBalanceRecord setDelFlag(Boolean value) {
-        set(7, value);
-        return this;
+    public Long getVersion() {
+        return (Long) get(8);
     }
 
     /**
-     * Setter for <code>book.member_coin_balance.version</code>.
+     * Setter for <code>book.member_coin_balance.version</code>. 版本号
      */
     public MemberCoinBalanceRecord setVersion(Long value) {
         set(8, value);

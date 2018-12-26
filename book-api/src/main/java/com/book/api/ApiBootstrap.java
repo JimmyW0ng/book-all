@@ -2,6 +2,7 @@ package com.book.api;
 
 import com.book.api.config.Swagger2Config;
 import com.framework.common.spring.component.SpringComponent;
+import com.framework.common.spring.config.CorsConfig;
 import com.framework.common.spring.config.JsonConfig;
 import com.framework.spring.boot.jooq.config.JooqSingleDataSourceConfig;
 import org.springframework.boot.SpringApplication;
@@ -26,7 +27,9 @@ import org.springframework.context.annotation.Import;
         // 数据库配置
         JooqSingleDataSourceConfig.class,
         // json配置
-        JsonConfig.class
+        JsonConfig.class,
+        // 跨域设置
+        CorsConfig.class
 })
 @SpringBootApplication
 public class ApiBootstrap {

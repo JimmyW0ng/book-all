@@ -9,7 +9,7 @@ import java.sql.Timestamp;
  * 会员推荐表
  */
 @Data
-public class MemberReferPo extends BaseDomainPo {
+public class MemberBaseReferPo extends BaseDomainPo {
 
     private Long id;
     private Long memberId;

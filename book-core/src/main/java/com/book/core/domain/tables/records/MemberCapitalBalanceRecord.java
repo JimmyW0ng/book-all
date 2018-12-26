@@ -29,7 +29,7 @@ import java.sql.Timestamp;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MemberCapitalBalanceRecord extends UpdatableRecordImpl<MemberCapitalBalanceRecord> implements Record9<Long, Long, BigDecimal, BigDecimal, String, Timestamp, Timestamp, Boolean, Long> {
 
-    private static final long serialVersionUID = -1912720184;
+    private static final long serialVersionUID = 1363353966;
 
     /**
      * Setter for <code>book.member_capital_balance.id</code>. 主键
@@ -140,6 +140,13 @@ public class MemberCapitalBalanceRecord extends UpdatableRecordImpl<MemberCapita
     }
 
     /**
+     * Getter for <code>book.member_capital_balance.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(6);
+    }
+
+    /**
      * Getter for <code>book.member_capital_balance.remark</code>. 备注
      */
     public String getRemark() {
@@ -161,17 +168,11 @@ public class MemberCapitalBalanceRecord extends UpdatableRecordImpl<MemberCapita
     }
 
     /**
-     * Getter for <code>book.member_capital_balance.update_at</code>. 更新时间
+     * Setter for <code>book.member_capital_balance.del_flag</code>. 删除标志
      */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(6);
-    }
-
-    /**
-     * Getter for <code>book.member_capital_balance.version</code>.
-     */
-    public Long getVersion() {
-        return (Long) get(8);
+    public MemberCapitalBalanceRecord setDelFlag(Boolean value) {
+        set(7, value);
+        return this;
     }
 
     // -------------------------------------------------------------------------
@@ -525,15 +526,14 @@ public class MemberCapitalBalanceRecord extends UpdatableRecordImpl<MemberCapita
     // -------------------------------------------------------------------------
 
     /**
-     * Setter for <code>book.member_capital_balance.del_flag</code>. 删除标志
+     * Getter for <code>book.member_capital_balance.version</code>. 版本号
      */
-    public MemberCapitalBalanceRecord setDelFlag(Boolean value) {
-        set(7, value);
-        return this;
+    public Long getVersion() {
+        return (Long) get(8);
     }
 
     /**
-     * Setter for <code>book.member_capital_balance.version</code>.
+     * Setter for <code>book.member_capital_balance.version</code>. 版本号
      */
     public MemberCapitalBalanceRecord setVersion(Long value) {
         set(8, value);

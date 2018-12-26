@@ -38,9 +38,24 @@ public class Tables {
     public static final MemberBaseInfo MEMBER_BASE_INFO = com.book.core.domain.tables.MemberBaseInfo.MEMBER_BASE_INFO;
 
     /**
+     * 会员推荐表
+     */
+    public static final MemberBaseRefer MEMBER_BASE_REFER = com.book.core.domain.tables.MemberBaseRefer.MEMBER_BASE_REFER;
+
+    /**
      * 会员资金余额表
      */
     public static final MemberCapitalBalance MEMBER_CAPITAL_BALANCE = com.book.core.domain.tables.MemberCapitalBalance.MEMBER_CAPITAL_BALANCE;
+
+    /**
+     * 会员资金流水表
+     */
+    public static final MemberCapitalInOutLog MEMBER_CAPITAL_IN_OUT_LOG = com.book.core.domain.tables.MemberCapitalInOutLog.MEMBER_CAPITAL_IN_OUT_LOG;
+
+    /**
+     * 会员资金充值记录
+     */
+    public static final MemberCapitalRechargeLog MEMBER_CAPITAL_RECHARGE_LOG = com.book.core.domain.tables.MemberCapitalRechargeLog.MEMBER_CAPITAL_RECHARGE_LOG;
 
     /**
      * 会员虚拟币余额表
@@ -48,14 +63,19 @@ public class Tables {
     public static final MemberCoinBalance MEMBER_COIN_BALANCE = com.book.core.domain.tables.MemberCoinBalance.MEMBER_COIN_BALANCE;
 
     /**
-     * 会员推荐表
+     * 会员虚拟币流水表
      */
-    public static final MemberRefer MEMBER_REFER = com.book.core.domain.tables.MemberRefer.MEMBER_REFER;
+    public static final MemberCoinInOutLog MEMBER_COIN_IN_OUT_LOG = com.book.core.domain.tables.MemberCoinInOutLog.MEMBER_COIN_IN_OUT_LOG;
 
     /**
-     * 会员时间段付费日志表
+     * 会员虚拟币提现记录
      */
-    public static final MemberTimePaymentLog MEMBER_TIME_PAYMENT_LOG = com.book.core.domain.tables.MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG;
+    public static final MemberCoinWithdrawLog MEMBER_COIN_WITHDRAW_LOG = com.book.core.domain.tables.MemberCoinWithdrawLog.MEMBER_COIN_WITHDRAW_LOG;
+
+    /**
+     * 会员vip购买记录表
+     */
+    public static final MemberVipLog MEMBER_VIP_LOG = com.book.core.domain.tables.MemberVipLog.MEMBER_VIP_LOG;
 
     /**
      * 消息-验证码表

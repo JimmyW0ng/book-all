@@ -28,7 +28,7 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class Book extends SchemaImpl {
 
-    private static final long serialVersionUID = 381012731;
+    private static final long serialVersionUID = -447668465;
 
     /**
      * The reference instance of <code>book</code>
@@ -51,9 +51,24 @@ public class Book extends SchemaImpl {
     public final MemberBaseInfo MEMBER_BASE_INFO = com.book.core.domain.tables.MemberBaseInfo.MEMBER_BASE_INFO;
 
     /**
+     * 会员推荐表
+     */
+    public final MemberBaseRefer MEMBER_BASE_REFER = com.book.core.domain.tables.MemberBaseRefer.MEMBER_BASE_REFER;
+
+    /**
      * 会员资金余额表
      */
     public final MemberCapitalBalance MEMBER_CAPITAL_BALANCE = com.book.core.domain.tables.MemberCapitalBalance.MEMBER_CAPITAL_BALANCE;
+
+    /**
+     * 会员资金流水表
+     */
+    public final MemberCapitalInOutLog MEMBER_CAPITAL_IN_OUT_LOG = com.book.core.domain.tables.MemberCapitalInOutLog.MEMBER_CAPITAL_IN_OUT_LOG;
+
+    /**
+     * 会员资金充值记录
+     */
+    public final MemberCapitalRechargeLog MEMBER_CAPITAL_RECHARGE_LOG = com.book.core.domain.tables.MemberCapitalRechargeLog.MEMBER_CAPITAL_RECHARGE_LOG;
 
     /**
      * 会员虚拟币余额表
@@ -61,14 +76,19 @@ public class Book extends SchemaImpl {
     public final MemberCoinBalance MEMBER_COIN_BALANCE = com.book.core.domain.tables.MemberCoinBalance.MEMBER_COIN_BALANCE;
 
     /**
-     * 会员推荐表
+     * 会员虚拟币流水表
      */
-    public final MemberRefer MEMBER_REFER = com.book.core.domain.tables.MemberRefer.MEMBER_REFER;
+    public final MemberCoinInOutLog MEMBER_COIN_IN_OUT_LOG = com.book.core.domain.tables.MemberCoinInOutLog.MEMBER_COIN_IN_OUT_LOG;
 
     /**
-     * 会员时间段付费日志表
+     * 会员虚拟币提现记录
      */
-    public final MemberTimePaymentLog MEMBER_TIME_PAYMENT_LOG = com.book.core.domain.tables.MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG;
+    public final MemberCoinWithdrawLog MEMBER_COIN_WITHDRAW_LOG = com.book.core.domain.tables.MemberCoinWithdrawLog.MEMBER_COIN_WITHDRAW_LOG;
+
+    /**
+     * 会员vip购买记录表
+     */
+    public final MemberVipLog MEMBER_VIP_LOG = com.book.core.domain.tables.MemberVipLog.MEMBER_VIP_LOG;
 
     /**
      * 消息-验证码表
@@ -118,10 +138,14 @@ public class Book extends SchemaImpl {
                 AuthorityClient.AUTHORITY_CLIENT,
                 AuthorityToken.AUTHORITY_TOKEN,
                 MemberBaseInfo.MEMBER_BASE_INFO,
+                MemberBaseRefer.MEMBER_BASE_REFER,
                 MemberCapitalBalance.MEMBER_CAPITAL_BALANCE,
+                MemberCapitalInOutLog.MEMBER_CAPITAL_IN_OUT_LOG,
+                MemberCapitalRechargeLog.MEMBER_CAPITAL_RECHARGE_LOG,
                 MemberCoinBalance.MEMBER_COIN_BALANCE,
-                MemberRefer.MEMBER_REFER,
-                MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG,
+                MemberCoinInOutLog.MEMBER_COIN_IN_OUT_LOG,
+                MemberCoinWithdrawLog.MEMBER_COIN_WITHDRAW_LOG,
+                MemberVipLog.MEMBER_VIP_LOG,
                 MessageCaptcha.MESSAGE_CAPTCHA,
                 SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO,
                 SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO,

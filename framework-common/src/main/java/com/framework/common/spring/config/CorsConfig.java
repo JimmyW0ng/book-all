@@ -25,10 +25,7 @@ public class CorsConfig {
         // 预检请求的缓存时间（秒），即在这个时间段里，对于相同的跨域请求不会再预检了
         config.setMaxAge(3600L);
         // 允许提交请求的方法，*表示全部允许
-        config.addAllowedMethod("OPTIONS");
-        config.addAllowedMethod("HEAD");
-        config.addAllowedMethod("GET");
-        config.addAllowedMethod("POST");
+        config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }

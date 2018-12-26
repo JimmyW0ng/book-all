@@ -48,12 +48,36 @@ public class SecurityMessageController extends BaseController {
                                                @RequestParam(value = "mobile") String mobile) {
         // 校验手机号
         if (StringTools.isBlank(mobile) || !RegexTools.checkMobileFormat(mobile)) {
+            log.error("发送会员注册验证码失败, 手机号格式不正确, mobile={}", mobile);
             return ResultDto.build(ERROR_MOBILE_FORMAT);
         }
         Long mobileFormat = Long.parseLong(mobile);
         Long clientId = super.getCurrentClientId(request);
         String ip = IpTools.getIpAddr(request);
         return messageCaptchaFacade.memberRegisterCaptcha(mobileFormat, clientId, ip);
+    }
+
+    /**
+     * @Description 发送会员登录验证码
+     * @Author J.W
+     * @Date 2018/12/21 16:27
+     * @Param [request, mobile]
+     * @Return com.framework.common.spring.pojo.dto.ResultDto<java.lang.String>
+     **/
+    @ApiOperation("发送会员登录验证码")
+    @PostMapping(value = "/mbr/login", headers = "Accept-Version=1.0")
+    public ResultDto<String> memberLoginCaptcha(HttpServletRequest request,
+                                                @ApiParam(name = "mobile", value = "手机号", required = true)
+                                                @RequestParam(value = "mobile") String mobile) {
+        // 校验手机号
+        if (StringTools.isBlank(mobile) || !RegexTools.checkMobileFormat(mobile)) {
+            log.error("发送会员登录验证码失败, 手机号格式不正确, mobile={}", mobile);
+            return ResultDto.build(ERROR_MOBILE_FORMAT);
+        }
+        Long mobileFormat = Long.parseLong(mobile);
+        Long clientId = super.getCurrentClientId(request);
+        String ip = IpTools.getIpAddr(request);
+        return messageCaptchaFacade.memberLoginCaptcha(mobileFormat, clientId, ip);
     }
 
 }

@@ -989,28 +989,6 @@ public class DateTools {
     }
 
     /**
-     * 返回日期后num个月
-     *
-     * @param date          日期
-     * @param num           月数
-     * @param repaymentDate 约定还款日
-     * @return
-     */
-    public static Date getDateYYYYMMDD(Date date, Integer num, Integer repaymentDate) {
-        if (date == null || num == null || repaymentDate == null) {
-            return null;
-        }
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        int cnt = DateTools.getActualMaximum(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1 + num);
-        if (cnt < repaymentDate.intValue()) {
-            repaymentDate = cnt;
-        }
-        date = getDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1 + num, repaymentDate);
-        return date;
-    }
-
-    /**
      * 字串转成时间
      *
      * @param year  年

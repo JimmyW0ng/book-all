@@ -33,7 +33,7 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MessageCaptcha extends TableImpl<MessageCaptchaRecord> {
 
-    private static final long serialVersionUID = 810412782;
+    private static final long serialVersionUID = -136146310;
 
     /**
      * The reference instance of <code>book.message_captcha</code>
@@ -74,9 +74,9 @@ public class MessageCaptcha extends TableImpl<MessageCaptchaRecord> {
     public final TableField<MessageCaptchaRecord, String> CONTENT = createField("content", org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false), this, "验证码内容");
 
     /**
-     * The column <code>book.message_captcha.scene</code>. 验证场景：账户注册；
+     * The column <code>book.message_captcha.scene</code>. 验证场景：会员注册；会员登录；
      */
-    public final TableField<MessageCaptchaRecord, MessageCaptchaScene> SCENE = createField("scene", org.jooq.impl.SQLDataType.VARCHAR(15).nullable(false).asEnumDataType(com.book.core.domain.enums.MessageCaptchaScene.class), this, "验证场景：账户注册；");
+    public final TableField<MessageCaptchaRecord, MessageCaptchaScene> SCENE = createField("scene", org.jooq.impl.SQLDataType.VARCHAR(15).nullable(false).asEnumDataType(com.book.core.domain.enums.MessageCaptchaScene.class), this, "验证场景：会员注册；会员登录；");
 
     /**
      * The column <code>book.message_captcha.client_id</code>. 客户端标识

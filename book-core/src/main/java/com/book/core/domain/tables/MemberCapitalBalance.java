@@ -32,7 +32,7 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MemberCapitalBalance extends TableImpl<MemberCapitalBalanceRecord> {
 
-    private static final long serialVersionUID = 1961827457;
+    private static final long serialVersionUID = 464466869;
 
     /**
      * The reference instance of <code>book.member_capital_balance</code>
@@ -88,9 +88,9 @@ public class MemberCapitalBalance extends TableImpl<MemberCapitalBalanceRecord> 
     public final TableField<MemberCapitalBalanceRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标志");
 
     /**
-     * The column <code>book.member_capital_balance.version</code>.
+     * The column <code>book.member_capital_balance.version</code>. 版本号
      */
-    public final TableField<MemberCapitalBalanceRecord, Long> VERSION = createField("version", org.jooq.impl.SQLDataType.BIGINT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.BIGINT)), this, "");
+    public final TableField<MemberCapitalBalanceRecord, Long> VERSION = createField("version", org.jooq.impl.SQLDataType.BIGINT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.BIGINT)), this, "版本号");
 
     /**
      * Create a <code>book.member_capital_balance</code> table reference

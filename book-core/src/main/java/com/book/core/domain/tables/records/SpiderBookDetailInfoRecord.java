@@ -139,6 +139,13 @@ public class SpiderBookDetailInfoRecord extends UpdatableRecordImpl<SpiderBookDe
     }
 
     /**
+     * Getter for <code>book.spider_book_detail_info.remark</code>. 备注
+     */
+    public String getRemark() {
+        return (String) get(6);
+    }
+
+    /**
      * Getter for <code>book.spider_book_detail_info.create_at</code>. 创建时间
      */
     public Timestamp getCreateAt() {
@@ -157,13 +164,6 @@ public class SpiderBookDetailInfoRecord extends UpdatableRecordImpl<SpiderBookDe
      */
     public Boolean getDelFlag() {
         return (Boolean) get(7);
-    }
-
-    /**
-     * Getter for <code>book.spider_book_detail_info.remark</code>. 备注
-     */
-    public String getRemark() {
-        return (String) get(6);
     }
 
     /**

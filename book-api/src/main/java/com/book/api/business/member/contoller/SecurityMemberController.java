@@ -75,4 +75,35 @@ public class SecurityMemberController extends BaseController {
                 ip);
     }
 
+    @ApiOperation("会员登录")
+    @PostMapping(value = "/login", headers = "Accept-Version=1.0")
+    public ResultDto<String> memberLogin(HttpServletRequest request,
+                                         @ApiParam(name = "mobile", value = "手机号", required = true)
+                                         @RequestParam(name = "mobile") String mobile,
+                                         @ApiParam(name = "captchaCode", value = "短信验证码编码", required = true)
+                                         @RequestParam(name = "captchaCode") String captchaCode,
+                                         @ApiParam(name = "captchaContent", value = "短信验证码", required = true)
+                                         @RequestParam(name = "captchaContent") String captchaContent) {
+        // 校验手机号
+        if (StringTools.isBlank(mobile) || !RegexTools.checkMobileFormat(mobile)) {
+            log.error("会员登录失败, 手机号格式不正确, mobile={}", mobile);
+            return ResultDto.build(ERROR_MOBILE_FORMAT);
+        }
+        if (StringTools.isBlank(captchaCode) || StringTools.isBlank(captchaContent)) {
+            log.error("会员登录失败, 验证码code或content缺失, mobile={}, captchaCode={}, captchaContent={}",
+                    mobile,
+                    captchaCode,
+                    captchaContent);
+            return ResultDto.build(ERROR_SYSTEM_PARAM_FORMAT);
+        }
+        Long mobileFormat = Long.parseLong(mobile);
+        Long clientId = super.getCurrentClientId(request);
+        String ip = IpTools.getIpAddr(request);
+        return memberFacade.login(mobileFormat,
+                clientId,
+                captchaCode,
+                captchaContent,
+                ip);
+    }
+
 }

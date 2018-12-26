@@ -23,17 +23,31 @@ public class MemberBaseInfoRepository extends AbstractCRUDRepository<MemberBaseI
     }
 
     /**
-     * @Description 根据手机号查询
+     * @Description 根据手机号查询（包括删除的记录）
      * @Author J.W
      * @Date 2018/12/21 17:14
      * @Param [mobile]
      * @Return java.util.Optional<java.lang.Long>
      **/
-    public Optional<Long> existByMobile(Long mobile) {
+    public Optional<Long> existMobileIncludeDel(Long mobile) {
         return dslContext.select(MEMBER_BASE_INFO.ID)
                 .from(MEMBER_BASE_INFO)
                 .where(MEMBER_BASE_INFO.MOBILE.eq(mobile))
                 .fetchOptionalInto(Long.class);
+    }
+
+    /**
+     * @Description 根据手机号查询
+     * @Author J.W
+     * @Date 2018/12/26 14:38
+     * @Param [mobile]
+     * @Return com.book.core.business.member.pojo.po.MemberBaseInfoPo
+     **/
+    public MemberBaseInfoPo getByMobile(Long mobile) {
+        return dslContext.selectFrom(MEMBER_BASE_INFO)
+                .where(MEMBER_BASE_INFO.MOBILE.eq(mobile))
+                .and(MEMBER_BASE_INFO.DEL_FLAG.eq(false))
+                .fetchOneInto(MemberBaseInfoPo.class);
     }
 
     /**

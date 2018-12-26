@@ -103,6 +103,42 @@ public class MemberFacade {
     }
 
     /**
+     * @Description 会员登录
+     * @Author J.W
+     * @Date 2018/12/24 16:13
+     * @Param [mobile, clientId, captchaCode, captchaContent, ip]
+     * @Return com.framework.common.spring.pojo.dto.ResultDto<java.lang.String>
+     **/
+    public ResultDto<String> login(Long mobile,
+                                   Long clientId,
+                                   String captchaCode,
+                                   String captchaContent,
+                                   String ip) {
+        log.info("会员注册开始, mobile={}, clientId={}, captchaCode={}, captchaContent={}, ip={}",
+                mobile,
+                clientId,
+                captchaCode,
+                captchaContent,
+                ip);
+        // 使用验证码
+        ResultDto checkCaptcha = messageCaptchaService.useCaptcha(mobile,
+                clientId,
+                captchaCode,
+                captchaContent,
+                MessageCaptchaType.short_msg,
+                MessageCaptchaScene.member_login);
+        if (checkCaptcha.isError()) {
+            return checkCaptcha;
+        }
+        ResultDto<MemberBaseInfoPo> checkMbr = memberBaseInfoService.checkByMobile(mobile);
+        if (checkMbr.isError()) {
+            return ResultDto.build(checkMbr.getError());
+        }
+        // 自动登录
+        return authorityTokenService.loginForApi(clientId, checkMbr.getResult().getId(), ip);
+    }
+
+    /**
      * @Description 会员中心
      * @Author J.W
      * @Date 2018/12/25 11:30
@@ -124,7 +160,7 @@ public class MemberFacade {
         outDto.setAvatar(memberBaseInfo.getAvatar());
         // 会员标识
         Timestamp sysTime = DateTools.getCurrentDateTime();
-        outDto.setVipFlag(memberBaseInfo.getTimePaymentEnd() != null && memberBaseInfo.getTimePaymentEnd().after(sysTime));
+        outDto.setVipFlag(memberBaseInfo.getVipEnd() != null && memberBaseInfo.getVipEnd().after(sysTime));
         // 资金可用余额
         outDto.setAvailableCapital(memberCapitalBalanceService.getByMemberId(memberId).getAvailableBalance());
         // 资金可用余额

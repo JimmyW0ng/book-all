@@ -4,9 +4,9 @@ import com.book.core.business.member.pojo.po.MemberBaseInfoPo;
 import com.book.core.business.member.pojo.po.MemberCapitalBalancePo;
 import com.book.core.business.member.pojo.po.MemberCoinBalancePo;
 import com.book.core.business.member.repository.MemberBaseInfoRepository;
+import com.book.core.business.member.repository.MemberBaseReferRepository;
 import com.book.core.business.member.repository.MemberCapitalBalanceRepository;
 import com.book.core.business.member.repository.MemberCoinBalanceRepository;
-import com.book.core.business.member.repository.MemberReferRepository;
 import com.book.core.domain.enums.MemberBaseInfoSex;
 import com.book.core.domain.enums.MemberBaseInfoStatus;
 import com.framework.common.spring.pojo.dto.ResultDto;
@@ -40,7 +40,7 @@ public class MemberBaseInfoService {
     @Autowired
     private MemberBaseInfoRepository memberBaseInfoRepository;
     @Autowired
-    private MemberReferRepository memberReferRepository;
+    private MemberBaseReferRepository memberBaseReferRepository;
     @Autowired
     private MemberCapitalBalanceRepository memberCapitalBalanceRepository;
     @Autowired
@@ -54,8 +54,20 @@ public class MemberBaseInfoService {
      * @Return boolean
      **/
     public boolean existMobileIncludeDel(Long mobile) {
-        Optional existMobile = memberBaseInfoRepository.existByMobile(mobile);
+        Optional existMobile = memberBaseInfoRepository.existMobileIncludeDel(mobile);
         return existMobile.isPresent();
+    }
+
+    /**
+     * @Description 根据手机号获取和校验会员基础信息
+     * @Author J.W
+     * @Date 2018/12/26 14:43
+     * @Param [mobile]
+     * @Return com.framework.common.spring.pojo.dto.ResultDto<com.book.core.business.member.pojo.po.MemberBaseInfoPo>
+     **/
+    public ResultDto<MemberBaseInfoPo> checkByMobile(Long mobile) {
+        MemberBaseInfoPo memberBaseInfo = memberBaseInfoRepository.getByMobile(mobile);
+        return this.check(memberBaseInfo);
     }
 
     /**
@@ -81,12 +93,12 @@ public class MemberBaseInfoService {
             return ResultDto.build(ERROR_REGISTER_INVITER_IS_NOT_EXIST);
         }
         // 会员未付费或付费时间已过期
-        if (inviter.getTimePaymentEnd() == null) {
+        if (inviter.getVipEnd() == null) {
             return ResultDto.build(ERROR_REGISTER_INVITER_IS_NOT_EXIST);
         }
         Timestamp sysTime = DateTools.getCurrentDateTime();
         Timestamp invalidTime = DateTools.addDate(sysTime, MEMBER_SHORT_URL_OVERDUE_EXTEND_DAY);
-        if (invalidTime.after(inviter.getTimePaymentEnd())) {
+        if (invalidTime.after(inviter.getVipEnd())) {
             return ResultDto.build(ERROR_REGISTER_INVITER_IS_INVALID);
         }
         ResultDto<Long> resultDto = ResultDto.build();
@@ -145,7 +157,17 @@ public class MemberBaseInfoService {
      **/
     public ResultDto<MemberBaseInfoPo> checkById(Long memberId) {
         MemberBaseInfoPo memberBaseInfo = memberBaseInfoRepository.getById(memberId);
-        // 基础信息校验
+        return this.check(memberBaseInfo);
+    }
+
+    /**
+     * @Description 基础信息校验
+     * @Author J.W
+     * @Date 2018/12/26 14:42
+     * @Param [memberBaseInfo]
+     * @Return com.framework.common.spring.pojo.dto.ResultDto<com.book.core.business.member.pojo.po.MemberBaseInfoPo>
+     **/
+    private ResultDto<MemberBaseInfoPo> check(MemberBaseInfoPo memberBaseInfo) {
         if (memberBaseInfo == null
                 || memberBaseInfo.getDelFlag()
                 || memberBaseInfo.getStatus().equals(MemberBaseInfoStatus.cancel)) {
@@ -176,13 +198,13 @@ public class MemberBaseInfoService {
         if (hasInviteCode) {
             // 一级推荐人
             log.info("增加推荐关系, 会员id={}, 一级推荐人={}", memberId, inviterId);
-            memberReferRepository.insert(memberId, inviterId, MEMBER_REFER_LEVEL_ONE);
+            memberBaseReferRepository.insert(memberId, inviterId, MEMBER_REFER_LEVEL_ONE);
             // 二级推荐人
-            Optional<Long> existReferLevelTwo = memberReferRepository.getReferralIdByMemberIdAndLevel(inviterId, MEMBER_REFER_LEVEL_ONE);
+            Optional<Long> existReferLevelTwo = memberBaseReferRepository.getReferralIdByMemberIdAndLevel(inviterId, MEMBER_REFER_LEVEL_ONE);
             if (existReferLevelTwo.isPresent()) {
                 Long referLevelTwo = existReferLevelTwo.get();
                 log.info("增加推荐关系, 会员id={}, 二级推荐人={}", memberId, referLevelTwo);
-                memberReferRepository.insert(memberId, inviterId, MEMBER_REFER_LEVEL_TWO);
+                memberBaseReferRepository.insert(memberId, inviterId, MEMBER_REFER_LEVEL_TWO);
             }
         }
         // 初始化会员资金余额

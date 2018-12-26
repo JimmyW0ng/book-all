@@ -30,7 +30,7 @@ import java.sql.Timestamp;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaRecord> implements Record14<Long, MessageCaptchaType, Long, String, String, MessageCaptchaScene, Long, Timestamp, String, Timestamp, Timestamp, String, Boolean, Long> {
 
-    private static final long serialVersionUID = -760310067;
+    private static final long serialVersionUID = -1070795893;
 
     /**
      * Setter for <code>book.message_captcha.id</code>. 主键
@@ -123,18 +123,17 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Setter for <code>book.message_captcha.scene</code>. 验证场景：账户注册；
-     */
-    public MessageCaptchaRecord setScene(MessageCaptchaScene value) {
-        set(5, value);
-        return this;
-    }
-
-    /**
      * Getter for <code>book.message_captcha.code</code>. 业务编码
      */
     public String getCode() {
         return (String) get(3);
+    }
+
+    /**
+     * Getter for <code>book.message_captcha.content</code>. 验证码内容
+     */
+    public String getContent() {
+        return (String) get(4);
     }
 
     /**
@@ -146,10 +145,10 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Getter for <code>book.message_captcha.content</code>. 验证码内容
+     * Getter for <code>book.message_captcha.scene</code>. 验证场景：会员注册；会员登录；
      */
-    public String getContent() {
-        return (String) get(4);
+    public MessageCaptchaScene getScene() {
+        return (MessageCaptchaScene) get(5);
     }
 
     /**
@@ -161,10 +160,11 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Getter for <code>book.message_captcha.scene</code>. 验证场景：账户注册；
+     * Setter for <code>book.message_captcha.scene</code>. 验证场景：会员注册；会员登录；
      */
-    public MessageCaptchaScene getScene() {
-        return (MessageCaptchaScene) get(5);
+    public MessageCaptchaRecord setScene(MessageCaptchaScene value) {
+        set(5, value);
+        return this;
     }
 
     /**

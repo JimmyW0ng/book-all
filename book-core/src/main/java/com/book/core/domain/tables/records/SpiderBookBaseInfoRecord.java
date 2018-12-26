@@ -156,6 +156,21 @@ public class SpiderBookBaseInfoRecord extends UpdatableRecordImpl<SpiderBookBase
     }
 
     /**
+     * Getter for <code>book.spider_book_base_info.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(7);
+    }
+
+    /**
+     * Setter for <code>book.spider_book_base_info.remark</code>. 备注
+     */
+    public SpiderBookBaseInfoRecord setRemark(String value) {
+        set(8, value);
+        return this;
+    }
+
+    /**
      * Getter for <code>book.spider_book_base_info.img_cover</code>. 封面图片
      */
     public String getImgCover() {
@@ -177,25 +192,10 @@ public class SpiderBookBaseInfoRecord extends UpdatableRecordImpl<SpiderBookBase
     }
 
     /**
-     * Getter for <code>book.spider_book_base_info.update_at</code>. 更新时间
-     */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(7);
-    }
-
-    /**
      * Getter for <code>book.spider_book_base_info.del_flag</code>. 删除标记
      */
     public Boolean getDelFlag() {
         return (Boolean) get(9);
-    }
-
-    /**
-     * Setter for <code>book.spider_book_base_info.remark</code>. 备注
-     */
-    public SpiderBookBaseInfoRecord setRemark(String value) {
-        set(8, value);
-        return this;
     }
 
     /**

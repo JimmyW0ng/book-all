@@ -34,16 +34,16 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MemberBaseInfo extends TableImpl<MemberBaseInfoRecord> {
 
-    private static final long serialVersionUID = 1956036249;
+    private static final long serialVersionUID = -831787162;
 
     /**
      * The reference instance of <code>book.member_base_info</code>
      */
     public static final MemberBaseInfo MEMBER_BASE_INFO = new MemberBaseInfo();
     /**
-     * The column <code>book.member_base_info.time_payment_end</code>. 付费截至时间
+     * The column <code>book.member_base_info.vip_end</code>. vip到期时间
      */
-    public final TableField<MemberBaseInfoRecord, Timestamp> TIME_PAYMENT_END = createField("time_payment_end", org.jooq.impl.SQLDataType.TIMESTAMP, this, "付费截至时间");
+    public final TableField<MemberBaseInfoRecord, Timestamp> VIP_END = createField("vip_end", org.jooq.impl.SQLDataType.TIMESTAMP, this, "vip到期时间");
 
     /**
      * The column <code>book.member_base_info.id</code>. 主键
@@ -60,13 +60,14 @@ public class MemberBaseInfo extends TableImpl<MemberBaseInfoRecord> {
      */
     public final TableField<MemberBaseInfoRecord, MemberBaseInfoStatus> STATUS = createField("status", org.jooq.impl.SQLDataType.VARCHAR(6).nullable(false).defaultValue(org.jooq.impl.DSL.inline("normal", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(com.book.core.domain.enums.MemberBaseInfoStatus.class), this, "状态：正常；已冻结；已注销；");
     /**
-     * The column <code>book.member_base_info.nick_name</code>. 昵称
-     */
-    public final TableField<MemberBaseInfoRecord, String> NICK_NAME = createField("nick_name", org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false), this, "昵称");
-    /**
      * The column <code>book.member_base_info.register_ip</code>. 注册ip
      */
     public final TableField<MemberBaseInfoRecord, String> REGISTER_IP = createField("register_ip", org.jooq.impl.SQLDataType.VARCHAR(255), this, "注册ip");
+
+    /**
+     * The column <code>book.member_base_info.nick_name</code>. 昵称
+     */
+    public final TableField<MemberBaseInfoRecord, String> NICK_NAME = createField("nick_name", org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false), this, "昵称");
 
     /**
      * The column <code>book.member_base_info.sex</code>. 性别：男；女；未知；

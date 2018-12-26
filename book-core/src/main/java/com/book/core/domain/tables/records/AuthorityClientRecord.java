@@ -251,6 +251,13 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
     }
 
     /**
+     * Getter for <code>book.authority_client.del_flag</code>. 删除标记
+     */
+    public Boolean getDelFlag() {
+        return (Boolean) get(13);
+    }
+
+    /**
      * Getter for <code>book.authority_client.update_at</code>. 更新时间
      */
     public Timestamp getUpdateAt() {
@@ -262,13 +269,6 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
      */
     public String getRemark() {
         return (String) get(12);
-    }
-
-    /**
-     * Getter for <code>book.authority_client.del_flag</code>. 删除标记
-     */
-    public Boolean getDelFlag() {
-        return (Boolean) get(13);
     }
 
     // -------------------------------------------------------------------------

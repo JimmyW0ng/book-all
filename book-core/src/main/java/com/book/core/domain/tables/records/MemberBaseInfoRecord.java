@@ -30,7 +30,7 @@ import java.sql.Timestamp;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoRecord> implements Record21<Long, Long, MemberBaseInfoStatus, Timestamp, String, MemberBaseInfoSex, Timestamp, String, String, String, String, Long, String, String, Timestamp, String, String, Timestamp, Timestamp, Boolean, Long> {
 
-    private static final long serialVersionUID = 17491403;
+    private static final long serialVersionUID = -1644725528;
 
     /**
      * Setter for <code>book.member_base_info.id</code>. 主键
@@ -58,13 +58,13 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     /**
      * Create a detached, initialised MemberBaseInfoRecord
      */
-    public MemberBaseInfoRecord(Long id, Long mobile, MemberBaseInfoStatus status, Timestamp timePaymentEnd, String nickName, MemberBaseInfoSex sex, Timestamp birthday, String trueName, String identityNumber, String shortUrl, String avatar, Long registerClient, String registerTraceSource, String registerTraceNo, Timestamp registerTime, String registerIp, String remark, Timestamp createAt, Timestamp updateAt, Boolean delFlag, Long version) {
+    public MemberBaseInfoRecord(Long id, Long mobile, MemberBaseInfoStatus status, Timestamp vipEnd, String nickName, MemberBaseInfoSex sex, Timestamp birthday, String trueName, String identityNumber, String shortUrl, String avatar, Long registerClient, String registerTraceSource, String registerTraceNo, Timestamp registerTime, String registerIp, String remark, Timestamp createAt, Timestamp updateAt, Boolean delFlag, Long version) {
         super(MemberBaseInfo.MEMBER_BASE_INFO);
 
         set(0, id);
         set(1, mobile);
         set(2, status);
-        set(3, timePaymentEnd);
+        set(3, vipEnd);
         set(4, nickName);
         set(5, sex);
         set(6, birthday);
@@ -107,32 +107,10 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
-     * Getter for <code>book.member_base_info.time_payment_end</code>. 付费截至时间
-     */
-    public Timestamp getTimePaymentEnd() {
-        return (Timestamp) get(3);
-    }
-
-    /**
      * Getter for <code>book.member_base_info.mobile</code>. 手机号
      */
     public Long getMobile() {
         return (Long) get(1);
-    }
-
-    /**
-     * Setter for <code>book.member_base_info.time_payment_end</code>. 付费截至时间
-     */
-    public MemberBaseInfoRecord setTimePaymentEnd(Timestamp value) {
-        set(3, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_base_info.nick_name</code>. 昵称
-     */
-    public String getNickName() {
-        return (String) get(4);
     }
 
     /**
@@ -144,10 +122,10 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
-     * Getter for <code>book.member_base_info.sex</code>. 性别：男；女；未知；
+     * Getter for <code>book.member_base_info.vip_end</code>. vip到期时间
      */
-    public MemberBaseInfoSex getSex() {
-        return (MemberBaseInfoSex) get(5);
+    public Timestamp getVipEnd() {
+        return (Timestamp) get(3);
     }
 
     /**
@@ -159,10 +137,11 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
-     * Getter for <code>book.member_base_info.birthday</code>. 生日
+     * Setter for <code>book.member_base_info.vip_end</code>. vip到期时间
      */
-    public Timestamp getBirthday() {
-        return (Timestamp) get(6);
+    public MemberBaseInfoRecord setVipEnd(Timestamp value) {
+        set(3, value);
+        return this;
     }
 
     /**
@@ -174,10 +153,10 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
-     * Getter for <code>book.member_base_info.true_name</code>. 真实姓名
+     * Getter for <code>book.member_base_info.nick_name</code>. 昵称
      */
-    public String getTrueName() {
-        return (String) get(7);
+    public String getNickName() {
+        return (String) get(4);
     }
 
     /**
@@ -189,10 +168,10 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
-     * Getter for <code>book.member_base_info.identity_number</code>. 身份证号码
+     * Getter for <code>book.member_base_info.sex</code>. 性别：男；女；未知；
      */
-    public String getIdentityNumber() {
-        return (String) get(8);
+    public MemberBaseInfoSex getSex() {
+        return (MemberBaseInfoSex) get(5);
     }
 
     /**
@@ -204,10 +183,10 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
-     * Getter for <code>book.member_base_info.short_url</code>. 推荐码
+     * Getter for <code>book.member_base_info.birthday</code>. 生日
      */
-    public String getShortUrl() {
-        return (String) get(9);
+    public Timestamp getBirthday() {
+        return (Timestamp) get(6);
     }
 
     /**
@@ -219,10 +198,10 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
-     * Getter for <code>book.member_base_info.avatar</code>. 个人头像url
+     * Getter for <code>book.member_base_info.true_name</code>. 真实姓名
      */
-    public String getAvatar() {
-        return (String) get(10);
+    public String getTrueName() {
+        return (String) get(7);
     }
 
     /**
@@ -234,17 +213,10 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
-     * Getter for <code>book.member_base_info.register_client</code>. 注册客户端
+     * Getter for <code>book.member_base_info.identity_number</code>. 身份证号码
      */
-    public Long getRegisterClient() {
-        return (Long) get(11);
-    }
-
-    /**
-     * Getter for <code>book.member_base_info.register_trace_source</code>. 注册来源码
-     */
-    public String getRegisterTraceSource() {
-        return (String) get(12);
+    public String getIdentityNumber() {
+        return (String) get(8);
     }
 
     /**
@@ -256,6 +228,13 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
+     * Getter for <code>book.member_base_info.short_url</code>. 推荐码
+     */
+    public String getShortUrl() {
+        return (String) get(9);
+    }
+
+    /**
      * Setter for <code>book.member_base_info.register_trace_source</code>. 注册来源码
      */
     public MemberBaseInfoRecord setRegisterTraceSource(String value) {
@@ -264,10 +243,10 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
-     * Getter for <code>book.member_base_info.register_trace_no</code>. 注册来源码编号
+     * Getter for <code>book.member_base_info.avatar</code>. 个人头像url
      */
-    public String getRegisterTraceNo() {
-        return (String) get(13);
+    public String getAvatar() {
+        return (String) get(10);
     }
 
     /**
@@ -279,10 +258,10 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
-     * Getter for <code>book.member_base_info.register_time</code>. 注册时间
+     * Getter for <code>book.member_base_info.register_client</code>. 注册客户端
      */
-    public Timestamp getRegisterTime() {
-        return (Timestamp) get(14);
+    public Long getRegisterClient() {
+        return (Long) get(11);
     }
 
     /**
@@ -294,10 +273,10 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
-     * Getter for <code>book.member_base_info.register_ip</code>. 注册ip
+     * Getter for <code>book.member_base_info.register_trace_source</code>. 注册来源码
      */
-    public String getRegisterIp() {
-        return (String) get(15);
+    public String getRegisterTraceSource() {
+        return (String) get(12);
     }
 
     /**
@@ -309,10 +288,10 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
-     * Getter for <code>book.member_base_info.remark</code>. 备注
+     * Getter for <code>book.member_base_info.register_trace_no</code>. 注册来源码编号
      */
-    public String getRemark() {
-        return (String) get(16);
+    public String getRegisterTraceNo() {
+        return (String) get(13);
     }
 
     /**
@@ -324,10 +303,10 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
-     * Getter for <code>book.member_base_info.create_at</code>. 创建时间
+     * Getter for <code>book.member_base_info.register_time</code>. 注册时间
      */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(17);
+    public Timestamp getRegisterTime() {
+        return (Timestamp) get(14);
     }
 
     /**
@@ -339,10 +318,10 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
-     * Getter for <code>book.member_base_info.update_at</code>. 更新时间
+     * Getter for <code>book.member_base_info.register_ip</code>. 注册ip
      */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(18);
+    public String getRegisterIp() {
+        return (String) get(15);
     }
 
     /**
@@ -354,10 +333,31 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
+     * Getter for <code>book.member_base_info.remark</code>. 备注
+     */
+    public String getRemark() {
+        return (String) get(16);
+    }
+
+    /**
+     * Getter for <code>book.member_base_info.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(17);
+    }
+
+    /**
      * Getter for <code>book.member_base_info.del_flag</code>. 删除标志
      */
     public Boolean getDelFlag() {
         return (Boolean) get(19);
+    }
+
+    /**
+     * Getter for <code>book.member_base_info.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(18);
     }
 
     /**
@@ -427,24 +427,8 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
      * {@inheritDoc}
      */
     @Override
-    public Field<Timestamp> field4() {
-        return MemberBaseInfo.MEMBER_BASE_INFO.TIME_PAYMENT_END;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public Row21<Long, Long, MemberBaseInfoStatus, Timestamp, String, MemberBaseInfoSex, Timestamp, String, String, String, String, Long, String, String, Timestamp, String, String, Timestamp, Timestamp, Boolean, Long> fieldsRow() {
         return (Row21) super.fieldsRow();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Row21<Long, Long, MemberBaseInfoStatus, Timestamp, String, MemberBaseInfoSex, Timestamp, String, String, String, String, Long, String, String, Timestamp, String, String, Timestamp, Timestamp, Boolean, Long> valuesRow() {
-        return (Row21) super.valuesRow();
     }
 
     /**
@@ -571,6 +555,22 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
      * {@inheritDoc}
      */
     @Override
+    public Row21<Long, Long, MemberBaseInfoStatus, Timestamp, String, MemberBaseInfoSex, Timestamp, String, String, String, String, Long, String, String, Timestamp, String, String, Timestamp, Timestamp, Boolean, Long> valuesRow() {
+        return (Row21) super.valuesRow();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Field<Timestamp> field4() {
+        return MemberBaseInfo.MEMBER_BASE_INFO.VIP_END;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public Long component1() {
         return getId();
     }
@@ -597,22 +597,6 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     @Override
     public Field<Boolean> field20() {
         return MemberBaseInfo.MEMBER_BASE_INFO.DEL_FLAG;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Field<Long> field21() {
-        return MemberBaseInfo.MEMBER_BASE_INFO.VERSION;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Timestamp component4() {
-        return getTimePaymentEnd();
     }
 
     /**
@@ -739,6 +723,22 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
      * {@inheritDoc}
      */
     @Override
+    public Field<Long> field21() {
+        return MemberBaseInfo.MEMBER_BASE_INFO.VERSION;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Timestamp component4() {
+        return getVipEnd();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public Long value1() {
         return getId();
     }
@@ -763,24 +763,8 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
      * {@inheritDoc}
      */
     @Override
-    public Timestamp value4() {
-        return getTimePaymentEnd();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public Boolean component20() {
         return getDelFlag();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Long component21() {
-        return getVersion();
     }
 
     /**
@@ -907,6 +891,22 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
      * {@inheritDoc}
      */
     @Override
+    public Long component21() {
+        return getVersion();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Timestamp value4() {
+        return getVipEnd();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public MemberBaseInfoRecord value1(Long value) {
         setId(value);
         return this;
@@ -936,23 +936,6 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     @Override
     public Boolean value20() {
         return getDelFlag();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Long value21() {
-        return getVersion();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public MemberBaseInfoRecord value4(Timestamp value) {
-        setTimePaymentEnd(value);
-        return this;
     }
 
     /**
@@ -1099,10 +1082,6 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -1138,6 +1117,27 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
         value19(value19);
         value20(value20);
         value21(value21);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Long value21() {
+        return getVersion();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public MemberBaseInfoRecord value4(Timestamp value) {
+        setVipEnd(value);
         return this;
     }
 }
