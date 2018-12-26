@@ -34,7 +34,7 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MemberBaseInfo extends TableImpl<MemberBaseInfoRecord> {
 
-    private static final long serialVersionUID = -1908776149;
+    private static final long serialVersionUID = 1956036249;
 
     /**
      * The reference instance of <code>book.member_base_info</code>
@@ -59,6 +59,10 @@ public class MemberBaseInfo extends TableImpl<MemberBaseInfoRecord> {
      * The column <code>book.member_base_info.status</code>. 状态：正常；已冻结；已注销；
      */
     public final TableField<MemberBaseInfoRecord, MemberBaseInfoStatus> STATUS = createField("status", org.jooq.impl.SQLDataType.VARCHAR(6).nullable(false).defaultValue(org.jooq.impl.DSL.inline("normal", org.jooq.impl.SQLDataType.VARCHAR)).asEnumDataType(com.book.core.domain.enums.MemberBaseInfoStatus.class), this, "状态：正常；已冻结；已注销；");
+    /**
+     * The column <code>book.member_base_info.nick_name</code>. 昵称
+     */
+    public final TableField<MemberBaseInfoRecord, String> NICK_NAME = createField("nick_name", org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false), this, "昵称");
     /**
      * The column <code>book.member_base_info.register_ip</code>. 注册ip
      */

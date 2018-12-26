@@ -2,6 +2,7 @@ package com.framework.common.tool;
 
 import com.google.common.collect.Maps;
 import org.apache.commons.lang3.StringUtils;
+import org.hashids.Hashids;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -1180,6 +1181,32 @@ public final class StringTools {
     }
 
     /**
+     * Hashids生成随机字符串，具有唯一性
+     *
+     * @param input
+     * @param key
+     * @param minLength
+     * @return
+     */
+    public static String generateShortUrl(Long input, String key, int minLength) {
+        Hashids hashids = new Hashids(key, minLength);
+        return hashids.encode(input);
+    }
+
+    /**
+     * Hashids解密随机字符串
+     *
+     * @param input
+     * @param key
+     * @param minLength
+     * @return
+     */
+    public static long[] decodeShortUrl(String input, String key, int minLength) {
+        Hashids hashids = new Hashids(key, minLength);
+        return hashids.decode(input);
+    }
+
+    /**
      * 过滤emoji 或者 其他非文字类型的字符
      *
      * @param source
@@ -1270,4 +1297,6 @@ public final class StringTools {
         }
         return str;
     }
+
+
 }

@@ -32,10 +32,26 @@ public class MemberCoinBalanceRecord extends UpdatableRecordImpl<MemberCoinBalan
     private static final long serialVersionUID = -35099123;
 
     /**
+     * Setter for <code>book.member_coin_balance.id</code>. 主键
+     */
+    public MemberCoinBalanceRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
+
+    /**
      * Create a detached MemberCoinBalanceRecord
      */
     public MemberCoinBalanceRecord() {
         super(MemberCoinBalance.MEMBER_COIN_BALANCE);
+    }
+
+    /**
+     * Setter for <code>book.member_coin_balance.member_id</code>. 会员标识
+     */
+    public MemberCoinBalanceRecord setMemberId(Long value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -56,43 +72,6 @@ public class MemberCoinBalanceRecord extends UpdatableRecordImpl<MemberCoinBalan
     }
 
     /**
-     * Getter for <code>book.member_coin_balance.id</code>. 主键
-     */
-    public Long getId() {
-        return (Long) get(0);
-    }
-
-    /**
-     * Setter for <code>book.member_coin_balance.id</code>. 主键
-     */
-    public MemberCoinBalanceRecord setId(Long value) {
-        set(0, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_coin_balance.member_id</code>. 会员标识
-     */
-    public Long getMemberId() {
-        return (Long) get(1);
-    }
-
-    /**
-     * Setter for <code>book.member_coin_balance.member_id</code>. 会员标识
-     */
-    public MemberCoinBalanceRecord setMemberId(Long value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_coin_balance.balance</code>. 总余额
-     */
-    public BigDecimal getBalance() {
-        return (BigDecimal) get(2);
-    }
-
-    /**
      * Setter for <code>book.member_coin_balance.balance</code>. 总余额
      */
     public MemberCoinBalanceRecord setBalance(BigDecimal value) {
@@ -101,10 +80,10 @@ public class MemberCoinBalanceRecord extends UpdatableRecordImpl<MemberCoinBalan
     }
 
     /**
-     * Getter for <code>book.member_coin_balance.available_balance</code>. 可用余额
+     * Getter for <code>book.member_coin_balance.id</code>. 主键
      */
-    public BigDecimal getAvailableBalance() {
-        return (BigDecimal) get(3);
+    public Long getId() {
+        return (Long) get(0);
     }
 
     /**
@@ -116,10 +95,10 @@ public class MemberCoinBalanceRecord extends UpdatableRecordImpl<MemberCoinBalan
     }
 
     /**
-     * Getter for <code>book.member_coin_balance.remark</code>. 备注
+     * Getter for <code>book.member_coin_balance.member_id</code>. 会员标识
      */
-    public String getRemark() {
-        return (String) get(4);
+    public Long getMemberId() {
+        return (Long) get(1);
     }
 
     /**
@@ -131,10 +110,10 @@ public class MemberCoinBalanceRecord extends UpdatableRecordImpl<MemberCoinBalan
     }
 
     /**
-     * Getter for <code>book.member_coin_balance.create_at</code>. 创建时间
+     * Getter for <code>book.member_coin_balance.balance</code>. 总余额
      */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(5);
+    public BigDecimal getBalance() {
+        return (BigDecimal) get(2);
     }
 
     /**
@@ -146,10 +125,10 @@ public class MemberCoinBalanceRecord extends UpdatableRecordImpl<MemberCoinBalan
     }
 
     /**
-     * Getter for <code>book.member_coin_balance.update_at</code>. 更新时间
+     * Getter for <code>book.member_coin_balance.available_balance</code>. 可用余额
      */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(6);
+    public BigDecimal getAvailableBalance() {
+        return (BigDecimal) get(3);
     }
 
     /**
@@ -161,6 +140,20 @@ public class MemberCoinBalanceRecord extends UpdatableRecordImpl<MemberCoinBalan
     }
 
     /**
+     * Getter for <code>book.member_coin_balance.remark</code>. 备注
+     */
+    public String getRemark() {
+        return (String) get(4);
+    }
+
+    /**
+     * Getter for <code>book.member_coin_balance.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(5);
+    }
+
+    /**
      * Getter for <code>book.member_coin_balance.del_flag</code>. 删除标志
      */
     public Boolean getDelFlag() {
@@ -168,16 +161,11 @@ public class MemberCoinBalanceRecord extends UpdatableRecordImpl<MemberCoinBalan
     }
 
     /**
-     * Setter for <code>book.member_coin_balance.del_flag</code>. 删除标志
+     * Getter for <code>book.member_coin_balance.update_at</code>. 更新时间
      */
-    public MemberCoinBalanceRecord setDelFlag(Boolean value) {
-        set(7, value);
-        return this;
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(6);
     }
-
-    // -------------------------------------------------------------------------
-    // Primary key information
-    // -------------------------------------------------------------------------
 
     /**
      * Getter for <code>book.member_coin_balance.version</code>.
@@ -187,16 +175,8 @@ public class MemberCoinBalanceRecord extends UpdatableRecordImpl<MemberCoinBalan
     }
 
     // -------------------------------------------------------------------------
-    // Record9 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.member_coin_balance.version</code>.
-     */
-    public MemberCoinBalanceRecord setVersion(Long value) {
-        set(8, value);
-        return this;
-    }
 
     /**
      * {@inheritDoc}
@@ -205,6 +185,10 @@ public class MemberCoinBalanceRecord extends UpdatableRecordImpl<MemberCoinBalan
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record9 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -510,10 +494,6 @@ public class MemberCoinBalanceRecord extends UpdatableRecordImpl<MemberCoinBalan
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -537,6 +517,26 @@ public class MemberCoinBalanceRecord extends UpdatableRecordImpl<MemberCoinBalan
         value7(value7);
         value8(value8);
         value9(value9);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Setter for <code>book.member_coin_balance.del_flag</code>. 删除标志
+     */
+    public MemberCoinBalanceRecord setDelFlag(Boolean value) {
+        set(7, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.member_coin_balance.version</code>.
+     */
+    public MemberCoinBalanceRecord setVersion(Long value) {
+        set(8, value);
         return this;
     }
 }

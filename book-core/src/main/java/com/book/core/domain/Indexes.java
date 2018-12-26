@@ -42,8 +42,8 @@ public class Indexes {
     public static final Index MEMBER_CAPITAL_BALANCE_UNIQUE_MEMBER_ID = Indexes0.MEMBER_CAPITAL_BALANCE_UNIQUE_MEMBER_ID;
     public static final Index MEMBER_COIN_BALANCE_PRIMARY = Indexes0.MEMBER_COIN_BALANCE_PRIMARY;
     public static final Index MEMBER_COIN_BALANCE_UNIQUE_MEMBER_ID = Indexes0.MEMBER_COIN_BALANCE_UNIQUE_MEMBER_ID;
+    public static final Index MEMBER_REFER_INDEX_MEMBER_ID = Indexes0.MEMBER_REFER_INDEX_MEMBER_ID;
     public static final Index MEMBER_REFER_PRIMARY = Indexes0.MEMBER_REFER_PRIMARY;
-    public static final Index MEMBER_REFER_UNIQUE_REFERRAL_AND_REFERRED = Indexes0.MEMBER_REFER_UNIQUE_REFERRAL_AND_REFERRED;
     public static final Index MEMBER_TIME_PAYMENT_LOG_INDEX_MEMBER_ID = Indexes0.MEMBER_TIME_PAYMENT_LOG_INDEX_MEMBER_ID;
     public static final Index MEMBER_TIME_PAYMENT_LOG_PRIMARY = Indexes0.MEMBER_TIME_PAYMENT_LOG_PRIMARY;
     public static final Index MESSAGE_CAPTCHA_INDEX_EXPIRE_TIME = Indexes0.MESSAGE_CAPTCHA_INDEX_EXPIRE_TIME;
@@ -75,8 +75,8 @@ public class Indexes {
         public static Index MEMBER_CAPITAL_BALANCE_UNIQUE_MEMBER_ID = Internal.createIndex("UNIQUE_MEMBER_ID", MemberCapitalBalance.MEMBER_CAPITAL_BALANCE, new OrderField[]{MemberCapitalBalance.MEMBER_CAPITAL_BALANCE.MEMBER_ID}, true);
         public static Index MEMBER_COIN_BALANCE_PRIMARY = Internal.createIndex("PRIMARY", MemberCoinBalance.MEMBER_COIN_BALANCE, new OrderField[]{MemberCoinBalance.MEMBER_COIN_BALANCE.ID}, true);
         public static Index MEMBER_COIN_BALANCE_UNIQUE_MEMBER_ID = Internal.createIndex("UNIQUE_MEMBER_ID", MemberCoinBalance.MEMBER_COIN_BALANCE, new OrderField[]{MemberCoinBalance.MEMBER_COIN_BALANCE.MEMBER_ID}, true);
+        public static Index MEMBER_REFER_INDEX_MEMBER_ID = Internal.createIndex("INDEX_MEMBER_ID", MemberRefer.MEMBER_REFER, new OrderField[]{MemberRefer.MEMBER_REFER.MEMBER_ID}, false);
         public static Index MEMBER_REFER_PRIMARY = Internal.createIndex("PRIMARY", MemberRefer.MEMBER_REFER, new OrderField[]{MemberRefer.MEMBER_REFER.ID}, true);
-        public static Index MEMBER_REFER_UNIQUE_REFERRAL_AND_REFERRED = Internal.createIndex("UNIQUE_REFERRAL_AND_REFERRED", MemberRefer.MEMBER_REFER, new OrderField[]{MemberRefer.MEMBER_REFER.MEMBER_ID, MemberRefer.MEMBER_REFER.REFERRAL_ID}, true);
         public static Index MEMBER_TIME_PAYMENT_LOG_INDEX_MEMBER_ID = Internal.createIndex("INDEX_MEMBER_ID", MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG, new OrderField[]{MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG.MEMBER_ID}, false);
         public static Index MEMBER_TIME_PAYMENT_LOG_PRIMARY = Internal.createIndex("PRIMARY", MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG, new OrderField[]{MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG.ID}, true);
         public static Index MESSAGE_CAPTCHA_INDEX_EXPIRE_TIME = Internal.createIndex("INDEX_EXPIRE_TIME", MessageCaptcha.MESSAGE_CAPTCHA, new OrderField[]{MessageCaptcha.MESSAGE_CAPTCHA.EXPIRE_TIME}, false);

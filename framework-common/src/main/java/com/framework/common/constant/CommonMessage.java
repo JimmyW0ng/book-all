@@ -12,6 +12,7 @@ public enum CommonMessage {
      */
     ERROR_SYSTEM("ERROR_SYSTEM", "系统异常"),
     ERROR_SYSTEM_PARAM_FORMAT("ERROR_SYSTEM_PARAM_FORMAT", "请求参数异常"),
+    ERROR_API_NOT_FOUND("ERROR_API_NOT_FOUND", "不存在的请求"),
     ERROR_OPERATE_FAIL("ERROR_OPERATE_FAIL", "操作失败，请稍后再试"),
 
     /**

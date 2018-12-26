@@ -191,38 +191,10 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
     }
 
     /**
-     * Getter for <code>book.authority_client.description</code>.
-     */
-    public String getDescription() {
-        return (String) get(7);
-    }
-
-    /**
-     * Getter for <code>book.authority_client.archived</code>. 是否激活
-     */
-    public Boolean getArchived() {
-        return (Boolean) get(8);
-    }
-
-    /**
-     * Getter for <code>book.authority_client.create_at</code>. 创建时间
-     */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(10);
-    }
-
-    /**
      * Getter for <code>book.authority_client.login_source</code>. 登录来源：微信小程序；后台管理；h5；苹果；安卓；web；其他；
      */
     public AuthorityClientLoginSource getLoginSource() {
         return (AuthorityClientLoginSource) get(9);
-    }
-
-    /**
-     * Getter for <code>book.authority_client.update_at</code>. 更新时间
-     */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(11);
     }
 
     /**
@@ -234,10 +206,10 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
     }
 
     /**
-     * Getter for <code>book.authority_client.remark</code>. 备注信息
+     * Getter for <code>book.authority_client.description</code>.
      */
-    public String getRemark() {
-        return (String) get(12);
+    public String getDescription() {
+        return (String) get(7);
     }
 
     /**
@@ -249,10 +221,10 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
     }
 
     /**
-     * Getter for <code>book.authority_client.del_flag</code>. 删除标记
+     * Getter for <code>book.authority_client.archived</code>. 是否激活
      */
-    public Boolean getDelFlag() {
-        return (Boolean) get(13);
+    public Boolean getArchived() {
+        return (Boolean) get(8);
     }
 
     /**
@@ -264,11 +236,39 @@ public class AuthorityClientRecord extends UpdatableRecordImpl<AuthorityClientRe
     }
 
     /**
+     * Getter for <code>book.authority_client.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(10);
+    }
+
+    /**
      * Setter for <code>book.authority_client.del_flag</code>. 删除标记
      */
     public AuthorityClientRecord setDelFlag(Boolean value) {
         set(13, value);
         return this;
+    }
+
+    /**
+     * Getter for <code>book.authority_client.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(11);
+    }
+
+    /**
+     * Getter for <code>book.authority_client.remark</code>. 备注信息
+     */
+    public String getRemark() {
+        return (String) get(12);
+    }
+
+    /**
+     * Getter for <code>book.authority_client.del_flag</code>. 删除标记
+     */
+    public Boolean getDelFlag() {
+        return (Boolean) get(13);
     }
 
     // -------------------------------------------------------------------------

@@ -36,7 +36,7 @@ public class SecurityMemberController extends BaseController {
     private MemberFacade memberFacade;
 
     @ApiOperation("会员注册")
-    @PostMapping(value = "/register/member", headers = "Accept-Version=1.0")
+    @PostMapping(value = "/reg", headers = "Accept-Version=1.0")
     public ResultDto<String> memberRegister(HttpServletRequest request,
                                             @ApiParam(name = "mobile", value = "手机号", required = true)
                                             @RequestParam(name = "mobile") String mobile,

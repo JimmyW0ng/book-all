@@ -32,47 +32,66 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MemberTimePaymentLog extends TableImpl<MemberTimePaymentLogRecord> {
 
+    private static final long serialVersionUID = 798462161;
+
     /**
      * The reference instance of <code>book.member_time_payment_log</code>
      */
     public static final MemberTimePaymentLog MEMBER_TIME_PAYMENT_LOG = new MemberTimePaymentLog();
-    private static final long serialVersionUID = 798462161;
+
+    /**
+     * The class holding records for this type
+     */
+    @Override
+    public Class<MemberTimePaymentLogRecord> getRecordType() {
+        return MemberTimePaymentLogRecord.class;
+    }
+
     /**
      * The column <code>book.member_time_payment_log.id</code>. 主键
      */
     public final TableField<MemberTimePaymentLogRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "主键");
+
     /**
      * The column <code>book.member_time_payment_log.member_id</code>. 会员id
      */
     public final TableField<MemberTimePaymentLogRecord, Long> MEMBER_ID = createField("member_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "会员id");
+
     /**
      * The column <code>book.member_time_payment_log.real_pay_amount</code>. 实际支付金额
      */
     public final TableField<MemberTimePaymentLogRecord, BigDecimal> REAL_PAY_AMOUNT = createField("real_pay_amount", org.jooq.impl.SQLDataType.DECIMAL(12, 2).nullable(false), this, "实际支付金额");
+
     /**
      * The column <code>book.member_time_payment_log.start_time</code>. 开始时间
      */
     public final TableField<MemberTimePaymentLogRecord, Timestamp> START_TIME = createField("start_time", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "开始时间");
+
     /**
      * The column <code>book.member_time_payment_log.end_time</code>. 结束时间
      */
     public final TableField<MemberTimePaymentLogRecord, Timestamp> END_TIME = createField("end_time", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "结束时间");
+
     /**
      * The column <code>book.member_time_payment_log.remark</code>. 备注
      */
     public final TableField<MemberTimePaymentLogRecord, String> REMARK = createField("remark", org.jooq.impl.SQLDataType.VARCHAR(255), this, "备注");
+
     /**
      * The column <code>book.member_time_payment_log.create_at</code>. 创建时间
      */
     public final TableField<MemberTimePaymentLogRecord, Timestamp> CREATE_AT = createField("create_at", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "创建时间");
+
     /**
      * The column <code>book.member_time_payment_log.update_at</code>. 更新时间
      */
     public final TableField<MemberTimePaymentLogRecord, Timestamp> UPDATE_AT = createField("update_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+
     /**
      * The column <code>book.member_time_payment_log.del_flag</code>. 删除标志
      */
     public final TableField<MemberTimePaymentLogRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标志");
+
     /**
      * The column <code>book.member_time_payment_log.version</code>. 版本号
      */
@@ -105,14 +124,6 @@ public class MemberTimePaymentLog extends TableImpl<MemberTimePaymentLogRecord> 
 
     private MemberTimePaymentLog(Name alias, Table<MemberTimePaymentLogRecord> aliased, Field<?>[] parameters) {
         super(alias, null, aliased, parameters, "会员时间段付费日志表");
-    }
-
-    /**
-     * The class holding records for this type
-     */
-    @Override
-    public Class<MemberTimePaymentLogRecord> getRecordType() {
-        return MemberTimePaymentLogRecord.class;
     }
 
     /**

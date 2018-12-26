@@ -1,15 +1,22 @@
 package com.book.api.business.member.facade;
 
+import com.book.api.business.member.dto.MemberCenterOutDto;
 import com.book.core.business.authority.service.AuthorityTokenService;
+import com.book.core.business.member.pojo.po.MemberBaseInfoPo;
 import com.book.core.business.member.service.MemberBaseInfoService;
+import com.book.core.business.member.service.MemberCapitalBalanceService;
+import com.book.core.business.member.service.MemberCoinBalanceService;
 import com.book.core.business.message.service.MessageCaptchaService;
 import com.book.core.domain.enums.MessageCaptchaScene;
 import com.book.core.domain.enums.MessageCaptchaType;
 import com.framework.common.spring.pojo.dto.ResultDto;
+import com.framework.common.tool.DateTools;
 import com.framework.common.tool.StringTools;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.sql.Timestamp;
 
 import static com.book.core.constant.ErrorCode.ERROR_REGISTER_MOBILE_IS_EXIST;
 
@@ -24,6 +31,10 @@ public class MemberFacade {
 
     @Autowired
     private MemberBaseInfoService memberBaseInfoService;
+    @Autowired
+    private MemberCapitalBalanceService memberCapitalBalanceService;
+    @Autowired
+    private MemberCoinBalanceService memberCoinBalanceService;
     @Autowired
     private MessageCaptchaService messageCaptchaService;
     @Autowired
@@ -91,4 +102,33 @@ public class MemberFacade {
         return authorityTokenService.loginForApi(clientId, saveResult.getResult(), ip);
     }
 
+    /**
+     * @Description 会员中心
+     * @Author J.W
+     * @Date 2018/12/25 11:30
+     * @Param [memberId]
+     * @Return com.framework.common.spring.pojo.dto.ResultDto<com.book.api.business.member.dto.MemberCenterOutDto>
+     **/
+    public ResultDto<MemberCenterOutDto> memberCenter(Long memberId) {
+        // 获取和校验会员基础信息
+        ResultDto<MemberBaseInfoPo> checkMbrRes = memberBaseInfoService.checkById(memberId);
+        if (checkMbrRes.isError()) {
+            return ResultDto.build(checkMbrRes.getError());
+        }
+        MemberBaseInfoPo memberBaseInfo = checkMbrRes.getResult();
+        ResultDto<MemberCenterOutDto> resultDto = ResultDto.build();
+        MemberCenterOutDto outDto = new MemberCenterOutDto();
+        // 昵称
+        outDto.setNickName(memberBaseInfo.getNickName());
+        // 头像
+        outDto.setAvatar(memberBaseInfo.getAvatar());
+        // 会员标识
+        Timestamp sysTime = DateTools.getCurrentDateTime();
+        outDto.setVipFlag(memberBaseInfo.getTimePaymentEnd() != null && memberBaseInfo.getTimePaymentEnd().after(sysTime));
+        // 资金可用余额
+        outDto.setAvailableCapital(memberCapitalBalanceService.getByMemberId(memberId).getAvailableBalance());
+        // 资金可用余额
+        outDto.setAvailableCoin(memberCoinBalanceService.getByMemberId(memberId).getAvailableBalance());
+        return resultDto.setResult(outDto);
+    }
 }

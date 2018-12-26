@@ -31,51 +31,71 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class SpiderBookBaseInfo extends TableImpl<SpiderBookBaseInfoRecord> {
 
+    private static final long serialVersionUID = -1237312368;
+
     /**
      * The reference instance of <code>book.spider_book_base_info</code>
      */
     public static final SpiderBookBaseInfo SPIDER_BOOK_BASE_INFO = new SpiderBookBaseInfo();
-    private static final long serialVersionUID = -1237312368;
+
+    /**
+     * The class holding records for this type
+     */
+    @Override
+    public Class<SpiderBookBaseInfoRecord> getRecordType() {
+        return SpiderBookBaseInfoRecord.class;
+    }
+
     /**
      * The column <code>book.spider_book_base_info.id</code>. 主键
      */
     public final TableField<SpiderBookBaseInfoRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "主键");
+
     /**
      * The column <code>book.spider_book_base_info.author_id</code>. 作者id
      */
     public final TableField<SpiderBookBaseInfoRecord, Long> AUTHOR_ID = createField("author_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "作者id");
+
     /**
      * The column <code>book.spider_book_base_info.title</code>. 书名
      */
     public final TableField<SpiderBookBaseInfoRecord, String> TITLE = createField("title", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "书名");
+
     /**
      * The column <code>book.spider_book_base_info.url</code>. 来源链接
      */
     public final TableField<SpiderBookBaseInfoRecord, String> URL = createField("url", org.jooq.impl.SQLDataType.VARCHAR(255), this, "来源链接");
+
     /**
      * The column <code>book.spider_book_base_info.short_desc</code>. 简介
      */
     public final TableField<SpiderBookBaseInfoRecord, String> SHORT_DESC = createField("short_desc", org.jooq.impl.SQLDataType.CLOB, this, "简介");
+
     /**
      * The column <code>book.spider_book_base_info.img_cover</code>. 封面图片
      */
     public final TableField<SpiderBookBaseInfoRecord, String> IMG_COVER = createField("img_cover", org.jooq.impl.SQLDataType.VARCHAR(255), this, "封面图片");
+
     /**
      * The column <code>book.spider_book_base_info.create_at</code>. 创建时间
      */
     public final TableField<SpiderBookBaseInfoRecord, Timestamp> CREATE_AT = createField("create_at", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "创建时间");
+
     /**
      * The column <code>book.spider_book_base_info.update_at</code>. 更新时间
      */
     public final TableField<SpiderBookBaseInfoRecord, Timestamp> UPDATE_AT = createField("update_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+
     /**
      * The column <code>book.spider_book_base_info.remark</code>. 备注
      */
     public final TableField<SpiderBookBaseInfoRecord, String> REMARK = createField("remark", org.jooq.impl.SQLDataType.VARCHAR(255), this, "备注");
+
     /**
      * The column <code>book.spider_book_base_info.del_flag</code>. 删除标记
      */
     public final TableField<SpiderBookBaseInfoRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标记");
+
     /**
      * The column <code>book.spider_book_base_info.version</code>. 版本号
      */
@@ -108,14 +128,6 @@ public class SpiderBookBaseInfo extends TableImpl<SpiderBookBaseInfoRecord> {
 
     private SpiderBookBaseInfo(Name alias, Table<SpiderBookBaseInfoRecord> aliased, Field<?>[] parameters) {
         super(alias, null, aliased, parameters, "爬虫-图书基础信息表");
-    }
-
-    /**
-     * The class holding records for this type
-     */
-    @Override
-    public Class<SpiderBookBaseInfoRecord> getRecordType() {
-        return SpiderBookBaseInfoRecord.class;
     }
 
     /**

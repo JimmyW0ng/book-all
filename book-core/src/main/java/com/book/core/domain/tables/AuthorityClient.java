@@ -38,6 +38,7 @@ public class AuthorityClient extends TableImpl<AuthorityClientRecord> {
      * The reference instance of <code>book.authority_client</code>
      */
     public static final AuthorityClient AUTHORITY_CLIENT = new AuthorityClient();
+
     /**
      * The column <code>book.authority_client.version</code>. 版本号
      */

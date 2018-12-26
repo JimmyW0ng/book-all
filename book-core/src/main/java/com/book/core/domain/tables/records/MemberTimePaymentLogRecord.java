@@ -32,10 +32,26 @@ public class MemberTimePaymentLogRecord extends UpdatableRecordImpl<MemberTimePa
     private static final long serialVersionUID = -1844729592;
 
     /**
+     * Setter for <code>book.member_time_payment_log.id</code>. 主键
+     */
+    public MemberTimePaymentLogRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
+
+    /**
      * Create a detached MemberTimePaymentLogRecord
      */
     public MemberTimePaymentLogRecord() {
         super(MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG);
+    }
+
+    /**
+     * Setter for <code>book.member_time_payment_log.member_id</code>. 会员id
+     */
+    public MemberTimePaymentLogRecord setMemberId(Long value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -57,43 +73,6 @@ public class MemberTimePaymentLogRecord extends UpdatableRecordImpl<MemberTimePa
     }
 
     /**
-     * Getter for <code>book.member_time_payment_log.id</code>. 主键
-     */
-    public Long getId() {
-        return (Long) get(0);
-    }
-
-    /**
-     * Setter for <code>book.member_time_payment_log.id</code>. 主键
-     */
-    public MemberTimePaymentLogRecord setId(Long value) {
-        set(0, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_time_payment_log.member_id</code>. 会员id
-     */
-    public Long getMemberId() {
-        return (Long) get(1);
-    }
-
-    /**
-     * Setter for <code>book.member_time_payment_log.member_id</code>. 会员id
-     */
-    public MemberTimePaymentLogRecord setMemberId(Long value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_time_payment_log.real_pay_amount</code>. 实际支付金额
-     */
-    public BigDecimal getRealPayAmount() {
-        return (BigDecimal) get(2);
-    }
-
-    /**
      * Setter for <code>book.member_time_payment_log.real_pay_amount</code>. 实际支付金额
      */
     public MemberTimePaymentLogRecord setRealPayAmount(BigDecimal value) {
@@ -102,10 +81,10 @@ public class MemberTimePaymentLogRecord extends UpdatableRecordImpl<MemberTimePa
     }
 
     /**
-     * Getter for <code>book.member_time_payment_log.start_time</code>. 开始时间
+     * Getter for <code>book.member_time_payment_log.id</code>. 主键
      */
-    public Timestamp getStartTime() {
-        return (Timestamp) get(3);
+    public Long getId() {
+        return (Long) get(0);
     }
 
     /**
@@ -117,10 +96,10 @@ public class MemberTimePaymentLogRecord extends UpdatableRecordImpl<MemberTimePa
     }
 
     /**
-     * Getter for <code>book.member_time_payment_log.end_time</code>. 结束时间
+     * Getter for <code>book.member_time_payment_log.member_id</code>. 会员id
      */
-    public Timestamp getEndTime() {
-        return (Timestamp) get(4);
+    public Long getMemberId() {
+        return (Long) get(1);
     }
 
     /**
@@ -132,10 +111,10 @@ public class MemberTimePaymentLogRecord extends UpdatableRecordImpl<MemberTimePa
     }
 
     /**
-     * Getter for <code>book.member_time_payment_log.remark</code>. 备注
+     * Getter for <code>book.member_time_payment_log.real_pay_amount</code>. 实际支付金额
      */
-    public String getRemark() {
-        return (String) get(5);
+    public BigDecimal getRealPayAmount() {
+        return (BigDecimal) get(2);
     }
 
     /**
@@ -147,10 +126,10 @@ public class MemberTimePaymentLogRecord extends UpdatableRecordImpl<MemberTimePa
     }
 
     /**
-     * Getter for <code>book.member_time_payment_log.create_at</code>. 创建时间
+     * Getter for <code>book.member_time_payment_log.start_time</code>. 开始时间
      */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(6);
+    public Timestamp getStartTime() {
+        return (Timestamp) get(3);
     }
 
     /**
@@ -162,10 +141,10 @@ public class MemberTimePaymentLogRecord extends UpdatableRecordImpl<MemberTimePa
     }
 
     /**
-     * Getter for <code>book.member_time_payment_log.update_at</code>. 更新时间
+     * Getter for <code>book.member_time_payment_log.end_time</code>. 结束时间
      */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(7);
+    public Timestamp getEndTime() {
+        return (Timestamp) get(4);
     }
 
     /**
@@ -177,6 +156,20 @@ public class MemberTimePaymentLogRecord extends UpdatableRecordImpl<MemberTimePa
     }
 
     /**
+     * Getter for <code>book.member_time_payment_log.remark</code>. 备注
+     */
+    public String getRemark() {
+        return (String) get(5);
+    }
+
+    /**
+     * Getter for <code>book.member_time_payment_log.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(6);
+    }
+
+    /**
      * Getter for <code>book.member_time_payment_log.del_flag</code>. 删除标志
      */
     public Boolean getDelFlag() {
@@ -184,16 +177,11 @@ public class MemberTimePaymentLogRecord extends UpdatableRecordImpl<MemberTimePa
     }
 
     /**
-     * Setter for <code>book.member_time_payment_log.del_flag</code>. 删除标志
+     * Getter for <code>book.member_time_payment_log.update_at</code>. 更新时间
      */
-    public MemberTimePaymentLogRecord setDelFlag(Boolean value) {
-        set(8, value);
-        return this;
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(7);
     }
-
-    // -------------------------------------------------------------------------
-    // Primary key information
-    // -------------------------------------------------------------------------
 
     /**
      * Getter for <code>book.member_time_payment_log.version</code>. 版本号
@@ -203,16 +191,8 @@ public class MemberTimePaymentLogRecord extends UpdatableRecordImpl<MemberTimePa
     }
 
     // -------------------------------------------------------------------------
-    // Record10 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.member_time_payment_log.version</code>. 版本号
-     */
-    public MemberTimePaymentLogRecord setVersion(Long value) {
-        set(9, value);
-        return this;
-    }
 
     /**
      * {@inheritDoc}
@@ -221,6 +201,10 @@ public class MemberTimePaymentLogRecord extends UpdatableRecordImpl<MemberTimePa
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record10 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -559,10 +543,6 @@ public class MemberTimePaymentLogRecord extends UpdatableRecordImpl<MemberTimePa
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -587,6 +567,26 @@ public class MemberTimePaymentLogRecord extends UpdatableRecordImpl<MemberTimePa
         value8(value8);
         value9(value9);
         value10(value10);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Setter for <code>book.member_time_payment_log.del_flag</code>. 删除标志
+     */
+    public MemberTimePaymentLogRecord setDelFlag(Boolean value) {
+        set(8, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.member_time_payment_log.version</code>. 版本号
+     */
+    public MemberTimePaymentLogRecord setVersion(Long value) {
+        set(9, value);
         return this;
     }
 }

@@ -37,4 +37,10 @@ public class ErrorCode {
     public static final String ERROR_REGISTER_INVITER_IS_INVALID = "ERROR_REGISTER_INVITER_IS_INVALID";
     public static final String ERROR_REGISTER_INVITER_IS_FREEZE = "ERROR_REGISTER_INVITER_IS_FREEZE";
 
+    /**
+     * 会员
+     */
+    public static final String ERROR_MEMBER_IS_NOT_EXIST = "ERROR_MEMBER_IS_NOT_EXIST";
+    public static final String ERROR_MEMBER_IS_FREEZE = "ERROR_MEMBER_IS_FREEZE";
+
 }

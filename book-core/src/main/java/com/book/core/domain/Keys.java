@@ -57,7 +57,6 @@ public class Keys {
     public static final UniqueKey<MemberCoinBalanceRecord> KEY_MEMBER_COIN_BALANCE_PRIMARY = UniqueKeys0.KEY_MEMBER_COIN_BALANCE_PRIMARY;
     public static final UniqueKey<MemberCoinBalanceRecord> KEY_MEMBER_COIN_BALANCE_UNIQUE_MEMBER_ID = UniqueKeys0.KEY_MEMBER_COIN_BALANCE_UNIQUE_MEMBER_ID;
     public static final UniqueKey<MemberReferRecord> KEY_MEMBER_REFER_PRIMARY = UniqueKeys0.KEY_MEMBER_REFER_PRIMARY;
-    public static final UniqueKey<MemberReferRecord> KEY_MEMBER_REFER_UNIQUE_REFERRAL_AND_REFERRED = UniqueKeys0.KEY_MEMBER_REFER_UNIQUE_REFERRAL_AND_REFERRED;
     public static final UniqueKey<MemberTimePaymentLogRecord> KEY_MEMBER_TIME_PAYMENT_LOG_PRIMARY = UniqueKeys0.KEY_MEMBER_TIME_PAYMENT_LOG_PRIMARY;
     public static final UniqueKey<MessageCaptchaRecord> KEY_MESSAGE_CAPTCHA_PRIMARY = UniqueKeys0.KEY_MESSAGE_CAPTCHA_PRIMARY;
     public static final UniqueKey<SpiderAuthorBaseInfoRecord> KEY_SPIDER_AUTHOR_BASE_INFO_PRIMARY = UniqueKeys0.KEY_SPIDER_AUTHOR_BASE_INFO_PRIMARY;
@@ -101,7 +100,6 @@ public class Keys {
         public static final UniqueKey<MemberCoinBalanceRecord> KEY_MEMBER_COIN_BALANCE_PRIMARY = Internal.createUniqueKey(MemberCoinBalance.MEMBER_COIN_BALANCE, "KEY_member_coin_balance_PRIMARY", MemberCoinBalance.MEMBER_COIN_BALANCE.ID);
         public static final UniqueKey<MemberCoinBalanceRecord> KEY_MEMBER_COIN_BALANCE_UNIQUE_MEMBER_ID = Internal.createUniqueKey(MemberCoinBalance.MEMBER_COIN_BALANCE, "KEY_member_coin_balance_UNIQUE_MEMBER_ID", MemberCoinBalance.MEMBER_COIN_BALANCE.MEMBER_ID);
         public static final UniqueKey<MemberReferRecord> KEY_MEMBER_REFER_PRIMARY = Internal.createUniqueKey(MemberRefer.MEMBER_REFER, "KEY_member_refer_PRIMARY", MemberRefer.MEMBER_REFER.ID);
-        public static final UniqueKey<MemberReferRecord> KEY_MEMBER_REFER_UNIQUE_REFERRAL_AND_REFERRED = Internal.createUniqueKey(MemberRefer.MEMBER_REFER, "KEY_member_refer_UNIQUE_REFERRAL_AND_REFERRED", MemberRefer.MEMBER_REFER.MEMBER_ID, MemberRefer.MEMBER_REFER.REFERRAL_ID);
         public static final UniqueKey<MemberTimePaymentLogRecord> KEY_MEMBER_TIME_PAYMENT_LOG_PRIMARY = Internal.createUniqueKey(MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG, "KEY_member_time_payment_log_PRIMARY", MemberTimePaymentLog.MEMBER_TIME_PAYMENT_LOG.ID);
         public static final UniqueKey<MessageCaptchaRecord> KEY_MESSAGE_CAPTCHA_PRIMARY = Internal.createUniqueKey(MessageCaptcha.MESSAGE_CAPTCHA, "KEY_message_captcha_PRIMARY", MessageCaptcha.MESSAGE_CAPTCHA.ID);
         public static final UniqueKey<SpiderAuthorBaseInfoRecord> KEY_SPIDER_AUTHOR_BASE_INFO_PRIMARY = Internal.createUniqueKey(SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO, "KEY_spider_author_base_info_PRIMARY", SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO.ID);

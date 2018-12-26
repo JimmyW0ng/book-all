@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static com.book.core.constant.ErrorCode.ERROR_ACCESS_NEED_AUTH;
+import static com.book.core.constant.ErrorCode.ERROR_ACCESS_DENIED;
 import static javax.servlet.http.HttpServletResponse.SC_FORBIDDEN;
 
 /**
@@ -29,6 +29,6 @@ public class ApiAccessDeniedHandler implements AccessDeniedHandler {
                        AccessDeniedException e
     ) throws IOException {
         log.error("当前请求令牌权限不足!");
-        SecurityConfig.exceptionHandle(response, SC_FORBIDDEN, ResultDto.build(ERROR_ACCESS_NEED_AUTH));
+        SecurityConfig.exceptionHandle(response, SC_FORBIDDEN, ResultDto.build(ERROR_ACCESS_DENIED));
     }
 }

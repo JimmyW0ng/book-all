@@ -56,18 +56,18 @@ public class ApiSecurityTokenAuthFilter extends OncePerRequestFilter {
             return;
         }
         // 解析token
-        ResultDto<List<String>> checkToken = authorityFacade.getTokenInfo(token);
+        ResultDto<List<String>> checkToken = authorityFacade.getTokenInfo(request, token);
         if (checkToken.isError()) {
             chain.doFilter(request, response);
             return;
         }
         // 加载令牌权限
         List<String> authorities = checkToken.getResult();
-        Collection<GrantedAuthority> grantes = Lists.newArrayList();
+        Collection<GrantedAuthority> grants = Lists.newArrayList();
         for (String authority : authorities) {
-            grantes.add(new SimpleGrantedAuthority(authority));
+            grants.add(new SimpleGrantedAuthority(authority));
         }
-        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(null, null, grantes);
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(null, null, grants);
         authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         chain.doFilter(request, response);

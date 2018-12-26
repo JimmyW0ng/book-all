@@ -44,9 +44,24 @@ public class MemberBaseInfoRepository extends AbstractCRUDRepository<MemberBaseI
      * @Return java.util.Optional<com.book.core.business.member.pojo.po.MemberBaseInfoPo>
      **/
     public Optional<MemberBaseInfoPo> existByShortUrl(String shortUrl) {
-        return dslContext.select(MEMBER_BASE_INFO.ID)
-                .from(MEMBER_BASE_INFO)
+        return dslContext.selectFrom(MEMBER_BASE_INFO)
                 .where(MEMBER_BASE_INFO.SHORT_URL.eq(shortUrl))
+                .and(MEMBER_BASE_INFO.DEL_FLAG.eq(false))
                 .fetchOptionalInto(MemberBaseInfoPo.class);
     }
+
+    /**
+     * @Description 更新会员推荐码
+     * @Author J.W
+     * @Date 2018/12/25 10:39
+     * @Param [memberId, shortUrl]
+     * @Return int
+     **/
+    public int updateShortUrl(Long memberId, String shortUrl) {
+        return dslContext.update(MEMBER_BASE_INFO)
+                .set(MEMBER_BASE_INFO.SHORT_URL, shortUrl)
+                .where(MEMBER_BASE_INFO.ID.eq(memberId))
+                .execute();
+    }
+
 }

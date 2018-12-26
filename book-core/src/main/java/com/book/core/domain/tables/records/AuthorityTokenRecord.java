@@ -188,6 +188,21 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
     }
 
     /**
+     * Getter for <code>book.authority_token.remark</code>. 备注
+     */
+    public String getRemark() {
+        return (String) get(9);
+    }
+
+    /**
+     * Setter for <code>book.authority_token.del_flag</code>. 删除标记
+     */
+    public AuthorityTokenRecord setDelFlag(Boolean value) {
+        set(10, value);
+        return this;
+    }
+
+    /**
      * Getter for <code>book.authority_token.create_at</code>. 创建时间
      */
     public Timestamp getCreateAt() {
@@ -206,21 +221,6 @@ public class AuthorityTokenRecord extends UpdatableRecordImpl<AuthorityTokenReco
      */
     public Boolean getDelFlag() {
         return (Boolean) get(10);
-    }
-
-    /**
-     * Getter for <code>book.authority_token.remark</code>. 备注
-     */
-    public String getRemark() {
-        return (String) get(9);
-    }
-
-    /**
-     * Setter for <code>book.authority_token.del_flag</code>. 删除标记
-     */
-    public AuthorityTokenRecord setDelFlag(Boolean value) {
-        set(10, value);
-        return this;
     }
 
     // -------------------------------------------------------------------------

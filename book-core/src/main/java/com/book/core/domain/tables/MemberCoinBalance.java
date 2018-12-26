@@ -32,43 +32,61 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MemberCoinBalance extends TableImpl<MemberCoinBalanceRecord> {
 
+    private static final long serialVersionUID = 1189201676;
+
     /**
      * The reference instance of <code>book.member_coin_balance</code>
      */
     public static final MemberCoinBalance MEMBER_COIN_BALANCE = new MemberCoinBalance();
-    private static final long serialVersionUID = 1189201676;
+
+    /**
+     * The class holding records for this type
+     */
+    @Override
+    public Class<MemberCoinBalanceRecord> getRecordType() {
+        return MemberCoinBalanceRecord.class;
+    }
+
     /**
      * The column <code>book.member_coin_balance.id</code>. 主键
      */
     public final TableField<MemberCoinBalanceRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "主键");
+
     /**
      * The column <code>book.member_coin_balance.member_id</code>. 会员标识
      */
     public final TableField<MemberCoinBalanceRecord, Long> MEMBER_ID = createField("member_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "会员标识");
+
     /**
      * The column <code>book.member_coin_balance.balance</code>. 总余额
      */
     public final TableField<MemberCoinBalanceRecord, BigDecimal> BALANCE = createField("balance", org.jooq.impl.SQLDataType.DECIMAL(12, 2).nullable(false).defaultValue(org.jooq.impl.DSL.inline("0.00", org.jooq.impl.SQLDataType.DECIMAL)), this, "总余额");
+
     /**
      * The column <code>book.member_coin_balance.available_balance</code>. 可用余额
      */
     public final TableField<MemberCoinBalanceRecord, BigDecimal> AVAILABLE_BALANCE = createField("available_balance", org.jooq.impl.SQLDataType.DECIMAL(12, 2).nullable(false).defaultValue(org.jooq.impl.DSL.inline("0.00", org.jooq.impl.SQLDataType.DECIMAL)), this, "可用余额");
+
     /**
      * The column <code>book.member_coin_balance.remark</code>. 备注
      */
     public final TableField<MemberCoinBalanceRecord, String> REMARK = createField("remark", org.jooq.impl.SQLDataType.VARCHAR(255), this, "备注");
+
     /**
      * The column <code>book.member_coin_balance.create_at</code>. 创建时间
      */
     public final TableField<MemberCoinBalanceRecord, Timestamp> CREATE_AT = createField("create_at", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "创建时间");
+
     /**
      * The column <code>book.member_coin_balance.update_at</code>. 更新时间
      */
     public final TableField<MemberCoinBalanceRecord, Timestamp> UPDATE_AT = createField("update_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+
     /**
      * The column <code>book.member_coin_balance.del_flag</code>. 删除标志
      */
     public final TableField<MemberCoinBalanceRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标志");
+
     /**
      * The column <code>book.member_coin_balance.version</code>.
      */
@@ -101,14 +119,6 @@ public class MemberCoinBalance extends TableImpl<MemberCoinBalanceRecord> {
 
     private MemberCoinBalance(Name alias, Table<MemberCoinBalanceRecord> aliased, Field<?>[] parameters) {
         super(alias, null, aliased, parameters, "会员虚拟币余额表");
-    }
-
-    /**
-     * The class holding records for this type
-     */
-    @Override
-    public Class<MemberCoinBalanceRecord> getRecordType() {
-        return MemberCoinBalanceRecord.class;
     }
 
     /**

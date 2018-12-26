@@ -43,6 +43,11 @@
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.hashids</groupId>
+            <artifactId>hashids</artifactId>
+            <version>1.0.3</version>
+        </dependency>
         <!-- 第三方工具类依赖包 end -->
         <!-- oss 阿里云文件存储 start-->
         <dependency>

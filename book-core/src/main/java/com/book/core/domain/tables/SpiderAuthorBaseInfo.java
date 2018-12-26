@@ -31,35 +31,51 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class SpiderAuthorBaseInfo extends TableImpl<SpiderAuthorBaseInfoRecord> {
 
+    private static final long serialVersionUID = 1879854237;
+
     /**
      * The reference instance of <code>book.spider_author_base_info</code>
      */
     public static final SpiderAuthorBaseInfo SPIDER_AUTHOR_BASE_INFO = new SpiderAuthorBaseInfo();
-    private static final long serialVersionUID = 1879854237;
+
+    /**
+     * The class holding records for this type
+     */
+    @Override
+    public Class<SpiderAuthorBaseInfoRecord> getRecordType() {
+        return SpiderAuthorBaseInfoRecord.class;
+    }
+
     /**
      * The column <code>book.spider_author_base_info.id</code>. 主键
      */
     public final TableField<SpiderAuthorBaseInfoRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "主键");
+
     /**
      * The column <code>book.spider_author_base_info.name</code>. 笔名
      */
     public final TableField<SpiderAuthorBaseInfoRecord, String> NAME = createField("name", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "笔名");
+
     /**
      * The column <code>book.spider_author_base_info.create_at</code>. 创建时间
      */
     public final TableField<SpiderAuthorBaseInfoRecord, Timestamp> CREATE_AT = createField("create_at", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "创建时间");
+
     /**
      * The column <code>book.spider_author_base_info.update_at</code>. 更新时间
      */
     public final TableField<SpiderAuthorBaseInfoRecord, Timestamp> UPDATE_AT = createField("update_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+
     /**
      * The column <code>book.spider_author_base_info.remark</code>. 备注
      */
     public final TableField<SpiderAuthorBaseInfoRecord, String> REMARK = createField("remark", org.jooq.impl.SQLDataType.VARCHAR(255), this, "备注");
+
     /**
      * The column <code>book.spider_author_base_info.del_flag</code>. 删除标记
      */
     public final TableField<SpiderAuthorBaseInfoRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标记");
+
     /**
      * The column <code>book.spider_author_base_info.version</code>. 版本号
      */
@@ -92,14 +108,6 @@ public class SpiderAuthorBaseInfo extends TableImpl<SpiderAuthorBaseInfoRecord> 
 
     private SpiderAuthorBaseInfo(Name alias, Table<SpiderAuthorBaseInfoRecord> aliased, Field<?>[] parameters) {
         super(alias, null, aliased, parameters, "爬虫-作者基础信息表");
-    }
-
-    /**
-     * The class holding records for this type
-     */
-    @Override
-    public Class<SpiderAuthorBaseInfoRecord> getRecordType() {
-        return SpiderAuthorBaseInfoRecord.class;
     }
 
     /**

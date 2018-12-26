@@ -32,10 +32,26 @@ public class MemberCapitalBalanceRecord extends UpdatableRecordImpl<MemberCapita
     private static final long serialVersionUID = -1912720184;
 
     /**
+     * Setter for <code>book.member_capital_balance.id</code>. 主键
+     */
+    public MemberCapitalBalanceRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
+
+    /**
      * Create a detached MemberCapitalBalanceRecord
      */
     public MemberCapitalBalanceRecord() {
         super(MemberCapitalBalance.MEMBER_CAPITAL_BALANCE);
+    }
+
+    /**
+     * Setter for <code>book.member_capital_balance.member_id</code>. 会员标识
+     */
+    public MemberCapitalBalanceRecord setMemberId(Long value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -56,43 +72,6 @@ public class MemberCapitalBalanceRecord extends UpdatableRecordImpl<MemberCapita
     }
 
     /**
-     * Getter for <code>book.member_capital_balance.id</code>. 主键
-     */
-    public Long getId() {
-        return (Long) get(0);
-    }
-
-    /**
-     * Setter for <code>book.member_capital_balance.id</code>. 主键
-     */
-    public MemberCapitalBalanceRecord setId(Long value) {
-        set(0, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_capital_balance.member_id</code>. 会员标识
-     */
-    public Long getMemberId() {
-        return (Long) get(1);
-    }
-
-    /**
-     * Setter for <code>book.member_capital_balance.member_id</code>. 会员标识
-     */
-    public MemberCapitalBalanceRecord setMemberId(Long value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_capital_balance.balance</code>. 总余额
-     */
-    public BigDecimal getBalance() {
-        return (BigDecimal) get(2);
-    }
-
-    /**
      * Setter for <code>book.member_capital_balance.balance</code>. 总余额
      */
     public MemberCapitalBalanceRecord setBalance(BigDecimal value) {
@@ -101,10 +80,10 @@ public class MemberCapitalBalanceRecord extends UpdatableRecordImpl<MemberCapita
     }
 
     /**
-     * Getter for <code>book.member_capital_balance.available_balance</code>. 可用余额
+     * Getter for <code>book.member_capital_balance.id</code>. 主键
      */
-    public BigDecimal getAvailableBalance() {
-        return (BigDecimal) get(3);
+    public Long getId() {
+        return (Long) get(0);
     }
 
     /**
@@ -116,10 +95,10 @@ public class MemberCapitalBalanceRecord extends UpdatableRecordImpl<MemberCapita
     }
 
     /**
-     * Getter for <code>book.member_capital_balance.remark</code>. 备注
+     * Getter for <code>book.member_capital_balance.member_id</code>. 会员标识
      */
-    public String getRemark() {
-        return (String) get(4);
+    public Long getMemberId() {
+        return (Long) get(1);
     }
 
     /**
@@ -131,10 +110,10 @@ public class MemberCapitalBalanceRecord extends UpdatableRecordImpl<MemberCapita
     }
 
     /**
-     * Getter for <code>book.member_capital_balance.create_at</code>. 创建时间
+     * Getter for <code>book.member_capital_balance.balance</code>. 总余额
      */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(5);
+    public BigDecimal getBalance() {
+        return (BigDecimal) get(2);
     }
 
     /**
@@ -146,10 +125,10 @@ public class MemberCapitalBalanceRecord extends UpdatableRecordImpl<MemberCapita
     }
 
     /**
-     * Getter for <code>book.member_capital_balance.update_at</code>. 更新时间
+     * Getter for <code>book.member_capital_balance.available_balance</code>. 可用余额
      */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(6);
+    public BigDecimal getAvailableBalance() {
+        return (BigDecimal) get(3);
     }
 
     /**
@@ -161,6 +140,20 @@ public class MemberCapitalBalanceRecord extends UpdatableRecordImpl<MemberCapita
     }
 
     /**
+     * Getter for <code>book.member_capital_balance.remark</code>. 备注
+     */
+    public String getRemark() {
+        return (String) get(4);
+    }
+
+    /**
+     * Getter for <code>book.member_capital_balance.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(5);
+    }
+
+    /**
      * Getter for <code>book.member_capital_balance.del_flag</code>. 删除标志
      */
     public Boolean getDelFlag() {
@@ -168,16 +161,11 @@ public class MemberCapitalBalanceRecord extends UpdatableRecordImpl<MemberCapita
     }
 
     /**
-     * Setter for <code>book.member_capital_balance.del_flag</code>. 删除标志
+     * Getter for <code>book.member_capital_balance.update_at</code>. 更新时间
      */
-    public MemberCapitalBalanceRecord setDelFlag(Boolean value) {
-        set(7, value);
-        return this;
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(6);
     }
-
-    // -------------------------------------------------------------------------
-    // Primary key information
-    // -------------------------------------------------------------------------
 
     /**
      * Getter for <code>book.member_capital_balance.version</code>.
@@ -187,16 +175,8 @@ public class MemberCapitalBalanceRecord extends UpdatableRecordImpl<MemberCapita
     }
 
     // -------------------------------------------------------------------------
-    // Record9 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.member_capital_balance.version</code>.
-     */
-    public MemberCapitalBalanceRecord setVersion(Long value) {
-        set(8, value);
-        return this;
-    }
 
     /**
      * {@inheritDoc}
@@ -205,6 +185,10 @@ public class MemberCapitalBalanceRecord extends UpdatableRecordImpl<MemberCapita
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record9 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -510,10 +494,6 @@ public class MemberCapitalBalanceRecord extends UpdatableRecordImpl<MemberCapita
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -537,6 +517,26 @@ public class MemberCapitalBalanceRecord extends UpdatableRecordImpl<MemberCapita
         value7(value7);
         value8(value8);
         value9(value9);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Setter for <code>book.member_capital_balance.del_flag</code>. 删除标志
+     */
+    public MemberCapitalBalanceRecord setDelFlag(Boolean value) {
+        set(7, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.member_capital_balance.version</code>.
+     */
+    public MemberCapitalBalanceRecord setVersion(Long value) {
+        set(8, value);
         return this;
     }
 }

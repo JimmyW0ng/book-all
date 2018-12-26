@@ -2,8 +2,11 @@ package com.book.core.business.authority.service;
 
 import com.book.core.business.authority.constant.AuthorityConstant;
 import com.book.core.business.authority.pojo.po.AuthorityClientPo;
+import com.book.core.business.authority.pojo.po.AuthorityTokenPo;
 import com.book.core.business.authority.repository.AuthorityClientRepository;
+import com.book.core.business.authority.repository.AuthorityTokenRepository;
 import com.book.core.constant.ErrorCode;
+import com.book.core.domain.enums.AuthorityTokenTarget;
 import com.framework.common.spring.pojo.dto.ResultDto;
 import com.framework.common.tool.CryptTools;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +19,7 @@ import java.util.Optional;
 import static com.book.core.business.authority.constant.AuthorityConstant.TOKEN_SPLIT;
 import static com.book.core.business.authority.constant.AuthorityConstant.TOKEN_SPLIT_SIZE;
 import static com.book.core.constant.ErrorCode.ERROR_ACCESS_PRINCIPAL_CHECK;
+import static com.book.core.constant.ErrorCode.ERROR_ACCESS_TOKEN_NOT_EXIST;
 
 /**
  * @Description: 鉴权客户端服务类
@@ -28,6 +32,8 @@ public class AuthorityClientService {
 
     @Autowired
     private AuthorityClientRepository authorityClientRepository;
+    @Autowired
+    private AuthorityTokenRepository authorityTokenRepository;
 
     /**
      * @Description api基础鉴权
@@ -56,6 +62,29 @@ public class AuthorityClientService {
         }
         ResultDto<Long> resultDto = ResultDto.build();
         return resultDto.setResult(checkClient.getResult().getId());
+    }
+
+    /**
+     * @Description api登陆鉴权
+     * @Author J.W
+     * @Date 2018/12/24 9:39
+     * @Param [bearer]
+     * @Return com.framework.common.spring.pojo.dto.ResultDto
+     **/
+    public ResultDto<Long> authBearerForApi(String bearer) {
+        // 解析bearer
+        Optional<AuthorityTokenPo> existToken = authorityTokenRepository.existByCode(bearer);
+        if (!existToken.isPresent()) {
+            return ResultDto.build(ERROR_ACCESS_TOKEN_NOT_EXIST);
+        }
+        AuthorityTokenPo tokenPo = existToken.get();
+        // 只允许target为member
+        if (!tokenPo.getTarget().equals(AuthorityTokenTarget.member)) {
+            log.error("api登陆鉴权失败, 当前令牌不是会员类型, bearer={}", bearer);
+            return ResultDto.build(ERROR_ACCESS_TOKEN_NOT_EXIST);
+        }
+        ResultDto<Long> resultDto = ResultDto.build();
+        return resultDto.setResult(tokenPo.getTargetId());
     }
 
 

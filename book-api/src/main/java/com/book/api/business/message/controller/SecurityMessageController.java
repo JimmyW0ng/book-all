@@ -29,7 +29,7 @@ import static com.framework.common.constant.CommonMessage.ERROR_MOBILE_FORMAT;
 @RestController
 @RequestMapping("s/msg")
 @Api(value = "security-message", description = "消息安全路由")
-public class SecurityMessageContoller extends BaseController {
+public class SecurityMessageController extends BaseController {
 
     @Autowired
     private MessageCaptchaFacade messageCaptchaFacade;
@@ -42,7 +42,7 @@ public class SecurityMessageContoller extends BaseController {
      * @Return com.framework.common.spring.pojo.dto.ResultDto<java.lang.String>
      **/
     @ApiOperation("发送会员注册验证码")
-    @PostMapping(value = "/memberRegister", headers = "Accept-Version=1.0")
+    @PostMapping(value = "/mbr/reg", headers = "Accept-Version=1.0")
     public ResultDto<String> smsMemberRegister(HttpServletRequest request,
                                                @ApiParam(name = "mobile", value = "手机号", required = true)
                                                @RequestParam(value = "mobile") String mobile) {

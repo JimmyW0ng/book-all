@@ -12,5 +12,11 @@ spring:
     hikari:
       idleTimeout: 5000
       maximumPoolSize: 10
-  jooq:
-    sqlDialect: mysql
+  #api mvc 设置
+  mvc:
+    throw-exception-if-no-handler-found: true
+
+# 会员设置
+member:
+  shortUrl:
+    salt: I3FqvF

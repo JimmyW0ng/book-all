@@ -12,5 +12,9 @@ public class ApiConstant {
      */
     public static final String REQUEST_CURRENT_CLIENT = "REQUEST_CURRENT_CLIENT";
 
+    /**
+     * 请求会员标识
+     */
+    public static final String REQUEST_CURRENT_MEMBER = "REQUEST_CURRENT_MEMBER";
 
 }
