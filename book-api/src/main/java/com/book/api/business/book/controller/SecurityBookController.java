@@ -43,7 +43,7 @@ public class SecurityBookController extends BaseController {
         return bookBaseFacade.bookCatalog(bookId);
     }
 
-    @ApiOperation("书籍目录")
+    @ApiOperation("书籍章节内容")
     @PostMapping(value = "/chapter", headers = "Accept-Version=1.0")
     public ResultDto<String> bookChapter(@ApiParam(name = "catalogId", value = "目录id", required = true)
                                          @RequestParam(name = "catalogId") Long catalogId) {
