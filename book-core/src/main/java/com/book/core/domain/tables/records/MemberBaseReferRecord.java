@@ -31,10 +31,26 @@ public class MemberBaseReferRecord extends UpdatableRecordImpl<MemberBaseReferRe
     private static final long serialVersionUID = 186884436;
 
     /**
+     * Setter for <code>book.member_base_refer.id</code>. 主键
+     */
+    public MemberBaseReferRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
+
+    /**
      * Create a detached MemberBaseReferRecord
      */
     public MemberBaseReferRecord() {
         super(MemberBaseRefer.MEMBER_BASE_REFER);
+    }
+
+    /**
+     * Setter for <code>book.member_base_refer.member_id</code>. 会员id
+     */
+    public MemberBaseReferRecord setMemberId(Long value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -56,43 +72,6 @@ public class MemberBaseReferRecord extends UpdatableRecordImpl<MemberBaseReferRe
     }
 
     /**
-     * Getter for <code>book.member_base_refer.id</code>. 主键
-     */
-    public Long getId() {
-        return (Long) get(0);
-    }
-
-    /**
-     * Setter for <code>book.member_base_refer.id</code>. 主键
-     */
-    public MemberBaseReferRecord setId(Long value) {
-        set(0, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_base_refer.member_id</code>. 会员id
-     */
-    public Long getMemberId() {
-        return (Long) get(1);
-    }
-
-    /**
-     * Setter for <code>book.member_base_refer.member_id</code>. 会员id
-     */
-    public MemberBaseReferRecord setMemberId(Long value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_base_refer.referral_id</code>. 推荐人id
-     */
-    public Long getReferralId() {
-        return (Long) get(2);
-    }
-
-    /**
      * Setter for <code>book.member_base_refer.referral_id</code>. 推荐人id
      */
     public MemberBaseReferRecord setReferralId(Long value) {
@@ -101,10 +80,10 @@ public class MemberBaseReferRecord extends UpdatableRecordImpl<MemberBaseReferRe
     }
 
     /**
-     * Getter for <code>book.member_base_refer.level</code>. 推荐等级
+     * Getter for <code>book.member_base_refer.id</code>. 主键
      */
-    public Integer getLevel() {
-        return (Integer) get(3);
+    public Long getId() {
+        return (Long) get(0);
     }
 
     /**
@@ -116,10 +95,10 @@ public class MemberBaseReferRecord extends UpdatableRecordImpl<MemberBaseReferRe
     }
 
     /**
-     * Getter for <code>book.member_base_refer.archived</code>. 激活标志
+     * Getter for <code>book.member_base_refer.member_id</code>. 会员id
      */
-    public Boolean getArchived() {
-        return (Boolean) get(4);
+    public Long getMemberId() {
+        return (Long) get(1);
     }
 
     /**
@@ -131,10 +110,10 @@ public class MemberBaseReferRecord extends UpdatableRecordImpl<MemberBaseReferRe
     }
 
     /**
-     * Getter for <code>book.member_base_refer.remark</code>. 备注
+     * Getter for <code>book.member_base_refer.referral_id</code>. 推荐人id
      */
-    public String getRemark() {
-        return (String) get(5);
+    public Long getReferralId() {
+        return (Long) get(2);
     }
 
     /**
@@ -146,10 +125,10 @@ public class MemberBaseReferRecord extends UpdatableRecordImpl<MemberBaseReferRe
     }
 
     /**
-     * Getter for <code>book.member_base_refer.create_at</code>. 创建时间
+     * Getter for <code>book.member_base_refer.level</code>. 推荐等级
      */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(6);
+    public Integer getLevel() {
+        return (Integer) get(3);
     }
 
     /**
@@ -161,10 +140,10 @@ public class MemberBaseReferRecord extends UpdatableRecordImpl<MemberBaseReferRe
     }
 
     /**
-     * Getter for <code>book.member_base_refer.update_at</code>. 更新时间
+     * Getter for <code>book.member_base_refer.archived</code>. 激活标志
      */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(7);
+    public Boolean getArchived() {
+        return (Boolean) get(4);
     }
 
     /**
@@ -176,6 +155,20 @@ public class MemberBaseReferRecord extends UpdatableRecordImpl<MemberBaseReferRe
     }
 
     /**
+     * Getter for <code>book.member_base_refer.remark</code>. 备注
+     */
+    public String getRemark() {
+        return (String) get(5);
+    }
+
+    /**
+     * Getter for <code>book.member_base_refer.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(6);
+    }
+
+    /**
      * Getter for <code>book.member_base_refer.del_flag</code>. 删除标志
      */
     public Boolean getDelFlag() {
@@ -183,16 +176,11 @@ public class MemberBaseReferRecord extends UpdatableRecordImpl<MemberBaseReferRe
     }
 
     /**
-     * Setter for <code>book.member_base_refer.del_flag</code>. 删除标志
+     * Getter for <code>book.member_base_refer.update_at</code>. 更新时间
      */
-    public MemberBaseReferRecord setDelFlag(Boolean value) {
-        set(8, value);
-        return this;
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(7);
     }
-
-    // -------------------------------------------------------------------------
-    // Primary key information
-    // -------------------------------------------------------------------------
 
     /**
      * Getter for <code>book.member_base_refer.version</code>. 版本号
@@ -202,16 +190,8 @@ public class MemberBaseReferRecord extends UpdatableRecordImpl<MemberBaseReferRe
     }
 
     // -------------------------------------------------------------------------
-    // Record10 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.member_base_refer.version</code>. 版本号
-     */
-    public MemberBaseReferRecord setVersion(Long value) {
-        set(9, value);
-        return this;
-    }
 
     /**
      * {@inheritDoc}
@@ -220,6 +200,10 @@ public class MemberBaseReferRecord extends UpdatableRecordImpl<MemberBaseReferRe
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record10 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -558,10 +542,6 @@ public class MemberBaseReferRecord extends UpdatableRecordImpl<MemberBaseReferRe
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -586,6 +566,26 @@ public class MemberBaseReferRecord extends UpdatableRecordImpl<MemberBaseReferRe
         value8(value8);
         value9(value9);
         value10(value10);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Setter for <code>book.member_base_refer.del_flag</code>. 删除标志
+     */
+    public MemberBaseReferRecord setDelFlag(Boolean value) {
+        set(8, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.member_base_refer.version</code>. 版本号
+     */
+    public MemberBaseReferRecord setVersion(Long value) {
+        set(9, value);
         return this;
     }
 }

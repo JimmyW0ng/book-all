@@ -116,20 +116,6 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Getter for <code>book.message_captcha.source_id</code>. 业务标识
-     */
-    public Long getSourceId() {
-        return (Long) get(2);
-    }
-
-    /**
-     * Getter for <code>book.message_captcha.code</code>. 业务编码
-     */
-    public String getCode() {
-        return (String) get(3);
-    }
-
-    /**
      * Getter for <code>book.message_captcha.content</code>. 验证码内容
      */
     public String getContent() {
@@ -137,11 +123,10 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Setter for <code>book.message_captcha.client_id</code>. 客户端标识
+     * Getter for <code>book.message_captcha.source_id</code>. 业务标识
      */
-    public MessageCaptchaRecord setClientId(Long value) {
-        set(6, value);
-        return this;
+    public Long getSourceId() {
+        return (Long) get(2);
     }
 
     /**
@@ -152,11 +137,10 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Setter for <code>book.message_captcha.expire_time</code>. 过期时间
+     * Getter for <code>book.message_captcha.code</code>. 业务编码
      */
-    public MessageCaptchaRecord setExpireTime(Timestamp value) {
-        set(7, value);
-        return this;
+    public String getCode() {
+        return (String) get(3);
     }
 
     /**
@@ -168,10 +152,10 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Setter for <code>book.message_captcha.ip</code>. 访问ip
+     * Setter for <code>book.message_captcha.expire_time</code>. 过期时间
      */
-    public MessageCaptchaRecord setIp(String value) {
-        set(8, value);
+    public MessageCaptchaRecord setExpireTime(Timestamp value) {
+        set(7, value);
         return this;
     }
 
@@ -180,6 +164,22 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
      */
     public Long getClientId() {
         return (Long) get(6);
+    }
+
+    /**
+     * Setter for <code>book.message_captcha.ip</code>. 访问ip
+     */
+    public MessageCaptchaRecord setIp(String value) {
+        set(8, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.message_captcha.client_id</code>. 客户端标识
+     */
+    public MessageCaptchaRecord setClientId(Long value) {
+        set(6, value);
+        return this;
     }
 
     /**

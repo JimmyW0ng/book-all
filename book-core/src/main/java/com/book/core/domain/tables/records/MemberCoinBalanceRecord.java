@@ -147,6 +147,14 @@ public class MemberCoinBalanceRecord extends UpdatableRecordImpl<MemberCoinBalan
     }
 
     /**
+     * Setter for <code>book.member_coin_balance.del_flag</code>. 删除标志
+     */
+    public MemberCoinBalanceRecord setDelFlag(Boolean value) {
+        set(7, value);
+        return this;
+    }
+
+    /**
      * Getter for <code>book.member_coin_balance.remark</code>. 备注
      */
     public String getRemark() {
@@ -165,14 +173,6 @@ public class MemberCoinBalanceRecord extends UpdatableRecordImpl<MemberCoinBalan
      */
     public Boolean getDelFlag() {
         return (Boolean) get(7);
-    }
-
-    /**
-     * Setter for <code>book.member_coin_balance.del_flag</code>. 删除标志
-     */
-    public MemberCoinBalanceRecord setDelFlag(Boolean value) {
-        set(7, value);
-        return this;
     }
 
     // -------------------------------------------------------------------------

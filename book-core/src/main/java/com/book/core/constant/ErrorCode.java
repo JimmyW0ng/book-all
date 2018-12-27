@@ -43,4 +43,11 @@ public class ErrorCode {
     public static final String ERROR_MEMBER_IS_NOT_EXIST = "ERROR_MEMBER_IS_NOT_EXIST";
     public static final String ERROR_MEMBER_IS_FREEZE = "ERROR_MEMBER_IS_FREEZE";
 
+    /**
+     * 书籍
+     */
+    public static final String ERROR_BOOK_IS_NOT_EXIST = "ERROR_BOOK_IS_NOT_EXIST";
+    public static final String ERROR_BOOK_CLASSIFY_IS_NOT_EXIST = "ERROR_BOOK_CLASSIFY_IS_NOT_EXIST";
+    public static final String ERROR_BOOK_CATALOG_IS_NOT_EXIST = "ERROR_BOOK_CATALOG_IS_NOT_EXIST";
+
 }

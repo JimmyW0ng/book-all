@@ -18,7 +18,7 @@ import java.sql.Timestamp;
 
 
 /**
- * 会员虚拟币提现记录
+ * 会员虚拟币提现记录表
  */
 @Generated(
         value = {
@@ -30,13 +30,29 @@ import java.sql.Timestamp;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MemberCoinWithdrawLogRecord extends UpdatableRecordImpl<MemberCoinWithdrawLogRecord> implements Record11<Long, Long, String, BigDecimal, MemberCoinWithdrawLogStatus, Timestamp, Timestamp, Timestamp, String, Boolean, Long> {
 
-    private static final long serialVersionUID = 704636161;
+    private static final long serialVersionUID = -113980501;
+
+    /**
+     * Setter for <code>book.member_coin_withdraw_log.id</code>. 主键
+     */
+    public MemberCoinWithdrawLogRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
 
     /**
      * Create a detached MemberCoinWithdrawLogRecord
      */
     public MemberCoinWithdrawLogRecord() {
         super(MemberCoinWithdrawLog.MEMBER_COIN_WITHDRAW_LOG);
+    }
+
+    /**
+     * Setter for <code>book.member_coin_withdraw_log.member_id</code>. 会员id
+     */
+    public MemberCoinWithdrawLogRecord setMemberId(Long value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -59,43 +75,6 @@ public class MemberCoinWithdrawLogRecord extends UpdatableRecordImpl<MemberCoinW
     }
 
     /**
-     * Getter for <code>book.member_coin_withdraw_log.id</code>. 主键
-     */
-    public Long getId() {
-        return (Long) get(0);
-    }
-
-    /**
-     * Setter for <code>book.member_coin_withdraw_log.id</code>. 主键
-     */
-    public MemberCoinWithdrawLogRecord setId(Long value) {
-        set(0, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_coin_withdraw_log.member_id</code>. 会员id
-     */
-    public Long getMemberId() {
-        return (Long) get(1);
-    }
-
-    /**
-     * Setter for <code>book.member_coin_withdraw_log.member_id</code>. 会员id
-     */
-    public MemberCoinWithdrawLogRecord setMemberId(Long value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_coin_withdraw_log.request_no</code>. 业务请求号
-     */
-    public String getRequestNo() {
-        return (String) get(2);
-    }
-
-    /**
      * Setter for <code>book.member_coin_withdraw_log.request_no</code>. 业务请求号
      */
     public MemberCoinWithdrawLogRecord setRequestNo(String value) {
@@ -104,10 +83,10 @@ public class MemberCoinWithdrawLogRecord extends UpdatableRecordImpl<MemberCoinW
     }
 
     /**
-     * Getter for <code>book.member_coin_withdraw_log.amount</code>. 充值金额
+     * Getter for <code>book.member_coin_withdraw_log.id</code>. 主键
      */
-    public BigDecimal getAmount() {
-        return (BigDecimal) get(3);
+    public Long getId() {
+        return (Long) get(0);
     }
 
     /**
@@ -119,10 +98,10 @@ public class MemberCoinWithdrawLogRecord extends UpdatableRecordImpl<MemberCoinW
     }
 
     /**
-     * Getter for <code>book.member_coin_withdraw_log.status</code>. 状态：待处理；处理中；成功；失败；
+     * Getter for <code>book.member_coin_withdraw_log.member_id</code>. 会员id
      */
-    public MemberCoinWithdrawLogStatus getStatus() {
-        return (MemberCoinWithdrawLogStatus) get(4);
+    public Long getMemberId() {
+        return (Long) get(1);
     }
 
     /**
@@ -134,10 +113,10 @@ public class MemberCoinWithdrawLogRecord extends UpdatableRecordImpl<MemberCoinW
     }
 
     /**
-     * Getter for <code>book.member_coin_withdraw_log.finish_time</code>. 完成时间
+     * Getter for <code>book.member_coin_withdraw_log.request_no</code>. 业务请求号
      */
-    public Timestamp getFinishTime() {
-        return (Timestamp) get(5);
+    public String getRequestNo() {
+        return (String) get(2);
     }
 
     /**
@@ -149,10 +128,10 @@ public class MemberCoinWithdrawLogRecord extends UpdatableRecordImpl<MemberCoinW
     }
 
     /**
-     * Getter for <code>book.member_coin_withdraw_log.create_at</code>. 创建时间
+     * Getter for <code>book.member_coin_withdraw_log.amount</code>. 充值金额
      */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(6);
+    public BigDecimal getAmount() {
+        return (BigDecimal) get(3);
     }
 
     /**
@@ -164,10 +143,10 @@ public class MemberCoinWithdrawLogRecord extends UpdatableRecordImpl<MemberCoinW
     }
 
     /**
-     * Getter for <code>book.member_coin_withdraw_log.update_at</code>. 更新时间
+     * Getter for <code>book.member_coin_withdraw_log.status</code>. 状态：待处理；处理中；成功；失败；
      */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(7);
+    public MemberCoinWithdrawLogStatus getStatus() {
+        return (MemberCoinWithdrawLogStatus) get(4);
     }
 
     /**
@@ -179,10 +158,38 @@ public class MemberCoinWithdrawLogRecord extends UpdatableRecordImpl<MemberCoinW
     }
 
     /**
+     * Getter for <code>book.member_coin_withdraw_log.finish_time</code>. 完成时间
+     */
+    public Timestamp getFinishTime() {
+        return (Timestamp) get(5);
+    }
+
+    /**
+     * Getter for <code>book.member_coin_withdraw_log.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(6);
+    }
+
+    /**
      * Getter for <code>book.member_coin_withdraw_log.remark</code>. 备注
      */
     public String getRemark() {
         return (String) get(8);
+    }
+
+    /**
+     * Getter for <code>book.member_coin_withdraw_log.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(7);
+    }
+
+    /**
+     * Getter for <code>book.member_coin_withdraw_log.del_flag</code>. 删除标记
+     */
+    public Boolean getDelFlag() {
+        return (Boolean) get(9);
     }
 
     /**
@@ -194,25 +201,6 @@ public class MemberCoinWithdrawLogRecord extends UpdatableRecordImpl<MemberCoinW
     }
 
     /**
-     * Getter for <code>book.member_coin_withdraw_log.del_flag</code>. 删除标记
-     */
-    public Boolean getDelFlag() {
-        return (Boolean) get(9);
-    }
-
-    /**
-     * Setter for <code>book.member_coin_withdraw_log.del_flag</code>. 删除标记
-     */
-    public MemberCoinWithdrawLogRecord setDelFlag(Boolean value) {
-        set(9, value);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
-    // Primary key information
-    // -------------------------------------------------------------------------
-
-    /**
      * Getter for <code>book.member_coin_withdraw_log.version</code>. 版本号
      */
     public Long getVersion() {
@@ -220,16 +208,8 @@ public class MemberCoinWithdrawLogRecord extends UpdatableRecordImpl<MemberCoinW
     }
 
     // -------------------------------------------------------------------------
-    // Record11 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.member_coin_withdraw_log.version</code>. 版本号
-     */
-    public MemberCoinWithdrawLogRecord setVersion(Long value) {
-        set(10, value);
-        return this;
-    }
 
     /**
      * {@inheritDoc}
@@ -238,6 +218,10 @@ public class MemberCoinWithdrawLogRecord extends UpdatableRecordImpl<MemberCoinW
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record11 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -609,10 +593,6 @@ public class MemberCoinWithdrawLogRecord extends UpdatableRecordImpl<MemberCoinW
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -638,6 +618,26 @@ public class MemberCoinWithdrawLogRecord extends UpdatableRecordImpl<MemberCoinW
         value9(value9);
         value10(value10);
         value11(value11);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Setter for <code>book.member_coin_withdraw_log.del_flag</code>. 删除标记
+     */
+    public MemberCoinWithdrawLogRecord setDelFlag(Boolean value) {
+        set(9, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.member_coin_withdraw_log.version</code>. 版本号
+     */
+    public MemberCoinWithdrawLogRecord setVersion(Long value) {
+        set(10, value);
         return this;
     }
 }

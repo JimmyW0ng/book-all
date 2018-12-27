@@ -22,7 +22,7 @@ import java.util.List;
 
 
 /**
- * 会员资金充值记录
+ * 会员资金充值记录表
  */
 @Generated(
         value = {
@@ -34,59 +34,77 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MemberCapitalRechargeLog extends TableImpl<MemberCapitalRechargeLogRecord> {
 
+    private static final long serialVersionUID = -700610030;
+
     /**
      * The reference instance of <code>book.member_capital_recharge_log</code>
      */
     public static final MemberCapitalRechargeLog MEMBER_CAPITAL_RECHARGE_LOG = new MemberCapitalRechargeLog();
-    private static final long serialVersionUID = 1535711786;
+
+    private MemberCapitalRechargeLog(Name alias, Table<MemberCapitalRechargeLogRecord> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, "会员资金充值记录表");
+    }
+
     /**
      * The column <code>book.member_capital_recharge_log.id</code>. 主键
      */
     public final TableField<MemberCapitalRechargeLogRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "主键");
+
     /**
      * The column <code>book.member_capital_recharge_log.member_id</code>. 会员id
      */
     public final TableField<MemberCapitalRechargeLogRecord, Long> MEMBER_ID = createField("member_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "会员id");
+
     /**
      * The column <code>book.member_capital_recharge_log.request_no</code>. 业务请求号
      */
     public final TableField<MemberCapitalRechargeLogRecord, String> REQUEST_NO = createField("request_no", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "业务请求号");
+
     /**
      * The column <code>book.member_capital_recharge_log.amount</code>. 充值金额
      */
     public final TableField<MemberCapitalRechargeLogRecord, BigDecimal> AMOUNT = createField("amount", org.jooq.impl.SQLDataType.DECIMAL(12, 2).nullable(false), this, "充值金额");
+
     /**
      * The column <code>book.member_capital_recharge_log.status</code>. 状态：待处理；处理中；成功；失败；
      */
     public final TableField<MemberCapitalRechargeLogRecord, MemberCapitalRechargeLogStatus> STATUS = createField("status", org.jooq.impl.SQLDataType.VARCHAR(10).nullable(false).asEnumDataType(com.book.core.domain.enums.MemberCapitalRechargeLogStatus.class), this, "状态：待处理；处理中；成功；失败；");
+
     /**
      * The column <code>book.member_capital_recharge_log.type</code>. 类型：时间段付费充值；
      */
     public final TableField<MemberCapitalRechargeLogRecord, MemberCapitalRechargeLogType> TYPE = createField("type", org.jooq.impl.SQLDataType.VARCHAR(12).nullable(false).asEnumDataType(com.book.core.domain.enums.MemberCapitalRechargeLogType.class), this, "类型：时间段付费充值；");
+
     /**
      * The column <code>book.member_capital_recharge_log.source_id</code>. 业务id
      */
     public final TableField<MemberCapitalRechargeLogRecord, Long> SOURCE_ID = createField("source_id", org.jooq.impl.SQLDataType.BIGINT, this, "业务id");
+
     /**
      * The column <code>book.member_capital_recharge_log.finish_time</code>. 完成时间
      */
     public final TableField<MemberCapitalRechargeLogRecord, Timestamp> FINISH_TIME = createField("finish_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "完成时间");
+
     /**
      * The column <code>book.member_capital_recharge_log.create_at</code>. 创建时间
      */
     public final TableField<MemberCapitalRechargeLogRecord, Timestamp> CREATE_AT = createField("create_at", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "创建时间");
+
     /**
      * The column <code>book.member_capital_recharge_log.update_at</code>. 更新时间
      */
     public final TableField<MemberCapitalRechargeLogRecord, Timestamp> UPDATE_AT = createField("update_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+
     /**
      * The column <code>book.member_capital_recharge_log.remark</code>. 备注
      */
     public final TableField<MemberCapitalRechargeLogRecord, String> REMARK = createField("remark", org.jooq.impl.SQLDataType.VARCHAR(255), this, "备注");
+
     /**
      * The column <code>book.member_capital_recharge_log.del_flag</code>. 删除标记
      */
     public final TableField<MemberCapitalRechargeLogRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标记");
+
     /**
      * The column <code>book.member_capital_recharge_log.version</code>. 版本号
      */
@@ -115,10 +133,6 @@ public class MemberCapitalRechargeLog extends TableImpl<MemberCapitalRechargeLog
 
     private MemberCapitalRechargeLog(Name alias, Table<MemberCapitalRechargeLogRecord> aliased) {
         this(alias, aliased, null);
-    }
-
-    private MemberCapitalRechargeLog(Name alias, Table<MemberCapitalRechargeLogRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, "会员资金充值记录");
     }
 
     /**

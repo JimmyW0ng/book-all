@@ -19,7 +19,7 @@ import java.sql.Timestamp;
 
 
 /**
- * 会员资金充值记录
+ * 会员资金充值记录表
  */
 @Generated(
         value = {
@@ -31,13 +31,29 @@ import java.sql.Timestamp;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCapitalRechargeLogRecord> implements Record13<Long, Long, String, BigDecimal, MemberCapitalRechargeLogStatus, MemberCapitalRechargeLogType, Long, Timestamp, Timestamp, Timestamp, String, Boolean, Long> {
 
-    private static final long serialVersionUID = -2047684136;
+    private static final long serialVersionUID = 1555942302;
+
+    /**
+     * Setter for <code>book.member_capital_recharge_log.id</code>. 主键
+     */
+    public MemberCapitalRechargeLogRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
 
     /**
      * Create a detached MemberCapitalRechargeLogRecord
      */
     public MemberCapitalRechargeLogRecord() {
         super(MemberCapitalRechargeLog.MEMBER_CAPITAL_RECHARGE_LOG);
+    }
+
+    /**
+     * Setter for <code>book.member_capital_recharge_log.member_id</code>. 会员id
+     */
+    public MemberCapitalRechargeLogRecord setMemberId(Long value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -62,43 +78,6 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
     }
 
     /**
-     * Getter for <code>book.member_capital_recharge_log.id</code>. 主键
-     */
-    public Long getId() {
-        return (Long) get(0);
-    }
-
-    /**
-     * Setter for <code>book.member_capital_recharge_log.id</code>. 主键
-     */
-    public MemberCapitalRechargeLogRecord setId(Long value) {
-        set(0, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_capital_recharge_log.member_id</code>. 会员id
-     */
-    public Long getMemberId() {
-        return (Long) get(1);
-    }
-
-    /**
-     * Setter for <code>book.member_capital_recharge_log.member_id</code>. 会员id
-     */
-    public MemberCapitalRechargeLogRecord setMemberId(Long value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_capital_recharge_log.request_no</code>. 业务请求号
-     */
-    public String getRequestNo() {
-        return (String) get(2);
-    }
-
-    /**
      * Setter for <code>book.member_capital_recharge_log.request_no</code>. 业务请求号
      */
     public MemberCapitalRechargeLogRecord setRequestNo(String value) {
@@ -107,10 +86,10 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
     }
 
     /**
-     * Getter for <code>book.member_capital_recharge_log.amount</code>. 充值金额
+     * Getter for <code>book.member_capital_recharge_log.id</code>. 主键
      */
-    public BigDecimal getAmount() {
-        return (BigDecimal) get(3);
+    public Long getId() {
+        return (Long) get(0);
     }
 
     /**
@@ -122,10 +101,10 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
     }
 
     /**
-     * Getter for <code>book.member_capital_recharge_log.status</code>. 状态：待处理；处理中；成功；失败；
+     * Getter for <code>book.member_capital_recharge_log.member_id</code>. 会员id
      */
-    public MemberCapitalRechargeLogStatus getStatus() {
-        return (MemberCapitalRechargeLogStatus) get(4);
+    public Long getMemberId() {
+        return (Long) get(1);
     }
 
     /**
@@ -137,10 +116,10 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
     }
 
     /**
-     * Getter for <code>book.member_capital_recharge_log.type</code>. 类型：时间段付费充值；
+     * Getter for <code>book.member_capital_recharge_log.request_no</code>. 业务请求号
      */
-    public MemberCapitalRechargeLogType getType() {
-        return (MemberCapitalRechargeLogType) get(5);
+    public String getRequestNo() {
+        return (String) get(2);
     }
 
     /**
@@ -152,10 +131,10 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
     }
 
     /**
-     * Getter for <code>book.member_capital_recharge_log.source_id</code>. 业务id
+     * Getter for <code>book.member_capital_recharge_log.amount</code>. 充值金额
      */
-    public Long getSourceId() {
-        return (Long) get(6);
+    public BigDecimal getAmount() {
+        return (BigDecimal) get(3);
     }
 
     /**
@@ -167,10 +146,10 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
     }
 
     /**
-     * Getter for <code>book.member_capital_recharge_log.finish_time</code>. 完成时间
+     * Getter for <code>book.member_capital_recharge_log.status</code>. 状态：待处理；处理中；成功；失败；
      */
-    public Timestamp getFinishTime() {
-        return (Timestamp) get(7);
+    public MemberCapitalRechargeLogStatus getStatus() {
+        return (MemberCapitalRechargeLogStatus) get(4);
     }
 
     /**
@@ -182,10 +161,10 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
     }
 
     /**
-     * Getter for <code>book.member_capital_recharge_log.create_at</code>. 创建时间
+     * Getter for <code>book.member_capital_recharge_log.type</code>. 类型：时间段付费充值；
      */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(8);
+    public MemberCapitalRechargeLogType getType() {
+        return (MemberCapitalRechargeLogType) get(5);
     }
 
     /**
@@ -197,10 +176,38 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
     }
 
     /**
+     * Getter for <code>book.member_capital_recharge_log.source_id</code>. 业务id
+     */
+    public Long getSourceId() {
+        return (Long) get(6);
+    }
+
+    /**
+     * Getter for <code>book.member_capital_recharge_log.finish_time</code>. 完成时间
+     */
+    public Timestamp getFinishTime() {
+        return (Timestamp) get(7);
+    }
+
+    /**
      * Getter for <code>book.member_capital_recharge_log.update_at</code>. 更新时间
      */
     public Timestamp getUpdateAt() {
         return (Timestamp) get(9);
+    }
+
+    /**
+     * Getter for <code>book.member_capital_recharge_log.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(8);
+    }
+
+    /**
+     * Getter for <code>book.member_capital_recharge_log.remark</code>. 备注
+     */
+    public String getRemark() {
+        return (String) get(10);
     }
 
     /**
@@ -212,10 +219,10 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
     }
 
     /**
-     * Getter for <code>book.member_capital_recharge_log.remark</code>. 备注
+     * Getter for <code>book.member_capital_recharge_log.del_flag</code>. 删除标记
      */
-    public String getRemark() {
-        return (String) get(10);
+    public Boolean getDelFlag() {
+        return (Boolean) get(11);
     }
 
     /**
@@ -227,25 +234,6 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
     }
 
     /**
-     * Getter for <code>book.member_capital_recharge_log.del_flag</code>. 删除标记
-     */
-    public Boolean getDelFlag() {
-        return (Boolean) get(11);
-    }
-
-    /**
-     * Setter for <code>book.member_capital_recharge_log.del_flag</code>. 删除标记
-     */
-    public MemberCapitalRechargeLogRecord setDelFlag(Boolean value) {
-        set(11, value);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
-    // Primary key information
-    // -------------------------------------------------------------------------
-
-    /**
      * Getter for <code>book.member_capital_recharge_log.version</code>. 版本号
      */
     public Long getVersion() {
@@ -253,16 +241,8 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
     }
 
     // -------------------------------------------------------------------------
-    // Record13 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.member_capital_recharge_log.version</code>. 版本号
-     */
-    public MemberCapitalRechargeLogRecord setVersion(Long value) {
-        set(12, value);
-        return this;
-    }
 
     /**
      * {@inheritDoc}
@@ -271,6 +251,10 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record13 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -708,10 +692,6 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -739,6 +719,26 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
         value11(value11);
         value12(value12);
         value13(value13);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Setter for <code>book.member_capital_recharge_log.del_flag</code>. 删除标记
+     */
+    public MemberCapitalRechargeLogRecord setDelFlag(Boolean value) {
+        set(11, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.member_capital_recharge_log.version</code>. 版本号
+     */
+    public MemberCapitalRechargeLogRecord setVersion(Long value) {
+        set(12, value);
         return this;
     }
 }

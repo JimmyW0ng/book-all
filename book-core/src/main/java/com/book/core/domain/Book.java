@@ -28,7 +28,7 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class Book extends SchemaImpl {
 
-    private static final long serialVersionUID = -447668465;
+    private static final long serialVersionUID = 846513855;
 
     /**
      * The reference instance of <code>book</code>
@@ -44,6 +44,41 @@ public class Book extends SchemaImpl {
      * 鉴权登录表
      */
     public final AuthorityToken AUTHORITY_TOKEN = com.book.core.domain.tables.AuthorityToken.AUTHORITY_TOKEN;
+
+    /**
+     * 书籍目录表
+     */
+    public final BookBaseCatalog BOOK_BASE_CATALOG = com.book.core.domain.tables.BookBaseCatalog.BOOK_BASE_CATALOG;
+
+    /**
+     * 书籍分类表
+     */
+    public final BookBaseClassification BOOK_BASE_CLASSIFICATION = com.book.core.domain.tables.BookBaseClassification.BOOK_BASE_CLASSIFICATION;
+
+    /**
+     * 书籍基础信息表
+     */
+    public final BookBaseInfo BOOK_BASE_INFO = com.book.core.domain.tables.BookBaseInfo.BOOK_BASE_INFO;
+
+    /**
+     * 爬虫书籍章节表
+     */
+    public final BookSpiderChapter BOOK_SPIDER_CHAPTER = com.book.core.domain.tables.BookSpiderChapter.BOOK_SPIDER_CHAPTER;
+
+    /**
+     * 爬虫书籍基础信息表
+     */
+    public final BookSpiderInfo BOOK_SPIDER_INFO = com.book.core.domain.tables.BookSpiderInfo.BOOK_SPIDER_INFO;
+
+    /**
+     * 第三方版权书籍章节表
+     */
+    public final BookThirdCopyrightChapter BOOK_THIRD_COPYRIGHT_CHAPTER = com.book.core.domain.tables.BookThirdCopyrightChapter.BOOK_THIRD_COPYRIGHT_CHAPTER;
+
+    /**
+     * 第三方版权书籍基础信息表
+     */
+    public final BookThirdCopyrightInfo BOOK_THIRD_COPYRIGHT_INFO = com.book.core.domain.tables.BookThirdCopyrightInfo.BOOK_THIRD_COPYRIGHT_INFO;
 
     /**
      * 会员基础信息表
@@ -66,7 +101,7 @@ public class Book extends SchemaImpl {
     public final MemberCapitalInOutLog MEMBER_CAPITAL_IN_OUT_LOG = com.book.core.domain.tables.MemberCapitalInOutLog.MEMBER_CAPITAL_IN_OUT_LOG;
 
     /**
-     * 会员资金充值记录
+     * 会员资金充值记录表
      */
     public final MemberCapitalRechargeLog MEMBER_CAPITAL_RECHARGE_LOG = com.book.core.domain.tables.MemberCapitalRechargeLog.MEMBER_CAPITAL_RECHARGE_LOG;
 
@@ -81,7 +116,12 @@ public class Book extends SchemaImpl {
     public final MemberCoinInOutLog MEMBER_COIN_IN_OUT_LOG = com.book.core.domain.tables.MemberCoinInOutLog.MEMBER_COIN_IN_OUT_LOG;
 
     /**
-     * 会员虚拟币提现记录
+     * 会员虚拟币返利计划表
+     */
+    public final MemberCoinRebatePlan MEMBER_COIN_REBATE_PLAN = com.book.core.domain.tables.MemberCoinRebatePlan.MEMBER_COIN_REBATE_PLAN;
+
+    /**
+     * 会员虚拟币提现记录表
      */
     public final MemberCoinWithdrawLog MEMBER_COIN_WITHDRAW_LOG = com.book.core.domain.tables.MemberCoinWithdrawLog.MEMBER_COIN_WITHDRAW_LOG;
 
@@ -94,21 +134,6 @@ public class Book extends SchemaImpl {
      * 消息-验证码表
      */
     public final MessageCaptcha MESSAGE_CAPTCHA = com.book.core.domain.tables.MessageCaptcha.MESSAGE_CAPTCHA;
-
-    /**
-     * 爬虫-作者基础信息表
-     */
-    public final SpiderAuthorBaseInfo SPIDER_AUTHOR_BASE_INFO = com.book.core.domain.tables.SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO;
-
-    /**
-     * 爬虫-图书基础信息表
-     */
-    public final SpiderBookBaseInfo SPIDER_BOOK_BASE_INFO = com.book.core.domain.tables.SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO;
-
-    /**
-     * 爬虫-图书内容
-     */
-    public final SpiderBookDetailInfo SPIDER_BOOK_DETAIL_INFO = com.book.core.domain.tables.SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO;
 
     /**
      * No further instances allowed
@@ -137,6 +162,13 @@ public class Book extends SchemaImpl {
         return Arrays.<Table<?>>asList(
                 AuthorityClient.AUTHORITY_CLIENT,
                 AuthorityToken.AUTHORITY_TOKEN,
+                BookBaseCatalog.BOOK_BASE_CATALOG,
+                BookBaseClassification.BOOK_BASE_CLASSIFICATION,
+                BookBaseInfo.BOOK_BASE_INFO,
+                BookSpiderChapter.BOOK_SPIDER_CHAPTER,
+                BookSpiderInfo.BOOK_SPIDER_INFO,
+                BookThirdCopyrightChapter.BOOK_THIRD_COPYRIGHT_CHAPTER,
+                BookThirdCopyrightInfo.BOOK_THIRD_COPYRIGHT_INFO,
                 MemberBaseInfo.MEMBER_BASE_INFO,
                 MemberBaseRefer.MEMBER_BASE_REFER,
                 MemberCapitalBalance.MEMBER_CAPITAL_BALANCE,
@@ -144,11 +176,9 @@ public class Book extends SchemaImpl {
                 MemberCapitalRechargeLog.MEMBER_CAPITAL_RECHARGE_LOG,
                 MemberCoinBalance.MEMBER_COIN_BALANCE,
                 MemberCoinInOutLog.MEMBER_COIN_IN_OUT_LOG,
+                MemberCoinRebatePlan.MEMBER_COIN_REBATE_PLAN,
                 MemberCoinWithdrawLog.MEMBER_COIN_WITHDRAW_LOG,
                 MemberVipLog.MEMBER_VIP_LOG,
-                MessageCaptcha.MESSAGE_CAPTCHA,
-                SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO,
-                SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO,
-                SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO);
+                MessageCaptcha.MESSAGE_CAPTCHA);
     }
 }

@@ -33,6 +33,13 @@ public class Keys {
 
     public static final Identity<AuthorityClientRecord, Long> IDENTITY_AUTHORITY_CLIENT = Identities0.IDENTITY_AUTHORITY_CLIENT;
     public static final Identity<AuthorityTokenRecord, Long> IDENTITY_AUTHORITY_TOKEN = Identities0.IDENTITY_AUTHORITY_TOKEN;
+    public static final Identity<BookBaseCatalogRecord, Long> IDENTITY_BOOK_BASE_CATALOG = Identities0.IDENTITY_BOOK_BASE_CATALOG;
+    public static final Identity<BookBaseClassificationRecord, Long> IDENTITY_BOOK_BASE_CLASSIFICATION = Identities0.IDENTITY_BOOK_BASE_CLASSIFICATION;
+    public static final Identity<BookBaseInfoRecord, Long> IDENTITY_BOOK_BASE_INFO = Identities0.IDENTITY_BOOK_BASE_INFO;
+    public static final Identity<BookSpiderChapterRecord, Long> IDENTITY_BOOK_SPIDER_CHAPTER = Identities0.IDENTITY_BOOK_SPIDER_CHAPTER;
+    public static final Identity<BookSpiderInfoRecord, Long> IDENTITY_BOOK_SPIDER_INFO = Identities0.IDENTITY_BOOK_SPIDER_INFO;
+    public static final Identity<BookThirdCopyrightChapterRecord, Long> IDENTITY_BOOK_THIRD_COPYRIGHT_CHAPTER = Identities0.IDENTITY_BOOK_THIRD_COPYRIGHT_CHAPTER;
+    public static final Identity<BookThirdCopyrightInfoRecord, Long> IDENTITY_BOOK_THIRD_COPYRIGHT_INFO = Identities0.IDENTITY_BOOK_THIRD_COPYRIGHT_INFO;
     public static final Identity<MemberBaseInfoRecord, Long> IDENTITY_MEMBER_BASE_INFO = Identities0.IDENTITY_MEMBER_BASE_INFO;
     public static final Identity<MemberBaseReferRecord, Long> IDENTITY_MEMBER_BASE_REFER = Identities0.IDENTITY_MEMBER_BASE_REFER;
     public static final Identity<MemberCapitalBalanceRecord, Long> IDENTITY_MEMBER_CAPITAL_BALANCE = Identities0.IDENTITY_MEMBER_CAPITAL_BALANCE;
@@ -40,12 +47,10 @@ public class Keys {
     public static final Identity<MemberCapitalRechargeLogRecord, Long> IDENTITY_MEMBER_CAPITAL_RECHARGE_LOG = Identities0.IDENTITY_MEMBER_CAPITAL_RECHARGE_LOG;
     public static final Identity<MemberCoinBalanceRecord, Long> IDENTITY_MEMBER_COIN_BALANCE = Identities0.IDENTITY_MEMBER_COIN_BALANCE;
     public static final Identity<MemberCoinInOutLogRecord, Long> IDENTITY_MEMBER_COIN_IN_OUT_LOG = Identities0.IDENTITY_MEMBER_COIN_IN_OUT_LOG;
+    public static final Identity<MemberCoinRebatePlanRecord, Long> IDENTITY_MEMBER_COIN_REBATE_PLAN = Identities0.IDENTITY_MEMBER_COIN_REBATE_PLAN;
     public static final Identity<MemberCoinWithdrawLogRecord, Long> IDENTITY_MEMBER_COIN_WITHDRAW_LOG = Identities0.IDENTITY_MEMBER_COIN_WITHDRAW_LOG;
     public static final Identity<MemberVipLogRecord, Long> IDENTITY_MEMBER_VIP_LOG = Identities0.IDENTITY_MEMBER_VIP_LOG;
     public static final Identity<MessageCaptchaRecord, Long> IDENTITY_MESSAGE_CAPTCHA = Identities0.IDENTITY_MESSAGE_CAPTCHA;
-    public static final Identity<SpiderAuthorBaseInfoRecord, Long> IDENTITY_SPIDER_AUTHOR_BASE_INFO = Identities0.IDENTITY_SPIDER_AUTHOR_BASE_INFO;
-    public static final Identity<SpiderBookBaseInfoRecord, Long> IDENTITY_SPIDER_BOOK_BASE_INFO = Identities0.IDENTITY_SPIDER_BOOK_BASE_INFO;
-    public static final Identity<SpiderBookDetailInfoRecord, Long> IDENTITY_SPIDER_BOOK_DETAIL_INFO = Identities0.IDENTITY_SPIDER_BOOK_DETAIL_INFO;
 
     // -------------------------------------------------------------------------
     // UNIQUE and PRIMARY KEY definitions
@@ -54,6 +59,16 @@ public class Keys {
     public static final UniqueKey<AuthorityClientRecord> KEY_AUTHORITY_CLIENT_PRIMARY = UniqueKeys0.KEY_AUTHORITY_CLIENT_PRIMARY;
     public static final UniqueKey<AuthorityClientRecord> KEY_AUTHORITY_CLIENT_UNIQUE_NAME = UniqueKeys0.KEY_AUTHORITY_CLIENT_UNIQUE_NAME;
     public static final UniqueKey<AuthorityTokenRecord> KEY_AUTHORITY_TOKEN_PRIMARY = UniqueKeys0.KEY_AUTHORITY_TOKEN_PRIMARY;
+    public static final UniqueKey<BookBaseCatalogRecord> KEY_BOOK_BASE_CATALOG_PRIMARY = UniqueKeys0.KEY_BOOK_BASE_CATALOG_PRIMARY;
+    public static final UniqueKey<BookBaseCatalogRecord> KEY_BOOK_BASE_CATALOG_UNIQUE_BOOK_CHAPTER = UniqueKeys0.KEY_BOOK_BASE_CATALOG_UNIQUE_BOOK_CHAPTER;
+    public static final UniqueKey<BookBaseClassificationRecord> KEY_BOOK_BASE_CLASSIFICATION_PRIMARY = UniqueKeys0.KEY_BOOK_BASE_CLASSIFICATION_PRIMARY;
+    public static final UniqueKey<BookBaseInfoRecord> KEY_BOOK_BASE_INFO_PRIMARY = UniqueKeys0.KEY_BOOK_BASE_INFO_PRIMARY;
+    public static final UniqueKey<BookSpiderChapterRecord> KEY_BOOK_SPIDER_CHAPTER_PRIMARY = UniqueKeys0.KEY_BOOK_SPIDER_CHAPTER_PRIMARY;
+    public static final UniqueKey<BookSpiderChapterRecord> KEY_BOOK_SPIDER_CHAPTER_UNIQUE_BOOK_CHAPTER = UniqueKeys0.KEY_BOOK_SPIDER_CHAPTER_UNIQUE_BOOK_CHAPTER;
+    public static final UniqueKey<BookSpiderInfoRecord> KEY_BOOK_SPIDER_INFO_PRIMARY = UniqueKeys0.KEY_BOOK_SPIDER_INFO_PRIMARY;
+    public static final UniqueKey<BookThirdCopyrightChapterRecord> KEY_BOOK_THIRD_COPYRIGHT_CHAPTER_PRIMARY = UniqueKeys0.KEY_BOOK_THIRD_COPYRIGHT_CHAPTER_PRIMARY;
+    public static final UniqueKey<BookThirdCopyrightChapterRecord> KEY_BOOK_THIRD_COPYRIGHT_CHAPTER_UNIQUE_BOOK_CHAPTER = UniqueKeys0.KEY_BOOK_THIRD_COPYRIGHT_CHAPTER_UNIQUE_BOOK_CHAPTER;
+    public static final UniqueKey<BookThirdCopyrightInfoRecord> KEY_BOOK_THIRD_COPYRIGHT_INFO_PRIMARY = UniqueKeys0.KEY_BOOK_THIRD_COPYRIGHT_INFO_PRIMARY;
     public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_PRIMARY = UniqueKeys0.KEY_MEMBER_BASE_INFO_PRIMARY;
     public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE = UniqueKeys0.KEY_MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE;
     public static final UniqueKey<MemberBaseReferRecord> KEY_MEMBER_BASE_REFER_PRIMARY = UniqueKeys0.KEY_MEMBER_BASE_REFER_PRIMARY;
@@ -65,16 +80,11 @@ public class Keys {
     public static final UniqueKey<MemberCoinBalanceRecord> KEY_MEMBER_COIN_BALANCE_PRIMARY = UniqueKeys0.KEY_MEMBER_COIN_BALANCE_PRIMARY;
     public static final UniqueKey<MemberCoinBalanceRecord> KEY_MEMBER_COIN_BALANCE_UNIQUE_MEMBER_ID = UniqueKeys0.KEY_MEMBER_COIN_BALANCE_UNIQUE_MEMBER_ID;
     public static final UniqueKey<MemberCoinInOutLogRecord> KEY_MEMBER_COIN_IN_OUT_LOG_PRIMARY = UniqueKeys0.KEY_MEMBER_COIN_IN_OUT_LOG_PRIMARY;
+    public static final UniqueKey<MemberCoinRebatePlanRecord> KEY_MEMBER_COIN_REBATE_PLAN_PRIMARY = UniqueKeys0.KEY_MEMBER_COIN_REBATE_PLAN_PRIMARY;
     public static final UniqueKey<MemberCoinWithdrawLogRecord> KEY_MEMBER_COIN_WITHDRAW_LOG_PRIMARY = UniqueKeys0.KEY_MEMBER_COIN_WITHDRAW_LOG_PRIMARY;
     public static final UniqueKey<MemberCoinWithdrawLogRecord> KEY_MEMBER_COIN_WITHDRAW_LOG_UNIQUE_REQUEST_NO = UniqueKeys0.KEY_MEMBER_COIN_WITHDRAW_LOG_UNIQUE_REQUEST_NO;
     public static final UniqueKey<MemberVipLogRecord> KEY_MEMBER_VIP_LOG_PRIMARY = UniqueKeys0.KEY_MEMBER_VIP_LOG_PRIMARY;
     public static final UniqueKey<MessageCaptchaRecord> KEY_MESSAGE_CAPTCHA_PRIMARY = UniqueKeys0.KEY_MESSAGE_CAPTCHA_PRIMARY;
-    public static final UniqueKey<SpiderAuthorBaseInfoRecord> KEY_SPIDER_AUTHOR_BASE_INFO_PRIMARY = UniqueKeys0.KEY_SPIDER_AUTHOR_BASE_INFO_PRIMARY;
-    public static final UniqueKey<SpiderAuthorBaseInfoRecord> KEY_SPIDER_AUTHOR_BASE_INFO_UNIQUE_NAME = UniqueKeys0.KEY_SPIDER_AUTHOR_BASE_INFO_UNIQUE_NAME;
-    public static final UniqueKey<SpiderBookBaseInfoRecord> KEY_SPIDER_BOOK_BASE_INFO_PRIMARY = UniqueKeys0.KEY_SPIDER_BOOK_BASE_INFO_PRIMARY;
-    public static final UniqueKey<SpiderBookBaseInfoRecord> KEY_SPIDER_BOOK_BASE_INFO_UNIQ_AUTHORID_TITLE = UniqueKeys0.KEY_SPIDER_BOOK_BASE_INFO_UNIQ_AUTHORID_TITLE;
-    public static final UniqueKey<SpiderBookDetailInfoRecord> KEY_SPIDER_BOOK_DETAIL_INFO_PRIMARY = UniqueKeys0.KEY_SPIDER_BOOK_DETAIL_INFO_PRIMARY;
-    public static final UniqueKey<SpiderBookDetailInfoRecord> KEY_SPIDER_BOOK_DETAIL_INFO_UNIQUE_BOOK_CHAPTER = UniqueKeys0.KEY_SPIDER_BOOK_DETAIL_INFO_UNIQUE_BOOK_CHAPTER;
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
@@ -88,6 +98,13 @@ public class Keys {
     private static class Identities0 {
         public static Identity<AuthorityClientRecord, Long> IDENTITY_AUTHORITY_CLIENT = Internal.createIdentity(AuthorityClient.AUTHORITY_CLIENT, AuthorityClient.AUTHORITY_CLIENT.ID);
         public static Identity<AuthorityTokenRecord, Long> IDENTITY_AUTHORITY_TOKEN = Internal.createIdentity(AuthorityToken.AUTHORITY_TOKEN, AuthorityToken.AUTHORITY_TOKEN.ID);
+        public static Identity<BookBaseCatalogRecord, Long> IDENTITY_BOOK_BASE_CATALOG = Internal.createIdentity(BookBaseCatalog.BOOK_BASE_CATALOG, BookBaseCatalog.BOOK_BASE_CATALOG.ID);
+        public static Identity<BookBaseClassificationRecord, Long> IDENTITY_BOOK_BASE_CLASSIFICATION = Internal.createIdentity(BookBaseClassification.BOOK_BASE_CLASSIFICATION, BookBaseClassification.BOOK_BASE_CLASSIFICATION.ID);
+        public static Identity<BookBaseInfoRecord, Long> IDENTITY_BOOK_BASE_INFO = Internal.createIdentity(BookBaseInfo.BOOK_BASE_INFO, BookBaseInfo.BOOK_BASE_INFO.ID);
+        public static Identity<BookSpiderChapterRecord, Long> IDENTITY_BOOK_SPIDER_CHAPTER = Internal.createIdentity(BookSpiderChapter.BOOK_SPIDER_CHAPTER, BookSpiderChapter.BOOK_SPIDER_CHAPTER.ID);
+        public static Identity<BookSpiderInfoRecord, Long> IDENTITY_BOOK_SPIDER_INFO = Internal.createIdentity(BookSpiderInfo.BOOK_SPIDER_INFO, BookSpiderInfo.BOOK_SPIDER_INFO.ID);
+        public static Identity<BookThirdCopyrightChapterRecord, Long> IDENTITY_BOOK_THIRD_COPYRIGHT_CHAPTER = Internal.createIdentity(BookThirdCopyrightChapter.BOOK_THIRD_COPYRIGHT_CHAPTER, BookThirdCopyrightChapter.BOOK_THIRD_COPYRIGHT_CHAPTER.ID);
+        public static Identity<BookThirdCopyrightInfoRecord, Long> IDENTITY_BOOK_THIRD_COPYRIGHT_INFO = Internal.createIdentity(BookThirdCopyrightInfo.BOOK_THIRD_COPYRIGHT_INFO, BookThirdCopyrightInfo.BOOK_THIRD_COPYRIGHT_INFO.ID);
         public static Identity<MemberBaseInfoRecord, Long> IDENTITY_MEMBER_BASE_INFO = Internal.createIdentity(MemberBaseInfo.MEMBER_BASE_INFO, MemberBaseInfo.MEMBER_BASE_INFO.ID);
         public static Identity<MemberBaseReferRecord, Long> IDENTITY_MEMBER_BASE_REFER = Internal.createIdentity(MemberBaseRefer.MEMBER_BASE_REFER, MemberBaseRefer.MEMBER_BASE_REFER.ID);
         public static Identity<MemberCapitalBalanceRecord, Long> IDENTITY_MEMBER_CAPITAL_BALANCE = Internal.createIdentity(MemberCapitalBalance.MEMBER_CAPITAL_BALANCE, MemberCapitalBalance.MEMBER_CAPITAL_BALANCE.ID);
@@ -95,18 +112,26 @@ public class Keys {
         public static Identity<MemberCapitalRechargeLogRecord, Long> IDENTITY_MEMBER_CAPITAL_RECHARGE_LOG = Internal.createIdentity(MemberCapitalRechargeLog.MEMBER_CAPITAL_RECHARGE_LOG, MemberCapitalRechargeLog.MEMBER_CAPITAL_RECHARGE_LOG.ID);
         public static Identity<MemberCoinBalanceRecord, Long> IDENTITY_MEMBER_COIN_BALANCE = Internal.createIdentity(MemberCoinBalance.MEMBER_COIN_BALANCE, MemberCoinBalance.MEMBER_COIN_BALANCE.ID);
         public static Identity<MemberCoinInOutLogRecord, Long> IDENTITY_MEMBER_COIN_IN_OUT_LOG = Internal.createIdentity(MemberCoinInOutLog.MEMBER_COIN_IN_OUT_LOG, MemberCoinInOutLog.MEMBER_COIN_IN_OUT_LOG.ID);
+        public static Identity<MemberCoinRebatePlanRecord, Long> IDENTITY_MEMBER_COIN_REBATE_PLAN = Internal.createIdentity(MemberCoinRebatePlan.MEMBER_COIN_REBATE_PLAN, MemberCoinRebatePlan.MEMBER_COIN_REBATE_PLAN.ID);
         public static Identity<MemberCoinWithdrawLogRecord, Long> IDENTITY_MEMBER_COIN_WITHDRAW_LOG = Internal.createIdentity(MemberCoinWithdrawLog.MEMBER_COIN_WITHDRAW_LOG, MemberCoinWithdrawLog.MEMBER_COIN_WITHDRAW_LOG.ID);
         public static Identity<MemberVipLogRecord, Long> IDENTITY_MEMBER_VIP_LOG = Internal.createIdentity(MemberVipLog.MEMBER_VIP_LOG, MemberVipLog.MEMBER_VIP_LOG.ID);
         public static Identity<MessageCaptchaRecord, Long> IDENTITY_MESSAGE_CAPTCHA = Internal.createIdentity(MessageCaptcha.MESSAGE_CAPTCHA, MessageCaptcha.MESSAGE_CAPTCHA.ID);
-        public static Identity<SpiderAuthorBaseInfoRecord, Long> IDENTITY_SPIDER_AUTHOR_BASE_INFO = Internal.createIdentity(SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO, SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO.ID);
-        public static Identity<SpiderBookBaseInfoRecord, Long> IDENTITY_SPIDER_BOOK_BASE_INFO = Internal.createIdentity(SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO, SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO.ID);
-        public static Identity<SpiderBookDetailInfoRecord, Long> IDENTITY_SPIDER_BOOK_DETAIL_INFO = Internal.createIdentity(SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO, SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO.ID);
     }
 
     private static class UniqueKeys0 {
         public static final UniqueKey<AuthorityClientRecord> KEY_AUTHORITY_CLIENT_PRIMARY = Internal.createUniqueKey(AuthorityClient.AUTHORITY_CLIENT, "KEY_authority_client_PRIMARY", AuthorityClient.AUTHORITY_CLIENT.ID);
         public static final UniqueKey<AuthorityClientRecord> KEY_AUTHORITY_CLIENT_UNIQUE_NAME = Internal.createUniqueKey(AuthorityClient.AUTHORITY_CLIENT, "KEY_authority_client_UNIQUE_NAME", AuthorityClient.AUTHORITY_CLIENT.NAME);
         public static final UniqueKey<AuthorityTokenRecord> KEY_AUTHORITY_TOKEN_PRIMARY = Internal.createUniqueKey(AuthorityToken.AUTHORITY_TOKEN, "KEY_authority_token_PRIMARY", AuthorityToken.AUTHORITY_TOKEN.ID);
+        public static final UniqueKey<BookBaseCatalogRecord> KEY_BOOK_BASE_CATALOG_PRIMARY = Internal.createUniqueKey(BookBaseCatalog.BOOK_BASE_CATALOG, "KEY_book_base_catalog_PRIMARY", BookBaseCatalog.BOOK_BASE_CATALOG.ID);
+        public static final UniqueKey<BookBaseCatalogRecord> KEY_BOOK_BASE_CATALOG_UNIQUE_BOOK_CHAPTER = Internal.createUniqueKey(BookBaseCatalog.BOOK_BASE_CATALOG, "KEY_book_base_catalog_UNIQUE_BOOK_CHAPTER", BookBaseCatalog.BOOK_BASE_CATALOG.BOOK_ID, BookBaseCatalog.BOOK_BASE_CATALOG.CHAPTER_TITLE);
+        public static final UniqueKey<BookBaseClassificationRecord> KEY_BOOK_BASE_CLASSIFICATION_PRIMARY = Internal.createUniqueKey(BookBaseClassification.BOOK_BASE_CLASSIFICATION, "KEY_book_base_classification_PRIMARY", BookBaseClassification.BOOK_BASE_CLASSIFICATION.ID);
+        public static final UniqueKey<BookBaseInfoRecord> KEY_BOOK_BASE_INFO_PRIMARY = Internal.createUniqueKey(BookBaseInfo.BOOK_BASE_INFO, "KEY_book_base_info_PRIMARY", BookBaseInfo.BOOK_BASE_INFO.ID);
+        public static final UniqueKey<BookSpiderChapterRecord> KEY_BOOK_SPIDER_CHAPTER_PRIMARY = Internal.createUniqueKey(BookSpiderChapter.BOOK_SPIDER_CHAPTER, "KEY_book_spider_chapter_PRIMARY", BookSpiderChapter.BOOK_SPIDER_CHAPTER.ID);
+        public static final UniqueKey<BookSpiderChapterRecord> KEY_BOOK_SPIDER_CHAPTER_UNIQUE_BOOK_CHAPTER = Internal.createUniqueKey(BookSpiderChapter.BOOK_SPIDER_CHAPTER, "KEY_book_spider_chapter_UNIQUE_BOOK_CHAPTER", BookSpiderChapter.BOOK_SPIDER_CHAPTER.BOOK_ID, BookSpiderChapter.BOOK_SPIDER_CHAPTER.CHAPTER_TITLE);
+        public static final UniqueKey<BookSpiderInfoRecord> KEY_BOOK_SPIDER_INFO_PRIMARY = Internal.createUniqueKey(BookSpiderInfo.BOOK_SPIDER_INFO, "KEY_book_spider_info_PRIMARY", BookSpiderInfo.BOOK_SPIDER_INFO.ID);
+        public static final UniqueKey<BookThirdCopyrightChapterRecord> KEY_BOOK_THIRD_COPYRIGHT_CHAPTER_PRIMARY = Internal.createUniqueKey(BookThirdCopyrightChapter.BOOK_THIRD_COPYRIGHT_CHAPTER, "KEY_book_third_copyright_chapter_PRIMARY", BookThirdCopyrightChapter.BOOK_THIRD_COPYRIGHT_CHAPTER.ID);
+        public static final UniqueKey<BookThirdCopyrightChapterRecord> KEY_BOOK_THIRD_COPYRIGHT_CHAPTER_UNIQUE_BOOK_CHAPTER = Internal.createUniqueKey(BookThirdCopyrightChapter.BOOK_THIRD_COPYRIGHT_CHAPTER, "KEY_book_third_copyright_chapter_UNIQUE_BOOK_CHAPTER", BookThirdCopyrightChapter.BOOK_THIRD_COPYRIGHT_CHAPTER.BOOK_ID, BookThirdCopyrightChapter.BOOK_THIRD_COPYRIGHT_CHAPTER.CHAPTER_TITLE);
+        public static final UniqueKey<BookThirdCopyrightInfoRecord> KEY_BOOK_THIRD_COPYRIGHT_INFO_PRIMARY = Internal.createUniqueKey(BookThirdCopyrightInfo.BOOK_THIRD_COPYRIGHT_INFO, "KEY_book_third_copyright_info_PRIMARY", BookThirdCopyrightInfo.BOOK_THIRD_COPYRIGHT_INFO.ID);
         public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_PRIMARY = Internal.createUniqueKey(MemberBaseInfo.MEMBER_BASE_INFO, "KEY_member_base_info_PRIMARY", MemberBaseInfo.MEMBER_BASE_INFO.ID);
         public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE = Internal.createUniqueKey(MemberBaseInfo.MEMBER_BASE_INFO, "KEY_member_base_info_UNIQUE_MEMBER_MOBILE", MemberBaseInfo.MEMBER_BASE_INFO.MOBILE);
         public static final UniqueKey<MemberBaseReferRecord> KEY_MEMBER_BASE_REFER_PRIMARY = Internal.createUniqueKey(MemberBaseRefer.MEMBER_BASE_REFER, "KEY_member_base_refer_PRIMARY", MemberBaseRefer.MEMBER_BASE_REFER.ID);
@@ -118,15 +143,10 @@ public class Keys {
         public static final UniqueKey<MemberCoinBalanceRecord> KEY_MEMBER_COIN_BALANCE_PRIMARY = Internal.createUniqueKey(MemberCoinBalance.MEMBER_COIN_BALANCE, "KEY_member_coin_balance_PRIMARY", MemberCoinBalance.MEMBER_COIN_BALANCE.ID);
         public static final UniqueKey<MemberCoinBalanceRecord> KEY_MEMBER_COIN_BALANCE_UNIQUE_MEMBER_ID = Internal.createUniqueKey(MemberCoinBalance.MEMBER_COIN_BALANCE, "KEY_member_coin_balance_UNIQUE_MEMBER_ID", MemberCoinBalance.MEMBER_COIN_BALANCE.MEMBER_ID);
         public static final UniqueKey<MemberCoinInOutLogRecord> KEY_MEMBER_COIN_IN_OUT_LOG_PRIMARY = Internal.createUniqueKey(MemberCoinInOutLog.MEMBER_COIN_IN_OUT_LOG, "KEY_member_coin_in_out_log_PRIMARY", MemberCoinInOutLog.MEMBER_COIN_IN_OUT_LOG.ID);
+        public static final UniqueKey<MemberCoinRebatePlanRecord> KEY_MEMBER_COIN_REBATE_PLAN_PRIMARY = Internal.createUniqueKey(MemberCoinRebatePlan.MEMBER_COIN_REBATE_PLAN, "KEY_member_coin_rebate_plan_PRIMARY", MemberCoinRebatePlan.MEMBER_COIN_REBATE_PLAN.ID);
         public static final UniqueKey<MemberCoinWithdrawLogRecord> KEY_MEMBER_COIN_WITHDRAW_LOG_PRIMARY = Internal.createUniqueKey(MemberCoinWithdrawLog.MEMBER_COIN_WITHDRAW_LOG, "KEY_member_coin_withdraw_log_PRIMARY", MemberCoinWithdrawLog.MEMBER_COIN_WITHDRAW_LOG.ID);
         public static final UniqueKey<MemberCoinWithdrawLogRecord> KEY_MEMBER_COIN_WITHDRAW_LOG_UNIQUE_REQUEST_NO = Internal.createUniqueKey(MemberCoinWithdrawLog.MEMBER_COIN_WITHDRAW_LOG, "KEY_member_coin_withdraw_log_UNIQUE_REQUEST_NO", MemberCoinWithdrawLog.MEMBER_COIN_WITHDRAW_LOG.REQUEST_NO);
         public static final UniqueKey<MemberVipLogRecord> KEY_MEMBER_VIP_LOG_PRIMARY = Internal.createUniqueKey(MemberVipLog.MEMBER_VIP_LOG, "KEY_member_vip_log_PRIMARY", MemberVipLog.MEMBER_VIP_LOG.ID);
         public static final UniqueKey<MessageCaptchaRecord> KEY_MESSAGE_CAPTCHA_PRIMARY = Internal.createUniqueKey(MessageCaptcha.MESSAGE_CAPTCHA, "KEY_message_captcha_PRIMARY", MessageCaptcha.MESSAGE_CAPTCHA.ID);
-        public static final UniqueKey<SpiderAuthorBaseInfoRecord> KEY_SPIDER_AUTHOR_BASE_INFO_PRIMARY = Internal.createUniqueKey(SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO, "KEY_spider_author_base_info_PRIMARY", SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO.ID);
-        public static final UniqueKey<SpiderAuthorBaseInfoRecord> KEY_SPIDER_AUTHOR_BASE_INFO_UNIQUE_NAME = Internal.createUniqueKey(SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO, "KEY_spider_author_base_info_UNIQUE_NAME", SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO.NAME);
-        public static final UniqueKey<SpiderBookBaseInfoRecord> KEY_SPIDER_BOOK_BASE_INFO_PRIMARY = Internal.createUniqueKey(SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO, "KEY_spider_book_base_info_PRIMARY", SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO.ID);
-        public static final UniqueKey<SpiderBookBaseInfoRecord> KEY_SPIDER_BOOK_BASE_INFO_UNIQ_AUTHORID_TITLE = Internal.createUniqueKey(SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO, "KEY_spider_book_base_info_uniq_authorid_title", SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO.AUTHOR_ID, SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO.TITLE);
-        public static final UniqueKey<SpiderBookDetailInfoRecord> KEY_SPIDER_BOOK_DETAIL_INFO_PRIMARY = Internal.createUniqueKey(SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO, "KEY_spider_book_detail_info_PRIMARY", SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO.ID);
-        public static final UniqueKey<SpiderBookDetailInfoRecord> KEY_SPIDER_BOOK_DETAIL_INFO_UNIQUE_BOOK_CHAPTER = Internal.createUniqueKey(SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO, "KEY_spider_book_detail_info_UNIQUE_BOOK_CHAPTER", SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO.BOOK_ID, SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO.CHAPTER_TITLE);
     }
 }

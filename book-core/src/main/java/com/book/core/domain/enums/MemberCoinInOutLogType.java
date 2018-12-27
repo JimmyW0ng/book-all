@@ -12,7 +12,7 @@ import javax.annotation.Generated;
 
 
 /**
- * 类型：推荐好友分润、提现
+ * 类型：推荐好友返利、返现
  */
 @Generated(
         value = {

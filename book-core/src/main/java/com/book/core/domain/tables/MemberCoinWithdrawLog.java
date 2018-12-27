@@ -21,7 +21,7 @@ import java.util.List;
 
 
 /**
- * 会员虚拟币提现记录
+ * 会员虚拟币提现记录表
  */
 @Generated(
         value = {
@@ -33,51 +33,67 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MemberCoinWithdrawLog extends TableImpl<MemberCoinWithdrawLogRecord> {
 
+    private static final long serialVersionUID = 2063496419;
+
     /**
      * The reference instance of <code>book.member_coin_withdraw_log</code>
      */
     public static final MemberCoinWithdrawLog MEMBER_COIN_WITHDRAW_LOG = new MemberCoinWithdrawLog();
-    private static final long serialVersionUID = -1088718451;
+
+    private MemberCoinWithdrawLog(Name alias, Table<MemberCoinWithdrawLogRecord> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, "会员虚拟币提现记录表");
+    }
+
     /**
      * The column <code>book.member_coin_withdraw_log.id</code>. 主键
      */
     public final TableField<MemberCoinWithdrawLogRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "主键");
+
     /**
      * The column <code>book.member_coin_withdraw_log.member_id</code>. 会员id
      */
     public final TableField<MemberCoinWithdrawLogRecord, Long> MEMBER_ID = createField("member_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "会员id");
+
     /**
      * The column <code>book.member_coin_withdraw_log.request_no</code>. 业务请求号
      */
     public final TableField<MemberCoinWithdrawLogRecord, String> REQUEST_NO = createField("request_no", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "业务请求号");
+
     /**
      * The column <code>book.member_coin_withdraw_log.amount</code>. 充值金额
      */
     public final TableField<MemberCoinWithdrawLogRecord, BigDecimal> AMOUNT = createField("amount", org.jooq.impl.SQLDataType.DECIMAL(12, 2).nullable(false), this, "充值金额");
+
     /**
      * The column <code>book.member_coin_withdraw_log.status</code>. 状态：待处理；处理中；成功；失败；
      */
     public final TableField<MemberCoinWithdrawLogRecord, MemberCoinWithdrawLogStatus> STATUS = createField("status", org.jooq.impl.SQLDataType.VARCHAR(10).nullable(false).asEnumDataType(com.book.core.domain.enums.MemberCoinWithdrawLogStatus.class), this, "状态：待处理；处理中；成功；失败；");
+
     /**
      * The column <code>book.member_coin_withdraw_log.finish_time</code>. 完成时间
      */
     public final TableField<MemberCoinWithdrawLogRecord, Timestamp> FINISH_TIME = createField("finish_time", org.jooq.impl.SQLDataType.TIMESTAMP, this, "完成时间");
+
     /**
      * The column <code>book.member_coin_withdraw_log.create_at</code>. 创建时间
      */
     public final TableField<MemberCoinWithdrawLogRecord, Timestamp> CREATE_AT = createField("create_at", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "创建时间");
+
     /**
      * The column <code>book.member_coin_withdraw_log.update_at</code>. 更新时间
      */
     public final TableField<MemberCoinWithdrawLogRecord, Timestamp> UPDATE_AT = createField("update_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+
     /**
      * The column <code>book.member_coin_withdraw_log.remark</code>. 备注
      */
     public final TableField<MemberCoinWithdrawLogRecord, String> REMARK = createField("remark", org.jooq.impl.SQLDataType.VARCHAR(255), this, "备注");
+
     /**
      * The column <code>book.member_coin_withdraw_log.del_flag</code>. 删除标记
      */
     public final TableField<MemberCoinWithdrawLogRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标记");
+
     /**
      * The column <code>book.member_coin_withdraw_log.version</code>. 版本号
      */
@@ -106,10 +122,6 @@ public class MemberCoinWithdrawLog extends TableImpl<MemberCoinWithdrawLogRecord
 
     private MemberCoinWithdrawLog(Name alias, Table<MemberCoinWithdrawLogRecord> aliased) {
         this(alias, aliased, null);
-    }
-
-    private MemberCoinWithdrawLog(Name alias, Table<MemberCoinWithdrawLogRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, "会员虚拟币提现记录");
     }
 
     /**

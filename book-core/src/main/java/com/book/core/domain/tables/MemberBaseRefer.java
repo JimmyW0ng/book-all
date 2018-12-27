@@ -31,47 +31,66 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MemberBaseRefer extends TableImpl<MemberBaseReferRecord> {
 
+    private static final long serialVersionUID = -1733496781;
+
     /**
      * The reference instance of <code>book.member_base_refer</code>
      */
     public static final MemberBaseRefer MEMBER_BASE_REFER = new MemberBaseRefer();
-    private static final long serialVersionUID = -1733496781;
+
+    /**
+     * The class holding records for this type
+     */
+    @Override
+    public Class<MemberBaseReferRecord> getRecordType() {
+        return MemberBaseReferRecord.class;
+    }
+
     /**
      * The column <code>book.member_base_refer.id</code>. 主键
      */
     public final TableField<MemberBaseReferRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "主键");
+
     /**
      * The column <code>book.member_base_refer.member_id</code>. 会员id
      */
     public final TableField<MemberBaseReferRecord, Long> MEMBER_ID = createField("member_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "会员id");
+
     /**
      * The column <code>book.member_base_refer.referral_id</code>. 推荐人id
      */
     public final TableField<MemberBaseReferRecord, Long> REFERRAL_ID = createField("referral_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "推荐人id");
+
     /**
      * The column <code>book.member_base_refer.level</code>. 推荐等级
      */
     public final TableField<MemberBaseReferRecord, Integer> LEVEL = createField("level", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "推荐等级");
+
     /**
      * The column <code>book.member_base_refer.archived</code>. 激活标志
      */
     public final TableField<MemberBaseReferRecord, Boolean> ARCHIVED = createField("archived", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'1'", org.jooq.impl.SQLDataType.BIT)), this, "激活标志");
+
     /**
      * The column <code>book.member_base_refer.remark</code>. 备注
      */
     public final TableField<MemberBaseReferRecord, String> REMARK = createField("remark", org.jooq.impl.SQLDataType.VARCHAR(255), this, "备注");
+
     /**
      * The column <code>book.member_base_refer.create_at</code>. 创建时间
      */
     public final TableField<MemberBaseReferRecord, Timestamp> CREATE_AT = createField("create_at", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "创建时间");
+
     /**
      * The column <code>book.member_base_refer.update_at</code>. 更新时间
      */
     public final TableField<MemberBaseReferRecord, Timestamp> UPDATE_AT = createField("update_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+
     /**
      * The column <code>book.member_base_refer.del_flag</code>. 删除标志
      */
     public final TableField<MemberBaseReferRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标志");
+
     /**
      * The column <code>book.member_base_refer.version</code>. 版本号
      */
@@ -104,14 +123,6 @@ public class MemberBaseRefer extends TableImpl<MemberBaseReferRecord> {
 
     private MemberBaseRefer(Name alias, Table<MemberBaseReferRecord> aliased, Field<?>[] parameters) {
         super(alias, null, aliased, parameters, "会员推荐表");
-    }
-
-    /**
-     * The class holding records for this type
-     */
-    @Override
-    public Class<MemberBaseReferRecord> getRecordType() {
-        return MemberBaseReferRecord.class;
     }
 
     /**

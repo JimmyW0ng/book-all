@@ -33,6 +33,41 @@ public class Tables {
     public static final AuthorityToken AUTHORITY_TOKEN = com.book.core.domain.tables.AuthorityToken.AUTHORITY_TOKEN;
 
     /**
+     * 书籍目录表
+     */
+    public static final BookBaseCatalog BOOK_BASE_CATALOG = com.book.core.domain.tables.BookBaseCatalog.BOOK_BASE_CATALOG;
+
+    /**
+     * 书籍分类表
+     */
+    public static final BookBaseClassification BOOK_BASE_CLASSIFICATION = com.book.core.domain.tables.BookBaseClassification.BOOK_BASE_CLASSIFICATION;
+
+    /**
+     * 书籍基础信息表
+     */
+    public static final BookBaseInfo BOOK_BASE_INFO = com.book.core.domain.tables.BookBaseInfo.BOOK_BASE_INFO;
+
+    /**
+     * 爬虫书籍章节表
+     */
+    public static final BookSpiderChapter BOOK_SPIDER_CHAPTER = com.book.core.domain.tables.BookSpiderChapter.BOOK_SPIDER_CHAPTER;
+
+    /**
+     * 爬虫书籍基础信息表
+     */
+    public static final BookSpiderInfo BOOK_SPIDER_INFO = com.book.core.domain.tables.BookSpiderInfo.BOOK_SPIDER_INFO;
+
+    /**
+     * 第三方版权书籍章节表
+     */
+    public static final BookThirdCopyrightChapter BOOK_THIRD_COPYRIGHT_CHAPTER = com.book.core.domain.tables.BookThirdCopyrightChapter.BOOK_THIRD_COPYRIGHT_CHAPTER;
+
+    /**
+     * 第三方版权书籍基础信息表
+     */
+    public static final BookThirdCopyrightInfo BOOK_THIRD_COPYRIGHT_INFO = com.book.core.domain.tables.BookThirdCopyrightInfo.BOOK_THIRD_COPYRIGHT_INFO;
+
+    /**
      * 会员基础信息表
      */
     public static final MemberBaseInfo MEMBER_BASE_INFO = com.book.core.domain.tables.MemberBaseInfo.MEMBER_BASE_INFO;
@@ -53,7 +88,7 @@ public class Tables {
     public static final MemberCapitalInOutLog MEMBER_CAPITAL_IN_OUT_LOG = com.book.core.domain.tables.MemberCapitalInOutLog.MEMBER_CAPITAL_IN_OUT_LOG;
 
     /**
-     * 会员资金充值记录
+     * 会员资金充值记录表
      */
     public static final MemberCapitalRechargeLog MEMBER_CAPITAL_RECHARGE_LOG = com.book.core.domain.tables.MemberCapitalRechargeLog.MEMBER_CAPITAL_RECHARGE_LOG;
 
@@ -68,7 +103,12 @@ public class Tables {
     public static final MemberCoinInOutLog MEMBER_COIN_IN_OUT_LOG = com.book.core.domain.tables.MemberCoinInOutLog.MEMBER_COIN_IN_OUT_LOG;
 
     /**
-     * 会员虚拟币提现记录
+     * 会员虚拟币返利计划表
+     */
+    public static final MemberCoinRebatePlan MEMBER_COIN_REBATE_PLAN = com.book.core.domain.tables.MemberCoinRebatePlan.MEMBER_COIN_REBATE_PLAN;
+
+    /**
+     * 会员虚拟币提现记录表
      */
     public static final MemberCoinWithdrawLog MEMBER_COIN_WITHDRAW_LOG = com.book.core.domain.tables.MemberCoinWithdrawLog.MEMBER_COIN_WITHDRAW_LOG;
 
@@ -81,19 +121,4 @@ public class Tables {
      * 消息-验证码表
      */
     public static final MessageCaptcha MESSAGE_CAPTCHA = com.book.core.domain.tables.MessageCaptcha.MESSAGE_CAPTCHA;
-
-    /**
-     * 爬虫-作者基础信息表
-     */
-    public static final SpiderAuthorBaseInfo SPIDER_AUTHOR_BASE_INFO = com.book.core.domain.tables.SpiderAuthorBaseInfo.SPIDER_AUTHOR_BASE_INFO;
-
-    /**
-     * 爬虫-图书基础信息表
-     */
-    public static final SpiderBookBaseInfo SPIDER_BOOK_BASE_INFO = com.book.core.domain.tables.SpiderBookBaseInfo.SPIDER_BOOK_BASE_INFO;
-
-    /**
-     * 爬虫-图书内容
-     */
-    public static final SpiderBookDetailInfo SPIDER_BOOK_DETAIL_INFO = com.book.core.domain.tables.SpiderBookDetailInfo.SPIDER_BOOK_DETAIL_INFO;
 }

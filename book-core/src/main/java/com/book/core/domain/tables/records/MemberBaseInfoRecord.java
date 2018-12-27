@@ -107,21 +107,6 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
-     * Getter for <code>book.member_base_info.mobile</code>. 手机号
-     */
-    public Long getMobile() {
-        return (Long) get(1);
-    }
-
-    /**
-     * Setter for <code>book.member_base_info.nick_name</code>. 昵称
-     */
-    public MemberBaseInfoRecord setNickName(String value) {
-        set(4, value);
-        return this;
-    }
-
-    /**
      * Getter for <code>book.member_base_info.vip_end</code>. vip到期时间
      */
     public Timestamp getVipEnd() {
@@ -129,11 +114,10 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
-     * Setter for <code>book.member_base_info.sex</code>. 性别：男；女；未知；
+     * Getter for <code>book.member_base_info.mobile</code>. 手机号
      */
-    public MemberBaseInfoRecord setSex(MemberBaseInfoSex value) {
-        set(5, value);
-        return this;
+    public Long getMobile() {
+        return (Long) get(1);
     }
 
     /**
@@ -145,10 +129,10 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
-     * Setter for <code>book.member_base_info.birthday</code>. 生日
+     * Setter for <code>book.member_base_info.sex</code>. 性别：男；女；未知；
      */
-    public MemberBaseInfoRecord setBirthday(Timestamp value) {
-        set(6, value);
+    public MemberBaseInfoRecord setSex(MemberBaseInfoSex value) {
+        set(5, value);
         return this;
     }
 
@@ -157,6 +141,22 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
      */
     public String getNickName() {
         return (String) get(4);
+    }
+
+    /**
+     * Setter for <code>book.member_base_info.birthday</code>. 生日
+     */
+    public MemberBaseInfoRecord setBirthday(Timestamp value) {
+        set(6, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.member_base_info.nick_name</code>. 昵称
+     */
+    public MemberBaseInfoRecord setNickName(String value) {
+        set(4, value);
+        return this;
     }
 
     /**
@@ -333,6 +333,21 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
+     * Getter for <code>book.member_base_info.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(18);
+    }
+
+    /**
+     * Setter for <code>book.member_base_info.del_flag</code>. 删除标志
+     */
+    public MemberBaseInfoRecord setDelFlag(Boolean value) {
+        set(19, value);
+        return this;
+    }
+
+    /**
      * Getter for <code>book.member_base_info.remark</code>. 备注
      */
     public String getRemark() {
@@ -351,21 +366,6 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
      */
     public Boolean getDelFlag() {
         return (Boolean) get(19);
-    }
-
-    /**
-     * Getter for <code>book.member_base_info.update_at</code>. 更新时间
-     */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(18);
-    }
-
-    /**
-     * Setter for <code>book.member_base_info.del_flag</code>. 删除标志
-     */
-    public MemberBaseInfoRecord setDelFlag(Boolean value) {
-        set(19, value);
-        return this;
     }
 
     // -------------------------------------------------------------------------

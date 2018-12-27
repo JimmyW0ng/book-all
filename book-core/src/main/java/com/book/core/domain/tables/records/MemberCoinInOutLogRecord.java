@@ -31,13 +31,29 @@ import java.sql.Timestamp;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MemberCoinInOutLogRecord extends UpdatableRecordImpl<MemberCoinInOutLogRecord> implements Record12<Long, Long, BigDecimal, MemberCoinInOutLogType, BigDecimal, MemberCoinInOutLogAmountType, String, String, Timestamp, Boolean, Timestamp, Long> {
 
-    private static final long serialVersionUID = -1278272524;
+    private static final long serialVersionUID = -1173601644;
+
+    /**
+     * Setter for <code>book.member_coin_in_out_log.id</code>.
+     */
+    public MemberCoinInOutLogRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
 
     /**
      * Create a detached MemberCoinInOutLogRecord
      */
     public MemberCoinInOutLogRecord() {
         super(MemberCoinInOutLog.MEMBER_COIN_IN_OUT_LOG);
+    }
+
+    /**
+     * Setter for <code>book.member_coin_in_out_log.member_id</code>. 会员标识
+     */
+    public MemberCoinInOutLogRecord setMemberId(Long value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -61,18 +77,18 @@ public class MemberCoinInOutLogRecord extends UpdatableRecordImpl<MemberCoinInOu
     }
 
     /**
+     * Setter for <code>book.member_coin_in_out_log.available_balance</code>. 变更后可用余额
+     */
+    public MemberCoinInOutLogRecord setAvailableBalance(BigDecimal value) {
+        set(2, value);
+        return this;
+    }
+
+    /**
      * Getter for <code>book.member_coin_in_out_log.id</code>.
      */
     public Long getId() {
         return (Long) get(0);
-    }
-
-    /**
-     * Setter for <code>book.member_coin_in_out_log.id</code>.
-     */
-    public MemberCoinInOutLogRecord setId(Long value) {
-        set(0, value);
-        return this;
     }
 
     /**
@@ -83,48 +99,10 @@ public class MemberCoinInOutLogRecord extends UpdatableRecordImpl<MemberCoinInOu
     }
 
     /**
-     * Setter for <code>book.member_coin_in_out_log.member_id</code>. 会员标识
-     */
-    public MemberCoinInOutLogRecord setMemberId(Long value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
      * Getter for <code>book.member_coin_in_out_log.available_balance</code>. 变更后可用余额
      */
     public BigDecimal getAvailableBalance() {
         return (BigDecimal) get(2);
-    }
-
-    /**
-     * Setter for <code>book.member_coin_in_out_log.available_balance</code>. 变更后可用余额
-     */
-    public MemberCoinInOutLogRecord setAvailableBalance(BigDecimal value) {
-        set(2, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_coin_in_out_log.type</code>. 类型：推荐好友分润、提现
-     */
-    public MemberCoinInOutLogType getType() {
-        return (MemberCoinInOutLogType) get(3);
-    }
-
-    /**
-     * Setter for <code>book.member_coin_in_out_log.type</code>. 类型：推荐好友分润、提现
-     */
-    public MemberCoinInOutLogRecord setType(MemberCoinInOutLogType value) {
-        set(3, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_coin_in_out_log.amount</code>. 交易金额
-     */
-    public BigDecimal getAmount() {
-        return (BigDecimal) get(4);
     }
 
     /**
@@ -136,10 +114,10 @@ public class MemberCoinInOutLogRecord extends UpdatableRecordImpl<MemberCoinInOu
     }
 
     /**
-     * Getter for <code>book.member_coin_in_out_log.amount_type</code>. 收入、支出
+     * Getter for <code>book.member_coin_in_out_log.type</code>. 类型：推荐好友返利、返现
      */
-    public MemberCoinInOutLogAmountType getAmountType() {
-        return (MemberCoinInOutLogAmountType) get(5);
+    public MemberCoinInOutLogType getType() {
+        return (MemberCoinInOutLogType) get(3);
     }
 
     /**
@@ -151,10 +129,11 @@ public class MemberCoinInOutLogRecord extends UpdatableRecordImpl<MemberCoinInOu
     }
 
     /**
-     * Getter for <code>book.member_coin_in_out_log.source_id</code>. 业务id：分润记录id；提现记录id；
+     * Setter for <code>book.member_coin_in_out_log.type</code>. 类型：推荐好友返利、返现
      */
-    public String getSourceId() {
-        return (String) get(6);
+    public MemberCoinInOutLogRecord setType(MemberCoinInOutLogType value) {
+        set(3, value);
+        return this;
     }
 
     /**
@@ -166,10 +145,10 @@ public class MemberCoinInOutLogRecord extends UpdatableRecordImpl<MemberCoinInOu
     }
 
     /**
-     * Getter for <code>book.member_coin_in_out_log.remark</code>.
+     * Getter for <code>book.member_coin_in_out_log.amount</code>. 交易金额
      */
-    public String getRemark() {
-        return (String) get(7);
+    public BigDecimal getAmount() {
+        return (BigDecimal) get(4);
     }
 
     /**
@@ -181,10 +160,10 @@ public class MemberCoinInOutLogRecord extends UpdatableRecordImpl<MemberCoinInOu
     }
 
     /**
-     * Getter for <code>book.member_coin_in_out_log.create_at</code>. 创建时间
+     * Getter for <code>book.member_coin_in_out_log.amount_type</code>. 收入、支出
      */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(8);
+    public MemberCoinInOutLogAmountType getAmountType() {
+        return (MemberCoinInOutLogAmountType) get(5);
     }
 
     /**
@@ -196,10 +175,38 @@ public class MemberCoinInOutLogRecord extends UpdatableRecordImpl<MemberCoinInOu
     }
 
     /**
+     * Getter for <code>book.member_coin_in_out_log.source_id</code>. 业务id：分润记录id；提现记录id；
+     */
+    public String getSourceId() {
+        return (String) get(6);
+    }
+
+    /**
+     * Getter for <code>book.member_coin_in_out_log.remark</code>.
+     */
+    public String getRemark() {
+        return (String) get(7);
+    }
+
+    /**
      * Getter for <code>book.member_coin_in_out_log.del_flag</code>. 删除标记
      */
     public Boolean getDelFlag() {
         return (Boolean) get(9);
+    }
+
+    /**
+     * Getter for <code>book.member_coin_in_out_log.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(8);
+    }
+
+    /**
+     * Getter for <code>book.member_coin_in_out_log.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(10);
     }
 
     /**
@@ -211,25 +218,6 @@ public class MemberCoinInOutLogRecord extends UpdatableRecordImpl<MemberCoinInOu
     }
 
     /**
-     * Getter for <code>book.member_coin_in_out_log.update_at</code>. 更新时间
-     */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(10);
-    }
-
-    /**
-     * Setter for <code>book.member_coin_in_out_log.update_at</code>. 更新时间
-     */
-    public MemberCoinInOutLogRecord setUpdateAt(Timestamp value) {
-        set(10, value);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
-    // Primary key information
-    // -------------------------------------------------------------------------
-
-    /**
      * Getter for <code>book.member_coin_in_out_log.version</code>. 版本号
      */
     public Long getVersion() {
@@ -237,16 +225,8 @@ public class MemberCoinInOutLogRecord extends UpdatableRecordImpl<MemberCoinInOu
     }
 
     // -------------------------------------------------------------------------
-    // Record12 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.member_coin_in_out_log.version</code>. 版本号
-     */
-    public MemberCoinInOutLogRecord setVersion(Long value) {
-        set(11, value);
-        return this;
-    }
 
     /**
      * {@inheritDoc}
@@ -255,6 +235,10 @@ public class MemberCoinInOutLogRecord extends UpdatableRecordImpl<MemberCoinInOu
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record12 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -659,10 +643,6 @@ public class MemberCoinInOutLogRecord extends UpdatableRecordImpl<MemberCoinInOu
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -689,6 +669,26 @@ public class MemberCoinInOutLogRecord extends UpdatableRecordImpl<MemberCoinInOu
         value10(value10);
         value11(value11);
         value12(value12);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Setter for <code>book.member_coin_in_out_log.update_at</code>. 更新时间
+     */
+    public MemberCoinInOutLogRecord setUpdateAt(Timestamp value) {
+        set(10, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.member_coin_in_out_log.version</code>. 版本号
+     */
+    public MemberCoinInOutLogRecord setVersion(Long value) {
+        set(11, value);
         return this;
     }
 }

@@ -33,47 +33,66 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MemberVipLog extends TableImpl<MemberVipLogRecord> {
 
+    private static final long serialVersionUID = -682371324;
+
     /**
      * The reference instance of <code>book.member_vip_log</code>
      */
     public static final MemberVipLog MEMBER_VIP_LOG = new MemberVipLog();
-    private static final long serialVersionUID = -682371324;
+
+    /**
+     * The class holding records for this type
+     */
+    @Override
+    public Class<MemberVipLogRecord> getRecordType() {
+        return MemberVipLogRecord.class;
+    }
+
     /**
      * The column <code>book.member_vip_log.id</code>. 主键
      */
     public final TableField<MemberVipLogRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "主键");
+
     /**
      * The column <code>book.member_vip_log.member_id</code>. 会员id
      */
     public final TableField<MemberVipLogRecord, Long> MEMBER_ID = createField("member_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "会员id");
+
     /**
      * The column <code>book.member_vip_log.real_pay_amount</code>. 实际支付金额
      */
     public final TableField<MemberVipLogRecord, BigDecimal> REAL_PAY_AMOUNT = createField("real_pay_amount", org.jooq.impl.SQLDataType.DECIMAL(12, 2).nullable(false), this, "实际支付金额");
+
     /**
      * The column <code>book.member_vip_log.start_time</code>. 开始时间
      */
     public final TableField<MemberVipLogRecord, Timestamp> START_TIME = createField("start_time", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "开始时间", new DateAsTimestampBinding());
+
     /**
      * The column <code>book.member_vip_log.end_time</code>. 结束时间
      */
     public final TableField<MemberVipLogRecord, Timestamp> END_TIME = createField("end_time", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "结束时间", new DateAsTimestampBinding());
+
     /**
      * The column <code>book.member_vip_log.remark</code>. 备注
      */
     public final TableField<MemberVipLogRecord, String> REMARK = createField("remark", org.jooq.impl.SQLDataType.VARCHAR(255), this, "备注");
+
     /**
      * The column <code>book.member_vip_log.create_at</code>. 创建时间
      */
     public final TableField<MemberVipLogRecord, Timestamp> CREATE_AT = createField("create_at", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "创建时间");
+
     /**
      * The column <code>book.member_vip_log.update_at</code>. 更新时间
      */
     public final TableField<MemberVipLogRecord, Timestamp> UPDATE_AT = createField("update_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+
     /**
      * The column <code>book.member_vip_log.del_flag</code>. 删除标志
      */
     public final TableField<MemberVipLogRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标志");
+
     /**
      * The column <code>book.member_vip_log.version</code>. 版本号
      */
@@ -106,14 +125,6 @@ public class MemberVipLog extends TableImpl<MemberVipLogRecord> {
 
     private MemberVipLog(Name alias, Table<MemberVipLogRecord> aliased, Field<?>[] parameters) {
         super(alias, null, aliased, parameters, "会员vip购买记录表");
-    }
-
-    /**
-     * The class holding records for this type
-     */
-    @Override
-    public Class<MemberVipLogRecord> getRecordType() {
-        return MemberVipLogRecord.class;
     }
 
     /**

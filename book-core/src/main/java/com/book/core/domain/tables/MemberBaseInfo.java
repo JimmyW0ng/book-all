@@ -40,6 +40,7 @@ public class MemberBaseInfo extends TableImpl<MemberBaseInfoRecord> {
      * The reference instance of <code>book.member_base_info</code>
      */
     public static final MemberBaseInfo MEMBER_BASE_INFO = new MemberBaseInfo();
+
     /**
      * The column <code>book.member_base_info.vip_end</code>. vip到期时间
      */

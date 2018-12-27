@@ -34,10 +34,26 @@ public class MemberCapitalInOutLogRecord extends UpdatableRecordImpl<MemberCapit
     private static final long serialVersionUID = -1123207329;
 
     /**
+     * Setter for <code>book.member_capital_in_out_log.id</code>.
+     */
+    public MemberCapitalInOutLogRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
+
+    /**
      * Create a detached MemberCapitalInOutLogRecord
      */
     public MemberCapitalInOutLogRecord() {
         super(MemberCapitalInOutLog.MEMBER_CAPITAL_IN_OUT_LOG);
+    }
+
+    /**
+     * Setter for <code>book.member_capital_in_out_log.member_id</code>. 会员标识
+     */
+    public MemberCapitalInOutLogRecord setMemberId(Long value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -61,43 +77,6 @@ public class MemberCapitalInOutLogRecord extends UpdatableRecordImpl<MemberCapit
     }
 
     /**
-     * Getter for <code>book.member_capital_in_out_log.id</code>.
-     */
-    public Long getId() {
-        return (Long) get(0);
-    }
-
-    /**
-     * Setter for <code>book.member_capital_in_out_log.id</code>.
-     */
-    public MemberCapitalInOutLogRecord setId(Long value) {
-        set(0, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_capital_in_out_log.member_id</code>. 会员标识
-     */
-    public Long getMemberId() {
-        return (Long) get(1);
-    }
-
-    /**
-     * Setter for <code>book.member_capital_in_out_log.member_id</code>. 会员标识
-     */
-    public MemberCapitalInOutLogRecord setMemberId(Long value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_capital_in_out_log.available_balance</code>. 变更后可用余额
-     */
-    public BigDecimal getAvailableBalance() {
-        return (BigDecimal) get(2);
-    }
-
-    /**
      * Setter for <code>book.member_capital_in_out_log.available_balance</code>. 变更后可用余额
      */
     public MemberCapitalInOutLogRecord setAvailableBalance(BigDecimal value) {
@@ -106,10 +85,10 @@ public class MemberCapitalInOutLogRecord extends UpdatableRecordImpl<MemberCapit
     }
 
     /**
-     * Getter for <code>book.member_capital_in_out_log.type</code>. 类型：充值、vip购买
+     * Getter for <code>book.member_capital_in_out_log.id</code>.
      */
-    public MemberCapitalInOutLogType getType() {
-        return (MemberCapitalInOutLogType) get(3);
+    public Long getId() {
+        return (Long) get(0);
     }
 
     /**
@@ -121,10 +100,10 @@ public class MemberCapitalInOutLogRecord extends UpdatableRecordImpl<MemberCapit
     }
 
     /**
-     * Getter for <code>book.member_capital_in_out_log.amount</code>. 交易金额
+     * Getter for <code>book.member_capital_in_out_log.member_id</code>. 会员标识
      */
-    public BigDecimal getAmount() {
-        return (BigDecimal) get(4);
+    public Long getMemberId() {
+        return (Long) get(1);
     }
 
     /**
@@ -136,10 +115,10 @@ public class MemberCapitalInOutLogRecord extends UpdatableRecordImpl<MemberCapit
     }
 
     /**
-     * Getter for <code>book.member_capital_in_out_log.amount_type</code>. 收入、支出
+     * Getter for <code>book.member_capital_in_out_log.available_balance</code>. 变更后可用余额
      */
-    public MemberCapitalInOutLogAmountType getAmountType() {
-        return (MemberCapitalInOutLogAmountType) get(5);
+    public BigDecimal getAvailableBalance() {
+        return (BigDecimal) get(2);
     }
 
     /**
@@ -151,10 +130,10 @@ public class MemberCapitalInOutLogRecord extends UpdatableRecordImpl<MemberCapit
     }
 
     /**
-     * Getter for <code>book.member_capital_in_out_log.source_id</code>. 业务id：充值记录id；vip购买记录id；
+     * Getter for <code>book.member_capital_in_out_log.type</code>. 类型：充值、vip购买
      */
-    public String getSourceId() {
-        return (String) get(6);
+    public MemberCapitalInOutLogType getType() {
+        return (MemberCapitalInOutLogType) get(3);
     }
 
     /**
@@ -166,10 +145,10 @@ public class MemberCapitalInOutLogRecord extends UpdatableRecordImpl<MemberCapit
     }
 
     /**
-     * Getter for <code>book.member_capital_in_out_log.remark</code>.
+     * Getter for <code>book.member_capital_in_out_log.amount</code>. 交易金额
      */
-    public String getRemark() {
-        return (String) get(7);
+    public BigDecimal getAmount() {
+        return (BigDecimal) get(4);
     }
 
     /**
@@ -181,10 +160,10 @@ public class MemberCapitalInOutLogRecord extends UpdatableRecordImpl<MemberCapit
     }
 
     /**
-     * Getter for <code>book.member_capital_in_out_log.create_at</code>. 创建时间
+     * Getter for <code>book.member_capital_in_out_log.amount_type</code>. 收入、支出
      */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(8);
+    public MemberCapitalInOutLogAmountType getAmountType() {
+        return (MemberCapitalInOutLogAmountType) get(5);
     }
 
     /**
@@ -196,10 +175,38 @@ public class MemberCapitalInOutLogRecord extends UpdatableRecordImpl<MemberCapit
     }
 
     /**
+     * Getter for <code>book.member_capital_in_out_log.source_id</code>. 业务id：充值记录id；vip购买记录id；
+     */
+    public String getSourceId() {
+        return (String) get(6);
+    }
+
+    /**
+     * Getter for <code>book.member_capital_in_out_log.remark</code>.
+     */
+    public String getRemark() {
+        return (String) get(7);
+    }
+
+    /**
      * Getter for <code>book.member_capital_in_out_log.del_flag</code>. 删除标记
      */
     public Boolean getDelFlag() {
         return (Boolean) get(9);
+    }
+
+    /**
+     * Getter for <code>book.member_capital_in_out_log.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(8);
+    }
+
+    /**
+     * Getter for <code>book.member_capital_in_out_log.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(10);
     }
 
     /**
@@ -211,25 +218,6 @@ public class MemberCapitalInOutLogRecord extends UpdatableRecordImpl<MemberCapit
     }
 
     /**
-     * Getter for <code>book.member_capital_in_out_log.update_at</code>. 更新时间
-     */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(10);
-    }
-
-    /**
-     * Setter for <code>book.member_capital_in_out_log.update_at</code>. 更新时间
-     */
-    public MemberCapitalInOutLogRecord setUpdateAt(Timestamp value) {
-        set(10, value);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
-    // Primary key information
-    // -------------------------------------------------------------------------
-
-    /**
      * Getter for <code>book.member_capital_in_out_log.version</code>. 版本号
      */
     public Long getVersion() {
@@ -237,16 +225,8 @@ public class MemberCapitalInOutLogRecord extends UpdatableRecordImpl<MemberCapit
     }
 
     // -------------------------------------------------------------------------
-    // Record12 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.member_capital_in_out_log.version</code>. 版本号
-     */
-    public MemberCapitalInOutLogRecord setVersion(Long value) {
-        set(11, value);
-        return this;
-    }
 
     /**
      * {@inheritDoc}
@@ -255,6 +235,10 @@ public class MemberCapitalInOutLogRecord extends UpdatableRecordImpl<MemberCapit
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record12 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -659,10 +643,6 @@ public class MemberCapitalInOutLogRecord extends UpdatableRecordImpl<MemberCapit
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -689,6 +669,26 @@ public class MemberCapitalInOutLogRecord extends UpdatableRecordImpl<MemberCapit
         value10(value10);
         value11(value11);
         value12(value12);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Setter for <code>book.member_capital_in_out_log.update_at</code>. 更新时间
+     */
+    public MemberCapitalInOutLogRecord setUpdateAt(Timestamp value) {
+        set(10, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.member_capital_in_out_log.version</code>. 版本号
+     */
+    public MemberCapitalInOutLogRecord setVersion(Long value) {
+        set(11, value);
         return this;
     }
 }

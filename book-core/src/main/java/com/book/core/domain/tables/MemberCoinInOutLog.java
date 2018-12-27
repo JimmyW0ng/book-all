@@ -34,55 +34,75 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MemberCoinInOutLog extends TableImpl<MemberCoinInOutLogRecord> {
 
+    private static final long serialVersionUID = -1439748907;
+
     /**
      * The reference instance of <code>book.member_coin_in_out_log</code>
      */
     public static final MemberCoinInOutLog MEMBER_COIN_IN_OUT_LOG = new MemberCoinInOutLog();
-    private static final long serialVersionUID = -2115079627;
+    /**
+     * The column <code>book.member_coin_in_out_log.type</code>. 类型：推荐好友返利、返现
+     */
+    public final TableField<MemberCoinInOutLogRecord, MemberCoinInOutLogType> TYPE = createField("type", org.jooq.impl.SQLDataType.VARCHAR(8).nullable(false).asEnumDataType(com.book.core.domain.enums.MemberCoinInOutLogType.class), this, "类型：推荐好友返利、返现");
+
     /**
      * The column <code>book.member_coin_in_out_log.id</code>.
      */
     public final TableField<MemberCoinInOutLogRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "");
+
     /**
      * The column <code>book.member_coin_in_out_log.member_id</code>. 会员标识
      */
     public final TableField<MemberCoinInOutLogRecord, Long> MEMBER_ID = createField("member_id", org.jooq.impl.SQLDataType.BIGINT, this, "会员标识");
+
     /**
      * The column <code>book.member_coin_in_out_log.available_balance</code>. 变更后可用余额
      */
     public final TableField<MemberCoinInOutLogRecord, BigDecimal> AVAILABLE_BALANCE = createField("available_balance", org.jooq.impl.SQLDataType.DECIMAL(12, 2), this, "变更后可用余额");
+
     /**
-     * The column <code>book.member_coin_in_out_log.type</code>. 类型：推荐好友分润、提现
+     * The class holding records for this type
      */
-    public final TableField<MemberCoinInOutLogRecord, MemberCoinInOutLogType> TYPE = createField("type", org.jooq.impl.SQLDataType.VARCHAR(8).nullable(false).asEnumDataType(com.book.core.domain.enums.MemberCoinInOutLogType.class), this, "类型：推荐好友分润、提现");
+    @Override
+    public Class<MemberCoinInOutLogRecord> getRecordType() {
+        return MemberCoinInOutLogRecord.class;
+    }
+
     /**
      * The column <code>book.member_coin_in_out_log.amount</code>. 交易金额
      */
     public final TableField<MemberCoinInOutLogRecord, BigDecimal> AMOUNT = createField("amount", org.jooq.impl.SQLDataType.DECIMAL(12, 2).defaultValue(org.jooq.impl.DSL.inline("0.00", org.jooq.impl.SQLDataType.DECIMAL)), this, "交易金额");
+
     /**
      * The column <code>book.member_coin_in_out_log.amount_type</code>. 收入、支出
      */
     public final TableField<MemberCoinInOutLogRecord, MemberCoinInOutLogAmountType> AMOUNT_TYPE = createField("amount_type", org.jooq.impl.SQLDataType.VARCHAR(6).asEnumDataType(com.book.core.domain.enums.MemberCoinInOutLogAmountType.class), this, "收入、支出");
+
     /**
      * The column <code>book.member_coin_in_out_log.source_id</code>. 业务id：分润记录id；提现记录id；
      */
     public final TableField<MemberCoinInOutLogRecord, String> SOURCE_ID = createField("source_id", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "业务id：分润记录id；提现记录id；");
+
     /**
      * The column <code>book.member_coin_in_out_log.remark</code>.
      */
     public final TableField<MemberCoinInOutLogRecord, String> REMARK = createField("remark", org.jooq.impl.SQLDataType.VARCHAR(255), this, "");
+
     /**
      * The column <code>book.member_coin_in_out_log.create_at</code>. 创建时间
      */
     public final TableField<MemberCoinInOutLogRecord, Timestamp> CREATE_AT = createField("create_at", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "创建时间");
+
     /**
      * The column <code>book.member_coin_in_out_log.del_flag</code>. 删除标记
      */
     public final TableField<MemberCoinInOutLogRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标记");
+
     /**
      * The column <code>book.member_coin_in_out_log.update_at</code>. 更新时间
      */
     public final TableField<MemberCoinInOutLogRecord, Timestamp> UPDATE_AT = createField("update_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+
     /**
      * The column <code>book.member_coin_in_out_log.version</code>. 版本号
      */
@@ -115,14 +135,6 @@ public class MemberCoinInOutLog extends TableImpl<MemberCoinInOutLogRecord> {
 
     private MemberCoinInOutLog(Name alias, Table<MemberCoinInOutLogRecord> aliased, Field<?>[] parameters) {
         super(alias, null, aliased, parameters, "会员虚拟币流水表");
-    }
-
-    /**
-     * The class holding records for this type
-     */
-    @Override
-    public Class<MemberCoinInOutLogRecord> getRecordType() {
-        return MemberCoinInOutLogRecord.class;
     }
 
     /**
