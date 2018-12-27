@@ -173,10 +173,33 @@ public class BookSpiderInfoRecord extends UpdatableRecordImpl<BookSpiderInfoReco
     }
 
     /**
+     * Getter for <code>book.book_spider_info.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(8);
+    }
+
+    /**
+     * Setter for <code>book.book_spider_info.update_at</code>. 更新时间
+     */
+    public BookSpiderInfoRecord setUpdateAt(Timestamp value) {
+        set(9, value);
+        return this;
+    }
+
+    /**
      * Getter for <code>book.book_spider_info.short_desc</code>. 简介
      */
     public String getShortDesc() {
         return (String) get(6);
+    }
+
+    /**
+     * Setter for <code>book.book_spider_info.remark</code>. 备注
+     */
+    public BookSpiderInfoRecord setRemark(String value) {
+        set(10, value);
+        return this;
     }
 
     /**
@@ -194,13 +217,6 @@ public class BookSpiderInfoRecord extends UpdatableRecordImpl<BookSpiderInfoReco
     }
 
     /**
-     * Getter for <code>book.book_spider_info.create_at</code>. 创建时间
-     */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(8);
-    }
-
-    /**
      * Getter for <code>book.book_spider_info.remark</code>. 备注
      */
     public String getRemark() {
@@ -208,26 +224,10 @@ public class BookSpiderInfoRecord extends UpdatableRecordImpl<BookSpiderInfoReco
     }
 
     /**
-     * Setter for <code>book.book_spider_info.update_at</code>. 更新时间
-     */
-    public BookSpiderInfoRecord setUpdateAt(Timestamp value) {
-        set(9, value);
-        return this;
-    }
-
-    /**
      * Getter for <code>book.book_spider_info.del_flag</code>. 删除标记
      */
     public Boolean getDelFlag() {
         return (Boolean) get(11);
-    }
-
-    /**
-     * Setter for <code>book.book_spider_info.remark</code>. 备注
-     */
-    public BookSpiderInfoRecord setRemark(String value) {
-        set(10, value);
-        return this;
     }
 
     /**

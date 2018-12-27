@@ -190,20 +190,6 @@ public class MemberCapitalInOutLogRecord extends UpdatableRecordImpl<MemberCapit
     }
 
     /**
-     * Getter for <code>book.member_capital_in_out_log.source_id</code>. 业务id：充值记录id；vip购买记录id；
-     */
-    public String getSourceId() {
-        return (String) get(6);
-    }
-
-    /**
-     * Getter for <code>book.member_capital_in_out_log.remark</code>.
-     */
-    public String getRemark() {
-        return (String) get(7);
-    }
-
-    /**
      * Getter for <code>book.member_capital_in_out_log.del_flag</code>. 删除标记
      */
     public Boolean getDelFlag() {
@@ -211,10 +197,24 @@ public class MemberCapitalInOutLogRecord extends UpdatableRecordImpl<MemberCapit
     }
 
     /**
+     * Getter for <code>book.member_capital_in_out_log.source_id</code>. 业务id：充值记录id；vip购买记录id；
+     */
+    public String getSourceId() {
+        return (String) get(6);
+    }
+
+    /**
      * Getter for <code>book.member_capital_in_out_log.update_at</code>. 更新时间
      */
     public Timestamp getUpdateAt() {
         return (Timestamp) get(10);
+    }
+
+    /**
+     * Getter for <code>book.member_capital_in_out_log.remark</code>.
+     */
+    public String getRemark() {
+        return (String) get(7);
     }
 
     /**

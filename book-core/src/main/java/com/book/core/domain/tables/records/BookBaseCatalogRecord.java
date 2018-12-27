@@ -40,6 +40,13 @@ public class BookBaseCatalogRecord extends UpdatableRecordImpl<BookBaseCatalogRe
     }
 
     /**
+     * Getter for <code>book.book_base_catalog.id</code>. 主键
+     */
+    public Long getId() {
+        return (Long) get(0);
+    }
+
+    /**
      * Create a detached BookBaseCatalogRecord
      */
     public BookBaseCatalogRecord() {
@@ -63,13 +70,6 @@ public class BookBaseCatalogRecord extends UpdatableRecordImpl<BookBaseCatalogRe
         set(8, remark);
         set(9, delFlag);
         set(10, version);
-    }
-
-    /**
-     * Getter for <code>book.book_base_catalog.id</code>. 主键
-     */
-    public Long getId() {
-        return (Long) get(0);
     }
 
     /**

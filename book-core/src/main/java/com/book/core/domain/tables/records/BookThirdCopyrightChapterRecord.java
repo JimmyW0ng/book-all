@@ -139,6 +139,13 @@ public class BookThirdCopyrightChapterRecord extends UpdatableRecordImpl<BookThi
     }
 
     /**
+     * Getter for <code>book.book_third_copyright_chapter.remark</code>. 备注
+     */
+    public String getRemark() {
+        return (String) get(6);
+    }
+
+    /**
      * Getter for <code>book.book_third_copyright_chapter.create_at</code>. 创建时间
      */
     public Timestamp getCreateAt() {
@@ -157,13 +164,6 @@ public class BookThirdCopyrightChapterRecord extends UpdatableRecordImpl<BookThi
      */
     public Boolean getDelFlag() {
         return (Boolean) get(7);
-    }
-
-    /**
-     * Getter for <code>book.book_third_copyright_chapter.remark</code>. 备注
-     */
-    public String getRemark() {
-        return (String) get(6);
     }
 
     /**

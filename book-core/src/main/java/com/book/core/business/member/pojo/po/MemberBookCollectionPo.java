@@ -6,15 +6,14 @@ import lombok.Data;
 import java.sql.Timestamp;
 
 /**
- * 会员书籍阅读日志表
+ * 会员书籍收藏表
  */
 @Data
-public class MemberBookReadLogPo extends BaseDomainPo {
+public class MemberBookCollectionPo extends BaseDomainPo {
 
     private Long id;
     private Long memberId;
     private Long bookId;
-    private Long bookCatalogId;
     private String remark;
     private Timestamp createAt;
     private Timestamp updateAt;

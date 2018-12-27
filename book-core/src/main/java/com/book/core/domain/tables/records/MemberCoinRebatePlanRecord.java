@@ -158,6 +158,21 @@ public class MemberCoinRebatePlanRecord extends UpdatableRecordImpl<MemberCoinRe
     }
 
     /**
+     * Getter for <code>book.member_coin_rebate_plan.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(7);
+    }
+
+    /**
+     * Setter for <code>book.member_coin_rebate_plan.remark</code>. 备注
+     */
+    public MemberCoinRebatePlanRecord setRemark(String value) {
+        set(8, value);
+        return this;
+    }
+
+    /**
      * Getter for <code>book.member_coin_rebate_plan.amount</code>. 返利金额
      */
     public BigDecimal getAmount() {
@@ -179,25 +194,10 @@ public class MemberCoinRebatePlanRecord extends UpdatableRecordImpl<MemberCoinRe
     }
 
     /**
-     * Getter for <code>book.member_coin_rebate_plan.update_at</code>. 更新时间
-     */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(7);
-    }
-
-    /**
      * Getter for <code>book.member_coin_rebate_plan.del_flag</code>. 删除标记
      */
     public Boolean getDelFlag() {
         return (Boolean) get(9);
-    }
-
-    /**
-     * Setter for <code>book.member_coin_rebate_plan.remark</code>. 备注
-     */
-    public MemberCoinRebatePlanRecord setRemark(String value) {
-        set(8, value);
-        return this;
     }
 
     /**

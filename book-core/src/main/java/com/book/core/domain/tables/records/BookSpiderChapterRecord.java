@@ -139,6 +139,13 @@ public class BookSpiderChapterRecord extends UpdatableRecordImpl<BookSpiderChapt
     }
 
     /**
+     * Getter for <code>book.book_spider_chapter.remark</code>. 备注
+     */
+    public String getRemark() {
+        return (String) get(6);
+    }
+
+    /**
      * Getter for <code>book.book_spider_chapter.create_at</code>. 创建时间
      */
     public Timestamp getCreateAt() {
@@ -157,13 +164,6 @@ public class BookSpiderChapterRecord extends UpdatableRecordImpl<BookSpiderChapt
      */
     public Boolean getDelFlag() {
         return (Boolean) get(7);
-    }
-
-    /**
-     * Getter for <code>book.book_spider_chapter.remark</code>. 备注
-     */
-    public String getRemark() {
-        return (String) get(6);
     }
 
     /**

@@ -170,17 +170,17 @@ public class MemberVipLogRecord extends UpdatableRecordImpl<MemberVipLogRecord> 
     }
 
     /**
-     * Getter for <code>book.member_vip_log.create_at</code>. 创建时间
-     */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(6);
-    }
-
-    /**
      * Getter for <code>book.member_vip_log.del_flag</code>. 删除标志
      */
     public Boolean getDelFlag() {
         return (Boolean) get(8);
+    }
+
+    /**
+     * Getter for <code>book.member_vip_log.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(6);
     }
 
     /**

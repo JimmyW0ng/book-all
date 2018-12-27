@@ -206,20 +206,6 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
     }
 
     /**
-     * Getter for <code>book.member_capital_recharge_log.finish_time</code>. 完成时间
-     */
-    public Timestamp getFinishTime() {
-        return (Timestamp) get(7);
-    }
-
-    /**
-     * Getter for <code>book.member_capital_recharge_log.update_at</code>. 更新时间
-     */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(9);
-    }
-
-    /**
      * Getter for <code>book.member_capital_recharge_log.remark</code>. 备注
      */
     public String getRemark() {
@@ -227,10 +213,24 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
     }
 
     /**
+     * Getter for <code>book.member_capital_recharge_log.finish_time</code>. 完成时间
+     */
+    public Timestamp getFinishTime() {
+        return (Timestamp) get(7);
+    }
+
+    /**
      * Getter for <code>book.member_capital_recharge_log.del_flag</code>. 删除标记
      */
     public Boolean getDelFlag() {
         return (Boolean) get(11);
+    }
+
+    /**
+     * Getter for <code>book.member_capital_recharge_log.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(9);
     }
 
     /**

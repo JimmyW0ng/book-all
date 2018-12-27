@@ -123,6 +123,13 @@ public class BookBaseClassificationRecord extends UpdatableRecordImpl<BookBaseCl
     }
 
     /**
+     * Getter for <code>book.book_base_classification.remark</code>. 备注
+     */
+    public String getRemark() {
+        return (String) get(5);
+    }
+
+    /**
      * Getter for <code>book.book_base_classification.create_at</code>. 创建时间
      */
     public Timestamp getCreateAt() {
@@ -141,13 +148,6 @@ public class BookBaseClassificationRecord extends UpdatableRecordImpl<BookBaseCl
      */
     public Boolean getDelFlag() {
         return (Boolean) get(6);
-    }
-
-    /**
-     * Getter for <code>book.book_base_classification.remark</code>. 备注
-     */
-    public String getRemark() {
-        return (String) get(5);
     }
 
     /**

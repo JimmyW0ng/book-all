@@ -42,6 +42,7 @@ public class Keys {
     public static final Identity<BookThirdCopyrightInfoRecord, Long> IDENTITY_BOOK_THIRD_COPYRIGHT_INFO = Identities0.IDENTITY_BOOK_THIRD_COPYRIGHT_INFO;
     public static final Identity<MemberBaseInfoRecord, Long> IDENTITY_MEMBER_BASE_INFO = Identities0.IDENTITY_MEMBER_BASE_INFO;
     public static final Identity<MemberBaseReferRecord, Long> IDENTITY_MEMBER_BASE_REFER = Identities0.IDENTITY_MEMBER_BASE_REFER;
+    public static final Identity<MemberBookCollectionRecord, Long> IDENTITY_MEMBER_BOOK_COLLECTION = Identities0.IDENTITY_MEMBER_BOOK_COLLECTION;
     public static final Identity<MemberBookReadLogRecord, Long> IDENTITY_MEMBER_BOOK_READ_LOG = Identities0.IDENTITY_MEMBER_BOOK_READ_LOG;
     public static final Identity<MemberCapitalBalanceRecord, Long> IDENTITY_MEMBER_CAPITAL_BALANCE = Identities0.IDENTITY_MEMBER_CAPITAL_BALANCE;
     public static final Identity<MemberCapitalInOutLogRecord, Long> IDENTITY_MEMBER_CAPITAL_IN_OUT_LOG = Identities0.IDENTITY_MEMBER_CAPITAL_IN_OUT_LOG;
@@ -73,6 +74,7 @@ public class Keys {
     public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_PRIMARY = UniqueKeys0.KEY_MEMBER_BASE_INFO_PRIMARY;
     public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE = UniqueKeys0.KEY_MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE;
     public static final UniqueKey<MemberBaseReferRecord> KEY_MEMBER_BASE_REFER_PRIMARY = UniqueKeys0.KEY_MEMBER_BASE_REFER_PRIMARY;
+    public static final UniqueKey<MemberBookCollectionRecord> KEY_MEMBER_BOOK_COLLECTION_PRIMARY = UniqueKeys0.KEY_MEMBER_BOOK_COLLECTION_PRIMARY;
     public static final UniqueKey<MemberBookReadLogRecord> KEY_MEMBER_BOOK_READ_LOG_PRIMARY = UniqueKeys0.KEY_MEMBER_BOOK_READ_LOG_PRIMARY;
     public static final UniqueKey<MemberCapitalBalanceRecord> KEY_MEMBER_CAPITAL_BALANCE_PRIMARY = UniqueKeys0.KEY_MEMBER_CAPITAL_BALANCE_PRIMARY;
     public static final UniqueKey<MemberCapitalBalanceRecord> KEY_MEMBER_CAPITAL_BALANCE_UNIQUE_MEMBER_ID = UniqueKeys0.KEY_MEMBER_CAPITAL_BALANCE_UNIQUE_MEMBER_ID;
@@ -109,6 +111,7 @@ public class Keys {
         public static Identity<BookThirdCopyrightInfoRecord, Long> IDENTITY_BOOK_THIRD_COPYRIGHT_INFO = Internal.createIdentity(BookThirdCopyrightInfo.BOOK_THIRD_COPYRIGHT_INFO, BookThirdCopyrightInfo.BOOK_THIRD_COPYRIGHT_INFO.ID);
         public static Identity<MemberBaseInfoRecord, Long> IDENTITY_MEMBER_BASE_INFO = Internal.createIdentity(MemberBaseInfo.MEMBER_BASE_INFO, MemberBaseInfo.MEMBER_BASE_INFO.ID);
         public static Identity<MemberBaseReferRecord, Long> IDENTITY_MEMBER_BASE_REFER = Internal.createIdentity(MemberBaseRefer.MEMBER_BASE_REFER, MemberBaseRefer.MEMBER_BASE_REFER.ID);
+        public static Identity<MemberBookCollectionRecord, Long> IDENTITY_MEMBER_BOOK_COLLECTION = Internal.createIdentity(MemberBookCollection.MEMBER_BOOK_COLLECTION, MemberBookCollection.MEMBER_BOOK_COLLECTION.ID);
         public static Identity<MemberBookReadLogRecord, Long> IDENTITY_MEMBER_BOOK_READ_LOG = Internal.createIdentity(MemberBookReadLog.MEMBER_BOOK_READ_LOG, MemberBookReadLog.MEMBER_BOOK_READ_LOG.ID);
         public static Identity<MemberCapitalBalanceRecord, Long> IDENTITY_MEMBER_CAPITAL_BALANCE = Internal.createIdentity(MemberCapitalBalance.MEMBER_CAPITAL_BALANCE, MemberCapitalBalance.MEMBER_CAPITAL_BALANCE.ID);
         public static Identity<MemberCapitalInOutLogRecord, Long> IDENTITY_MEMBER_CAPITAL_IN_OUT_LOG = Internal.createIdentity(MemberCapitalInOutLog.MEMBER_CAPITAL_IN_OUT_LOG, MemberCapitalInOutLog.MEMBER_CAPITAL_IN_OUT_LOG.ID);
@@ -138,6 +141,7 @@ public class Keys {
         public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_PRIMARY = Internal.createUniqueKey(MemberBaseInfo.MEMBER_BASE_INFO, "KEY_member_base_info_PRIMARY", MemberBaseInfo.MEMBER_BASE_INFO.ID);
         public static final UniqueKey<MemberBaseInfoRecord> KEY_MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE = Internal.createUniqueKey(MemberBaseInfo.MEMBER_BASE_INFO, "KEY_member_base_info_UNIQUE_MEMBER_MOBILE", MemberBaseInfo.MEMBER_BASE_INFO.MOBILE);
         public static final UniqueKey<MemberBaseReferRecord> KEY_MEMBER_BASE_REFER_PRIMARY = Internal.createUniqueKey(MemberBaseRefer.MEMBER_BASE_REFER, "KEY_member_base_refer_PRIMARY", MemberBaseRefer.MEMBER_BASE_REFER.ID);
+        public static final UniqueKey<MemberBookCollectionRecord> KEY_MEMBER_BOOK_COLLECTION_PRIMARY = Internal.createUniqueKey(MemberBookCollection.MEMBER_BOOK_COLLECTION, "KEY_member_book_collection_PRIMARY", MemberBookCollection.MEMBER_BOOK_COLLECTION.ID);
         public static final UniqueKey<MemberBookReadLogRecord> KEY_MEMBER_BOOK_READ_LOG_PRIMARY = Internal.createUniqueKey(MemberBookReadLog.MEMBER_BOOK_READ_LOG, "KEY_member_book_read_log_PRIMARY", MemberBookReadLog.MEMBER_BOOK_READ_LOG.ID);
         public static final UniqueKey<MemberCapitalBalanceRecord> KEY_MEMBER_CAPITAL_BALANCE_PRIMARY = Internal.createUniqueKey(MemberCapitalBalance.MEMBER_CAPITAL_BALANCE, "KEY_member_capital_balance_PRIMARY", MemberCapitalBalance.MEMBER_CAPITAL_BALANCE.ID);
         public static final UniqueKey<MemberCapitalBalanceRecord> KEY_MEMBER_CAPITAL_BALANCE_UNIQUE_MEMBER_ID = Internal.createUniqueKey(MemberCapitalBalance.MEMBER_CAPITAL_BALANCE, "KEY_member_capital_balance_UNIQUE_MEMBER_ID", MemberCapitalBalance.MEMBER_CAPITAL_BALANCE.MEMBER_ID);

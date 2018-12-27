@@ -50,6 +50,8 @@ public class Indexes {
     public static final Index MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE = Indexes0.MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE;
     public static final Index MEMBER_BASE_REFER_INDEX_MEMBER_ID = Indexes0.MEMBER_BASE_REFER_INDEX_MEMBER_ID;
     public static final Index MEMBER_BASE_REFER_PRIMARY = Indexes0.MEMBER_BASE_REFER_PRIMARY;
+    public static final Index MEMBER_BOOK_COLLECTION_INDEX_MEMBER_ID = Indexes0.MEMBER_BOOK_COLLECTION_INDEX_MEMBER_ID;
+    public static final Index MEMBER_BOOK_COLLECTION_PRIMARY = Indexes0.MEMBER_BOOK_COLLECTION_PRIMARY;
     public static final Index MEMBER_BOOK_READ_LOG_INDEX_MEMBER_ID = Indexes0.MEMBER_BOOK_READ_LOG_INDEX_MEMBER_ID;
     public static final Index MEMBER_BOOK_READ_LOG_PRIMARY = Indexes0.MEMBER_BOOK_READ_LOG_PRIMARY;
     public static final Index MEMBER_CAPITAL_BALANCE_PRIMARY = Indexes0.MEMBER_CAPITAL_BALANCE_PRIMARY;
@@ -101,6 +103,8 @@ public class Indexes {
         public static Index MEMBER_BASE_INFO_UNIQUE_MEMBER_MOBILE = Internal.createIndex("UNIQUE_MEMBER_MOBILE", MemberBaseInfo.MEMBER_BASE_INFO, new OrderField[]{MemberBaseInfo.MEMBER_BASE_INFO.MOBILE}, true);
         public static Index MEMBER_BASE_REFER_INDEX_MEMBER_ID = Internal.createIndex("INDEX_MEMBER_ID", MemberBaseRefer.MEMBER_BASE_REFER, new OrderField[]{MemberBaseRefer.MEMBER_BASE_REFER.MEMBER_ID}, false);
         public static Index MEMBER_BASE_REFER_PRIMARY = Internal.createIndex("PRIMARY", MemberBaseRefer.MEMBER_BASE_REFER, new OrderField[]{MemberBaseRefer.MEMBER_BASE_REFER.ID}, true);
+        public static Index MEMBER_BOOK_COLLECTION_INDEX_MEMBER_ID = Internal.createIndex("INDEX_MEMBER_ID", MemberBookCollection.MEMBER_BOOK_COLLECTION, new OrderField[]{MemberBookCollection.MEMBER_BOOK_COLLECTION.MEMBER_ID}, false);
+        public static Index MEMBER_BOOK_COLLECTION_PRIMARY = Internal.createIndex("PRIMARY", MemberBookCollection.MEMBER_BOOK_COLLECTION, new OrderField[]{MemberBookCollection.MEMBER_BOOK_COLLECTION.ID}, true);
         public static Index MEMBER_BOOK_READ_LOG_INDEX_MEMBER_ID = Internal.createIndex("INDEX_MEMBER_ID", MemberBookReadLog.MEMBER_BOOK_READ_LOG, new OrderField[]{MemberBookReadLog.MEMBER_BOOK_READ_LOG.MEMBER_ID}, false);
         public static Index MEMBER_BOOK_READ_LOG_PRIMARY = Internal.createIndex("PRIMARY", MemberBookReadLog.MEMBER_BOOK_READ_LOG, new OrderField[]{MemberBookReadLog.MEMBER_BOOK_READ_LOG.ID}, true);
         public static Index MEMBER_CAPITAL_BALANCE_PRIMARY = Internal.createIndex("PRIMARY", MemberCapitalBalance.MEMBER_CAPITAL_BALANCE, new OrderField[]{MemberCapitalBalance.MEMBER_CAPITAL_BALANCE.ID}, true);

@@ -38,15 +38,6 @@ public class BookBaseCatalog extends TableImpl<BookBaseCatalogRecord> {
      * The reference instance of <code>book.book_base_catalog</code>
      */
     public static final BookBaseCatalog BOOK_BASE_CATALOG = new BookBaseCatalog();
-    /**
-     * The column <code>book.book_base_catalog.book_id</code>. 书籍id
-     */
-    public final TableField<BookBaseCatalogRecord, Long> BOOK_ID = createField("book_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "书籍id");
-
-    /**
-     * The column <code>book.book_base_catalog.id</code>. 主键
-     */
-    public final TableField<BookBaseCatalogRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "主键");
 
     /**
      * The class holding records for this type
@@ -55,6 +46,16 @@ public class BookBaseCatalog extends TableImpl<BookBaseCatalogRecord> {
     public Class<BookBaseCatalogRecord> getRecordType() {
         return BookBaseCatalogRecord.class;
     }
+
+    /**
+     * The column <code>book.book_base_catalog.id</code>. 主键
+     */
+    public final TableField<BookBaseCatalogRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "主键");
+
+    /**
+     * The column <code>book.book_base_catalog.book_id</code>. 书籍id
+     */
+    public final TableField<BookBaseCatalogRecord, Long> BOOK_ID = createField("book_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "书籍id");
 
     /**
      * The column <code>book.book_base_catalog.chapter_title</code>. 章节名

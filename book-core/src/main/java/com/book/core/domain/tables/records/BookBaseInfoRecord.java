@@ -172,6 +172,21 @@ public class BookBaseInfoRecord extends UpdatableRecordImpl<BookBaseInfoRecord> 
     }
 
     /**
+     * Getter for <code>book.book_base_info.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(8);
+    }
+
+    /**
+     * Setter for <code>book.book_base_info.remark</code>. 备注
+     */
+    public BookBaseInfoRecord setRemark(String value) {
+        set(9, value);
+        return this;
+    }
+
+    /**
      * Getter for <code>book.book_base_info.img_cover</code>. 封面图片
      */
     public String getImgCover() {
@@ -193,25 +208,10 @@ public class BookBaseInfoRecord extends UpdatableRecordImpl<BookBaseInfoRecord> 
     }
 
     /**
-     * Getter for <code>book.book_base_info.update_at</code>. 更新时间
-     */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(8);
-    }
-
-    /**
      * Getter for <code>book.book_base_info.del_flag</code>. 删除标记
      */
     public Boolean getDelFlag() {
         return (Boolean) get(10);
-    }
-
-    /**
-     * Setter for <code>book.book_base_info.remark</code>. 备注
-     */
-    public BookBaseInfoRecord setRemark(String value) {
-        set(9, value);
-        return this;
     }
 
     /**

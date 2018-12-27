@@ -131,10 +131,24 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
+     * Getter for <code>book.message_captcha.scene</code>. 验证场景：会员注册；会员登录；
+     */
+    public MessageCaptchaScene getScene() {
+        return (MessageCaptchaScene) get(5);
+    }
+
+    /**
      * Getter for <code>book.message_captcha.source_id</code>. 业务标识
      */
     public Long getSourceId() {
         return (Long) get(2);
+    }
+
+    /**
+     * Getter for <code>book.message_captcha.client_id</code>. 客户端标识
+     */
+    public Long getClientId() {
+        return (Long) get(6);
     }
 
     /**
@@ -145,25 +159,11 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Getter for <code>book.message_captcha.scene</code>. 验证场景：会员注册；会员登录；
+     * Setter for <code>book.message_captcha.client_id</code>. 客户端标识
      */
-    public MessageCaptchaScene getScene() {
-        return (MessageCaptchaScene) get(5);
-    }
-
-    /**
-     * Setter for <code>book.message_captcha.expire_time</code>. 过期时间
-     */
-    public MessageCaptchaRecord setExpireTime(Timestamp value) {
-        set(7, value);
+    public MessageCaptchaRecord setClientId(Long value) {
+        set(6, value);
         return this;
-    }
-
-    /**
-     * Getter for <code>book.message_captcha.client_id</code>. 客户端标识
-     */
-    public Long getClientId() {
-        return (Long) get(6);
     }
 
     /**
@@ -175,11 +175,10 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Setter for <code>book.message_captcha.client_id</code>. 客户端标识
+     * Getter for <code>book.message_captcha.expire_time</code>. 过期时间
      */
-    public MessageCaptchaRecord setClientId(Long value) {
-        set(6, value);
-        return this;
+    public Timestamp getExpireTime() {
+        return (Timestamp) get(7);
     }
 
     /**
@@ -206,10 +205,11 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Getter for <code>book.message_captcha.expire_time</code>. 过期时间
+     * Setter for <code>book.message_captcha.expire_time</code>. 过期时间
      */
-    public Timestamp getExpireTime() {
-        return (Timestamp) get(7);
+    public MessageCaptchaRecord setExpireTime(Timestamp value) {
+        set(7, value);
+        return this;
     }
 
     /**
