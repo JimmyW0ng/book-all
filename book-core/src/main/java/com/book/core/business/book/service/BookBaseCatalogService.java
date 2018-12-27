@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static com.book.core.constant.ErrorCode.ERROR_BOOK_CATALOG_IS_NOT_EXIST;
+import static com.book.core.constant.ErrorCode.ERROR_BOOK_CHAPTER_NOT_FREE;
 
 /**
  * @Description 书籍目录服务类
@@ -58,10 +59,10 @@ public class BookBaseCatalogService {
      * @Description 根据id获取章节内容
      * @Author J.W
      * @Date 2018/12/27 16:02
-     * @Param [id]
+     * @Param [id, vipFlag]
      * @Return com.framework.common.spring.pojo.dto.ResultDto<java.lang.String>
      **/
-    public ResultDto<String> getChapterById(Long id) {
+    public ResultDto<String> getChapterById(Long id, boolean vipFlag) {
         // 查询目录
         Optional<BookBaseCatalogPo> existCatalog = this.existById(id);
         if (!existCatalog.isPresent()) {
@@ -69,6 +70,10 @@ public class BookBaseCatalogService {
             return ResultDto.build(ERROR_BOOK_CATALOG_IS_NOT_EXIST);
         }
         BookBaseCatalogPo bookBaseCatalog = existCatalog.get();
+        if (!bookBaseCatalog.getFreeFlag() && !vipFlag) {
+            // 收费章节需要校验会员vip身份
+            return ResultDto.build(ERROR_BOOK_CHAPTER_NOT_FREE);
+        }
         String content = null;
         if (bookBaseCatalog.getSource().equals(BookBaseCatalogSource.spider)) {
             // 来源是爬虫

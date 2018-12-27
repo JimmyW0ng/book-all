@@ -8,6 +8,7 @@ import com.book.core.business.book.pojo.po.BookBaseInfoPo;
 import com.book.core.business.book.service.BookBaseCatalogService;
 import com.book.core.business.book.service.BookBaseClassificationService;
 import com.book.core.business.book.service.BookBaseInfoService;
+import com.book.core.business.member.service.MemberBaseInfoService;
 import com.framework.common.spring.pojo.dto.ResultDto;
 import com.framework.common.tool.CollectionsTools;
 import lombok.extern.slf4j.Slf4j;
@@ -34,6 +35,8 @@ public class BookBaseFacade {
     private BookBaseClassificationService bookBaseClassificationService;
     @Autowired
     private BookBaseCatalogService bookBaseCatalogService;
+    @Autowired
+    private MemberBaseInfoService memberBaseInfoService;
 
     /**
      * @Description 书籍首页信息
@@ -102,12 +105,23 @@ public class BookBaseFacade {
      * @Description 书籍章节
      * @Author J.W
      * @Date 2018/12/27 14:31
-     * @Param [catalogId]
+     * @Param [catalogId, existMemberId]
      * @Return com.framework.common.spring.pojo.dto.ResultDto<com.book.api.business.book.dto.BookChapterOutDto>
      **/
-    public ResultDto<String> bookChapter(Long catalogId) {
+    public ResultDto<String> bookChapter(Long catalogId, Optional<Long> existMemberId) {
+        // 未登录
+        if (!existMemberId.isPresent()) {
+            // 查询目录
+            return bookBaseCatalogService.getChapterById(catalogId, false);
+        }
+        // 登录需要校验会员vip身份
+        ResultDto<Boolean> checkVip = memberBaseInfoService.isVip(existMemberId.get());
+        if (checkVip.isError()) {
+            return ResultDto.build(checkVip.getError());
+        }
         // 查询目录
-        return bookBaseCatalogService.getChapterById(catalogId);
+        return bookBaseCatalogService.getChapterById(catalogId, checkVip.getResult());
+
     }
 
 }

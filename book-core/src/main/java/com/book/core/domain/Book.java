@@ -28,7 +28,7 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class Book extends SchemaImpl {
 
-    private static final long serialVersionUID = 846513855;
+    private static final long serialVersionUID = -1408865137;
 
     /**
      * The reference instance of <code>book</code>
@@ -89,6 +89,11 @@ public class Book extends SchemaImpl {
      * 会员推荐表
      */
     public final MemberBaseRefer MEMBER_BASE_REFER = com.book.core.domain.tables.MemberBaseRefer.MEMBER_BASE_REFER;
+
+    /**
+     * 会员书籍阅读日志表
+     */
+    public final MemberBookReadLog MEMBER_BOOK_READ_LOG = com.book.core.domain.tables.MemberBookReadLog.MEMBER_BOOK_READ_LOG;
 
     /**
      * 会员资金余额表
@@ -171,6 +176,7 @@ public class Book extends SchemaImpl {
                 BookThirdCopyrightInfo.BOOK_THIRD_COPYRIGHT_INFO,
                 MemberBaseInfo.MEMBER_BASE_INFO,
                 MemberBaseRefer.MEMBER_BASE_REFER,
+                MemberBookReadLog.MEMBER_BOOK_READ_LOG,
                 MemberCapitalBalance.MEMBER_CAPITAL_BALANCE,
                 MemberCapitalInOutLog.MEMBER_CAPITAL_IN_OUT_LOG,
                 MemberCapitalRechargeLog.MEMBER_CAPITAL_RECHARGE_LOG,

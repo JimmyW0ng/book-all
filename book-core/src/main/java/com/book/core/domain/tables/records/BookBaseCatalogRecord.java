@@ -29,7 +29,15 @@ import java.sql.Timestamp;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class BookBaseCatalogRecord extends UpdatableRecordImpl<BookBaseCatalogRecord> implements Record11<Long, Long, String, Boolean, BookBaseCatalogSource, Long, Timestamp, Timestamp, String, Boolean, Long> {
 
-    private static final long serialVersionUID = -1018769307;
+    private static final long serialVersionUID = -1427614041;
+
+    /**
+     * Setter for <code>book.book_base_catalog.id</code>. 主键
+     */
+    public BookBaseCatalogRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
 
     /**
      * Create a detached BookBaseCatalogRecord
@@ -65,36 +73,6 @@ public class BookBaseCatalogRecord extends UpdatableRecordImpl<BookBaseCatalogRe
     }
 
     /**
-     * Setter for <code>book.book_base_catalog.id</code>. 主键
-     */
-    public BookBaseCatalogRecord setId(Long value) {
-        set(0, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.book_base_catalog.book_id</code>. 书本id
-     */
-    public Long getBookId() {
-        return (Long) get(1);
-    }
-
-    /**
-     * Setter for <code>book.book_base_catalog.book_id</code>. 书本id
-     */
-    public BookBaseCatalogRecord setBookId(Long value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.book_base_catalog.chapter_title</code>. 章节名
-     */
-    public String getChapterTitle() {
-        return (String) get(2);
-    }
-
-    /**
      * Setter for <code>book.book_base_catalog.chapter_title</code>. 章节名
      */
     public BookBaseCatalogRecord setChapterTitle(String value) {
@@ -103,10 +81,10 @@ public class BookBaseCatalogRecord extends UpdatableRecordImpl<BookBaseCatalogRe
     }
 
     /**
-     * Getter for <code>book.book_base_catalog.free_flag</code>. 免费标记
+     * Getter for <code>book.book_base_catalog.book_id</code>. 书籍id
      */
-    public Boolean getFreeFlag() {
-        return (Boolean) get(3);
+    public Long getBookId() {
+        return (Long) get(1);
     }
 
     /**
@@ -118,10 +96,11 @@ public class BookBaseCatalogRecord extends UpdatableRecordImpl<BookBaseCatalogRe
     }
 
     /**
-     * Getter for <code>book.book_base_catalog.source</code>. 来源：爬虫；第三方版权；
+     * Setter for <code>book.book_base_catalog.book_id</code>. 书籍id
      */
-    public BookBaseCatalogSource getSource() {
-        return (BookBaseCatalogSource) get(4);
+    public BookBaseCatalogRecord setBookId(Long value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -133,10 +112,10 @@ public class BookBaseCatalogRecord extends UpdatableRecordImpl<BookBaseCatalogRe
     }
 
     /**
-     * Getter for <code>book.book_base_catalog.source_detail_id</code>. 来源章节id
+     * Getter for <code>book.book_base_catalog.chapter_title</code>. 章节名
      */
-    public Long getSourceDetailId() {
-        return (Long) get(5);
+    public String getChapterTitle() {
+        return (String) get(2);
     }
 
     /**
@@ -148,10 +127,10 @@ public class BookBaseCatalogRecord extends UpdatableRecordImpl<BookBaseCatalogRe
     }
 
     /**
-     * Getter for <code>book.book_base_catalog.create_at</code>. 创建时间
+     * Getter for <code>book.book_base_catalog.free_flag</code>. 免费标记
      */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(6);
+    public Boolean getFreeFlag() {
+        return (Boolean) get(3);
     }
 
     /**
@@ -163,10 +142,10 @@ public class BookBaseCatalogRecord extends UpdatableRecordImpl<BookBaseCatalogRe
     }
 
     /**
-     * Getter for <code>book.book_base_catalog.update_at</code>. 更新时间
+     * Getter for <code>book.book_base_catalog.source</code>. 来源：爬虫；第三方版权；
      */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(7);
+    public BookBaseCatalogSource getSource() {
+        return (BookBaseCatalogSource) get(4);
     }
 
     /**
@@ -178,10 +157,38 @@ public class BookBaseCatalogRecord extends UpdatableRecordImpl<BookBaseCatalogRe
     }
 
     /**
+     * Getter for <code>book.book_base_catalog.source_detail_id</code>. 来源章节id
+     */
+    public Long getSourceDetailId() {
+        return (Long) get(5);
+    }
+
+    /**
+     * Getter for <code>book.book_base_catalog.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(6);
+    }
+
+    /**
      * Getter for <code>book.book_base_catalog.remark</code>. 备注
      */
     public String getRemark() {
         return (String) get(8);
+    }
+
+    /**
+     * Getter for <code>book.book_base_catalog.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(7);
+    }
+
+    /**
+     * Getter for <code>book.book_base_catalog.del_flag</code>. 删除标记
+     */
+    public Boolean getDelFlag() {
+        return (Boolean) get(9);
     }
 
     /**
@@ -193,25 +200,6 @@ public class BookBaseCatalogRecord extends UpdatableRecordImpl<BookBaseCatalogRe
     }
 
     /**
-     * Getter for <code>book.book_base_catalog.del_flag</code>. 删除标记
-     */
-    public Boolean getDelFlag() {
-        return (Boolean) get(9);
-    }
-
-    /**
-     * Setter for <code>book.book_base_catalog.del_flag</code>. 删除标记
-     */
-    public BookBaseCatalogRecord setDelFlag(Boolean value) {
-        set(9, value);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
-    // Primary key information
-    // -------------------------------------------------------------------------
-
-    /**
      * Getter for <code>book.book_base_catalog.version</code>. 版本号
      */
     public Long getVersion() {
@@ -219,16 +207,8 @@ public class BookBaseCatalogRecord extends UpdatableRecordImpl<BookBaseCatalogRe
     }
 
     // -------------------------------------------------------------------------
-    // Record11 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.book_base_catalog.version</code>. 版本号
-     */
-    public BookBaseCatalogRecord setVersion(Long value) {
-        set(10, value);
-        return this;
-    }
 
     /**
      * {@inheritDoc}
@@ -237,6 +217,10 @@ public class BookBaseCatalogRecord extends UpdatableRecordImpl<BookBaseCatalogRe
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record11 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -608,10 +592,6 @@ public class BookBaseCatalogRecord extends UpdatableRecordImpl<BookBaseCatalogRe
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -637,6 +617,26 @@ public class BookBaseCatalogRecord extends UpdatableRecordImpl<BookBaseCatalogRe
         value9(value9);
         value10(value10);
         value11(value11);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Setter for <code>book.book_base_catalog.del_flag</code>. 删除标记
+     */
+    public BookBaseCatalogRecord setDelFlag(Boolean value) {
+        set(9, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.book_base_catalog.version</code>. 版本号
+     */
+    public BookBaseCatalogRecord setVersion(Long value) {
+        set(10, value);
         return this;
     }
 }

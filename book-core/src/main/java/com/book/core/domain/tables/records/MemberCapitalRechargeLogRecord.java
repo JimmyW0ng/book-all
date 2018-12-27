@@ -176,10 +176,33 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
     }
 
     /**
+     * Getter for <code>book.member_capital_recharge_log.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(8);
+    }
+
+    /**
+     * Setter for <code>book.member_capital_recharge_log.update_at</code>. 更新时间
+     */
+    public MemberCapitalRechargeLogRecord setUpdateAt(Timestamp value) {
+        set(9, value);
+        return this;
+    }
+
+    /**
      * Getter for <code>book.member_capital_recharge_log.source_id</code>. 业务id
      */
     public Long getSourceId() {
         return (Long) get(6);
+    }
+
+    /**
+     * Setter for <code>book.member_capital_recharge_log.remark</code>. 备注
+     */
+    public MemberCapitalRechargeLogRecord setRemark(String value) {
+        set(10, value);
+        return this;
     }
 
     /**
@@ -197,13 +220,6 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
     }
 
     /**
-     * Getter for <code>book.member_capital_recharge_log.create_at</code>. 创建时间
-     */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(8);
-    }
-
-    /**
      * Getter for <code>book.member_capital_recharge_log.remark</code>. 备注
      */
     public String getRemark() {
@@ -211,26 +227,10 @@ public class MemberCapitalRechargeLogRecord extends UpdatableRecordImpl<MemberCa
     }
 
     /**
-     * Setter for <code>book.member_capital_recharge_log.update_at</code>. 更新时间
-     */
-    public MemberCapitalRechargeLogRecord setUpdateAt(Timestamp value) {
-        set(9, value);
-        return this;
-    }
-
-    /**
      * Getter for <code>book.member_capital_recharge_log.del_flag</code>. 删除标记
      */
     public Boolean getDelFlag() {
         return (Boolean) get(11);
-    }
-
-    /**
-     * Setter for <code>book.member_capital_recharge_log.remark</code>. 备注
-     */
-    public MemberCapitalRechargeLogRecord setRemark(String value) {
-        set(10, value);
-        return this;
     }
 
     /**

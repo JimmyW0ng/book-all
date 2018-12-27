@@ -155,6 +155,13 @@ public class MemberBaseReferRecord extends UpdatableRecordImpl<MemberBaseReferRe
     }
 
     /**
+     * Getter for <code>book.member_base_refer.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(7);
+    }
+
+    /**
      * Getter for <code>book.member_base_refer.remark</code>. 备注
      */
     public String getRemark() {
@@ -173,13 +180,6 @@ public class MemberBaseReferRecord extends UpdatableRecordImpl<MemberBaseReferRe
      */
     public Boolean getDelFlag() {
         return (Boolean) get(8);
-    }
-
-    /**
-     * Getter for <code>book.member_base_refer.update_at</code>. 更新时间
-     */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(7);
     }
 
     /**

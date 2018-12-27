@@ -161,6 +161,23 @@ public class MemberBaseInfoService {
     }
 
     /**
+     * @Description 根据id判断是否是会员
+     * @Author J.W
+     * @Date 2018/12/27 18:09
+     * @Param [memberId]
+     * @Return com.framework.common.spring.pojo.dto.ResultDto<java.lang.Boolean>
+     **/
+    public ResultDto<Boolean> isVip(Long memberId) {
+        ResultDto<MemberBaseInfoPo> checkMember = this.checkById(memberId);
+        if (checkMember.isError()) {
+            return ResultDto.build(checkMember.getError());
+        }
+        ResultDto<Boolean> resultDto = ResultDto.build();
+        Boolean isVip = DateTools.getTimeIsAfter(checkMember.getResult().getVipEnd(), DateTools.getCurrentDateTime());
+        return resultDto.setResult(isVip);
+    }
+
+    /**
      * @Description 基础信息校验
      * @Author J.W
      * @Date 2018/12/26 14:42

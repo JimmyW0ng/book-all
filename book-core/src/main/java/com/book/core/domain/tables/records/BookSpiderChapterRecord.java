@@ -31,10 +31,26 @@ public class BookSpiderChapterRecord extends UpdatableRecordImpl<BookSpiderChapt
     private static final long serialVersionUID = 23563123;
 
     /**
+     * Setter for <code>book.book_spider_chapter.id</code>. 主键
+     */
+    public BookSpiderChapterRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
+
+    /**
      * Create a detached BookSpiderChapterRecord
      */
     public BookSpiderChapterRecord() {
         super(BookSpiderChapter.BOOK_SPIDER_CHAPTER);
+    }
+
+    /**
+     * Setter for <code>book.book_spider_chapter.book_id</code>. 书本id
+     */
+    public BookSpiderChapterRecord setBookId(Long value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -55,43 +71,6 @@ public class BookSpiderChapterRecord extends UpdatableRecordImpl<BookSpiderChapt
     }
 
     /**
-     * Getter for <code>book.book_spider_chapter.id</code>. 主键
-     */
-    public Long getId() {
-        return (Long) get(0);
-    }
-
-    /**
-     * Setter for <code>book.book_spider_chapter.id</code>. 主键
-     */
-    public BookSpiderChapterRecord setId(Long value) {
-        set(0, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.book_spider_chapter.book_id</code>. 书本id
-     */
-    public Long getBookId() {
-        return (Long) get(1);
-    }
-
-    /**
-     * Setter for <code>book.book_spider_chapter.book_id</code>. 书本id
-     */
-    public BookSpiderChapterRecord setBookId(Long value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.book_spider_chapter.chapter_title</code>. 章节名
-     */
-    public String getChapterTitle() {
-        return (String) get(2);
-    }
-
-    /**
      * Setter for <code>book.book_spider_chapter.chapter_title</code>. 章节名
      */
     public BookSpiderChapterRecord setChapterTitle(String value) {
@@ -100,10 +79,10 @@ public class BookSpiderChapterRecord extends UpdatableRecordImpl<BookSpiderChapt
     }
 
     /**
-     * Getter for <code>book.book_spider_chapter.chapter_content</code>. 章节内容
+     * Getter for <code>book.book_spider_chapter.id</code>. 主键
      */
-    public String getChapterContent() {
-        return (String) get(3);
+    public Long getId() {
+        return (Long) get(0);
     }
 
     /**
@@ -115,10 +94,10 @@ public class BookSpiderChapterRecord extends UpdatableRecordImpl<BookSpiderChapt
     }
 
     /**
-     * Getter for <code>book.book_spider_chapter.create_at</code>. 创建时间
+     * Getter for <code>book.book_spider_chapter.book_id</code>. 书本id
      */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(4);
+    public Long getBookId() {
+        return (Long) get(1);
     }
 
     /**
@@ -130,10 +109,10 @@ public class BookSpiderChapterRecord extends UpdatableRecordImpl<BookSpiderChapt
     }
 
     /**
-     * Getter for <code>book.book_spider_chapter.update_at</code>. 更新时间
+     * Getter for <code>book.book_spider_chapter.chapter_title</code>. 章节名
      */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(5);
+    public String getChapterTitle() {
+        return (String) get(2);
     }
 
     /**
@@ -145,10 +124,10 @@ public class BookSpiderChapterRecord extends UpdatableRecordImpl<BookSpiderChapt
     }
 
     /**
-     * Getter for <code>book.book_spider_chapter.remark</code>. 备注
+     * Getter for <code>book.book_spider_chapter.chapter_content</code>. 章节内容
      */
-    public String getRemark() {
-        return (String) get(6);
+    public String getChapterContent() {
+        return (String) get(3);
     }
 
     /**
@@ -160,6 +139,20 @@ public class BookSpiderChapterRecord extends UpdatableRecordImpl<BookSpiderChapt
     }
 
     /**
+     * Getter for <code>book.book_spider_chapter.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(4);
+    }
+
+    /**
+     * Getter for <code>book.book_spider_chapter.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(5);
+    }
+
+    /**
      * Getter for <code>book.book_spider_chapter.del_flag</code>. 删除标记
      */
     public Boolean getDelFlag() {
@@ -167,16 +160,11 @@ public class BookSpiderChapterRecord extends UpdatableRecordImpl<BookSpiderChapt
     }
 
     /**
-     * Setter for <code>book.book_spider_chapter.del_flag</code>. 删除标记
+     * Getter for <code>book.book_spider_chapter.remark</code>. 备注
      */
-    public BookSpiderChapterRecord setDelFlag(Boolean value) {
-        set(7, value);
-        return this;
+    public String getRemark() {
+        return (String) get(6);
     }
-
-    // -------------------------------------------------------------------------
-    // Primary key information
-    // -------------------------------------------------------------------------
 
     /**
      * Getter for <code>book.book_spider_chapter.version</code>. 版本号
@@ -186,16 +174,8 @@ public class BookSpiderChapterRecord extends UpdatableRecordImpl<BookSpiderChapt
     }
 
     // -------------------------------------------------------------------------
-    // Record9 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.book_spider_chapter.version</code>. 版本号
-     */
-    public BookSpiderChapterRecord setVersion(Long value) {
-        set(8, value);
-        return this;
-    }
 
     /**
      * {@inheritDoc}
@@ -204,6 +184,10 @@ public class BookSpiderChapterRecord extends UpdatableRecordImpl<BookSpiderChapt
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record9 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -509,10 +493,6 @@ public class BookSpiderChapterRecord extends UpdatableRecordImpl<BookSpiderChapt
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -536,6 +516,26 @@ public class BookSpiderChapterRecord extends UpdatableRecordImpl<BookSpiderChapt
         value7(value7);
         value8(value8);
         value9(value9);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Setter for <code>book.book_spider_chapter.del_flag</code>. 删除标记
+     */
+    public BookSpiderChapterRecord setDelFlag(Boolean value) {
+        set(7, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.book_spider_chapter.version</code>. 版本号
+     */
+    public BookSpiderChapterRecord setVersion(Long value) {
+        set(8, value);
         return this;
     }
 }

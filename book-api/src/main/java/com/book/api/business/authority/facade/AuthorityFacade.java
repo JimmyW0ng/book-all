@@ -39,12 +39,18 @@ public class AuthorityFacade {
             // 默认基础令牌
             token = token.substring(TOKEN_BASIC_PREFIX.length());
             ResultDto<Long> checkBasic = authorityClientService.authBasicForApi(token);
-            return this.loadTokenInfoAndAuthorities(request, checkBasic, REQUEST_CURRENT_CLIENT, Lists.newArrayList(BASE_BASIC_AUTHORITY));
+            return this.loadTokenInfoAndAuthorities(request,
+                    checkBasic,
+                    REQUEST_CURRENT_CLIENT,
+                    Lists.newArrayList(BASE_BASIC_AUTHORITY));
         } else if (token.startsWith(TOKEN_BEARER_PREFIX)) {
             // 默认登录令牌
             token = token.substring(TOKEN_BEARER_PREFIX.length());
             ResultDto<Long> checkBearer = authorityClientService.authBearerForApi(token);
-            return this.loadTokenInfoAndAuthorities(request, checkBearer, REQUEST_CURRENT_MEMBER, Lists.newArrayList(BASE_BEARER_AUTHORITY));
+            return this.loadTokenInfoAndAuthorities(request,
+                    checkBearer,
+                    REQUEST_CURRENT_MEMBER,
+                    Lists.newArrayList(BASE_BASIC_AUTHORITY, BASE_BEARER_AUTHORITY));
         } else {
             log.error("解析token失败, 非法的令牌格式, token={}", token);
             return ResultDto.build(ERROR_ACCESS_PRINCIPAL_CHECK);

@@ -348,6 +348,13 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
     }
 
     /**
+     * Getter for <code>book.member_base_info.del_flag</code>. 删除标志
+     */
+    public Boolean getDelFlag() {
+        return (Boolean) get(19);
+    }
+
+    /**
      * Getter for <code>book.member_base_info.remark</code>. 备注
      */
     public String getRemark() {
@@ -359,13 +366,6 @@ public class MemberBaseInfoRecord extends UpdatableRecordImpl<MemberBaseInfoReco
      */
     public Timestamp getCreateAt() {
         return (Timestamp) get(17);
-    }
-
-    /**
-     * Getter for <code>book.member_base_info.del_flag</code>. 删除标志
-     */
-    public Boolean getDelFlag() {
-        return (Boolean) get(19);
     }
 
     // -------------------------------------------------------------------------

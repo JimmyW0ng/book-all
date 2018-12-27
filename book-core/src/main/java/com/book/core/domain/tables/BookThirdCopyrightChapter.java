@@ -31,43 +31,61 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class BookThirdCopyrightChapter extends TableImpl<BookThirdCopyrightChapterRecord> {
 
+    private static final long serialVersionUID = -1733994497;
+
     /**
      * The reference instance of <code>book.book_third_copyright_chapter</code>
      */
     public static final BookThirdCopyrightChapter BOOK_THIRD_COPYRIGHT_CHAPTER = new BookThirdCopyrightChapter();
-    private static final long serialVersionUID = -1733994497;
+
+    /**
+     * The class holding records for this type
+     */
+    @Override
+    public Class<BookThirdCopyrightChapterRecord> getRecordType() {
+        return BookThirdCopyrightChapterRecord.class;
+    }
+
     /**
      * The column <code>book.book_third_copyright_chapter.id</code>. 主键
      */
     public final TableField<BookThirdCopyrightChapterRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "主键");
+
     /**
      * The column <code>book.book_third_copyright_chapter.book_id</code>. 书本id
      */
     public final TableField<BookThirdCopyrightChapterRecord, Long> BOOK_ID = createField("book_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "书本id");
+
     /**
      * The column <code>book.book_third_copyright_chapter.chapter_title</code>. 章节名
      */
     public final TableField<BookThirdCopyrightChapterRecord, String> CHAPTER_TITLE = createField("chapter_title", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "章节名");
+
     /**
      * The column <code>book.book_third_copyright_chapter.chapter_content</code>. 章节内容
      */
     public final TableField<BookThirdCopyrightChapterRecord, String> CHAPTER_CONTENT = createField("chapter_content", org.jooq.impl.SQLDataType.CLOB.nullable(false), this, "章节内容");
+
     /**
      * The column <code>book.book_third_copyright_chapter.create_at</code>. 创建时间
      */
     public final TableField<BookThirdCopyrightChapterRecord, Timestamp> CREATE_AT = createField("create_at", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "创建时间");
+
     /**
      * The column <code>book.book_third_copyright_chapter.update_at</code>. 更新时间
      */
     public final TableField<BookThirdCopyrightChapterRecord, Timestamp> UPDATE_AT = createField("update_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+
     /**
      * The column <code>book.book_third_copyright_chapter.remark</code>. 备注
      */
     public final TableField<BookThirdCopyrightChapterRecord, String> REMARK = createField("remark", org.jooq.impl.SQLDataType.VARCHAR(255), this, "备注");
+
     /**
      * The column <code>book.book_third_copyright_chapter.del_flag</code>. 删除标记
      */
     public final TableField<BookThirdCopyrightChapterRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标记");
+
     /**
      * The column <code>book.book_third_copyright_chapter.version</code>. 版本号
      */
@@ -100,14 +118,6 @@ public class BookThirdCopyrightChapter extends TableImpl<BookThirdCopyrightChapt
 
     private BookThirdCopyrightChapter(Name alias, Table<BookThirdCopyrightChapterRecord> aliased, Field<?>[] parameters) {
         super(alias, null, aliased, parameters, "第三方版权书籍章节表");
-    }
-
-    /**
-     * The class holding records for this type
-     */
-    @Override
-    public Class<BookThirdCopyrightChapterRecord> getRecordType() {
-        return BookThirdCopyrightChapterRecord.class;
     }
 
     /**

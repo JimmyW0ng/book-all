@@ -32,51 +32,70 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class BookBaseCatalog extends TableImpl<BookBaseCatalogRecord> {
 
+    private static final long serialVersionUID = 231075044;
+
     /**
      * The reference instance of <code>book.book_base_catalog</code>
      */
     public static final BookBaseCatalog BOOK_BASE_CATALOG = new BookBaseCatalog();
-    private static final long serialVersionUID = 1355751910;
+    /**
+     * The column <code>book.book_base_catalog.book_id</code>. 书籍id
+     */
+    public final TableField<BookBaseCatalogRecord, Long> BOOK_ID = createField("book_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "书籍id");
+
     /**
      * The column <code>book.book_base_catalog.id</code>. 主键
      */
     public final TableField<BookBaseCatalogRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "主键");
+
     /**
-     * The column <code>book.book_base_catalog.book_id</code>. 书本id
+     * The class holding records for this type
      */
-    public final TableField<BookBaseCatalogRecord, Long> BOOK_ID = createField("book_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "书本id");
+    @Override
+    public Class<BookBaseCatalogRecord> getRecordType() {
+        return BookBaseCatalogRecord.class;
+    }
+
     /**
      * The column <code>book.book_base_catalog.chapter_title</code>. 章节名
      */
     public final TableField<BookBaseCatalogRecord, String> CHAPTER_TITLE = createField("chapter_title", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "章节名");
+
     /**
      * The column <code>book.book_base_catalog.free_flag</code>. 免费标记
      */
     public final TableField<BookBaseCatalogRecord, Boolean> FREE_FLAG = createField("free_flag", org.jooq.impl.SQLDataType.BIT.nullable(false), this, "免费标记");
+
     /**
      * The column <code>book.book_base_catalog.source</code>. 来源：爬虫；第三方版权；
      */
     public final TableField<BookBaseCatalogRecord, BookBaseCatalogSource> SOURCE = createField("source", org.jooq.impl.SQLDataType.VARCHAR(15).nullable(false).asEnumDataType(com.book.core.domain.enums.BookBaseCatalogSource.class), this, "来源：爬虫；第三方版权；");
+
     /**
      * The column <code>book.book_base_catalog.source_detail_id</code>. 来源章节id
      */
     public final TableField<BookBaseCatalogRecord, Long> SOURCE_DETAIL_ID = createField("source_detail_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "来源章节id");
+
     /**
      * The column <code>book.book_base_catalog.create_at</code>. 创建时间
      */
     public final TableField<BookBaseCatalogRecord, Timestamp> CREATE_AT = createField("create_at", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "创建时间");
+
     /**
      * The column <code>book.book_base_catalog.update_at</code>. 更新时间
      */
     public final TableField<BookBaseCatalogRecord, Timestamp> UPDATE_AT = createField("update_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+
     /**
      * The column <code>book.book_base_catalog.remark</code>. 备注
      */
     public final TableField<BookBaseCatalogRecord, String> REMARK = createField("remark", org.jooq.impl.SQLDataType.VARCHAR(255), this, "备注");
+
     /**
      * The column <code>book.book_base_catalog.del_flag</code>. 删除标记
      */
     public final TableField<BookBaseCatalogRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标记");
+
     /**
      * The column <code>book.book_base_catalog.version</code>. 版本号
      */
@@ -109,14 +128,6 @@ public class BookBaseCatalog extends TableImpl<BookBaseCatalogRecord> {
 
     private BookBaseCatalog(Name alias, Table<BookBaseCatalogRecord> aliased, Field<?>[] parameters) {
         super(alias, null, aliased, parameters, "书籍目录表");
-    }
-
-    /**
-     * The class holding records for this type
-     */
-    @Override
-    public Class<BookBaseCatalogRecord> getRecordType() {
-        return BookBaseCatalogRecord.class;
     }
 
     /**

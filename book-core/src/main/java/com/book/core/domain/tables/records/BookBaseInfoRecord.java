@@ -31,10 +31,26 @@ public class BookBaseInfoRecord extends UpdatableRecordImpl<BookBaseInfoRecord> 
     private static final long serialVersionUID = -1060732808;
 
     /**
+     * Setter for <code>book.book_base_info.id</code>. 主键
+     */
+    public BookBaseInfoRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
+
+    /**
      * Create a detached BookBaseInfoRecord
      */
     public BookBaseInfoRecord() {
         super(BookBaseInfo.BOOK_BASE_INFO);
+    }
+
+    /**
+     * Setter for <code>book.book_base_info.classification_id</code>. 分类id
+     */
+    public BookBaseInfoRecord setClassificationId(Long value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -58,43 +74,6 @@ public class BookBaseInfoRecord extends UpdatableRecordImpl<BookBaseInfoRecord> 
     }
 
     /**
-     * Getter for <code>book.book_base_info.id</code>. 主键
-     */
-    public Long getId() {
-        return (Long) get(0);
-    }
-
-    /**
-     * Setter for <code>book.book_base_info.id</code>. 主键
-     */
-    public BookBaseInfoRecord setId(Long value) {
-        set(0, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.book_base_info.classification_id</code>. 分类id
-     */
-    public Long getClassificationId() {
-        return (Long) get(1);
-    }
-
-    /**
-     * Setter for <code>book.book_base_info.classification_id</code>. 分类id
-     */
-    public BookBaseInfoRecord setClassificationId(Long value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.book_base_info.author_name</code>. 作者
-     */
-    public String getAuthorName() {
-        return (String) get(2);
-    }
-
-    /**
      * Setter for <code>book.book_base_info.author_name</code>. 作者
      */
     public BookBaseInfoRecord setAuthorName(String value) {
@@ -103,10 +82,10 @@ public class BookBaseInfoRecord extends UpdatableRecordImpl<BookBaseInfoRecord> 
     }
 
     /**
-     * Getter for <code>book.book_base_info.title</code>. 书名
+     * Getter for <code>book.book_base_info.id</code>. 主键
      */
-    public String getTitle() {
-        return (String) get(3);
+    public Long getId() {
+        return (Long) get(0);
     }
 
     /**
@@ -118,10 +97,10 @@ public class BookBaseInfoRecord extends UpdatableRecordImpl<BookBaseInfoRecord> 
     }
 
     /**
-     * Getter for <code>book.book_base_info.end_flag</code>. 完结标记
+     * Getter for <code>book.book_base_info.classification_id</code>. 分类id
      */
-    public Boolean getEndFlag() {
-        return (Boolean) get(4);
+    public Long getClassificationId() {
+        return (Long) get(1);
     }
 
     /**
@@ -133,10 +112,10 @@ public class BookBaseInfoRecord extends UpdatableRecordImpl<BookBaseInfoRecord> 
     }
 
     /**
-     * Getter for <code>book.book_base_info.short_desc</code>. 简介
+     * Getter for <code>book.book_base_info.author_name</code>. 作者
      */
-    public String getShortDesc() {
-        return (String) get(5);
+    public String getAuthorName() {
+        return (String) get(2);
     }
 
     /**
@@ -148,10 +127,10 @@ public class BookBaseInfoRecord extends UpdatableRecordImpl<BookBaseInfoRecord> 
     }
 
     /**
-     * Getter for <code>book.book_base_info.img_cover</code>. 封面图片
+     * Getter for <code>book.book_base_info.title</code>. 书名
      */
-    public String getImgCover() {
-        return (String) get(6);
+    public String getTitle() {
+        return (String) get(3);
     }
 
     /**
@@ -163,10 +142,10 @@ public class BookBaseInfoRecord extends UpdatableRecordImpl<BookBaseInfoRecord> 
     }
 
     /**
-     * Getter for <code>book.book_base_info.create_at</code>. 创建时间
+     * Getter for <code>book.book_base_info.end_flag</code>. 完结标记
      */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(7);
+    public Boolean getEndFlag() {
+        return (Boolean) get(4);
     }
 
     /**
@@ -178,10 +157,10 @@ public class BookBaseInfoRecord extends UpdatableRecordImpl<BookBaseInfoRecord> 
     }
 
     /**
-     * Getter for <code>book.book_base_info.update_at</code>. 更新时间
+     * Getter for <code>book.book_base_info.short_desc</code>. 简介
      */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(8);
+    public String getShortDesc() {
+        return (String) get(5);
     }
 
     /**
@@ -193,10 +172,38 @@ public class BookBaseInfoRecord extends UpdatableRecordImpl<BookBaseInfoRecord> 
     }
 
     /**
+     * Getter for <code>book.book_base_info.img_cover</code>. 封面图片
+     */
+    public String getImgCover() {
+        return (String) get(6);
+    }
+
+    /**
+     * Getter for <code>book.book_base_info.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(7);
+    }
+
+    /**
      * Getter for <code>book.book_base_info.remark</code>. 备注
      */
     public String getRemark() {
         return (String) get(9);
+    }
+
+    /**
+     * Getter for <code>book.book_base_info.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(8);
+    }
+
+    /**
+     * Getter for <code>book.book_base_info.del_flag</code>. 删除标记
+     */
+    public Boolean getDelFlag() {
+        return (Boolean) get(10);
     }
 
     /**
@@ -208,25 +215,6 @@ public class BookBaseInfoRecord extends UpdatableRecordImpl<BookBaseInfoRecord> 
     }
 
     /**
-     * Getter for <code>book.book_base_info.del_flag</code>. 删除标记
-     */
-    public Boolean getDelFlag() {
-        return (Boolean) get(10);
-    }
-
-    /**
-     * Setter for <code>book.book_base_info.del_flag</code>. 删除标记
-     */
-    public BookBaseInfoRecord setDelFlag(Boolean value) {
-        set(10, value);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
-    // Primary key information
-    // -------------------------------------------------------------------------
-
-    /**
      * Getter for <code>book.book_base_info.version</code>. 版本号
      */
     public Long getVersion() {
@@ -234,16 +222,8 @@ public class BookBaseInfoRecord extends UpdatableRecordImpl<BookBaseInfoRecord> 
     }
 
     // -------------------------------------------------------------------------
-    // Record12 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.book_base_info.version</code>. 版本号
-     */
-    public BookBaseInfoRecord setVersion(Long value) {
-        set(11, value);
-        return this;
-    }
 
     /**
      * {@inheritDoc}
@@ -252,6 +232,10 @@ public class BookBaseInfoRecord extends UpdatableRecordImpl<BookBaseInfoRecord> 
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record12 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -656,10 +640,6 @@ public class BookBaseInfoRecord extends UpdatableRecordImpl<BookBaseInfoRecord> 
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -686,6 +666,26 @@ public class BookBaseInfoRecord extends UpdatableRecordImpl<BookBaseInfoRecord> 
         value10(value10);
         value11(value11);
         value12(value12);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Setter for <code>book.book_base_info.del_flag</code>. 删除标记
+     */
+    public BookBaseInfoRecord setDelFlag(Boolean value) {
+        set(10, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.book_base_info.version</code>. 版本号
+     */
+    public BookBaseInfoRecord setVersion(Long value) {
+        set(11, value);
         return this;
     }
 }

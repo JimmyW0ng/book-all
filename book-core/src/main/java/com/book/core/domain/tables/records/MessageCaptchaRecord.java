@@ -123,17 +123,18 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
+     * Setter for <code>book.message_captcha.scene</code>. 验证场景：会员注册；会员登录；
+     */
+    public MessageCaptchaRecord setScene(MessageCaptchaScene value) {
+        set(5, value);
+        return this;
+    }
+
+    /**
      * Getter for <code>book.message_captcha.source_id</code>. 业务标识
      */
     public Long getSourceId() {
         return (Long) get(2);
-    }
-
-    /**
-     * Getter for <code>book.message_captcha.scene</code>. 验证场景：会员注册；会员登录；
-     */
-    public MessageCaptchaScene getScene() {
-        return (MessageCaptchaScene) get(5);
     }
 
     /**
@@ -144,11 +145,10 @@ public class MessageCaptchaRecord extends UpdatableRecordImpl<MessageCaptchaReco
     }
 
     /**
-     * Setter for <code>book.message_captcha.scene</code>. 验证场景：会员注册；会员登录；
+     * Getter for <code>book.message_captcha.scene</code>. 验证场景：会员注册；会员登录；
      */
-    public MessageCaptchaRecord setScene(MessageCaptchaScene value) {
-        set(5, value);
-        return this;
+    public MessageCaptchaScene getScene() {
+        return (MessageCaptchaScene) get(5);
     }
 
     /**

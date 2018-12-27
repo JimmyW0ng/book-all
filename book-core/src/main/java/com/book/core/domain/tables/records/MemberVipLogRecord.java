@@ -156,6 +156,13 @@ public class MemberVipLogRecord extends UpdatableRecordImpl<MemberVipLogRecord> 
     }
 
     /**
+     * Getter for <code>book.member_vip_log.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(7);
+    }
+
+    /**
      * Getter for <code>book.member_vip_log.remark</code>. 备注
      */
     public String getRemark() {
@@ -174,13 +181,6 @@ public class MemberVipLogRecord extends UpdatableRecordImpl<MemberVipLogRecord> 
      */
     public Boolean getDelFlag() {
         return (Boolean) get(8);
-    }
-
-    /**
-     * Getter for <code>book.member_vip_log.update_at</code>. 更新时间
-     */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(7);
     }
 
     /**

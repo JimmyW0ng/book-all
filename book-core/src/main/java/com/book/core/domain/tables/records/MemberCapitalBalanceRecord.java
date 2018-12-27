@@ -155,6 +155,13 @@ public class MemberCapitalBalanceRecord extends UpdatableRecordImpl<MemberCapita
     }
 
     /**
+     * Getter for <code>book.member_capital_balance.del_flag</code>. 删除标志
+     */
+    public Boolean getDelFlag() {
+        return (Boolean) get(7);
+    }
+
+    /**
      * Getter for <code>book.member_capital_balance.remark</code>. 备注
      */
     public String getRemark() {
@@ -166,13 +173,6 @@ public class MemberCapitalBalanceRecord extends UpdatableRecordImpl<MemberCapita
      */
     public Timestamp getCreateAt() {
         return (Timestamp) get(5);
-    }
-
-    /**
-     * Getter for <code>book.member_capital_balance.del_flag</code>. 删除标志
-     */
-    public Boolean getDelFlag() {
-        return (Boolean) get(7);
     }
 
     // -------------------------------------------------------------------------

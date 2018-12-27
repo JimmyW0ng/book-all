@@ -31,10 +31,26 @@ public class BookThirdCopyrightInfoRecord extends UpdatableRecordImpl<BookThirdC
     private static final long serialVersionUID = 1929818036;
 
     /**
+     * Setter for <code>book.book_third_copyright_info.id</code>. 主键
+     */
+    public BookThirdCopyrightInfoRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
+
+    /**
      * Create a detached BookThirdCopyrightInfoRecord
      */
     public BookThirdCopyrightInfoRecord() {
         super(BookThirdCopyrightInfo.BOOK_THIRD_COPYRIGHT_INFO);
+    }
+
+    /**
+     * Setter for <code>book.book_third_copyright_info.author_name</code>. 作者
+     */
+    public BookThirdCopyrightInfoRecord setAuthorName(String value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -59,43 +75,6 @@ public class BookThirdCopyrightInfoRecord extends UpdatableRecordImpl<BookThirdC
     }
 
     /**
-     * Getter for <code>book.book_third_copyright_info.id</code>. 主键
-     */
-    public Long getId() {
-        return (Long) get(0);
-    }
-
-    /**
-     * Setter for <code>book.book_third_copyright_info.id</code>. 主键
-     */
-    public BookThirdCopyrightInfoRecord setId(Long value) {
-        set(0, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.book_third_copyright_info.author_name</code>. 作者
-     */
-    public String getAuthorName() {
-        return (String) get(1);
-    }
-
-    /**
-     * Setter for <code>book.book_third_copyright_info.author_name</code>. 作者
-     */
-    public BookThirdCopyrightInfoRecord setAuthorName(String value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.book_third_copyright_info.title</code>. 书名
-     */
-    public String getTitle() {
-        return (String) get(2);
-    }
-
-    /**
      * Setter for <code>book.book_third_copyright_info.title</code>. 书名
      */
     public BookThirdCopyrightInfoRecord setTitle(String value) {
@@ -104,10 +83,10 @@ public class BookThirdCopyrightInfoRecord extends UpdatableRecordImpl<BookThirdC
     }
 
     /**
-     * Getter for <code>book.book_third_copyright_info.tag</code>. 分类标签
+     * Getter for <code>book.book_third_copyright_info.id</code>. 主键
      */
-    public String getTag() {
-        return (String) get(3);
+    public Long getId() {
+        return (Long) get(0);
     }
 
     /**
@@ -119,10 +98,10 @@ public class BookThirdCopyrightInfoRecord extends UpdatableRecordImpl<BookThirdC
     }
 
     /**
-     * Getter for <code>book.book_third_copyright_info.copyright_name</code>. 版权方
+     * Getter for <code>book.book_third_copyright_info.author_name</code>. 作者
      */
-    public String getCopyrightName() {
-        return (String) get(4);
+    public String getAuthorName() {
+        return (String) get(1);
     }
 
     /**
@@ -134,10 +113,10 @@ public class BookThirdCopyrightInfoRecord extends UpdatableRecordImpl<BookThirdC
     }
 
     /**
-     * Getter for <code>book.book_third_copyright_info.url</code>. 来源链接
+     * Getter for <code>book.book_third_copyright_info.title</code>. 书名
      */
-    public String getUrl() {
-        return (String) get(5);
+    public String getTitle() {
+        return (String) get(2);
     }
 
     /**
@@ -149,10 +128,10 @@ public class BookThirdCopyrightInfoRecord extends UpdatableRecordImpl<BookThirdC
     }
 
     /**
-     * Getter for <code>book.book_third_copyright_info.short_desc</code>. 简介
+     * Getter for <code>book.book_third_copyright_info.tag</code>. 分类标签
      */
-    public String getShortDesc() {
-        return (String) get(6);
+    public String getTag() {
+        return (String) get(3);
     }
 
     /**
@@ -164,10 +143,10 @@ public class BookThirdCopyrightInfoRecord extends UpdatableRecordImpl<BookThirdC
     }
 
     /**
-     * Getter for <code>book.book_third_copyright_info.img_cover</code>. 封面图片
+     * Getter for <code>book.book_third_copyright_info.copyright_name</code>. 版权方
      */
-    public String getImgCover() {
-        return (String) get(7);
+    public String getCopyrightName() {
+        return (String) get(4);
     }
 
     /**
@@ -179,10 +158,10 @@ public class BookThirdCopyrightInfoRecord extends UpdatableRecordImpl<BookThirdC
     }
 
     /**
-     * Getter for <code>book.book_third_copyright_info.create_at</code>. 创建时间
+     * Getter for <code>book.book_third_copyright_info.url</code>. 来源链接
      */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(8);
+    public String getUrl() {
+        return (String) get(5);
     }
 
     /**
@@ -194,10 +173,38 @@ public class BookThirdCopyrightInfoRecord extends UpdatableRecordImpl<BookThirdC
     }
 
     /**
+     * Getter for <code>book.book_third_copyright_info.short_desc</code>. 简介
+     */
+    public String getShortDesc() {
+        return (String) get(6);
+    }
+
+    /**
+     * Getter for <code>book.book_third_copyright_info.img_cover</code>. 封面图片
+     */
+    public String getImgCover() {
+        return (String) get(7);
+    }
+
+    /**
      * Getter for <code>book.book_third_copyright_info.update_at</code>. 更新时间
      */
     public Timestamp getUpdateAt() {
         return (Timestamp) get(9);
+    }
+
+    /**
+     * Getter for <code>book.book_third_copyright_info.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(8);
+    }
+
+    /**
+     * Getter for <code>book.book_third_copyright_info.remark</code>. 备注
+     */
+    public String getRemark() {
+        return (String) get(10);
     }
 
     /**
@@ -209,10 +216,10 @@ public class BookThirdCopyrightInfoRecord extends UpdatableRecordImpl<BookThirdC
     }
 
     /**
-     * Getter for <code>book.book_third_copyright_info.remark</code>. 备注
+     * Getter for <code>book.book_third_copyright_info.del_flag</code>. 删除标记
      */
-    public String getRemark() {
-        return (String) get(10);
+    public Boolean getDelFlag() {
+        return (Boolean) get(11);
     }
 
     /**
@@ -224,25 +231,6 @@ public class BookThirdCopyrightInfoRecord extends UpdatableRecordImpl<BookThirdC
     }
 
     /**
-     * Getter for <code>book.book_third_copyright_info.del_flag</code>. 删除标记
-     */
-    public Boolean getDelFlag() {
-        return (Boolean) get(11);
-    }
-
-    /**
-     * Setter for <code>book.book_third_copyright_info.del_flag</code>. 删除标记
-     */
-    public BookThirdCopyrightInfoRecord setDelFlag(Boolean value) {
-        set(11, value);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
-    // Primary key information
-    // -------------------------------------------------------------------------
-
-    /**
      * Getter for <code>book.book_third_copyright_info.version</code>. 版本号
      */
     public Long getVersion() {
@@ -250,16 +238,8 @@ public class BookThirdCopyrightInfoRecord extends UpdatableRecordImpl<BookThirdC
     }
 
     // -------------------------------------------------------------------------
-    // Record13 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.book_third_copyright_info.version</code>. 版本号
-     */
-    public BookThirdCopyrightInfoRecord setVersion(Long value) {
-        set(12, value);
-        return this;
-    }
 
     /**
      * {@inheritDoc}
@@ -268,6 +248,10 @@ public class BookThirdCopyrightInfoRecord extends UpdatableRecordImpl<BookThirdC
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record13 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -705,10 +689,6 @@ public class BookThirdCopyrightInfoRecord extends UpdatableRecordImpl<BookThirdC
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -736,6 +716,26 @@ public class BookThirdCopyrightInfoRecord extends UpdatableRecordImpl<BookThirdC
         value11(value11);
         value12(value12);
         value13(value13);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Setter for <code>book.book_third_copyright_info.del_flag</code>. 删除标记
+     */
+    public BookThirdCopyrightInfoRecord setDelFlag(Boolean value) {
+        set(11, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.book_third_copyright_info.version</code>. 版本号
+     */
+    public BookThirdCopyrightInfoRecord setVersion(Long value) {
+        set(12, value);
         return this;
     }
 }

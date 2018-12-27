@@ -31,10 +31,26 @@ public class BookBaseClassificationRecord extends UpdatableRecordImpl<BookBaseCl
     private static final long serialVersionUID = -1150080381;
 
     /**
+     * Setter for <code>book.book_base_classification.id</code>. 主键
+     */
+    public BookBaseClassificationRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
+
+    /**
      * Create a detached BookBaseClassificationRecord
      */
     public BookBaseClassificationRecord() {
         super(BookBaseClassification.BOOK_BASE_CLASSIFICATION);
+    }
+
+    /**
+     * Setter for <code>book.book_base_classification.name</code>. 分类名称
+     */
+    public BookBaseClassificationRecord setName(String value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -54,43 +70,6 @@ public class BookBaseClassificationRecord extends UpdatableRecordImpl<BookBaseCl
     }
 
     /**
-     * Getter for <code>book.book_base_classification.id</code>. 主键
-     */
-    public Long getId() {
-        return (Long) get(0);
-    }
-
-    /**
-     * Setter for <code>book.book_base_classification.id</code>. 主键
-     */
-    public BookBaseClassificationRecord setId(Long value) {
-        set(0, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.book_base_classification.name</code>. 分类名称
-     */
-    public String getName() {
-        return (String) get(1);
-    }
-
-    /**
-     * Setter for <code>book.book_base_classification.name</code>. 分类名称
-     */
-    public BookBaseClassificationRecord setName(String value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.book_base_classification.sort</code>. 排序（倒序）
-     */
-    public Long getSort() {
-        return (Long) get(2);
-    }
-
-    /**
      * Setter for <code>book.book_base_classification.sort</code>. 排序（倒序）
      */
     public BookBaseClassificationRecord setSort(Long value) {
@@ -99,10 +78,10 @@ public class BookBaseClassificationRecord extends UpdatableRecordImpl<BookBaseCl
     }
 
     /**
-     * Getter for <code>book.book_base_classification.create_at</code>. 创建时间
+     * Getter for <code>book.book_base_classification.id</code>. 主键
      */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(3);
+    public Long getId() {
+        return (Long) get(0);
     }
 
     /**
@@ -114,10 +93,10 @@ public class BookBaseClassificationRecord extends UpdatableRecordImpl<BookBaseCl
     }
 
     /**
-     * Getter for <code>book.book_base_classification.update_at</code>. 更新时间
+     * Getter for <code>book.book_base_classification.name</code>. 分类名称
      */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(4);
+    public String getName() {
+        return (String) get(1);
     }
 
     /**
@@ -129,10 +108,10 @@ public class BookBaseClassificationRecord extends UpdatableRecordImpl<BookBaseCl
     }
 
     /**
-     * Getter for <code>book.book_base_classification.remark</code>. 备注
+     * Getter for <code>book.book_base_classification.sort</code>. 排序（倒序）
      */
-    public String getRemark() {
-        return (String) get(5);
+    public Long getSort() {
+        return (Long) get(2);
     }
 
     /**
@@ -144,6 +123,20 @@ public class BookBaseClassificationRecord extends UpdatableRecordImpl<BookBaseCl
     }
 
     /**
+     * Getter for <code>book.book_base_classification.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(3);
+    }
+
+    /**
+     * Getter for <code>book.book_base_classification.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(4);
+    }
+
+    /**
      * Getter for <code>book.book_base_classification.del_flag</code>. 删除标记
      */
     public Boolean getDelFlag() {
@@ -151,16 +144,11 @@ public class BookBaseClassificationRecord extends UpdatableRecordImpl<BookBaseCl
     }
 
     /**
-     * Setter for <code>book.book_base_classification.del_flag</code>. 删除标记
+     * Getter for <code>book.book_base_classification.remark</code>. 备注
      */
-    public BookBaseClassificationRecord setDelFlag(Boolean value) {
-        set(6, value);
-        return this;
+    public String getRemark() {
+        return (String) get(5);
     }
-
-    // -------------------------------------------------------------------------
-    // Primary key information
-    // -------------------------------------------------------------------------
 
     /**
      * Getter for <code>book.book_base_classification.version</code>. 版本号
@@ -170,16 +158,8 @@ public class BookBaseClassificationRecord extends UpdatableRecordImpl<BookBaseCl
     }
 
     // -------------------------------------------------------------------------
-    // Record8 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.book_base_classification.version</code>. 版本号
-     */
-    public BookBaseClassificationRecord setVersion(Long value) {
-        set(7, value);
-        return this;
-    }
 
     /**
      * {@inheritDoc}
@@ -188,6 +168,10 @@ public class BookBaseClassificationRecord extends UpdatableRecordImpl<BookBaseCl
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record8 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -460,10 +444,6 @@ public class BookBaseClassificationRecord extends UpdatableRecordImpl<BookBaseCl
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -486,6 +466,26 @@ public class BookBaseClassificationRecord extends UpdatableRecordImpl<BookBaseCl
         value6(value6);
         value7(value7);
         value8(value8);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Setter for <code>book.book_base_classification.del_flag</code>. 删除标记
+     */
+    public BookBaseClassificationRecord setDelFlag(Boolean value) {
+        set(6, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.book_base_classification.version</code>. 版本号
+     */
+    public BookBaseClassificationRecord setVersion(Long value) {
+        set(7, value);
         return this;
     }
 }

@@ -158,6 +158,21 @@ public class MemberCoinWithdrawLogRecord extends UpdatableRecordImpl<MemberCoinW
     }
 
     /**
+     * Getter for <code>book.member_coin_withdraw_log.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(7);
+    }
+
+    /**
+     * Setter for <code>book.member_coin_withdraw_log.remark</code>. 备注
+     */
+    public MemberCoinWithdrawLogRecord setRemark(String value) {
+        set(8, value);
+        return this;
+    }
+
+    /**
      * Getter for <code>book.member_coin_withdraw_log.finish_time</code>. 完成时间
      */
     public Timestamp getFinishTime() {
@@ -179,25 +194,10 @@ public class MemberCoinWithdrawLogRecord extends UpdatableRecordImpl<MemberCoinW
     }
 
     /**
-     * Getter for <code>book.member_coin_withdraw_log.update_at</code>. 更新时间
-     */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(7);
-    }
-
-    /**
      * Getter for <code>book.member_coin_withdraw_log.del_flag</code>. 删除标记
      */
     public Boolean getDelFlag() {
         return (Boolean) get(9);
-    }
-
-    /**
-     * Setter for <code>book.member_coin_withdraw_log.remark</code>. 备注
-     */
-    public MemberCoinWithdrawLogRecord setRemark(String value) {
-        set(8, value);
-        return this;
     }
 
     /**

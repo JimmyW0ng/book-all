@@ -33,10 +33,26 @@ public class MemberCoinRebatePlanRecord extends UpdatableRecordImpl<MemberCoinRe
     private static final long serialVersionUID = -530190521;
 
     /**
+     * Setter for <code>book.member_coin_rebate_plan.id</code>. 主键
+     */
+    public MemberCoinRebatePlanRecord setId(Long value) {
+        set(0, value);
+        return this;
+    }
+
+    /**
      * Create a detached MemberCoinRebatePlanRecord
      */
     public MemberCoinRebatePlanRecord() {
         super(MemberCoinRebatePlan.MEMBER_COIN_REBATE_PLAN);
+    }
+
+    /**
+     * Setter for <code>book.member_coin_rebate_plan.member_id</code>. 会员id
+     */
+    public MemberCoinRebatePlanRecord setMemberId(Long value) {
+        set(1, value);
+        return this;
     }
 
     /**
@@ -59,43 +75,6 @@ public class MemberCoinRebatePlanRecord extends UpdatableRecordImpl<MemberCoinRe
     }
 
     /**
-     * Getter for <code>book.member_coin_rebate_plan.id</code>. 主键
-     */
-    public Long getId() {
-        return (Long) get(0);
-    }
-
-    /**
-     * Setter for <code>book.member_coin_rebate_plan.id</code>. 主键
-     */
-    public MemberCoinRebatePlanRecord setId(Long value) {
-        set(0, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_coin_rebate_plan.member_id</code>. 会员id
-     */
-    public Long getMemberId() {
-        return (Long) get(1);
-    }
-
-    /**
-     * Setter for <code>book.member_coin_rebate_plan.member_id</code>. 会员id
-     */
-    public MemberCoinRebatePlanRecord setMemberId(Long value) {
-        set(1, value);
-        return this;
-    }
-
-    /**
-     * Getter for <code>book.member_coin_rebate_plan.vip_log_id</code>. vip购买记录id
-     */
-    public String getVipLogId() {
-        return (String) get(2);
-    }
-
-    /**
      * Setter for <code>book.member_coin_rebate_plan.vip_log_id</code>. vip购买记录id
      */
     public MemberCoinRebatePlanRecord setVipLogId(String value) {
@@ -104,10 +83,10 @@ public class MemberCoinRebatePlanRecord extends UpdatableRecordImpl<MemberCoinRe
     }
 
     /**
-     * Getter for <code>book.member_coin_rebate_plan.status</code>. 状态：待处理；成功；失败；
+     * Getter for <code>book.member_coin_rebate_plan.id</code>. 主键
      */
-    public MemberCoinRebatePlanStatus getStatus() {
-        return (MemberCoinRebatePlanStatus) get(3);
+    public Long getId() {
+        return (Long) get(0);
     }
 
     /**
@@ -119,10 +98,10 @@ public class MemberCoinRebatePlanRecord extends UpdatableRecordImpl<MemberCoinRe
     }
 
     /**
-     * Getter for <code>book.member_coin_rebate_plan.rebate_time</code>. 返利时间
+     * Getter for <code>book.member_coin_rebate_plan.member_id</code>. 会员id
      */
-    public Timestamp getRebateTime() {
-        return (Timestamp) get(4);
+    public Long getMemberId() {
+        return (Long) get(1);
     }
 
     /**
@@ -134,10 +113,10 @@ public class MemberCoinRebatePlanRecord extends UpdatableRecordImpl<MemberCoinRe
     }
 
     /**
-     * Getter for <code>book.member_coin_rebate_plan.amount</code>. 返利金额
+     * Getter for <code>book.member_coin_rebate_plan.vip_log_id</code>. vip购买记录id
      */
-    public BigDecimal getAmount() {
-        return (BigDecimal) get(5);
+    public String getVipLogId() {
+        return (String) get(2);
     }
 
     /**
@@ -149,10 +128,10 @@ public class MemberCoinRebatePlanRecord extends UpdatableRecordImpl<MemberCoinRe
     }
 
     /**
-     * Getter for <code>book.member_coin_rebate_plan.create_at</code>. 创建时间
+     * Getter for <code>book.member_coin_rebate_plan.status</code>. 状态：待处理；成功；失败；
      */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(6);
+    public MemberCoinRebatePlanStatus getStatus() {
+        return (MemberCoinRebatePlanStatus) get(3);
     }
 
     /**
@@ -164,10 +143,10 @@ public class MemberCoinRebatePlanRecord extends UpdatableRecordImpl<MemberCoinRe
     }
 
     /**
-     * Getter for <code>book.member_coin_rebate_plan.update_at</code>. 更新时间
+     * Getter for <code>book.member_coin_rebate_plan.rebate_time</code>. 返利时间
      */
-    public Timestamp getUpdateAt() {
-        return (Timestamp) get(7);
+    public Timestamp getRebateTime() {
+        return (Timestamp) get(4);
     }
 
     /**
@@ -179,10 +158,38 @@ public class MemberCoinRebatePlanRecord extends UpdatableRecordImpl<MemberCoinRe
     }
 
     /**
+     * Getter for <code>book.member_coin_rebate_plan.amount</code>. 返利金额
+     */
+    public BigDecimal getAmount() {
+        return (BigDecimal) get(5);
+    }
+
+    /**
+     * Getter for <code>book.member_coin_rebate_plan.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(6);
+    }
+
+    /**
      * Getter for <code>book.member_coin_rebate_plan.remark</code>. 备注
      */
     public String getRemark() {
         return (String) get(8);
+    }
+
+    /**
+     * Getter for <code>book.member_coin_rebate_plan.update_at</code>. 更新时间
+     */
+    public Timestamp getUpdateAt() {
+        return (Timestamp) get(7);
+    }
+
+    /**
+     * Getter for <code>book.member_coin_rebate_plan.del_flag</code>. 删除标记
+     */
+    public Boolean getDelFlag() {
+        return (Boolean) get(9);
     }
 
     /**
@@ -194,25 +201,6 @@ public class MemberCoinRebatePlanRecord extends UpdatableRecordImpl<MemberCoinRe
     }
 
     /**
-     * Getter for <code>book.member_coin_rebate_plan.del_flag</code>. 删除标记
-     */
-    public Boolean getDelFlag() {
-        return (Boolean) get(9);
-    }
-
-    /**
-     * Setter for <code>book.member_coin_rebate_plan.del_flag</code>. 删除标记
-     */
-    public MemberCoinRebatePlanRecord setDelFlag(Boolean value) {
-        set(9, value);
-        return this;
-    }
-
-    // -------------------------------------------------------------------------
-    // Primary key information
-    // -------------------------------------------------------------------------
-
-    /**
      * Getter for <code>book.member_coin_rebate_plan.version</code>. 版本号
      */
     public Long getVersion() {
@@ -220,16 +208,8 @@ public class MemberCoinRebatePlanRecord extends UpdatableRecordImpl<MemberCoinRe
     }
 
     // -------------------------------------------------------------------------
-    // Record11 type implementation
+    // Primary key information
     // -------------------------------------------------------------------------
-
-    /**
-     * Setter for <code>book.member_coin_rebate_plan.version</code>. 版本号
-     */
-    public MemberCoinRebatePlanRecord setVersion(Long value) {
-        set(10, value);
-        return this;
-    }
 
     /**
      * {@inheritDoc}
@@ -238,6 +218,10 @@ public class MemberCoinRebatePlanRecord extends UpdatableRecordImpl<MemberCoinRe
     public Record1<Long> key() {
         return (Record1) super.key();
     }
+
+    // -------------------------------------------------------------------------
+    // Record11 type implementation
+    // -------------------------------------------------------------------------
 
     /**
      * {@inheritDoc}
@@ -609,10 +593,6 @@ public class MemberCoinRebatePlanRecord extends UpdatableRecordImpl<MemberCoinRe
         return this;
     }
 
-    // -------------------------------------------------------------------------
-    // Constructors
-    // -------------------------------------------------------------------------
-
     /**
      * {@inheritDoc}
      */
@@ -638,6 +618,26 @@ public class MemberCoinRebatePlanRecord extends UpdatableRecordImpl<MemberCoinRe
         value9(value9);
         value10(value10);
         value11(value11);
+        return this;
+    }
+
+    // -------------------------------------------------------------------------
+    // Constructors
+    // -------------------------------------------------------------------------
+
+    /**
+     * Setter for <code>book.member_coin_rebate_plan.del_flag</code>. 删除标记
+     */
+    public MemberCoinRebatePlanRecord setDelFlag(Boolean value) {
+        set(9, value);
+        return this;
+    }
+
+    /**
+     * Setter for <code>book.member_coin_rebate_plan.version</code>. 版本号
+     */
+    public MemberCoinRebatePlanRecord setVersion(Long value) {
+        set(10, value);
         return this;
     }
 }

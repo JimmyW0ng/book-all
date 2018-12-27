@@ -31,55 +31,76 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class BookBaseInfo extends TableImpl<BookBaseInfoRecord> {
 
+    private static final long serialVersionUID = -1898535442;
+
     /**
      * The reference instance of <code>book.book_base_info</code>
      */
     public static final BookBaseInfo BOOK_BASE_INFO = new BookBaseInfo();
-    private static final long serialVersionUID = -1898535442;
+
+    /**
+     * The class holding records for this type
+     */
+    @Override
+    public Class<BookBaseInfoRecord> getRecordType() {
+        return BookBaseInfoRecord.class;
+    }
+
     /**
      * The column <code>book.book_base_info.id</code>. 主键
      */
     public final TableField<BookBaseInfoRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "主键");
+
     /**
      * The column <code>book.book_base_info.classification_id</code>. 分类id
      */
     public final TableField<BookBaseInfoRecord, Long> CLASSIFICATION_ID = createField("classification_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "分类id");
+
     /**
      * The column <code>book.book_base_info.author_name</code>. 作者
      */
     public final TableField<BookBaseInfoRecord, String> AUTHOR_NAME = createField("author_name", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "作者");
+
     /**
      * The column <code>book.book_base_info.title</code>. 书名
      */
     public final TableField<BookBaseInfoRecord, String> TITLE = createField("title", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "书名");
+
     /**
      * The column <code>book.book_base_info.end_flag</code>. 完结标记
      */
     public final TableField<BookBaseInfoRecord, Boolean> END_FLAG = createField("end_flag", org.jooq.impl.SQLDataType.BIT.nullable(false), this, "完结标记");
+
     /**
      * The column <code>book.book_base_info.short_desc</code>. 简介
      */
     public final TableField<BookBaseInfoRecord, String> SHORT_DESC = createField("short_desc", org.jooq.impl.SQLDataType.VARCHAR(3000), this, "简介");
+
     /**
      * The column <code>book.book_base_info.img_cover</code>. 封面图片
      */
     public final TableField<BookBaseInfoRecord, String> IMG_COVER = createField("img_cover", org.jooq.impl.SQLDataType.VARCHAR(255), this, "封面图片");
+
     /**
      * The column <code>book.book_base_info.create_at</code>. 创建时间
      */
     public final TableField<BookBaseInfoRecord, Timestamp> CREATE_AT = createField("create_at", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "创建时间");
+
     /**
      * The column <code>book.book_base_info.update_at</code>. 更新时间
      */
     public final TableField<BookBaseInfoRecord, Timestamp> UPDATE_AT = createField("update_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+
     /**
      * The column <code>book.book_base_info.remark</code>. 备注
      */
     public final TableField<BookBaseInfoRecord, String> REMARK = createField("remark", org.jooq.impl.SQLDataType.VARCHAR(255), this, "备注");
+
     /**
      * The column <code>book.book_base_info.del_flag</code>. 删除标记
      */
     public final TableField<BookBaseInfoRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标记");
+
     /**
      * The column <code>book.book_base_info.version</code>. 版本号
      */
@@ -112,14 +133,6 @@ public class BookBaseInfo extends TableImpl<BookBaseInfoRecord> {
 
     private BookBaseInfo(Name alias, Table<BookBaseInfoRecord> aliased, Field<?>[] parameters) {
         super(alias, null, aliased, parameters, "书籍基础信息表");
-    }
-
-    /**
-     * The class holding records for this type
-     */
-    @Override
-    public Class<BookBaseInfoRecord> getRecordType() {
-        return BookBaseInfoRecord.class;
     }
 
     /**

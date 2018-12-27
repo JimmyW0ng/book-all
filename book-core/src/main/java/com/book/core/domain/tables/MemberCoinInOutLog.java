@@ -40,6 +40,7 @@ public class MemberCoinInOutLog extends TableImpl<MemberCoinInOutLogRecord> {
      * The reference instance of <code>book.member_coin_in_out_log</code>
      */
     public static final MemberCoinInOutLog MEMBER_COIN_IN_OUT_LOG = new MemberCoinInOutLog();
+
     /**
      * The column <code>book.member_coin_in_out_log.type</code>. 类型：推荐好友返利、返现
      */

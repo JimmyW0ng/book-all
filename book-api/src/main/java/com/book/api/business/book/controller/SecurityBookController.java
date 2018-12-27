@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Optional;
+
 /**
  * @Description 书籍安全路由
  * @Author J.W
@@ -45,9 +48,11 @@ public class SecurityBookController extends BaseController {
 
     @ApiOperation("书籍章节内容")
     @PostMapping(value = "/chapter", headers = "Accept-Version=1.0")
-    public ResultDto<String> bookChapter(@ApiParam(name = "catalogId", value = "目录id", required = true)
+    public ResultDto<String> bookChapter(HttpServletRequest request,
+                                         @ApiParam(name = "catalogId", value = "目录id", required = true)
                                          @RequestParam(name = "catalogId") Long catalogId) {
-        return bookBaseFacade.bookChapter(catalogId);
+        Optional<Long> existMemberId = super.existCurrentMemberId(request);
+        return bookBaseFacade.bookChapter(catalogId, existMemberId);
     }
 
 }

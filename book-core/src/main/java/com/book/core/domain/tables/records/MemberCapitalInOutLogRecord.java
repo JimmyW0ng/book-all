@@ -175,6 +175,21 @@ public class MemberCapitalInOutLogRecord extends UpdatableRecordImpl<MemberCapit
     }
 
     /**
+     * Getter for <code>book.member_capital_in_out_log.create_at</code>. 创建时间
+     */
+    public Timestamp getCreateAt() {
+        return (Timestamp) get(8);
+    }
+
+    /**
+     * Setter for <code>book.member_capital_in_out_log.del_flag</code>. 删除标记
+     */
+    public MemberCapitalInOutLogRecord setDelFlag(Boolean value) {
+        set(9, value);
+        return this;
+    }
+
+    /**
      * Getter for <code>book.member_capital_in_out_log.source_id</code>. 业务id：充值记录id；vip购买记录id；
      */
     public String getSourceId() {
@@ -196,25 +211,10 @@ public class MemberCapitalInOutLogRecord extends UpdatableRecordImpl<MemberCapit
     }
 
     /**
-     * Getter for <code>book.member_capital_in_out_log.create_at</code>. 创建时间
-     */
-    public Timestamp getCreateAt() {
-        return (Timestamp) get(8);
-    }
-
-    /**
      * Getter for <code>book.member_capital_in_out_log.update_at</code>. 更新时间
      */
     public Timestamp getUpdateAt() {
         return (Timestamp) get(10);
-    }
-
-    /**
-     * Setter for <code>book.member_capital_in_out_log.del_flag</code>. 删除标记
-     */
-    public MemberCapitalInOutLogRecord setDelFlag(Boolean value) {
-        set(9, value);
-        return this;
     }
 
     /**

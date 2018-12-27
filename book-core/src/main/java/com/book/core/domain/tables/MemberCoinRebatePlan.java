@@ -33,51 +33,71 @@ import java.util.List;
 @SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class MemberCoinRebatePlan extends TableImpl<MemberCoinRebatePlanRecord> {
 
+    private static final long serialVersionUID = -265632103;
+
     /**
      * The reference instance of <code>book.member_coin_rebate_plan</code>
      */
     public static final MemberCoinRebatePlan MEMBER_COIN_REBATE_PLAN = new MemberCoinRebatePlan();
-    private static final long serialVersionUID = -265632103;
+
+    /**
+     * The class holding records for this type
+     */
+    @Override
+    public Class<MemberCoinRebatePlanRecord> getRecordType() {
+        return MemberCoinRebatePlanRecord.class;
+    }
+
     /**
      * The column <code>book.member_coin_rebate_plan.id</code>. 主键
      */
     public final TableField<MemberCoinRebatePlanRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "主键");
+
     /**
      * The column <code>book.member_coin_rebate_plan.member_id</code>. 会员id
      */
     public final TableField<MemberCoinRebatePlanRecord, Long> MEMBER_ID = createField("member_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "会员id");
+
     /**
      * The column <code>book.member_coin_rebate_plan.vip_log_id</code>. vip购买记录id
      */
     public final TableField<MemberCoinRebatePlanRecord, String> VIP_LOG_ID = createField("vip_log_id", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "vip购买记录id");
+
     /**
      * The column <code>book.member_coin_rebate_plan.status</code>. 状态：待处理；成功；失败；
      */
     public final TableField<MemberCoinRebatePlanRecord, MemberCoinRebatePlanStatus> STATUS = createField("status", org.jooq.impl.SQLDataType.VARCHAR(7).nullable(false).asEnumDataType(com.book.core.domain.enums.MemberCoinRebatePlanStatus.class), this, "状态：待处理；成功；失败；");
+
     /**
      * The column <code>book.member_coin_rebate_plan.rebate_time</code>. 返利时间
      */
     public final TableField<MemberCoinRebatePlanRecord, Timestamp> REBATE_TIME = createField("rebate_time", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "返利时间");
+
     /**
      * The column <code>book.member_coin_rebate_plan.amount</code>. 返利金额
      */
     public final TableField<MemberCoinRebatePlanRecord, BigDecimal> AMOUNT = createField("amount", org.jooq.impl.SQLDataType.DECIMAL(12, 2).nullable(false), this, "返利金额");
+
     /**
      * The column <code>book.member_coin_rebate_plan.create_at</code>. 创建时间
      */
     public final TableField<MemberCoinRebatePlanRecord, Timestamp> CREATE_AT = createField("create_at", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "创建时间");
+
     /**
      * The column <code>book.member_coin_rebate_plan.update_at</code>. 更新时间
      */
     public final TableField<MemberCoinRebatePlanRecord, Timestamp> UPDATE_AT = createField("update_at", org.jooq.impl.SQLDataType.TIMESTAMP, this, "更新时间");
+
     /**
      * The column <code>book.member_coin_rebate_plan.remark</code>. 备注
      */
     public final TableField<MemberCoinRebatePlanRecord, String> REMARK = createField("remark", org.jooq.impl.SQLDataType.VARCHAR(255), this, "备注");
+
     /**
      * The column <code>book.member_coin_rebate_plan.del_flag</code>. 删除标记
      */
     public final TableField<MemberCoinRebatePlanRecord, Boolean> DEL_FLAG = createField("del_flag", org.jooq.impl.SQLDataType.BIT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("b'0'", org.jooq.impl.SQLDataType.BIT)), this, "删除标记");
+
     /**
      * The column <code>book.member_coin_rebate_plan.version</code>. 版本号
      */
@@ -110,14 +130,6 @@ public class MemberCoinRebatePlan extends TableImpl<MemberCoinRebatePlanRecord> 
 
     private MemberCoinRebatePlan(Name alias, Table<MemberCoinRebatePlanRecord> aliased, Field<?>[] parameters) {
         super(alias, null, aliased, parameters, "会员虚拟币返利计划表");
-    }
-
-    /**
-     * The class holding records for this type
-     */
-    @Override
-    public Class<MemberCoinRebatePlanRecord> getRecordType() {
-        return MemberCoinRebatePlanRecord.class;
     }
 
     /**

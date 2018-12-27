@@ -78,6 +78,11 @@ public class Tables {
     public static final MemberBaseRefer MEMBER_BASE_REFER = com.book.core.domain.tables.MemberBaseRefer.MEMBER_BASE_REFER;
 
     /**
+     * 会员书籍阅读日志表
+     */
+    public static final MemberBookReadLog MEMBER_BOOK_READ_LOG = com.book.core.domain.tables.MemberBookReadLog.MEMBER_BOOK_READ_LOG;
+
+    /**
      * 会员资金余额表
      */
     public static final MemberCapitalBalance MEMBER_CAPITAL_BALANCE = com.book.core.domain.tables.MemberCapitalBalance.MEMBER_CAPITAL_BALANCE;

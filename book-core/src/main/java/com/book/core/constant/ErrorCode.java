@@ -49,5 +49,6 @@ public class ErrorCode {
     public static final String ERROR_BOOK_IS_NOT_EXIST = "ERROR_BOOK_IS_NOT_EXIST";
     public static final String ERROR_BOOK_CLASSIFY_IS_NOT_EXIST = "ERROR_BOOK_CLASSIFY_IS_NOT_EXIST";
     public static final String ERROR_BOOK_CATALOG_IS_NOT_EXIST = "ERROR_BOOK_CATALOG_IS_NOT_EXIST";
+    public static final String ERROR_BOOK_CHAPTER_NOT_FREE = "ERROR_BOOK_CHAPTER_NOT_FREE";
 
 }
