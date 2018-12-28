@@ -18,7 +18,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Optional;
 
-import static com.book.core.constant.ErrorCode.*;
+import static com.book.core.constant.ErrorCode.ERROR_BOOK_CATALOG_IS_NOT_EXIST;
+import static com.book.core.constant.ErrorCode.ERROR_BOOK_CLASSIFY_IS_NOT_EXIST;
 
 /**
  * @Description 书籍装饰器
@@ -46,16 +47,15 @@ public class BookBaseFacade {
      * @Return com.framework.common.spring.pojo.dto.ResultDto<com.book.api.business.book.dto.BookIndexOutDto>
      **/
     public ResultDto<BookIndexOutDto> bookIndex(Long bookId) {
-        // 查询书籍基础信息
-        Optional<BookBaseInfoPo> existBook = bookBaseInfoService.existById(bookId);
-        if (!existBook.isPresent()) {
-            return ResultDto.build(ERROR_BOOK_IS_NOT_EXIST);
+        // 书籍校验
+        ResultDto<BookBaseInfoPo> checkBk = bookBaseInfoService.checkById(bookId);
+        if (checkBk.isError()) {
+            return ResultDto.build(checkBk.getError());
         }
-        BookBaseInfoPo bookBaseInfo = existBook.get();
+        BookBaseInfoPo bookBaseInfo = checkBk.getResult();
         // 查询书籍分类
-        Optional<BookBaseClassificationPo> existClassify = bookBaseClassificationService.existById(bookBaseInfo.getClassificationId());
-        if (!existClassify.isPresent()) {
-            log.error("获取书籍首页信息失败, 分类不存在, classificationId={}", bookBaseInfo.getClassificationId());
+        ResultDto<BookBaseClassificationPo> checkClassify = bookBaseClassificationService.checkById(bookBaseInfo.getClassificationId());
+        if (checkClassify.isError()) {
             return ResultDto.build(ERROR_BOOK_CLASSIFY_IS_NOT_EXIST);
         }
         // 查询目录
@@ -77,7 +77,7 @@ public class BookBaseFacade {
         // 封面
         outDto.setImgCover(bookBaseInfo.getImgCover());
         // 分类
-        outDto.setClassification(existClassify.get().getName());
+        outDto.setClassification(checkClassify.getResult().getName());
         // 目录
         outDto.setCatalog(bookCatalog);
         ResultDto<BookIndexOutDto> resultDto = ResultDto.build();

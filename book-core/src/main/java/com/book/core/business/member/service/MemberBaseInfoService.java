@@ -188,8 +188,10 @@ public class MemberBaseInfoService {
         if (memberBaseInfo == null
                 || memberBaseInfo.getDelFlag()
                 || memberBaseInfo.getStatus().equals(MemberBaseInfoStatus.cancel)) {
+            log.error("会员基础信息校验, 数据不存在, memberBaseInfo={}", memberBaseInfo);
             return ResultDto.build(ERROR_MEMBER_IS_NOT_EXIST);
         } else if (memberBaseInfo.getStatus().equals(MemberBaseInfoStatus.freeze)) {
+            log.error("会员基础信息校验, 该会员被冻结, memberBaseInfo={}", memberBaseInfo);
             return ResultDto.build(ERROR_MEMBER_IS_FREEZE);
         }
         ResultDto<MemberBaseInfoPo> resultDto = ResultDto.build();

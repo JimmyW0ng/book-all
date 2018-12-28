@@ -1,6 +1,8 @@
 package com.book.api.business.member.contoller;
 
 import com.book.api.business.BaseController;
+import com.book.api.business.member.dto.MemberBookCollectionOutDto;
+import com.book.api.business.member.facade.MemberBookFacade;
 import com.book.api.business.member.facade.MemberFacade;
 import com.framework.common.spring.pojo.dto.ResultDto;
 import com.framework.common.tool.IpTools;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Optional;
 
 import static com.framework.common.constant.CommonMessage.ERROR_MOBILE_FORMAT;
 import static com.framework.common.constant.CommonMessage.ERROR_SYSTEM_PARAM_FORMAT;
@@ -34,6 +37,8 @@ public class SecurityMemberController extends BaseController {
 
     @Autowired
     private MemberFacade memberFacade;
+    @Autowired
+    private MemberBookFacade memberBookFacade;
 
     @ApiOperation("会员注册")
     @PostMapping(value = "/reg", headers = "Accept-Version=1.0")
@@ -104,6 +109,13 @@ public class SecurityMemberController extends BaseController {
                 captchaCode,
                 captchaContent,
                 ip);
+    }
+
+    @ApiOperation("会员书架")
+    @PostMapping(value = "/bk/collection", headers = "Accept-Version=1.0")
+    public ResultDto<MemberBookCollectionOutDto> memberLogin(HttpServletRequest request) {
+        Optional<Long> existMemberId = super.existCurrentMemberId(request);
+        return memberBookFacade.findCollection(existMemberId);
     }
 
 }

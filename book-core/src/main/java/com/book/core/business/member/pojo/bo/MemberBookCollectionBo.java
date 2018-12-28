@@ -9,4 +9,10 @@ import lombok.Data;
  **/
 @Data
 public class MemberBookCollectionBo {
+
+    private String title;
+    private String chapterTitle;
+    private Long bookId;
+    private Long bookCatalogId;
+
 }
