@@ -36,7 +36,6 @@ public class Swagger2Config {
                 .required(false)
                 .build();
         pars.add(tokenPar.build());
-        pars.add(this.addVersion().build());
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("security")
                 .enable(enableFlag)
@@ -60,7 +59,6 @@ public class Swagger2Config {
                 .required(true)
                 .build();
         pars.add(tokenPar.build());
-        pars.add(this.addVersion().build());
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("auth")
                 .enable(enableFlag)
@@ -70,21 +68,6 @@ public class Swagger2Config {
                 .paths(regex("/a.*"))
                 .build()
                 .globalOperationParameters(pars);
-    }
-
-    /**
-     * @return springfox.documentation.builders.ParameterBuilder
-     * @Description 自定义头部属性：版本号
-     * @Author J.W
-     * @Date 2018/12/20 19:07
-     * @Param []
-     **/
-    private ParameterBuilder addVersion() {
-        return new ParameterBuilder().name("Version")
-                .description("版本号")
-                .modelRef(new ModelRef("string"))
-                .parameterType("header")
-                .required(false);
     }
 
 }
